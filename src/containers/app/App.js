@@ -42,14 +42,9 @@ class App extends Component {
 
         Dom.removeClass(document.querySelector('html'), 'full-size');
 
-        const {$supplierList, getUserProfile, refreshActivatedMenu, getSupplier} = this.props;
+        const {refreshActivatedMenu} = this.props;
 
-        getUserProfile();
         refreshActivatedMenu();
-
-        if (!$supplierList) {
-            getSupplier();
-        }
 
     }
 
@@ -98,9 +93,7 @@ App.propTypes = {
     $navMenuCollapsed: PropTypes.bool,
     $componentLoading: PropTypes.bool,
 
-    getUserProfile: PropTypes.func,
-    refreshActivatedMenu: PropTypes.func,
-    getSupplier: PropTypes.func
+    refreshActivatedMenu: PropTypes.func
 
 };
 
@@ -108,8 +101,7 @@ function mapStateToProps(state, ownProps) {
     return {
         $isDesktop: state.device.isDesktop,
         $navMenuCollapsed: state.navMenu.navMenuCollapsed,
-        $componentLoading: state.loadComponent.loading,
-        $supplierList: state.supplier.list
+        $componentLoading: state.loadComponent.loading
     };
 }
 

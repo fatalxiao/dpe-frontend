@@ -8,10 +8,14 @@ export function configureRoutes(store) {
         component: AppRoot,
         routes: [{
             path: '/dpe',
-            component: ac(() => import('containers/app/App'), store)
+            component: ac(() => import('containers/app/App'), store),
+            routes: [{
+                path: '/dpe/dpe-list',
+                component: ac(() => import('containers/app/modules/dpe/dpeList/DpeList'), store)
+            }]
         }]
     }];
 
 }
 
-export const DEFAULT_ROUTE = '/dpe';
+export const DEFAULT_ROUTE = '/dpe/dpe-list';

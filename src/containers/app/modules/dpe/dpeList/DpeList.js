@@ -5,33 +5,22 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import 'src/assets/scss/containers/app/nav/bar/NavBar.scss';
-
-class NavBar extends Component {
+class DpeList extends Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
-
-        const {routerPush} = this.props;
-
         return (
-            <div className="nav-bar">
-
-                <div className="nav-bar-right">
-
-                </div>
+            <div className="dpe-list">
 
             </div>
         );
     }
 }
 
-NavBar.propTypes = {
-    routerPush: PropTypes.func
-};
+DpeList.propTypes = {};
 
 function mapStateToProps(state, ownProps) {
     return {};
@@ -41,4 +30,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(DpeList);

@@ -1,4 +1,8 @@
 export default [{
     text: 'DPE Management',
-    iconCls: ''
+    iconCls: '',
+    children: [{
+        text: 'DPE List',
+        route: '/dpe/dpe-list'
+    }]
 }];

@@ -1,7 +1,5 @@
 import * as actionTypes from 'reduxes/actionTypes';
-import {authFailed} from 'reduxes/actions/user/AuthAction';
 import RequestManagement from 'apis/RequestManagement';
-import RequestCode from 'src/config.requestCode';
 import {addSuccessResMsg, addFailureResMsg} from 'reduxes/actions/common/ResMsgAction';
 
 export default store => dispatch => action => {

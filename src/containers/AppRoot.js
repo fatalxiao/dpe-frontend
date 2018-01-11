@@ -14,11 +14,8 @@ import Config from 'src/config';
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
 import Event from 'vendors/Event';
-import Auth from 'vendors/Auth';
 
 import 'assets/font-awesome/css/font-awesome.min.css';
-import 'assets/derbysoft-icon-set/styles.css';
-import 'scss/customized/index.scss';
 import 'scss/global.scss';
 import 'scss/containers/AppRoot.scss';
 
@@ -72,12 +69,7 @@ class AppRoot extends Component {
 
                 {
                     location.pathname === '/' ?
-                        (
-                            Auth.hasToken() ?
-                                <Redirect from="/" to={DEFAULT_ROUTE}/>
-                                :
-                                <Redirect from="/" to="/sign-in"/>
-                        )
+                        <Redirect from="/" to={DEFAULT_ROUTE}/>
                         :
                         null
                 }
