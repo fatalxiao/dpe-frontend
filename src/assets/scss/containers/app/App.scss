@@ -1,0 +1,45 @@
+@import '../../common.scss';
+
+.app {
+
+    .app-content {
+        position: relative;
+        box-sizing: border-box;
+        min-height: 100vh;
+        padding: 152px 0 50px 248px;
+
+        .page-loading-highlight {
+            background: #90ddff !important;
+        }
+
+        .content-router-view {
+            @include float-fix;
+            min-height: 100%;
+        }
+
+        .module-loading {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -24px;
+        }
+
+        .app-content-modal {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    }
+
+    &.nav-menu-collapsed {
+        .app-content {
+            padding-left: 48px;
+        }
+    }
+
+}
+
+//@media (max-width: 767px) {
+//}

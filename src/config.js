@@ -1,0 +1,10 @@
+export default {
+
+    desktopMinWidth: 768,
+
+    /**
+     * Api base url prefix
+     */
+    baseUrl: 'http://localhost'
+
+};

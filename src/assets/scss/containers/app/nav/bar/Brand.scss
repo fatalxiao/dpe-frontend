@@ -1,0 +1,25 @@
+@import '../../../../common';
+
+.brand {
+    @include float-fix;
+    width: 248px;
+    height: 154px;
+    transition: width $theme-transition-duration ease-in-out;
+    overflow: hidden;
+
+    .brand-name {
+        display: block;
+        height: 100%;
+        background-image: url("../../../../../images/derbysoft-logo-x2.png");
+        background-size: auto 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+}
+
+.app.nav-menu-collapsed {
+    .brand {
+        width: 0 !important;
+    }
+}

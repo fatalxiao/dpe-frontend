@@ -1,0 +1,58 @@
+@import '../../../../common';
+
+.nav-bar {
+    box-sizing: border-box;
+    height: 56px;
+    position: fixed;
+    top: 0;
+    left: 248px;
+    right: 0;
+    z-index: $nav-bar-z-index;
+    background: #fff;
+    padding: 10px;
+    transition: left $theme-transition-duration ease-in-out;
+
+    .nav-bar-right {
+        float: right;
+
+        .nav-bar-home,
+        .nav-bar-help,
+        .nav-bar-notice {
+            font-size: 16px;
+            color: $theme-primary;
+            width: 36px;
+            height: 36px;
+            margin: 0 2px;
+            float: left;
+        }
+
+        .nav-bar-notice {
+            font-size: 20px;
+
+            .nav-bar-notice-dot {
+                width: 5px;
+                height: 5px;
+                background: $theme-error;
+                border: 1px solid $theme-field-bg;
+                border-radius: 50%;
+                position: absolute;
+                right: 28%;
+                top: 24%;
+            }
+        }
+
+        .nav-bar-separator {
+            float: left;
+            width: 1px;
+            height: 24px;
+            margin: 6px 8px;
+            background: #eaeaea;
+        }
+    }
+}
+
+.app.nav-menu-collapsed {
+    .nav-bar {
+        left: 48px !important;
+    }
+}

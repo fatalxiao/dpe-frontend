@@ -1,0 +1,17 @@
+{
+    "name": "dpe-frontend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "startServer": "cross-env NODE_ENV=release forever start -l /usr/local/logs/dpe-frontend.log --minUptime 1000 --spinSleepTime 1000 -w -a server.js",
+        "stopServer": "forever stop server.js"
+    },
+    "dependencies": {
+        "compression": "^1.7.0",
+        "connect-history-api-fallback": "^1.3.0",
+        "cross-env": "^4.0.0",
+        "express": "^4.15.2",
+        "http-proxy-middleware": "^0.17.4",
+        "path": "^0.12.7"
+    }
+}

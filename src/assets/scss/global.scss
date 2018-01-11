@@ -1,0 +1,71 @@
+@import "./common.scss";
+
+::selection {
+    color: #fff;
+    background: #8d98b3;
+}
+
+::-webkit-input-placeholder {
+    color: #c5c5c5;
+}
+
+:-moz-placeholder {
+    color: #c5c5c5;
+}
+
+::-moz-placeholder {
+    color: #c5c5c5;
+}
+
+:-ms-input-placeholder {
+    color: #c5c5c5;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c5c5c5;
+}
+
+.icon {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+textarea {
+    font-family: 'helvetica neue', 'hiragino sans gb', 'stheiti',
+    'microsoft yahei', \5FAE\8F6F\96C5\9ED1, tahoma, sans-serif;
+}
+
+body {
+    font-family: "OpenSans", "helvetica neue", "hiragino sans gb", "stheiti",
+    "microsoft yahei", \5FAE\8F6F\96C5\9ED1, tahoma, sans-serif !important;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    min-width: 1000px;
+    overflow: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.full-size {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100%;
+
+    body {
+        height: 100%;
+        min-width: 100% !important;
+
+        #app-container {
+            height: 100%;
+
+            .app-root {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.hidden-input {
+    display: none;
+}
