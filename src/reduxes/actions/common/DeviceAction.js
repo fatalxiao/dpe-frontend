@@ -11,6 +11,6 @@ export const switchToMobile = () => dispatch => {
         type: types.SWITCH_TO_MOBILE
     });
     dispatch({
-        type: types.COLLAPSE_NAV_MENU
+        type: types.COLLAPSE_NAV
     });
 };

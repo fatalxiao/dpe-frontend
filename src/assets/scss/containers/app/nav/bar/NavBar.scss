@@ -8,7 +8,7 @@
     width: 64px;
     height: 100%;
     padding: 16px 0;
-    background: $theme-primary;
+    background: $theme-highlight;
 
     .nav-bar-top,
     .nav-bar-bottom {
@@ -29,7 +29,7 @@
         }
 
         &:hover {
-            background: transparentize(#000, .8);
+            background: transparentize(#000, .9);
         }
     }
 

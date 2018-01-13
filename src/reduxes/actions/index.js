@@ -5,4 +5,4 @@ export * from './common/RouterAction';
 export * from './common/DeviceAction';
 export * from './common/AsyncMsgSeqAction';
 
-export * from './app/NavMenuAction';
+export * from './app/NavAction';

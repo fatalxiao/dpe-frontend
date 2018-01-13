@@ -6,4 +6,4 @@ export * from './common/DeviceActionType';
 export * from './common/LoadComponentActionType';
 export * from './common/AsyncMsgSeqActionType';
 
-export * from './app/NavMenuActionType';
+export * from './app/NavActionType';

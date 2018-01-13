@@ -38,24 +38,18 @@ class App extends Component {
     }
 
     componentDidMount() {
-
         Dom.removeClass(document.querySelector('html'), 'full-size');
-
-        const {refreshActivatedMenu} = this.props;
-
-        refreshActivatedMenu();
-
     }
 
     render() {
 
         const {
-                route, $navMenuCollapsed, $componentLoading
+                route, $navCollapsed, $componentLoading
             } = this.props,
             {loadingId} = this.state;
 
         return (
-            <div className={'app' + ($navMenuCollapsed ? ' nav-menu-collapsed' : '')}>
+            <div className={'app' + ($navCollapsed ? ' nav-menu-collapsed' : '')}>
 
                 <Nav/>
 
@@ -85,19 +79,15 @@ class App extends Component {
 }
 
 App.propTypes = {
-
     $isDesktop: PropTypes.bool,
-    $navMenuCollapsed: PropTypes.bool,
-    $componentLoading: PropTypes.bool,
-
-    refreshActivatedMenu: PropTypes.func
-
+    $navCollapsed: PropTypes.bool,
+    $componentLoading: PropTypes.bool
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         $isDesktop: state.device.isDesktop,
-        $navMenuCollapsed: state.navMenu.navMenuCollapsed,
+        $navCollapsed: state.nav.collapsed,
         $componentLoading: state.loadComponent.loading
     };
 }

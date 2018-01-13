@@ -17,12 +17,25 @@ class Nav extends Component {
     }
 
     render() {
+
+        const {$navCollapsed, toggleNav} = this.props,
+
+            toggleIconClassName = ($navCollapsed ? 'fa-angle-right' : 'fa-angle-left');
+
         return (
             <div className="nav-wrapper">
                 <div className="nav">
                     <div className="nav-inner">
+
                         <NavBar/>
+
                         <Patients/>
+
+                        <div className="nav-toggle"
+                             onTouchTap={toggleNav}>
+                            <i className={'fa ' + toggleIconClassName + ' nav-toggle-icon'}></i>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -30,10 +43,18 @@ class Nav extends Component {
     }
 }
 
-Nav.propTypes = {};
+Nav.propTypes = {
+
+    $navCollapsed: PropTypes.bool,
+
+    toggleNav: PropTypes.func
+
+};
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $navCollapsed: state.nav.collapsed
+    };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -7,12 +7,12 @@ import appToaster from './common/ToasterReducer';
 import appNotifier from './common/NotifierReducer';
 import asyncMsgSeqReducer from './common/AsyncMsgSeqReducer';
 
-import navMenu from './app/NavMenuReducer';
+import nav from './app/NavReducer';
 
 const rootReducer = combineReducers({
 
     device,
-    navMenu,
+    nav,
     loadComponent,
     appToaster,
     appNotifier,
