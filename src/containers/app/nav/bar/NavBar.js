@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import FlatButton from 'alcedo-ui/FlatButton';
+import IconButton from 'alcedo-ui/IconButton';
 
 import 'scss/containers/app/nav/bar/NavBar.scss';
 
@@ -21,10 +21,17 @@ class NavBar extends Component {
             <div className="nav-bar">
 
                 <div className="nav-bar-top">
-                    <FlatButton className="nav-bar-item nav-bar-logo"
-                                isRounded={true}>
+
+                    <IconButton className="nav-bar-item nav-bar-logo">
                         DPE
-                    </FlatButton>
+                    </IconButton>
+
+                    <IconButton className="nav-bar-item"
+                                iconCls="fa fa-search"/>
+
+                    <IconButton className="nav-bar-item"
+                                iconCls="fa fa-plus"/>
+
                 </div>
 
                 <div className="nav-bar-bottom">
