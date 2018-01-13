@@ -15,6 +15,9 @@ export function configureRoutes(store) {
             }, {
                 path: '/app/patient-list',
                 component: ac(() => import('containers/app/modules/patientList/PatientList'), store)
+            }, {
+                path: '/app/add-patient',
+                component: ac(() => import('containers/app/modules/addPatient/AddPatient'), store)
             }]
         }]
     }];
