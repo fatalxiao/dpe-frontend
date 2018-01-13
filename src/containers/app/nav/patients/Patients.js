@@ -23,6 +23,10 @@ class Patients extends Component {
         this.props.routerPush('/dpe/patient-list');
     }
 
+    componentDidMount() {
+        this.props.getPatients();
+    }
+
     render() {
         return (
             <div className="patients">
@@ -39,7 +43,8 @@ class Patients extends Component {
 
 Patients.propTypes = {
 
-    routerPush: PropTypes.func
+    routerPush: PropTypes.func,
+    getPatients: PropTypes.func
 
 };
 
