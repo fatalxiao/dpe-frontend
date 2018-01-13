@@ -12,7 +12,15 @@ import 'scss/containers/app/nav/patients/Patients.scss';
 class Patients extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.goToList = ::this.goToList;
+
+    }
+
+    goToList() {
+        this.props.routerPush('/dpe/patient-list');
     }
 
     render() {
@@ -21,14 +29,19 @@ class Patients extends Component {
 
                 <FlatButton className="all-patients-button"
                             value="All Patients"
-                            iconCls="fa fa-align-left"/>
+                            iconCls="fa fa-align-left"
+                            onTouchTap={this.goToList}/>
 
             </div>
         );
     }
 }
 
-Patients.propTypes = {};
+Patients.propTypes = {
+
+    routerPush: PropTypes.func
+
+};
 
 function mapStateToProps(state, ownProps) {
     return {};
