@@ -1,12 +1,14 @@
 @import '../../common.scss';
 
 .app {
+    display: flex;
 
     .app-content {
         position: relative;
         box-sizing: border-box;
+        width: 100%;
         min-height: 100vh;
-        padding: 24px 48px 48px 64px+200px+48px;
+        padding: 24px 48px 48px;
 
         .page-loading-highlight {
             background: #90ddff !important;
@@ -33,13 +35,4 @@
         }
     }
 
-    &.nav-menu-collapsed {
-        .app-content {
-            padding-left: 64px+48px;
-        }
-    }
-
 }
-
-//@media (max-width: 767px) {
-//}
