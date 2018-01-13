@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import Brand from '../bar/Brand';
 import NavMenuList from './NavMenuList';
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import Theme from 'alcedo-ui/Theme';
@@ -61,8 +60,6 @@ class NavMenu extends Component {
             <div className="nav-menu"
                  onMouseOver={this.navMenuMouseOverHandler}
                  onMouseOut={this.navMenuMouseOutHandler}>
-
-                <Brand/>
 
                 <NavMenuList/>
 

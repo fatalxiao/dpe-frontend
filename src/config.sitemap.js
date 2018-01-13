@@ -10,8 +10,12 @@ function sitemap(state) {
     return {
         [rootSymbol]: true,
         children: [{
-            name: 'DPE Management',
-            children: []
+            name: 'DPE Manager',
+            children: [{
+                name: 'DPE List',
+                title: 'DPE List',
+                route: '/dpe-list'
+            }]
         }]
     };
 

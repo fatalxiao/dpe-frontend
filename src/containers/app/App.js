@@ -7,7 +7,6 @@ import {renderRoutes} from 'react-router-config';
 import * as actions from 'reduxes/actions';
 
 import NavMenu from './nav/menu/NavMenu';
-import NavBar from './nav/bar/NavBar';
 import NavTitle from './nav/bar/NavTitle';
 import PageLoading from 'alcedo-ui/PageLoading';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
@@ -72,8 +71,6 @@ class App extends Component {
                                 null
                         }
                     </ReactCSSTransitionGroup>
-
-                    <NavBar/>
 
                     <NavTitle/>
 
