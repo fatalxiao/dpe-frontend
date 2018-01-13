@@ -12,6 +12,9 @@ export function configureRoutes(store) {
             routes: [{
                 path: '/dpe/dashboard',
                 component: ac(() => import('containers/app/modules/dashboard/Dashboard'), store)
+            }, {
+                path: '/dpe/patient-list',
+                component: ac(() => import('containers/app/modules/patientList/PatientList'), store)
             }]
         }]
     }];
