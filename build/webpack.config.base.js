@@ -1,6 +1,6 @@
-var path = require('path');
-var utils = require('./utils');
-var config = require('../config');
+const path = require('path'),
+    utils = require('./utils'),
+    config = require('../config');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -11,33 +11,34 @@ module.exports = {
         app: './src/index.js'
     },
     output: {
-        path: config.prod.assetsRoot,
+        path: config.build.assetsRoot,
         filename: '[name].js',
-        publicPath: config.assetsPublicPath
+        publicPath: process.env.NODE_ENV === 'production'
+            ? config.build.assetsPublicPath
+            : config.dev.assetsPublicPath
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.json'],
         alias: {
-
             'src': resolve('src'),
             'apis': resolve('src/apis'),
             'assets': resolve('src/assets'),
             'scss': resolve('src/assets/scss'),
-            'images': resolve('src/assets/images'),
             'stylesheets': resolve('src/assets/stylesheets'),
-            'containers': resolve('src/containers'),
             'components': resolve('src/components'),
-            'customized': resolve('src/customized'),
+            'containers': resolve('src/containers'),
+            'modules': resolve('src/containers/app/modules'),
+            'dist': resolve('dist'),
+            'vendors': resolve('src/vendors'),
             'reduxes': resolve('src/reduxes'),
-            'vendors': resolve('src/vendors')
-
+            'docs': resolve('docs')
         }
     },
     module: {
         rules: [{
             test: /\.js$/,
             loader: 'babel-loader',
-            include: resolve('src')
+            include: [resolve('src')]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
@@ -52,6 +53,9 @@ module.exports = {
                 limit: 1000,
                 name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
             }
+        }, {
+            test: /\.json$/,
+            loader: 'json-loader'
         }]
     }
 };

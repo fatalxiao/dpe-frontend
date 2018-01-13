@@ -1,28 +1,33 @@
 delete process.env['DEBUG_FD'];
 
-const config = require('../../config');
+process.env.NODE_ENV = '"production"';
 
-process.env.NODE_ENV = config.prod.env.NODE_ENV;
-
-const fs = require('fs'),
-    ora = require('ora'),
+const ora = require('ora'),
     chalk = require('chalk'),
+    rm = require('rimraf'),
+    mkdirp = require('mkdirp'),
     webpack = require('webpack'),
+    config = require('../../config/index'),
     webpackConfig = require('./webpack.config.prod.js'),
-    archiver = require('archiver'),
-    {fsExistsSync, copyRecursionSync, rmRecursionSync} = require('../utils'),
+    spinner = ora('building for production...');
 
-    spinner = ora('building for production...').start();
+spinner.start();
 
-webpack(webpackConfig, (err, stats) => {
-
-    spinner.stop();
+mkdirp(config.build.assetsSubDirectory, err => {
 
     if (err) {
         throw err;
     }
 
-    process.stdout.write(stats.toString({
+    webpack(webpackConfig, (err, stats) => {
+
+        spinner.stop();
+
+        if (err) {
+            throw err;
+        }
+
+        process.stdout.write(stats.toString({
             colors: true,
             modules: false,
             children: false,
@@ -30,40 +35,14 @@ webpack(webpackConfig, (err, stats) => {
             chunkModules: false
         }) + '\n\n');
 
-    // remove zip file
-    if (fsExistsSync('./dplatform-click-web.zip')) {
-        fs.unlinkSync('./dplatform-click-web.zip');
-    }
+        console.log(chalk.cyan('Build complete.'));
 
-    // remove temp dir
-    if (fsExistsSync('./dplatform-click-web')) {
-        rmRecursionSync('./dplatform-click-web');
-    }
-
-    // make temp dir
-    fs.mkdirSync('./dplatform-click-web');
-
-    // copy files
-    copyRecursionSync('./dist/dist-prod', './dplatform-click-web', ['node_modules']);
-    copyRecursionSync('./release', './dplatform-click-web');
-
-    // make archive
-    const output = fs.createWriteStream('./dplatform-click-web.zip'),
-        archive = archiver('zip', {zlib: {level: 9}});
-    output.on('close', () => {
-
-        console.log(chalk.cyan('Archive: ' + archive.pointer() + ' total bytes'));
-
-        // remove temp dir
-        if (fsExistsSync('./dplatform-click-web')) {
-            rmRecursionSync('./dplatform-click-web');
-        }
+        rm(config.build.assetsSubDirectory, err => {
+            if (err) {
+                throw err;
+            }
+        });
 
     });
-    archive.pipe(output);
-    archive.directory('./dplatform-click-web', 'dplatform-click-web');
-    archive.finalize();
-
-    console.log(chalk.cyan('Build complete.'));
 
 });

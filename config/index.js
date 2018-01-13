@@ -1,31 +1,32 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
 
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
     productionGzipExtensions: ['js', 'css'],
 
     dev: {
+
         env: require('./dev.env'),
-        port: 3010,
-        autoOpenBrowser: true,
+        port: 4000,
         srcRoot: path.resolve(__dirname, '../src'),
         index: path.resolve(__dirname, '../src/index.html'),
+        assetsSubDirectory: 'static',
+        assetsPublicPath: '/',
         assetsVirtualRoot: path.posix.join('/', 'static'),
-        proxyTable: {
-            '/dpe-api': 'http://'
-        }
+        proxyTable: {},
+        cssSourceMap: false
+
     },
 
-    prod: {
+    build: {
+
         env: require('./prod.env'),
-        port: 3013,
-        index: path.resolve(__dirname, '../dist/dist-prod/dist/index.html'),
-        assetsRoot: path.resolve(__dirname, '../dist/dist-prod/dist'),
-        proxyTable: {
-            '/dpe-api': 'http://'
-        }
+        index: path.resolve(__dirname, '../docs/index.html'),
+        assetsRoot: path.resolve(__dirname, '../docs'),
+        assetsSubDirectory: 'static',
+        assetsPublicPath: '/',
+        productionSourceMap: false
+
     }
 
 };
