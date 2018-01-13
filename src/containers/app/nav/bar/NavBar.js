@@ -27,6 +27,9 @@ class NavBar extends Component {
     }
 
     render() {
+
+        const {$navCollapsed} = this.props;
+
         return (
             <div className="nav-bar">
 
@@ -55,7 +58,13 @@ class NavBar extends Component {
 
                 </div>
 
-                <NavMenu/>
+                {
+                    $navCollapsed ?
+                        <NavMenu/>
+                        :
+                        null
+
+                }
 
                 <div className="nav-bar-bottom">
 
@@ -69,12 +78,16 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
 
+    $navCollapsed: PropTypes.bool,
+
     routerPush: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $navCollapsed: state.nav.collapsed
+    };
 }
 
 function mapDispatchToProps(dispatch) {
