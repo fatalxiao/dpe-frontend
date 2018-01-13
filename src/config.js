@@ -5,6 +5,7 @@ export default {
     /**
      * Api base url prefix
      */
-    baseUrl: 'http://localhost'
+    baseUrl: 'http://localhost:4100',
+    appBaseUrl: '/dpe'
 
 };

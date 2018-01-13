@@ -13,7 +13,9 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         assetsVirtualRoot: path.posix.join('/', 'static'),
-        proxyTable: {},
+        proxyTable: {
+            '/dpe': 'http://localhost:4100'
+        },
         cssSourceMap: false
 
     },
