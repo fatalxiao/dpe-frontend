@@ -8,7 +8,6 @@ const opn = require('opn'),
     webpack = require('webpack'),
     proxyMiddleware = require('http-proxy-middleware'),
     history = require('connect-history-api-fallback'),
-    utils = require('../utils'),
 
     port = process.env.PORT || config.dev.port,
     uri = 'http://localhost:' + port,
