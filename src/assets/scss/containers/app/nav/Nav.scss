@@ -1,13 +1,9 @@
 @import '../../../common';
 
 .nav {
-    width: 64px+240px;
 
     .nav-inner {
-        position: fixed;
-        left: 0;
-        top: 0;
-        display: flex;
+        width: 64px+240px;
         height: 100vh;
     }
 }

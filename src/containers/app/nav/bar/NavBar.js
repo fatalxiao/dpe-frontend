@@ -6,6 +6,8 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
+import NavMenu from '../menu/NavMenu';
+
 import 'scss/containers/app/nav/bar/NavBar.scss';
 
 class NavBar extends Component {
@@ -17,6 +19,10 @@ class NavBar extends Component {
     render() {
         return (
             <div className="nav-bar">
+
+                <div className="nav-bar-logo"></div>
+
+                <NavMenu/>
 
             </div>
         );
