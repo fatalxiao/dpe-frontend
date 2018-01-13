@@ -193,13 +193,6 @@ export default class NavMenuItem extends Component {
                         null
                 }
 
-                {
-                    depth === 0 && isLast && expanded && !navMenuCollapsed ?
-                        <div className="nav-menu-separator"></div>
-                        :
-                        null
-                }
-
             </div>
         );
 

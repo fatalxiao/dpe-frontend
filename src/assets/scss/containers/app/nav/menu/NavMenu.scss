@@ -1,13 +1,10 @@
 @import '../../../../common';
 
 .nav-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: $theme-primary;
+    box-sizing: border-box;
     width: 248px;
     height: 100%;
-    box-sizing: border-box;
+    background: $theme-secondary;
     transition-property: width, opacity, transform !important;
     transition-duration: $theme-transition-duration !important;
     transition-timing-function: ease-in-out !important;
