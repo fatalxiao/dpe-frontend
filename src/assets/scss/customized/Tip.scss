@@ -1,0 +1,16 @@
+@import '../common.scss';
+
+.tip {
+    opacity: .8;
+
+    .tip-triangle {
+        display: none;
+    }
+
+    .tip-content {
+        font-size: 12px;
+        padding: 4px !important;
+        color: #fff;
+        background: #000 !important;
+    }
+}
