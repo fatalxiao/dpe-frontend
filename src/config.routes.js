@@ -7,13 +7,13 @@ export function configureRoutes(store) {
     return [{
         component: AppRoot,
         routes: [{
-            path: '/dpe-management',
+            path: '/app',
             component: ac(() => import('containers/app/App'), store),
             routes: [{
-                path: '/dpe-management/dashboard',
+                path: '/app/dashboard',
                 component: ac(() => import('containers/app/modules/dashboard/Dashboard'), store)
             }, {
-                path: '/dpe-management/patient-list',
+                path: '/app/patient-list',
                 component: ac(() => import('containers/app/modules/patientList/PatientList'), store)
             }]
         }]
@@ -21,4 +21,4 @@ export function configureRoutes(store) {
 
 }
 
-export const DEFAULT_ROUTE = '/dpe-management/dashboard';
+export const DEFAULT_ROUTE = '/app/dashboard';
