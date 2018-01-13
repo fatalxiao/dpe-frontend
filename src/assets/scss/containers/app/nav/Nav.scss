@@ -27,8 +27,11 @@
             color: $theme-highlight;
             font-weight: 700;
         }
+    }
 
-        &:hover {
+    &:hover {
+
+        .nav-toggle {
             border-left: 2px solid $theme-highlight;
             opacity: 1;
         }
