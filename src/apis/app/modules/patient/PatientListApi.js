@@ -12,7 +12,7 @@ export default {
         Api.get({
             ...options,
             name,
-            url: `${config.appBaseUrl}/getPatients`
+            url: `${config.appBaseUrl}/patient/getPatients`
         });
 
     }

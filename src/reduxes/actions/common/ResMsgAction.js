@@ -9,5 +9,5 @@ export const addSuccessResMsg = () => dispatch => {
 
 export const addFailureResMsg = (msg) => dispatch => {
     addErrorToaste('Failure')(dispatch);
-    addWarningNotifier(msg || DEFAULT_ERROR_MSG)(dispatch);
+    addWarningNotifier((msg && typeof msg === 'string') || DEFAULT_ERROR_MSG)(dispatch);
 };

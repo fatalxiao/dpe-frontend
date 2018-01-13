@@ -52,14 +52,9 @@ Object.keys(proxyTable).forEach(context => {
     }
 
     options.onProxyReq = (proxyReq, req, res) => {
-
-        const ip = utils.getClientIp(req);
-        ip && proxyReq.setHeader('ip', utils.ipParse(ip));
-
         if (req.headers && !req.headers.token && req.query && req.query.token) {
             proxyReq.setHeader('token', req.query.token);
         }
-
     };
 
     app.use(proxyMiddleware(options.filter || context, options));
