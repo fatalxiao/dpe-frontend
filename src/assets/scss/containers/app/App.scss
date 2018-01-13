@@ -6,7 +6,7 @@
         position: relative;
         box-sizing: border-box;
         min-height: 100vh;
-        padding: 152px 0 50px 248px;
+        padding: 24px 48px 48px 64px+200px+48px;
 
         .page-loading-highlight {
             background: #90ddff !important;
@@ -35,7 +35,7 @@
 
     &.nav-menu-collapsed {
         .app-content {
-            padding-left: 48px;
+            padding-left: 64px+48px;
         }
     }
 

@@ -6,7 +6,7 @@ import {renderRoutes} from 'react-router-config';
 
 import * as actions from 'reduxes/actions';
 
-import NavMenu from './nav/menu/NavMenu';
+import Nav from './nav/Nav';
 import NavTitle from './nav/title/NavTitle';
 import PageLoading from 'alcedo-ui/PageLoading';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
@@ -57,7 +57,7 @@ class App extends Component {
         return (
             <div className={'app' + ($navMenuCollapsed ? ' nav-menu-collapsed' : '')}>
 
-                <NavMenu/>
+                <Nav/>
 
                 <div ref="appContent"
                      className="app-content">
