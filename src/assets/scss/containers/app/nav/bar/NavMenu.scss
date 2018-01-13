@@ -1,0 +1,13 @@
+@import '../../../../common';
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nav-bar-item {
+        border-radius: $theme-border-radius;
+        width: 48px !important;
+        height: 40px !important;
+    }
+}

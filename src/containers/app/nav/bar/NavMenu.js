@@ -9,7 +9,7 @@ import IconButton from 'alcedo-ui/IconButton';
 
 import menu from 'src/config.menu';
 
-import 'scss/containers/app/nav/bar/NavBar.scss';
+import 'scss/containers/app/nav/bar/NavMenu.scss';
 
 class NavBar extends Component {
 
