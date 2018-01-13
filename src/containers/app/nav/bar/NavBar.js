@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
+import NavMenu from './NavMenu';
 
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
@@ -53,6 +54,8 @@ class NavBar extends Component {
                     </IconButton>
 
                 </div>
+
+                <NavMenu/>
 
                 <div className="nav-bar-bottom">
 

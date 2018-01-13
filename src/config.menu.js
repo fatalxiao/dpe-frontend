@@ -1,8 +1,4 @@
 export default [{
-    text: 'DPE Management',
-    iconCls: '',
-    children: [{
-        text: 'DPE List',
-        route: '/dpe/dpe-list'
-    }]
+    iconCls: 'fa fa-align-left',
+    tip: 'All Patients'
 }];
