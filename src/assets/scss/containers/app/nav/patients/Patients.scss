@@ -2,8 +2,9 @@
 
 .patients {
     box-sizing: border-box;
-    width: 240px;
+    height: 100%;
     padding: 16px;
+    padding-left: 64px+16px;
     background: $theme-secondary;
 
     .base-button {

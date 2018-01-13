@@ -1,13 +1,12 @@
 @import '../../../../common';
 
 .nav-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: absolute;
     box-sizing: border-box;
     width: 64px;
     height: 100%;
     padding: 16px 0;
+    color: #fff;
     background: $theme-highlight;
 
     .nav-bar-top,
@@ -20,7 +19,7 @@
     .nav-bar-item {
         width: 32px;
         height: 32px;
-        color: #fff;
+        color: inherit;
         padding: 0;
         margin-bottom: 8px;
 
