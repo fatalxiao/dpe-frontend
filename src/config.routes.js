@@ -11,7 +11,7 @@ export function configureRoutes(store) {
             component: ac(() => import('containers/app/App'), store),
             routes: [{
                 path: '/dpe/dpe-list',
-                component: ac(() => import('containers/app/modules/dpe/dpeList/DpeList'), store)
+                component: ac(() => import('containers/app/modules/dpeList/DpeList'), store)
             }]
         }]
     }];
