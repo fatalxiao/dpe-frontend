@@ -33,4 +33,26 @@
         }
     }
 
+    &.nav-menu-collapsed {
+
+        .nav {
+            width: 64px;
+
+            .nav-bar {
+                color: $theme-field;
+                background: $theme-secondary;
+            }
+
+            .patients {
+                width: 0;
+                padding: 0;
+                opacity: 0;
+            }
+        }
+
+        .app-content {
+            padding-left: 64px+48px;
+        }
+    }
+
 }

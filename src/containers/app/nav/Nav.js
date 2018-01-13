@@ -20,12 +20,10 @@ class Nav extends Component {
 
         const {$navCollapsed, toggleNav} = this.props,
 
-            navClassName = ($navCollapsed ? ' collapsed' : ''),
-
             toggleIconClassName = ($navCollapsed ? 'fa-angle-right' : 'fa-angle-left');
 
         return (
-            <div className={'nav' + navClassName}>
+            <div className="nav">
 
                 <NavBar/>
 

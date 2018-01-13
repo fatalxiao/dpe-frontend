@@ -36,19 +36,4 @@
             opacity: 1;
         }
     }
-
-    &.collapsed {
-        width: 64px;
-
-        .nav-bar {
-            color: $theme-field;
-            background: $theme-secondary;
-        }
-
-        .patients {
-            width: 0;
-            padding: 0;
-            opacity: 0;
-        }
-    }
 }
