@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
-class DpeList extends Component {
+class Dashboard extends Component {
 
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class DpeList extends Component {
     }
 }
 
-DpeList.propTypes = {};
+Dashboard.propTypes = {};
 
 function mapStateToProps(state, ownProps) {
     return {};
@@ -30,4 +30,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DpeList);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

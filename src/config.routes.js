@@ -10,12 +10,12 @@ export function configureRoutes(store) {
             path: '/dpe',
             component: ac(() => import('containers/app/App'), store),
             routes: [{
-                path: '/dpe/dpe-list',
-                component: ac(() => import('containers/app/modules/dpeList/DpeList'), store)
+                path: '/dpe/dashboard',
+                component: ac(() => import('containers/app/modules/dashboard/Dashboard'), store)
             }]
         }]
     }];
 
 }
 
-export const DEFAULT_ROUTE = '/dpe/dpe-list';
+export const DEFAULT_ROUTE = '/dpe/dashboard';
