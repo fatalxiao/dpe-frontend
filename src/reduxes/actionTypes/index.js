@@ -7,3 +7,5 @@ export * from './common/LoadComponentActionType';
 export * from './common/AsyncMsgSeqActionType';
 
 export * from './app/NavActionType';
+
+export * from './app/modules/patient/PatientListActionType';

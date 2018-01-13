@@ -6,3 +6,5 @@ export * from './common/DeviceAction';
 export * from './common/AsyncMsgSeqAction';
 
 export * from './app/NavAction';
+
+export * from './app/modules/patient/PatientListAction';

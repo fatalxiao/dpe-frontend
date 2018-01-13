@@ -9,14 +9,19 @@ import asyncMsgSeqReducer from './common/AsyncMsgSeqReducer';
 
 import nav from './app/NavReducer';
 
+import patientList from './app/modules/patient/PatientListReducer';
+
 const rootReducer = combineReducers({
 
     device,
-    nav,
     loadComponent,
     appToaster,
     appNotifier,
     asyncMsgSeqReducer,
+
+    nav,
+
+    patientList,
 
     router: routerReducer
 
