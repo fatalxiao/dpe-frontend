@@ -7,7 +7,7 @@ import {renderRoutes} from 'react-router-config';
 import * as actions from 'reduxes/actions';
 
 import NavMenu from './nav/menu/NavMenu';
-import NavTitle from './nav/bar/NavTitle';
+import NavTitle from './nav/title/NavTitle';
 import PageLoading from 'alcedo-ui/PageLoading';
 import ReactCSSTransitionGroup from 'react-addons-transition-group';
 
