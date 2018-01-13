@@ -1,9 +1,17 @@
 @import '../../../common';
 
-.nav {
+.nav-wrapper {
 
-    .nav-inner {
+    .nav {
         width: 64px+240px;
-        height: 100vh;
+
+        .nav-inner {
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            width: 64px+240px;
+            height: 100vh;
+        }
     }
 }
