@@ -1,0 +1,51 @@
+@import '../../../../common';
+
+.nav-title {
+    box-sizing: border-box;
+    height: 48px;
+
+    .nav-title-name {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .nav-title-crumbs-wrapper {
+        position: relative;
+
+        .nav-title-crumbs-icon {
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 24px;
+            line-height: 28px;
+            left: -20px;
+            top: 0;
+            color: transparentize(#fff, .5);
+            text-align: center;
+        }
+
+        .nav-title-crumbs {
+            color: #fff;
+            line-height: 24px;
+
+            .nav-title-crumb {
+                display: inline-block;
+                color: #fff;
+                user-select: none;
+                cursor: default;
+
+                &.nav-title-link {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+
+            .crumbs-separator {
+                opacity: .5;
+            }
+        }
+    }
+}

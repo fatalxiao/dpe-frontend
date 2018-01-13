@@ -10,7 +10,7 @@ import Crumbs from 'alcedo-ui/Crumbs';
 
 import {getPath} from 'src/config.sitemap';
 
-import 'scss/containers/app/nav/bar/NavTitle.scss';
+import 'scss/containers/app/nav/title/NavTitle.scss';
 
 class NavTitle extends Component {
 
