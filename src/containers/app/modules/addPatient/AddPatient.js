@@ -24,7 +24,8 @@ class AddPatient extends Component {
         return (
             <div className="add-patient">
 
-                <RoundStep steps={$steps}
+                <RoundStep className="add-patient-stepper"
+                           steps={$steps}
                            activatedStep={$activatedStep}
                            finishedStep={$finishedStep}/>
 

@@ -20,7 +20,7 @@ class PatientInformation extends Component {
         return (
             <div className="patient-information">
 
-                <form>
+                <form className="patient-information-form">
 
                     <CustomizedMaterialDropdownSelect label="Group"/>
 
