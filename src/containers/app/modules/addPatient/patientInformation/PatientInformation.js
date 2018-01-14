@@ -5,6 +5,8 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
+
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
 
 class PatientInformation extends Component {
@@ -16,7 +18,7 @@ class PatientInformation extends Component {
     render() {
         return (
             <div className="patient-information">
-
+                <CustomizedMaterialTextField label="Patient Name"/>
             </div>
         );
     }
