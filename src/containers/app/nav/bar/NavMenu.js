@@ -11,7 +11,7 @@ import menu from 'src/config.menu';
 
 import 'scss/containers/app/nav/bar/NavMenu.scss';
 
-class NavBar extends Component {
+class NavMenu extends Component {
 
     constructor(props) {
         super(props);
@@ -43,7 +43,7 @@ class NavBar extends Component {
     }
 }
 
-NavBar.propTypes = {
+NavMenu.propTypes = {
 
     routerPush: PropTypes.func
 
@@ -57,4 +57,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);
