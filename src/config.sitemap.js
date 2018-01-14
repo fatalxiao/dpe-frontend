@@ -9,12 +9,17 @@ function sitemap(state) {
 
     return {
         [rootSymbol]: true,
+        name: 'DPE Manager',
+        route: '/app',
         children: [{
-            name: 'DPE Manager',
+            name: 'Dashboard',
+            route: '/app/dashboard'
+        }, {
+            name: 'Patient List',
+            route: '/app/patient-list',
             children: [{
-                name: 'DPE List',
-                title: 'DPE List',
-                route: '/dpe-list'
+                name: 'Add Patient',
+                route: '/app/add-patient'
             }]
         }]
     };
