@@ -16,6 +16,7 @@ class Patients extends Component {
         super(props);
 
         this.goToList = ::this.goToList;
+        this.addPatient = ::this.addPatient;
 
     }
 
@@ -23,18 +24,43 @@ class Patients extends Component {
         this.props.routerPush('/app/patient-list');
     }
 
+    addPatient() {
+        this.props.routerPush('/app/add-patient');
+    }
+
     componentDidMount() {
         this.props.getPatients();
     }
 
     render() {
-        return (
-            <div className="patients">
 
-                <FlatButton className="all-patients-button"
-                            value="All Patients"
-                            iconCls="fa fa-align-left"
-                            onTouchTap={this.goToList}/>
+        const {$patientList} = this.props,
+
+            hasNoPatient = !$patientList || $patientList.length < 1,
+            className = (hasNoPatient ? ' no-patient' : '');
+
+        return (
+            <div className={'patients' + className}>
+
+                {
+                    hasNoPatient ?
+                        <div className="add-patient-wrapper">
+                            You have no patient now.<br/>
+                            Would you <span className="add-patient-button"
+                                            onTouchTap={this.addPatient}>add a patient</span> now?
+                        </div>
+                        :
+                        [
+                            <FlatButton key="0"
+                                        className="all-patients-button"
+                                        value="All Patients"
+                                        iconCls="fa fa-align-left"
+                                        onTouchTap={this.goToList}/>,
+                            <div key={1}>
+
+                            </div>
+                        ]
+                }
 
             </div>
         );
@@ -43,13 +69,17 @@ class Patients extends Component {
 
 Patients.propTypes = {
 
+    $patientList: PropTypes.array,
+
     routerPush: PropTypes.func,
     getPatients: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $patientList: state.patient.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
