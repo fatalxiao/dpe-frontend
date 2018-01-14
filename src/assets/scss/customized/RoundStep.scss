@@ -2,6 +2,12 @@
 
 .round-step {
 
+    .bg-bar,
+    .right-bar {
+        top: 29px !important;
+        height: 2px !important;
+    }
+
     .round {
         box-shadow: none !important;
     }
