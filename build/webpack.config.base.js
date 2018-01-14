@@ -27,6 +27,7 @@ module.exports = {
             'stylesheets': resolve('src/assets/stylesheets'),
             'components': resolve('src/components'),
             'containers': resolve('src/containers'),
+            'customized': resolve('src/customized'),
             'modules': resolve('src/containers/app/modules'),
             'dist': resolve('dist'),
             'vendors': resolve('src/vendors'),
