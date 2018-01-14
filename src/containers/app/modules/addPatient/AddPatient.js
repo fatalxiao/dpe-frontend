@@ -5,6 +5,8 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import RoundStep from 'alcedo-ui/RoundStep';
+
 import 'scss/containers/app/modules/addPatient/AddPatient.scss';
 
 class AddPatient extends Component {
@@ -14,18 +16,36 @@ class AddPatient extends Component {
     }
 
     render() {
+
+        const {$steps, $activatedStep, $finishedStep} = this.props;
+
         return (
             <div className="add-patient">
+
+                <RoundStep steps={$steps}
+                           activatedStep={$activatedStep}
+                           finishedStep={$finishedStep}/>
 
             </div>
         );
     }
 }
 
-AddPatient.propTypes = {};
+AddPatient.propTypes = {
+
+    $steps: PropTypes.array,
+
+    $activatedStep: PropTypes.number,
+    $finishedStep: PropTypes.number
+
+};
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $steps: state.addPatient.steps,
+        $activatedStep: state.addPatient.activatedStep,
+        $finishedStep: state.addPatient.finishedStep
+    };
 }
 
 function mapDispatchToProps(dispatch) {
