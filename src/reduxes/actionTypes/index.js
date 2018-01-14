@@ -9,4 +9,6 @@ export * from './common/AsyncMsgSeqActionType';
 export * from './app/NavActionType';
 
 export * from './app/common/GroupActionType';
+export * from './app/common/PatientActionType';
+
 export * from './app/modules/patient/PatientListActionType';

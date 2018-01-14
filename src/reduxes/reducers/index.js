@@ -10,6 +10,8 @@ import asyncMsgSeqReducer from './common/AsyncMsgSeqReducer';
 import nav from './app/NavReducer';
 
 import group from './app/common/GroupReducer';
+import patient from './app/common/PatientReducer';
+
 import patientList from './app/modules/patient/PatientListReducer';
 import addPatient from './app/modules/patient/AddPatientReducer';
 
@@ -24,6 +26,8 @@ const rootReducer = combineReducers({
     nav,
 
     group,
+    patient,
+
     patientList,
     addPatient,
 
