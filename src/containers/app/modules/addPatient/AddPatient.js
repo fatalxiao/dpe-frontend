@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {renderRoutes} from 'react-router-config';
+import {Redirect} from 'react-router-dom';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -17,7 +19,7 @@ class AddPatient extends Component {
 
     render() {
 
-        const {$steps, $activatedStep, $finishedStep} = this.props;
+        const {route, $steps, $activatedStep, $finishedStep} = this.props;
 
         return (
             <div className="add-patient">
@@ -25,6 +27,15 @@ class AddPatient extends Component {
                 <RoundStep steps={$steps}
                            activatedStep={$activatedStep}
                            finishedStep={$finishedStep}/>
+
+                {renderRoutes(route.routes)}
+
+                {
+                    location.pathname === '/app/add-patient' ?
+                        <Redirect from="/app/add-patient" to="/app/add-patient/patient-information"/>
+                        :
+                        null
+                }
 
             </div>
         );

@@ -19,7 +19,11 @@ function sitemap(state) {
             route: '/app/patient-list',
             children: [{
                 name: 'Add Patient',
-                route: '/app/add-patient'
+                route: '/app/add-patient',
+                children: [{
+                    name: 'Patient Information',
+                    route: '/app/add-patient/patient-information'
+                }]
             }]
         }]
     };
