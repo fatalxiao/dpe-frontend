@@ -20,7 +20,7 @@ class Patients extends Component {
     }
 
     goToList() {
-        this.props.routerPush('/dpe/patient-list');
+        this.props.routerPush('/app/patient-list');
     }
 
     componentDidMount() {
