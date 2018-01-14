@@ -34,19 +34,19 @@ class NavTitle extends Component {
                             <i className="fa fa-map-marker nav-title-crumbs-icon"></i>
 
                             <Crumbs className="nav-title-crumbs"
-                                    items={navPath}
+                                    data={navPath}
                                     separator="/"
-                                    itemRenderer={item => {
-                                        return item.route ?
+                                    itemRenderer={(item, index) => (
+                                        index === navPath.length - 1 ?
+                                            <div className="nav-title-crumb">
+                                                {item.name}
+                                            </div>
+                                            :
                                             <Link className="nav-title-crumb nav-title-link"
                                                   to={item.route}>
                                                 {item.name}
                                             </Link>
-                                            :
-                                            <div className="nav-title-crumb">
-                                                {item.name}
-                                            </div>;
-                                    }}/>
+                                    )}/>
 
                         </div>
                         :
