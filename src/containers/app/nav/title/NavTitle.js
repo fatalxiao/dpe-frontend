@@ -31,7 +31,7 @@ class NavTitle extends Component {
                     navPath && navPath.length > 0 ?
                         <div className="nav-title-crumbs-wrapper">
 
-                            <i className="fa fa-map-marker nav-title-crumbs-icon"></i>
+                            <i className="icon-location-pin nav-title-crumbs-icon"></i>
 
                             <Crumbs className="nav-title-crumbs"
                                     data={navPath}
