@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
-import FieldSet from 'components/FieldSet';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
@@ -21,18 +20,27 @@ class PatientInformation extends Component {
         return (
             <div className="patient-information">
 
-                <FieldSet>
+                <form>
+
                     <CustomizedMaterialDropdownSelect label="Group"/>
+
                     <CustomizedMaterialTextField label="Patient Name"/>
                     <CustomizedMaterialTextField label="ID"/>
-                </FieldSet>
-
-                <FieldSet>
                     <CustomizedMaterialTextField label="Age"/>
+
                     <CustomizedMaterialTextField label="Gestational Days"/>
                     <CustomizedMaterialTextField label="Height"/>
                     <CustomizedMaterialTextField label="Weight"/>
-                </FieldSet>
+
+                    <CustomizedMaterialTextField label="Initial Vas Score"/>
+                    <CustomizedMaterialTextField label="Cervical Dilation At Time Of EA"/>
+                    <CustomizedMaterialTextField label="Heart Rate"/>
+
+                    <CustomizedMaterialTextField label="Systolic Blood Pressure"/>
+                    <CustomizedMaterialTextField label="Diastolic Blood Pressure"/>
+                    <CustomizedMaterialTextField label="Foetal Heart Rate"/>
+
+                </form>
 
             </div>
         );

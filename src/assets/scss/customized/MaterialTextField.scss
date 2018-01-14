@@ -1,0 +1,14 @@
+@import '../common.scss';
+
+.material-text-field {
+
+    .material-text-field-label {
+        color: transparentize($theme-field, .3) !important;
+    }
+
+    &.focused {
+        .material-text-field-label {
+            color: $theme-highlight !important;
+        }
+    }
+}
