@@ -22,29 +22,20 @@ class NavTitle extends Component {
 
         const {$state} = this.props,
             pathName = location.pathname,
-            navPath = getPath(pathName, $state),
-            current = navPath && navPath.pop();
+            navPath = getPath(pathName, $state);
 
         return (
             <div className="nav-title">
 
                 {
-                    current ?
-                        <div className="nav-title-name">
-                            {current && current.title}
-                        </div>
-                        :
-                        null
-                }
-
-                {
-                    current ?
+                    navPath && navPath.length > 0 ?
                         <div className="nav-title-crumbs-wrapper">
 
-                            <i className="icon icon-ico-breadcrumbs nav-title-crumbs-icon"></i>
+                            <i className="fa fa-map-marker nav-title-crumbs-icon"></i>
 
                             <Crumbs className="nav-title-crumbs"
                                     items={navPath}
+                                    separator="/"
                                     itemRenderer={item => {
                                         return item.route ?
                                             <Link className="nav-title-crumb nav-title-link"
@@ -56,6 +47,7 @@ class NavTitle extends Component {
                                                 {item.name}
                                             </div>;
                                     }}/>
+
                         </div>
                         :
                         null

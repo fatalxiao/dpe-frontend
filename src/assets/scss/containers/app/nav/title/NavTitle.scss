@@ -1,50 +1,37 @@
 @import '../../../../common';
 
 .nav-title {
-    box-sizing: border-box;
-    height: 48px;
-
-    .nav-title-name {
-        color: #fff;
-        font-size: 24px;
-        font-weight: 700;
-        height: 40px;
-        line-height: 40px;
-    }
+    color: $theme-description;
+    line-height: 36px;
+    margin-bottom: 30px;
 
     .nav-title-crumbs-wrapper {
-        position: relative;
 
         .nav-title-crumbs-icon {
-            display: block;
-            position: absolute;
-            width: 20px;
-            height: 24px;
-            line-height: 28px;
-            left: -20px;
-            top: 0;
-            color: transparentize(#fff, .5);
-            text-align: center;
+            display: inline-block;
+            width: 24px;
+            font-size: 18px;
         }
 
         .nav-title-crumbs {
-            color: #fff;
-            line-height: 24px;
+            display: inline-block;
 
             .nav-title-crumb {
                 display: inline-block;
-                color: #fff;
                 user-select: none;
                 cursor: default;
+                color: inherit;
 
                 &.nav-title-link {
                     text-decoration: none;
                     cursor: pointer;
-                }
-            }
+                    transition: color $theme-transition-duration ease-in-out;
 
-            .crumbs-separator {
-                opacity: .5;
+                    &:hover {
+                        color: $theme-field;
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
