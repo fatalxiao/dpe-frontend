@@ -7,6 +7,7 @@ import * as actions from 'reduxes/actions/index';
 
 import FieldSet from 'components/FieldSet';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
+import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
 
@@ -21,12 +22,16 @@ class PatientInformation extends Component {
             <div className="patient-information">
 
                 <FieldSet>
+                    <CustomizedMaterialDropdownSelect label="Group"/>
                     <CustomizedMaterialTextField label="Patient Name"/>
+                    <CustomizedMaterialTextField label="ID"/>
                 </FieldSet>
 
                 <FieldSet>
-                    <CustomizedMaterialTextField label="Patient Name"/>
-                    <CustomizedMaterialTextField label="ID"/>
+                    <CustomizedMaterialTextField label="Age"/>
+                    <CustomizedMaterialTextField label="Gestational Days"/>
+                    <CustomizedMaterialTextField label="Height"/>
+                    <CustomizedMaterialTextField label="Weight"/>
                 </FieldSet>
 
             </div>
