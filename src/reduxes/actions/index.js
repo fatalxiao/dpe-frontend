@@ -7,4 +7,5 @@ export * from './common/AsyncMsgSeqAction';
 
 export * from './app/NavAction';
 
+export * from './app/common/GroupAction';
 export * from './app/modules/patient/PatientListAction';
