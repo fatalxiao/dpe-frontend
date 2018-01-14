@@ -14,18 +14,13 @@ import 'scss/containers/app/nav/bar/NavMenu.scss';
 class NavBar extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.goToLanding = ::this.goToLanding;
-
-    }
-
-    goToLanding() {
-        this.props.routerPush(DEFAULT_ROUTE);
     }
 
     render() {
+
+        const {routerPush} = this.props;
+
         return (
             <div className="nav-menu">
 
@@ -35,7 +30,10 @@ class NavBar extends Component {
                                     className="nav-bar-item"
                                     iconCls={item.iconCls}
                                     tip={item.tip}
-                                    tipPosition={IconButton.TipPosition.RIGHT}/>
+                                    tipPosition={IconButton.TipPosition.RIGHT}
+                                    onTouchTap={() => {
+                                        item.route && routerPush(item.route);
+                                    }}/>
                     ))
                 }
 
