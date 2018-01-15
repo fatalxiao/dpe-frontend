@@ -1,0 +1,13 @@
+@import '../common.scss';
+
+.horizontal-point-step {
+
+    .horizontal-point-step-item {
+
+        &.finished {
+            .bg-round .round {
+                background: $theme-success;
+            }
+        }
+    }
+}
