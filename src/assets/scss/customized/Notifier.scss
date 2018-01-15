@@ -1,0 +1,47 @@
+@import '../common.scss';
+
+.portal {
+    .notifier {
+        top: 150px !important;
+
+        .notification {
+            width: 320px;
+            height: auto;
+            color: #262626;
+
+            .notification-close-Button {
+                color: #05789c;
+                font-size: 12px;
+            }
+
+            .icon-ico-alert-info {
+                color: $theme-info;
+            }
+
+            .icon-ico-alert-warning {
+                color: $theme-warning;
+            }
+
+            &.theme-info {
+                background: $theme-info-bg;
+                border: 1px solid $theme-info-border;
+            }
+
+            &.theme-info:hover {
+                background: $theme-info-bg;
+                border: 1px solid $theme-info-border;
+            }
+
+            &.theme-warning {
+                background: $theme-warning-bg;
+                border: 1px solid $theme-warning-border;
+            }
+
+            &.theme-warning:hover {
+                background: $theme-warning-bg;
+                border: 1px solid $theme-warning-border;
+            }
+        }
+
+    }
+}

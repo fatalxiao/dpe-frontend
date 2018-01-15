@@ -1,5 +1,19 @@
 @import '~alcedo-ui/Theme/default.scss';
 
+// theme
+$theme-info: #2db7f5;
+$theme-success: #87d068;
+$theme-warning: #fa0;
+$theme-error: #f50;
+$theme-success-bg: #f3faf0;
+$theme-success-border: #def4d5;
+$theme-error-bg: #ffeee6;
+$theme-error-border: #fad3c0;
+$theme-info-bg: #eaf8fe;
+$theme-info-border: #c6ebfb;
+$theme-warning-bg: #fff7e6;
+$theme-warning-border: #f7dfad;
+
 // z-index
 $root-loading-z-index: 99;
 $nav-menu-z-index: 90;

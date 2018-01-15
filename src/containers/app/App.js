@@ -38,7 +38,12 @@ class App extends Component {
     }
 
     componentDidMount() {
+
         Dom.removeClass(document.querySelector('html'), 'full-size');
+
+        this.props.getGroups();
+        this.props.getPatients();
+
     }
 
     render() {
@@ -79,9 +84,14 @@ class App extends Component {
 }
 
 App.propTypes = {
+
     $isDesktop: PropTypes.bool,
     $navCollapsed: PropTypes.bool,
-    $componentLoading: PropTypes.bool
+    $componentLoading: PropTypes.bool,
+
+    getGroups: PropTypes.func,
+    getPatients: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
