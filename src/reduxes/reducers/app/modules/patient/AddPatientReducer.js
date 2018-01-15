@@ -2,11 +2,11 @@ import * as types from 'reduxes/actionTypes';
 
 const initialState = {
     steps: [{
-        title: 'Patient Information'
+        title: 'Patient\nInformation'
     }, {
-        title: 'Analgesia Data'
+        title: 'Analgesia\nData'
     }, {
-        title: 'Observal Data'
+        title: 'Observal\nData'
     }],
     activatedStep: 0,
     finishedStep: 0

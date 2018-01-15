@@ -1,8 +1,26 @@
 @import '../../../../common.scss';
 
 .add-patient {
+    position: relative;
 
     .add-patient-stepper {
-        margin-bottom: 40px;
+        float: left;
+        width: 160px;
+        margin-right: 48px;
+        padding-top: 24px;
+
+        .bg-bar {
+            height: 96px;
+        }
+
+        .title {
+            white-space: pre;
+        }
+    }
+
+    .add-patient-content {
+        overflow: hidden;
+        border-left: 1px solid $theme-border;
+        padding: 24px 0 0 96px;
     }
 }

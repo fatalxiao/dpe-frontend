@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 
 import * as actions from 'reduxes/actions/index';
 
-import RoundStep from 'alcedo-ui/RoundStep';
+import HorizontalPointStep from 'alcedo-ui/HorizontalPointStep';
 
 import 'scss/containers/app/modules/addPatient/AddPatient.scss';
 
@@ -24,12 +24,14 @@ class AddPatient extends Component {
         return (
             <div className="add-patient">
 
-                <RoundStep className="add-patient-stepper"
-                           steps={$steps}
-                           activatedStep={$activatedStep}
-                           finishedStep={$finishedStep}/>
+                <HorizontalPointStep className="add-patient-stepper"
+                                     steps={$steps}
+                                     activatedStep={$activatedStep}
+                                     finishedStep={$finishedStep}/>
 
-                {renderRoutes(route.routes)}
+                <div className="add-patient-content">
+                    {renderRoutes(route.routes)}
+                </div>
 
                 {
                     location.pathname === '/app/add-patient' ?
