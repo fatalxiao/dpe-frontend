@@ -11,13 +11,8 @@ export default class CustomizedMaterialTextField extends Component {
     }
 
     render() {
-
-        const {theme, isLabelAnimate, ...restProps} = this.props;
-
         return (
-            <MaterialTextField {...restProps}
-                               theme={theme}
-                               isLabelAnimate={isLabelAnimate}/>
+            <MaterialTextField {...this.props}/>
         );
     }
 
@@ -25,10 +20,12 @@ export default class CustomizedMaterialTextField extends Component {
 
 CustomizedMaterialTextField.propTypes = {
     theme: PropTypes.any,
-    isLabelAnimate: PropTypes.bool
+    isLabelAnimate: PropTypes.bool,
+    clearButtonVisible: PropTypes.bool
 };
 
 CustomizedMaterialTextField.defaultProps = {
     theme: Theme.HIGHLIGHT,
-    isLabelAnimate: false
+    isLabelAnimate: false,
+    clearButtonVisible: false
 };
