@@ -26,6 +26,10 @@ textarea::placeholder {
     color: #c5c5c5;
 }
 
+i, cite, em, var, address, dfn {
+    font-style: normal;
+}
+
 .icon {
     vertical-align: middle;
     display: inline-block;

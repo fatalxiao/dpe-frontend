@@ -25,18 +25,35 @@ class PatientInformation extends Component {
 
                 <form className="patient-information-form">
 
-                    <CustomizedMaterialDropdownSelect label="Group"
-                                                      data={$groupList}
-                                                      valueField="id"
-                                                      displayField="name"/>
+                    <div className="row">
 
-                    <CustomizedMaterialTextField label="Patient Name"/>
-                    <CustomizedMaterialTextField label="ID"/>
-                    <CustomizedMaterialTextField label="Age"/>
+                        <CustomizedMaterialDropdownSelect className="col-3"
+                                                          label="Group"
+                                                          data={$groupList}
+                                                          valueField="id"
+                                                          displayField="name"/>
 
-                    <CustomizedMaterialTextField label="Gestational Days"/>
-                    <CustomizedMaterialTextField label="Height"/>
-                    <CustomizedMaterialTextField label="Weight"/>
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="ID"/>
+
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Patient Name"/>
+
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Age"/>
+
+                        <CustomizedMaterialTextField className="col-3 gestational-weeks"
+                                                     label="Gestational Days"
+                                                     rightIconCls="unit"/>
+                        <CustomizedMaterialTextField className="col-3 gestational-days"
+                                                     label=" "
+                                                     rightIconCls="unit"/>
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Height"/>
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Weight"/>
+
+                    </div>
 
                     <CustomizedMaterialTextField label="Initial Vas Score"/>
                     <CustomizedMaterialTextField label="Cervical Dilation At Time Of EA"/>

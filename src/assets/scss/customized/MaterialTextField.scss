@@ -6,6 +6,12 @@
         color: transparentize($theme-field, .3) !important;
     }
 
+    .text-field-right-icon {
+        .unit::after {
+            color: $theme-description;
+        }
+    }
+
     &.focused {
         .material-text-field-label {
             color: $theme-highlight !important;

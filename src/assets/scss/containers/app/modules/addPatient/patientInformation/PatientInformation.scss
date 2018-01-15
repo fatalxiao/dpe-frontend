@@ -4,8 +4,17 @@
 
     .patient-information-form {
 
-        & > * {
+        .material-text-field,
+        .material-dropdown-select {
             margin-bottom: 24px;
+        }
+
+        .gestational-weeks .unit::after {
+            content: "Weeks";
+        }
+
+        .gestational-days .unit::after {
+            content: "Days";
         }
     }
 }
