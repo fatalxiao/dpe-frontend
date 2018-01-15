@@ -11,6 +11,13 @@
         text-align: center;
         line-height: 24px;
 
+        .add-patient-icon {
+            display: block;
+            font-size: 96px;
+            color: $theme-description;
+            cursor: pointer;
+        }
+
         .add-patient-button {
             color: $theme-highlight;
             cursor: pointer;

@@ -45,9 +45,13 @@ class Patients extends Component {
                 {
                     hasNoPatient ?
                         <div className="add-patient-wrapper">
+
+                            <i className="icon-plus add-patient-icon"
+                               onTouchTap={this.addPatient}></i>
+
                             You have no patient now.<br/>
                             Would you <span className="add-patient-button"
-                                            onTouchTap={this.addPatient}>add a patient</span> now?
+                                            onTouchTap={this.addPatient}>Add A Patient</span> ?
                         </div>
                         :
                         [
