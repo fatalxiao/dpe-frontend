@@ -17,12 +17,18 @@ class PatientInformation extends Component {
     }
 
     render() {
+
+        const {$groupList} = this.props;
+
         return (
             <div className="patient-information">
 
                 <form className="patient-information-form">
 
-                    <CustomizedMaterialDropdownSelect label="Group"/>
+                    <CustomizedMaterialDropdownSelect label="Group"
+                                                      data={$groupList}
+                                                      valueField="id"
+                                                      displayField="name"/>
 
                     <CustomizedMaterialTextField label="Patient Name"/>
                     <CustomizedMaterialTextField label="ID"/>
@@ -47,10 +53,16 @@ class PatientInformation extends Component {
     }
 }
 
-PatientInformation.propTypes = {};
+PatientInformation.propTypes = {
+
+    $groupList: PropTypes.array
+
+};
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $groupList: state.group.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
