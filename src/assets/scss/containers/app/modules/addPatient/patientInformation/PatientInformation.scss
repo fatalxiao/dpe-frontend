@@ -6,15 +6,38 @@
 
         .material-text-field,
         .material-dropdown-select {
-            margin-bottom: 24px;
+            margin-bottom: 48px;
         }
 
         .gestational-weeks .unit::after {
             content: "Weeks";
         }
 
-        .gestational-days .unit::after {
-            content: "Days";
+        .gestational-days {
+
+            .unit::after {
+                content: "Days";
+            }
+
+            &::before {
+                content: "+";
+                position: absolute;
+                left: -15px;
+                bottom: 0;
+                display: block;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                color: $theme-description;
+            }
+        }
+
+        .height .unit::after {
+            content: "cm";
+        }
+
+        .weight .unit::after {
+            content: "kg";
         }
     }
 }

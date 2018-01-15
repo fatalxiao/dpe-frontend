@@ -48,20 +48,29 @@ class PatientInformation extends Component {
                         <CustomizedMaterialTextField className="col-3 gestational-days"
                                                      label=" "
                                                      rightIconCls="unit"/>
+
+                        <CustomizedMaterialTextField className="col-3 height"
+                                                     label="Height"
+                                                     rightIconCls="unit"/>
+                        <CustomizedMaterialTextField className="col-3 weight"
+                                                     label="Weight"
+                                                     rightIconCls="unit"/>
+
                         <CustomizedMaterialTextField className="col-3"
-                                                     label="Height"/>
+                                                     label="Heart Rate"/>
                         <CustomizedMaterialTextField className="col-3"
-                                                     label="Weight"/>
+                                                     label="Initial Vas Score"/>
+                        <CustomizedMaterialTextField className="col-6"
+                                                     label="Cervical Dilation At Time Of EA"/>
+
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Systolic Blood Pressure"/>
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Diastolic Blood Pressure"/>
+                        <CustomizedMaterialTextField className="col-3"
+                                                     label="Foetal Heart Rate"/>
 
                     </div>
-
-                    <CustomizedMaterialTextField label="Initial Vas Score"/>
-                    <CustomizedMaterialTextField label="Cervical Dilation At Time Of EA"/>
-                    <CustomizedMaterialTextField label="Heart Rate"/>
-
-                    <CustomizedMaterialTextField label="Systolic Blood Pressure"/>
-                    <CustomizedMaterialTextField label="Diastolic Blood Pressure"/>
-                    <CustomizedMaterialTextField label="Foetal Heart Rate"/>
 
                 </form>
 
