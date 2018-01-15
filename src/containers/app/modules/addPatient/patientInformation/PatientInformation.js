@@ -64,15 +64,16 @@ class PatientInformation extends Component {
                         <CustomizedMaterialTextField className="col-6"
                                                      label="Cervical Dilation At Time Of EA"/>
 
-                        <CustomizedMaterialTextField className="col-3"
+                        <CustomizedMaterialTextField className="col-4"
                                                      label="Systolic Blood Pressure"/>
-                        <CustomizedMaterialTextField className="col-3"
+                        <CustomizedMaterialTextField className="col-4"
                                                      label="Diastolic Blood Pressure"/>
-                        <CustomizedMaterialTextField className="col-3"
+                        <CustomizedMaterialTextField className="col-4"
                                                      label="Foetal Heart Rate"/>
 
-                        <CustomizedMaterialTextArea className="col-6"
-                                                    label="Description"/>
+                        <CustomizedMaterialTextArea className="col-12"
+                                                    label="Description"
+                                                    maxLength={100}/>
 
                     </div>
 
