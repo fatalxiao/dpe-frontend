@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
+import CustomizedMaterialTextArea from 'customized/CustomizedMaterialTextArea';
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
@@ -69,6 +70,9 @@ class PatientInformation extends Component {
                                                      label="Diastolic Blood Pressure"/>
                         <CustomizedMaterialTextField className="col-3"
                                                      label="Foetal Heart Rate"/>
+
+                        <CustomizedMaterialTextArea className="col-6"
+                                                    label="Description"/>
 
                     </div>
 

@@ -6,6 +6,10 @@
         color: transparentize($theme-field, .3) !important;
     }
 
+    .text-field-input {
+        font-size: inherit !important;
+    }
+
     .text-field-right-icon {
         .unit::after {
             color: $theme-description;
