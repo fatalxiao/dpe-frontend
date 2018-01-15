@@ -30,7 +30,15 @@ class AddPatient extends Component {
                                      finishedStep={$finishedStep}/>
 
                 <div className="add-patient-content">
+
+                    <h1 className="add-patient-content-title">
+                        <span className="add-patient-content-title-step">{`Step ${$activatedStep + 1}. `}</span>
+                        {$steps[$activatedStep].title}
+                    </h1>
+
                     {renderRoutes(route.routes)}
+
+
                 </div>
 
                 {

@@ -21,6 +21,14 @@
     .add-patient-content {
         overflow: hidden;
         border-left: 1px solid $theme-border;
-        padding: 24px 0 0 96px;
+        padding-left: 96px;
+
+        .add-patient-content-title {
+            margin-bottom: 64px;
+
+            .add-patient-content-title-step {
+                color: $theme-description;
+            }
+        }
     }
 }
