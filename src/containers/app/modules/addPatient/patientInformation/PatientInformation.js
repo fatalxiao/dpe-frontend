@@ -44,7 +44,7 @@ class PatientInformation extends Component {
                                                       label="Group"
                                                       data={$groupList}
                                                       valueField="id"
-                                                      displayField="name"/>
+                                                      displayField="groupName"/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="ID"/>
