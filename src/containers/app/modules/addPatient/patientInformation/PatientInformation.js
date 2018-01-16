@@ -75,10 +75,10 @@ class PatientInformation extends Component {
                                                 maxLength={1000}
                                                 wordCountVisible={true}/>
 
-                    <StepAction isFirst={$activatedStep === 0}
-                                isLast={$activatedStep === $stepsLength - 1}/>
-
                 </form>
+
+                <StepAction isFirst={$activatedStep === 0}
+                            isLast={$activatedStep === $stepsLength - 1}/>
 
             </div>
         );
