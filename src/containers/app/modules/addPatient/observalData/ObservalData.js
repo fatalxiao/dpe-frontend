@@ -51,9 +51,11 @@ class ObservalData extends Component {
                                       label="Carbetocin">
                         <Checkbox/>
                     </MaterialProvider>
-                    <Checkbox className="col-3"
-                              label="Hemabate"/>
-                    <CustomizedMaterialTextField className="col-6"
+                    <MaterialProvider className="col-3"
+                                      label="Hemabate">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <CustomizedMaterialTextField className="col-3"
                                                  label="Local Anesthetic Consumption"/>
 
                     <CustomizedMaterialTextField className="col-3"
