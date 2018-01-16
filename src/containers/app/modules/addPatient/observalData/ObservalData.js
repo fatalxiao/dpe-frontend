@@ -8,6 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import Checkbox from 'alcedo-ui/Checkbox';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
+import CustomizedMaterialDateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/addPatient/observalData/ObservalData.scss';
@@ -55,15 +56,16 @@ class ObservalData extends Component {
                                       label="Hemabate">
                         <Checkbox/>
                     </MaterialProvider>
-                    <CustomizedMaterialTextField className="col-3"
-                                                 label="Local Anesthetic Consumption"/>
+                    <CustomizedMaterialTextField className="col-6 local-anesthetic-consumption"
+                                                 label="Local Anesthetic Consumption"
+                                                 rightIconCls="unit"/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="PCA Count"/>
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Manual Bolus Count"/>
-                    <CustomizedMaterialTextField className="col-3"
-                                                 label="first_pca_time"/>
+                    <CustomizedMaterialDateTimePicker className="col-6"
+                                                      label="First PCA Time"/>
 
                 </form>
 

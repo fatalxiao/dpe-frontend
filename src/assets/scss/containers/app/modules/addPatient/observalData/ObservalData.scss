@@ -8,5 +8,9 @@
         .material-dropdown-select {
             margin-bottom: 48px;
         }
+
+        .local-anesthetic-consumption .unit::after {
+            content: "ml";
+        }
     }
 }
