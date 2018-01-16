@@ -19,7 +19,7 @@ class AddPatient extends Component {
 
     render() {
 
-        const {route, $steps, $activatedStep, $finishedStep} = this.props;
+        const {route, $steps, $activatedStep} = this.props;
 
         return (
             <div className="add-patient">
@@ -27,7 +27,7 @@ class AddPatient extends Component {
                 <HorizontalPointStep className="add-patient-stepper"
                                      steps={$steps}
                                      activatedStep={$activatedStep}
-                                     finishedStep={$finishedStep}/>
+                                     finishedStep={$activatedStep}/>
 
                 <div className="add-patient-content">
 
@@ -37,7 +37,6 @@ class AddPatient extends Component {
                     </h1>
 
                     {renderRoutes(route.routes)}
-
 
                 </div>
 
@@ -57,16 +56,14 @@ AddPatient.propTypes = {
 
     $steps: PropTypes.array,
 
-    $activatedStep: PropTypes.number,
-    $finishedStep: PropTypes.number
+    $activatedStep: PropTypes.number
 
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         $steps: state.addPatient.steps,
-        $activatedStep: state.addPatient.activatedStep,
-        $finishedStep: state.addPatient.finishedStep
+        $activatedStep: state.addPatient.activatedStep
     };
 }
 

@@ -13,9 +13,9 @@ export const addPatientStepNext = () => dispatch => {
     });
 };
 
-export const addPatientStepUpdate = stepConfig => dispatch => {
+export const addPatientStepUpdate = activatedStep => dispatch => {
     return dispatch({
         type: actionTypes.ADD_PATIENT_STEP_UPDATE,
-        stepConfig
+        activatedStep
     });
 };

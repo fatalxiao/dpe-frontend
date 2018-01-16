@@ -23,9 +23,12 @@ class PatientInformation extends Component {
     }
 
     save() {
-        const {addPatientStepNext, routerPush} = this.props;
-        addPatientStepNext();
+        const {routerPush} = this.props;
         routerPush('/app/add-patient/analgesia-data');
+    }
+
+    componentDidMount() {
+        this.props.addPatientStepUpdate(0);
     }
 
     render() {
@@ -100,7 +103,7 @@ PatientInformation.propTypes = {
     $groupList: PropTypes.array,
 
     routerPush: PropTypes.func,
-    addPatientStepNext: PropTypes.func
+    addPatientStepUpdate: PropTypes.func
 
 };
 

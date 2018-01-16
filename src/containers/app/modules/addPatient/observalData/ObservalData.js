@@ -31,6 +31,10 @@ class ObservalData extends Component {
         addPatientStepNext();
     }
 
+    componentDidMount() {
+        this.props.addPatientStepUpdate(2);
+    }
+
     render() {
 
         const {} = this.props;
@@ -50,8 +54,7 @@ class ObservalData extends Component {
 
 ObservalData.propTypes = {
     routerPush: PropTypes.func,
-    addPatientStepPrev: PropTypes.func,
-    addPatientStepNext: PropTypes.func
+    addPatientStepUpdate: PropTypes.func
 };
 
 function mapStateToProps(state, ownProps) {

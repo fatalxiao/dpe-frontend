@@ -10,8 +10,7 @@ const initialState = {
     }, {
         title: 'Observal\nData'
     }],
-    activatedStep: 0,
-    finishedStep: 0
+    activatedStep: 0
 };
 
 function addPatient(state = initialState, action) {
@@ -39,7 +38,7 @@ function addPatient(state = initialState, action) {
         case actionTypes.ADD_PATIENT_STEP_UPDATE: {
             return {
                 ...state,
-                ...stepConfig
+                activatedStep: action.activatedStep
             };
         }
 

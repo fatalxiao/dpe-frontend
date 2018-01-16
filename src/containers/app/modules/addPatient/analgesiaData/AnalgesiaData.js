@@ -25,15 +25,17 @@ class AnalgesiaData extends Component {
     }
 
     prevStep() {
-        const {addPatientStepPrev, routerPush} = this.props;
-        addPatientStepPrev();
+        const {routerPush} = this.props;
         routerPush('/app/add-patient/patient-information');
     }
 
     save() {
-        const {addPatientStepNext, routerPush} = this.props;
-        addPatientStepNext();
+        const {routerPush} = this.props;
         routerPush('/app/add-patient/observal-data');
+    }
+
+    componentDidMount() {
+        this.props.addPatientStepUpdate(1);
     }
 
     render() {
@@ -99,7 +101,7 @@ class AnalgesiaData extends Component {
                                header: 'SPO2',
                                renderer(rowData) {
                                    return <CustomizedMaterialTextField className="spo2"
-                                       value={rowData.pulseOxygenSaturation}/>;
+                                                                       value={rowData.pulseOxygenSaturation}/>;
                                }
                            }]}
                            data={$data}
@@ -119,8 +121,7 @@ AnalgesiaData.propTypes = {
     $data: PropTypes.array,
 
     routerPush: PropTypes.func,
-    addPatientStepPrev: PropTypes.func,
-    addPatientStepNext: PropTypes.func
+    addPatientStepUpdate: PropTypes.func
 
 };
 
