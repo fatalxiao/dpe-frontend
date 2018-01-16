@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 
 import * as actions from 'reduxes/actions/index';
 
-import HorizontalPointStep from 'alcedo-ui/HorizontalPointStep';
+import VerticalPointStep from 'alcedo-ui/VerticalPointStep';
 
 import 'scss/containers/app/modules/addPatient/AddPatient.scss';
 
@@ -24,10 +24,10 @@ class AddPatient extends Component {
         return (
             <div className="add-patient">
 
-                <HorizontalPointStep className="add-patient-stepper"
-                                     steps={$steps}
-                                     activatedStep={$activatedStep}
-                                     finishedStep={$activatedStep}/>
+                <VerticalPointStep className="add-patient-stepper"
+                                   steps={$steps}
+                                   activatedStep={$activatedStep}
+                                   finishedStep={$activatedStep}/>
 
                 <div className="add-patient-content">
 
