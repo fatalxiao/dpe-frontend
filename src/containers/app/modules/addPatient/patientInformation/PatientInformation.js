@@ -73,7 +73,8 @@ class PatientInformation extends Component {
 
                         <CustomizedMaterialTextArea className="col-12"
                                                     label="Description"
-                                                    maxLength={100}/>
+                                                    maxLength={1000}
+                                                    wordCountVisible={true}/>
 
                     </div>
 
