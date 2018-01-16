@@ -1,4 +1,4 @@
-import * as types from 'reduxes/actionTypes';
+import * as actionTypes from 'reduxes/actionTypes';
 
 const initialState = {
     list: [],
@@ -9,26 +9,26 @@ function patient(state = initialState, action) {
     switch (action.type) {
 
         // get patient list
-        case types.GET_PATIENTS_REQUEST: {
+        case actionTypes.GET_PATIENTS_REQUEST: {
             return {
                 ...state,
-                actionType: types.GET_PATIENTS_REQUEST
+                actionType: actionTypes.GET_PATIENTS_REQUEST
             };
         }
 
-        case types.GET_PATIENTS_SUCCESS: {
+        case actionTypes.GET_PATIENTS_SUCCESS: {
             return {
                 ...state,
                 list: action.responseData,
-                actionType: types.GET_PATIENTS_SUCCESS
+                actionType: actionTypes.GET_PATIENTS_SUCCESS
             };
         }
 
-        case types.GET_PATIENTS_FAILURE: {
+        case actionTypes.GET_PATIENTS_FAILURE: {
             return {
                 ...state,
                 list: [],
-                actionType: types.GET_PATIENTS_FAILURE
+                actionType: actionTypes.GET_PATIENTS_FAILURE
             };
         }
 

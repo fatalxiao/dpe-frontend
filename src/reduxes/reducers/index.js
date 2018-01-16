@@ -11,6 +11,7 @@ import nav from './app/NavReducer';
 
 import group from './app/common/GroupReducer';
 import patient from './app/common/PatientReducer';
+import sensoryBlock from './app/common/SensoryBlockReducer';
 
 import patientList from './app/modules/PatientListReducer';
 import addPatient from './app/modules/AddPatientReducer';
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
 
     group,
     patient,
+    sensoryBlock,
 
     patientList,
     addPatient,
