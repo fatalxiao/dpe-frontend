@@ -1,11 +1,6 @@
 @import '../common.scss';
 
 .material-text-area {
-
-    .material-text-area-label {
-        color: transparentize($theme-field, .3) !important;
-    }
-
     .text-area-input {
         font-size: inherit !important;
     }

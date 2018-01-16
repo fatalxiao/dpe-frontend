@@ -3,10 +3,6 @@
 .material-text-field {
     background: transparent !important;
 
-    .material-text-field-label {
-        color: transparentize($theme-field, .3) !important;
-    }
-
     .text-field-input {
         font-size: inherit !important;
     }

@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import Checkbox from 'alcedo-ui/Checkbox';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
 import StepAction from 'components/StepAction';
@@ -46,8 +47,10 @@ class ObservalData extends Component {
 
                 <form className="observal-data-form row">
 
-                    <Checkbox className="col-3"
-                              label="Carbetocin"/>
+                    <MaterialProvider className="col-3"
+                                      label="Carbetocin">
+                        <Checkbox/>
+                    </MaterialProvider>
                     <Checkbox className="col-3"
                               label="Hemabate"/>
                     <CustomizedMaterialTextField className="col-6"
