@@ -55,6 +55,16 @@ class AnalgesiaData extends Component {
                     renderer(rowData) {
                         return <TextField value={rowData.vasScore}/>;
                     }
+                }, {
+                    header: 'Thoracic Sensory Block Left',
+                    renderer(rowData) {
+                        return <TextField value={rowData.thoracicSensoryBlockLeft}/>;
+                    }
+                }, {
+                    header: 'Thoracic Sensory Block Right',
+                    renderer(rowData) {
+                        return <TextField value={rowData.thoracicSensoryBlockRight}/>;
+                    }
                 }]}/>
 
                 <StepAction onPrev={this.prevStep}

@@ -12,3 +12,4 @@ export * from './app/common/PatientAction';
 
 export * from './app/modules/PatientListAction';
 export * from './app/modules/AddPatientAction';
+export * from './app/modules/AnalgesiaDataAction';
