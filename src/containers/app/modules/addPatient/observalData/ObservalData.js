@@ -49,11 +49,11 @@ class ObservalData extends Component {
                 <form className="observal-data-form row">
 
                     <MaterialProvider className="col-3"
-                                      label="Carbetocin">
+                                      label="Has Carbetocin">
                         <Checkbox/>
                     </MaterialProvider>
                     <MaterialProvider className="col-3"
-                                      label="Hemabate">
+                                      label="Has Hemabate">
                         <Checkbox/>
                     </MaterialProvider>
                     <CustomizedMaterialTextField className="col-6 local-anesthetic-consumption"
@@ -66,6 +66,74 @@ class ObservalData extends Component {
                                                  label="Manual Bolus Count"/>
                     <CustomizedMaterialDateTimePicker className="col-6"
                                                       label="First PCA Time"/>
+
+                    <CustomizedMaterialDateTimePicker className="col-6"
+                                                      label="First Manual Bolus Time"/>
+                    <CustomizedMaterialDateTimePicker className="col-6"
+                                                      label="Duration Of Second Stage Of Labor"/>
+
+                    <MaterialProvider className="col-6"
+                                      label="Has Epidural Catheter Adjuestment">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-6"
+                                      label="Has Epidural Catheter Replacement">
+                        <Checkbox/>
+                    </MaterialProvider>
+
+                    <MaterialProvider className="col-3"
+                                      label="Has Prenatal Fever">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="Has Vasoactive Agent">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-6"
+                                      label="Is Unabled To Puncture Dura">
+                        <Checkbox/>
+                    </MaterialProvider>
+
+                    <MaterialProvider className="col-3"
+                                      label="Has Nausea">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="Has Vomit">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="Has Pruritus">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="Has Hypotension">
+                        <Checkbox/>
+                    </MaterialProvider>
+
+                    <MaterialProvider className="col-3"
+                                      label="Has Caesarean Section">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="Has Instrumental">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-6"
+                                      label="Has Postdural Puncture Headache">
+                        <Checkbox/>
+                    </MaterialProvider>
+
+                    <MaterialProvider className="col-3"
+                                      label="has Back Pain">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <MaterialProvider className="col-3"
+                                      label="has Paresthesia">
+                        <Checkbox/>
+                    </MaterialProvider>
+                    <CustomizedMaterialDateTimePicker className="col-6"
+                                                      label="Duration Of Labor Analgesia"/>
 
                 </form>
 
