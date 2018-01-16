@@ -1,0 +1,40 @@
+@import '../common.scss';
+
+.step-action {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    margin-top: 24px;
+
+    .base-button {
+        position: absolute;
+        top: 50%;
+        margin-top: -24px;
+        width: 160px;
+        height: 48px;
+    }
+
+    .previous-button {
+        left: 0;
+        color: $theme-description;
+
+        &:hover {
+            color: $theme-field;
+        }
+    }
+
+    .continue-button {
+        right: 0;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: -24px;
+        top: 0;
+        display: block;
+        width: calc(100% + 48px);
+        height: 1px;
+        background: $theme-border;
+    }
+}
