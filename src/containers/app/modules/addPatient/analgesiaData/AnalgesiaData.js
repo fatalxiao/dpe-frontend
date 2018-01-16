@@ -5,6 +5,9 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import Table from 'alcedo-ui/Table';
+import Checkbox from 'alcedo-ui/Checkbox';
+import TextField from 'alcedo-ui/TextField';
 import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
@@ -39,6 +42,20 @@ class AnalgesiaData extends Component {
         return (
             <div className="analgesia-data">
 
+                <Table columns={[{
+                    header: 'Time Point',
+                    renderer: '${firstName} min'
+                }, {
+                    header: 'Has Contraction',
+                    renderer(rowData) {
+                        return <Checkbox value={rowData.hasContraction}/>;
+                    }
+                }, {
+                    header: 'Vas Score',
+                    renderer(rowData) {
+                        return <TextField value={rowData.vasScore}/>;
+                    }
+                }]}/>
 
                 <StepAction onPrev={this.prevStep}
                             onNext={this.save}/>
