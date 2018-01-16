@@ -125,15 +125,23 @@ class ObservalData extends Component {
                     </MaterialProvider>
 
                     <MaterialProvider className="col-3"
-                                      label="has Back Pain">
+                                      label="Has Back Pain">
                         <Checkbox/>
                     </MaterialProvider>
                     <MaterialProvider className="col-3"
-                                      label="has Paresthesia">
+                                      label="Has Paresthesia">
                         <Checkbox/>
                     </MaterialProvider>
                     <CustomizedMaterialDateTimePicker className="col-6"
                                                       label="Duration Of Labor Analgesia"/>
+
+                    <CustomizedMaterialTextField className="col-6"
+                                                 label="Patient Satisfaction Score"/>
+                    <MaterialProvider className="col-6"
+                                      label="Has Accidental Dural Punture">
+                        <Checkbox/>
+                    </MaterialProvider>
+
 
                 </form>
 
