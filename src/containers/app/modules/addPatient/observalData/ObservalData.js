@@ -142,6 +142,12 @@ class ObservalData extends Component {
                         <Checkbox/>
                     </MaterialProvider>
 
+                    <CustomizedMaterialTextField className="col-6"
+                                                 label="Lateral Episiotomy VAS Score"/>
+                    <MaterialProvider className="col-6"
+                                      label="Has Lateral Episiotomy">
+                        <Checkbox/>
+                    </MaterialProvider>
 
                 </form>
 
