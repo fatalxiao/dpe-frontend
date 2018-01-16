@@ -40,7 +40,7 @@ class AnalgesiaData extends Component {
 
     render() {
 
-        const {$data} = this.props;
+        const {$sensoryBlockList, $analgesiaData} = this.props;
 
         return (
             <div className="analgesia-data">
@@ -70,13 +70,19 @@ class AnalgesiaData extends Component {
                                header: 'TSB',
                                renderer(rowData) {
                                    return <CustomizedMaterialDropdownSelect className="tsb"
-                                                                            value={rowData.thoracicSensoryBlockLeft}/>;
+                                                                            data={$sensoryBlockList}
+                                                                            value={rowData.thoracicSensoryBlockLeft}
+                                                                            valueField="sensoryBlockValue"
+                                                                            displayField="sensoryBlockName"/>;
                                }
                            }, {
                                header: 'SSB',
                                renderer(rowData) {
                                    return <CustomizedMaterialDropdownSelect className="ssb"
-                                                                            value={rowData.sacralSensoryBlockLeft}/>;
+                                                                            data={$sensoryBlockList}
+                                                                            value={rowData.sacralSensoryBlockLeft}
+                                                                            valueField="sensoryBlockValue"
+                                                                            displayField="sensoryBlockName"/>;
                                }
                            }, {
                                header: 'Bromage',
@@ -109,7 +115,7 @@ class AnalgesiaData extends Component {
                                                                        value={rowData.pulseOxygenSaturation}/>;
                                }
                            }]}
-                           data={$data}
+                           data={$analgesiaData}
                            isPagging={false}/>
                 </div>
 
@@ -123,7 +129,8 @@ class AnalgesiaData extends Component {
 
 AnalgesiaData.propTypes = {
 
-    $data: PropTypes.array,
+    $sensoryBlockList: PropTypes.array,
+    $analgesiaData: PropTypes.array,
 
     routerPush: PropTypes.func,
     addPatientStepUpdate: PropTypes.func
@@ -132,7 +139,8 @@ AnalgesiaData.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $data: state.analgesiaData.list
+        $sensoryBlockList: state.sensoryBlock.list,
+        $analgesiaData: state.analgesiaData.list
     };
 }
 
