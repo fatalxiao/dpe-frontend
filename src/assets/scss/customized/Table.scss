@@ -3,12 +3,19 @@
 .table {
     border: none !important;
 
-    .table-header {
-        border: none !important;
+    .thead {
+        tr {
+            border-bottom: 2px solid $theme-border;
 
-        .table-header-inner {
-            padding: 0 8px !important;
-            color: $theme-primary !important;
+            .table-header {
+                border: none !important;
+
+                .table-header-inner {
+                    padding: 0 8px !important;
+                    color: $theme-description !important;
+                    font-weight: 700 !important;
+                }
+            }
         }
     }
 
