@@ -26,6 +26,7 @@ export default class StepAction extends Component {
                         :
                         <FlatButton className="previous-button"
                                     value="Previous"
+                                    iconCls="icon-back"
                                     onTouchTap={onPrev}/>
                 }
 
