@@ -30,14 +30,13 @@ class ObservalData extends Component {
 
     render() {
 
-        const {$stepsLength, $activatedStep} = this.props;
+        const {} = this.props;
 
         return (
             <div className="observal-data">
 
 
-                <StepAction isFirst={$activatedStep === 0}
-                            isLast={$activatedStep === $stepsLength - 1}
+                <StepAction isLast={true}
                             onPrev={this.prevStep}
                             onNext={this.save}/>
 
@@ -46,20 +45,10 @@ class ObservalData extends Component {
     }
 }
 
-ObservalData.propTypes = {
-    $stepsLength: PropTypes.number,
-    $activatedStep: PropTypes.number
-};
+ObservalData.propTypes = {};
 
 function mapStateToProps(state, ownProps) {
-
-    const steps = state.addPatient.steps;
-
-    return {
-        $stepsLength: steps ? steps.length : 0,
-        $activatedStep: state.addPatient.activatedStep
-    };
-
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {

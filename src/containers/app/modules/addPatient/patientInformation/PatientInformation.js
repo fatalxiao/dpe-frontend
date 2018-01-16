@@ -28,7 +28,7 @@ class PatientInformation extends Component {
 
     render() {
 
-        const {$groupList, $stepsLength, $activatedStep} = this.props;
+        const {$groupList} = this.props;
 
         return (
             <div className="patient-information">
@@ -85,8 +85,7 @@ class PatientInformation extends Component {
 
                 </form>
 
-                <StepAction isFirst={$activatedStep === 0}
-                            isLast={$activatedStep === $stepsLength - 1}
+                <StepAction isFirst={true}
                             onNext={this.save}/>
 
             </div>
@@ -98,23 +97,14 @@ PatientInformation.propTypes = {
 
     $groupList: PropTypes.array,
 
-    $stepsLength: PropTypes.number,
-    $activatedStep: PropTypes.number,
-
     routerPush: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
-
-    const steps = state.addPatient.steps;
-
     return {
-        $groupList: state.group.list,
-        $stepsLength: steps ? steps.length : 0,
-        $activatedStep: state.addPatient.activatedStep
+        $groupList: state.group.list
     };
-
 }
 
 function mapDispatchToProps(dispatch) {
