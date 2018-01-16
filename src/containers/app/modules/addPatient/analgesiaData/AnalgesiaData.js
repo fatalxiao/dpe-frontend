@@ -21,11 +21,15 @@ class AnalgesiaData extends Component {
     }
 
     prevStep() {
-        this.props.routerPush('/app/add-patient/patient-information');
+        const {addPatientStepPrev, routerPush} = this.props;
+        addPatientStepPrev();
+        routerPush('/app/add-patient/patient-information');
     }
 
     save() {
-        this.props.routerPush('/app/add-patient/observal-data');
+        const {addPatientStepNext, routerPush} = this.props;
+        addPatientStepNext();
+        routerPush('/app/add-patient/observal-data');
     }
 
     render() {
@@ -44,7 +48,11 @@ class AnalgesiaData extends Component {
     }
 }
 
-AnalgesiaData.propTypes = {};
+AnalgesiaData.propTypes = {
+    routerPush: PropTypes.func,
+    addPatientStepPrev: PropTypes.func,
+    addPatientStepNext: PropTypes.func
+};
 
 function mapStateToProps(state, ownProps) {
     return {};

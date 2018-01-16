@@ -21,11 +21,14 @@ class ObservalData extends Component {
     }
 
     prevStep() {
-        this.props.routerPush('/app/add-patient/analgesia-data');
+        const {addPatientStepPrev, routerPush} = this.props;
+        addPatientStepPrev();
+        routerPush('/app/add-patient/analgesia-data');
     }
 
     save() {
-
+        const {addPatientStepNext} = this.props;
+        addPatientStepNext();
     }
 
     render() {
@@ -45,7 +48,11 @@ class ObservalData extends Component {
     }
 }
 
-ObservalData.propTypes = {};
+ObservalData.propTypes = {
+    routerPush: PropTypes.func,
+    addPatientStepPrev: PropTypes.func,
+    addPatientStepNext: PropTypes.func
+};
 
 function mapStateToProps(state, ownProps) {
     return {};
