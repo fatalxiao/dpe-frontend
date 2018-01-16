@@ -3,7 +3,7 @@ import GroupApi from 'apis/app/common/GroupApi';
 
 export const getGroups = () => dispatch => {
     return dispatch({
-        [types.CALL_API]: {
+        [actionTypes.CALL_API]: {
             types: [
                 actionTypes.GET_GROUPS_REQUEST,
                 actionTypes.GET_GROUPS_SUCCESS,

@@ -41,8 +41,11 @@ class App extends Component {
 
         Dom.removeClass(document.querySelector('html'), 'full-size');
 
-        this.props.getGroups();
-        this.props.getPatients();
+        const {getGroups, getSensoryBlocks, getPatients} = this.props;
+
+        getGroups();
+        getSensoryBlocks();
+        getPatients();
 
     }
 
@@ -90,6 +93,7 @@ App.propTypes = {
     $componentLoading: PropTypes.bool,
 
     getGroups: PropTypes.func,
+    getSensoryBlocks: PropTypes.func,
     getPatients: PropTypes.func
 
 };

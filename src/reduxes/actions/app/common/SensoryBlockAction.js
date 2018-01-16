@@ -3,7 +3,7 @@ import SensoryBlockApi from 'apis/app/common/SensoryBlockApi';
 
 export const getSensoryBlocks = () => dispatch => {
     return dispatch({
-        [types.CALL_API]: {
+        [actionTypes.CALL_API]: {
             types: [
                 actionTypes.GET_SENSORY_BLOCKS_REQUEST,
                 actionTypes.GET_SENSORY_BLOCKS_SUCCESS,
