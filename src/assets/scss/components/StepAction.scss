@@ -7,13 +7,10 @@
     padding-top: 36px;
     margin-top: 36px;
 
-    .base-button {
-        width: 160px;
-        height: 48px;
-    }
-
     .previous-button {
         float: left;
+        width: auto;
+        height: 48px;
         color: $theme-description;
 
         &:hover {
@@ -23,6 +20,8 @@
 
     .continue-button {
         float: right;
+        width: 160px;
+        height: 48px;
     }
 
     &::before {

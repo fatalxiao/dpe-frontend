@@ -46,17 +46,17 @@ class AnalgesiaData extends Component {
                 <div className="analgesia-data-table-scroller">
                     <Table className="analgesia-data-table"
                            columns={[{
-                               header: 'Time Point',
+                               header: 'Time',
                                renderer: '${timePoint} min'
                            }, {
-                               header: 'Has Contraction',
+                               header: 'Contraction',
                                renderer(rowData) {
                                    return <Checkbox value={rowData.hasContraction}/>;
                                }
                            }, {
-                               header: 'Vas Score',
+                               header: 'Vas',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="vas-score"
+                                   return <CustomizedMaterialTextField className="vas"
                                                                        value={rowData.vasScore}/>;
                                }
                            }, {
@@ -72,29 +72,34 @@ class AnalgesiaData extends Component {
                                                                             value={rowData.sacralSensoryBlockLeft}/>;
                                }
                            }, {
-                               header: 'Bromage Score',
+                               header: 'Bromage',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.bromageScore}/>;
+                                   return <CustomizedMaterialTextField className="bromage"
+                                                                       value={rowData.bromageScore}/>;
                                }
                            }, {
                                header: 'SBP',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.systolicBloodPressure}/>;
+                                   return <CustomizedMaterialTextField className="sbp"
+                                                                       value={rowData.systolicBloodPressure}/>;
                                }
                            }, {
                                header: 'DBP',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.diastolicBloodPressure}/>;
+                                   return <CustomizedMaterialTextField className="dbp"
+                                                                       value={rowData.diastolicBloodPressure}/>;
                                }
                            }, {
                                header: 'Heart Rate',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.heartRate}/>;
+                                   return <CustomizedMaterialTextField className="heart-rate"
+                                                                       value={rowData.heartRate}/>;
                                }
                            }, {
                                header: 'SPO2',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.pulseOxygenSaturation}/>;
+                                   return <CustomizedMaterialTextField className="spo2"
+                                       value={rowData.pulseOxygenSaturation}/>;
                                }
                            }]}
                            data={$data}
