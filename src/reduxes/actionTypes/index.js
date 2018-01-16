@@ -11,4 +11,5 @@ export * from './app/NavActionType';
 export * from './app/common/GroupActionType';
 export * from './app/common/PatientActionType';
 
-export * from './app/modules/patient/PatientListActionType';
+export * from './app/modules/PatientListActionType';
+export * from './app/modules/AddPatientActionType';

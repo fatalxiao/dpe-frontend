@@ -10,4 +10,5 @@ export * from './app/NavAction';
 export * from './app/common/GroupAction';
 export * from './app/common/PatientAction';
 
-export * from './app/modules/patient/PatientListAction';
+export * from './app/modules/PatientListAction';
+export * from './app/modules/AddPatientAction';

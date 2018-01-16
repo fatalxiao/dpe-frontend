@@ -1,4 +1,4 @@
-import * as types from 'reduxes/actionTypes';
+import * as types from 'reduxes/actionTypes/index';
 
 const initialState = {};
 
