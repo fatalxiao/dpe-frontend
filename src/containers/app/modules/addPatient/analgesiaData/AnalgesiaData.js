@@ -8,7 +8,9 @@ import * as actions from 'reduxes/actions/index';
 import Table from 'alcedo-ui/Table';
 import Checkbox from 'alcedo-ui/Checkbox';
 import TextField from 'alcedo-ui/TextField';
+import DropdownSelect from 'alcedo-ui/DropdownSelect';
 import StepAction from 'components/StepAction';
+import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
@@ -37,35 +39,65 @@ class AnalgesiaData extends Component {
 
     render() {
 
-        const {} = this.props;
+        const {$data} = this.props;
 
         return (
             <div className="analgesia-data">
 
-                <Table columns={[{
-                    header: 'Time Point',
-                    renderer: '${firstName} min'
-                }, {
-                    header: 'Has Contraction',
-                    renderer(rowData) {
-                        return <Checkbox value={rowData.hasContraction}/>;
-                    }
-                }, {
-                    header: 'Vas Score',
-                    renderer(rowData) {
-                        return <TextField value={rowData.vasScore}/>;
-                    }
-                }, {
-                    header: 'Thoracic Sensory Block Left',
-                    renderer(rowData) {
-                        return <TextField value={rowData.thoracicSensoryBlockLeft}/>;
-                    }
-                }, {
-                    header: 'Thoracic Sensory Block Right',
-                    renderer(rowData) {
-                        return <TextField value={rowData.thoracicSensoryBlockRight}/>;
-                    }
-                }]}/>
+                <div className="analgesia-data-table-scroller">
+                    <Table className="analgesia-data-table"
+                           columns={[{
+                               header: 'Time Point',
+                               renderer: '${timePoint} min'
+                           }, {
+                               header: 'Has Contraction',
+                               renderer(rowData) {
+                                   return <Checkbox value={rowData.hasContraction}/>;
+                               }
+                           }, {
+                               header: 'Vas Score',
+                               renderer(rowData) {
+                                   return <CustomizedMaterialTextField value={rowData.vasScore}/>;
+                               }
+                           }, {
+                               header: 'TSB',
+                               renderer(rowData) {
+                                   return <DropdownSelect value={rowData.thoracicSensoryBlockLeft}/>;
+                               }
+                           }, {
+                               header: 'SSB',
+                               renderer(rowData) {
+                                   return <DropdownSelect value={rowData.sacralSensoryBlockLeft}/>;
+                               }
+                           }, {
+                               header: 'Bromage Score',
+                               renderer(rowData) {
+                                   return <TextField value={rowData.bromageScore}/>;
+                               }
+                           }, {
+                               header: 'SBP',
+                               renderer(rowData) {
+                                   return <TextField value={rowData.systolicBloodPressure}/>;
+                               }
+                           }, {
+                               header: 'DBP',
+                               renderer(rowData) {
+                                   return <TextField value={rowData.diastolicBloodPressure}/>;
+                               }
+                           }, {
+                               header: 'Heart Rate',
+                               renderer(rowData) {
+                                   return <TextField value={rowData.heartRate}/>;
+                               }
+                           }, {
+                               header: 'SPO2',
+                               renderer(rowData) {
+                                   return <TextField value={rowData.pulseOxygenSaturation}/>;
+                               }
+                           }]}
+                           data={$data}
+                           isPagging={false}/>
+                </div>
 
                 <StepAction onPrev={this.prevStep}
                             onNext={this.save}/>
@@ -76,13 +108,19 @@ class AnalgesiaData extends Component {
 }
 
 AnalgesiaData.propTypes = {
+
+    $data: PropTypes.array,
+
     routerPush: PropTypes.func,
     addPatientStepPrev: PropTypes.func,
     addPatientStepNext: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $data: state.analgesiaData.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {

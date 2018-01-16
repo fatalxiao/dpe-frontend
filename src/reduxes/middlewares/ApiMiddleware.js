@@ -65,8 +65,6 @@ export default store => dispatch => action => {
         },
         failureCallback(xhr, response, responseData) {
 
-            debugger;
-
             if (xhr[RequestManagement.CANCEL_FLAG] === true) {
                 actionCancelCallback && actionCancelCallback(xhr);
                 return;
