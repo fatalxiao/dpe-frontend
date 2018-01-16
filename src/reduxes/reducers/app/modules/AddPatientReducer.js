@@ -36,6 +36,13 @@ function addPatient(state = initialState, action) {
             };
         }
 
+        case actionTypes.ADD_PATIENT_STEP_UPDATE: {
+            return {
+                ...state,
+                ...stepConfig
+            };
+        }
+
         default:
             return state;
 
