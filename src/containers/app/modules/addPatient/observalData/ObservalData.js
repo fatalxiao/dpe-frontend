@@ -5,6 +5,8 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import Checkbox from 'alcedo-ui/Checkbox';
+import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
 import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/addPatient/observalData/ObservalData.scss';
@@ -42,6 +44,23 @@ class ObservalData extends Component {
         return (
             <div className="observal-data">
 
+                <form className="observal-data-form row">
+
+                    <Checkbox className="col-3"
+                              label="Carbetocin"/>
+                    <Checkbox className="col-3"
+                              label="Hemabate"/>
+                    <CustomizedMaterialTextField className="col-6"
+                                                 label="Local Anesthetic Consumption"/>
+
+                    <CustomizedMaterialTextField className="col-3"
+                                                 label="PCA Count"/>
+                    <CustomizedMaterialTextField className="col-3"
+                                                 label="Manual Bolus Count"/>
+                    <CustomizedMaterialTextField className="col-3"
+                                                 label="first_pca_time"/>
+
+                </form>
 
                 <StepAction isLast={true}
                             onPrev={this.prevStep}
