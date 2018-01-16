@@ -7,10 +7,9 @@ import * as actions from 'reduxes/actions/index';
 
 import Table from 'alcedo-ui/Table';
 import Checkbox from 'alcedo-ui/Checkbox';
-import TextField from 'alcedo-ui/TextField';
-import DropdownSelect from 'alcedo-ui/DropdownSelect';
 import StepAction from 'components/StepAction';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
+import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
@@ -57,42 +56,45 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'Vas Score',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField value={rowData.vasScore}/>;
+                                   return <CustomizedMaterialTextField className="vas-score"
+                                                                       value={rowData.vasScore}/>;
                                }
                            }, {
                                header: 'TSB',
                                renderer(rowData) {
-                                   return <DropdownSelect value={rowData.thoracicSensoryBlockLeft}/>;
+                                   return <CustomizedMaterialDropdownSelect className="tsb"
+                                                                            value={rowData.thoracicSensoryBlockLeft}/>;
                                }
                            }, {
                                header: 'SSB',
                                renderer(rowData) {
-                                   return <DropdownSelect value={rowData.sacralSensoryBlockLeft}/>;
+                                   return <CustomizedMaterialDropdownSelect className="ssb"
+                                                                            value={rowData.sacralSensoryBlockLeft}/>;
                                }
                            }, {
                                header: 'Bromage Score',
                                renderer(rowData) {
-                                   return <TextField value={rowData.bromageScore}/>;
+                                   return <CustomizedMaterialTextField value={rowData.bromageScore}/>;
                                }
                            }, {
                                header: 'SBP',
                                renderer(rowData) {
-                                   return <TextField value={rowData.systolicBloodPressure}/>;
+                                   return <CustomizedMaterialTextField value={rowData.systolicBloodPressure}/>;
                                }
                            }, {
                                header: 'DBP',
                                renderer(rowData) {
-                                   return <TextField value={rowData.diastolicBloodPressure}/>;
+                                   return <CustomizedMaterialTextField value={rowData.diastolicBloodPressure}/>;
                                }
                            }, {
                                header: 'Heart Rate',
                                renderer(rowData) {
-                                   return <TextField value={rowData.heartRate}/>;
+                                   return <CustomizedMaterialTextField value={rowData.heartRate}/>;
                                }
                            }, {
                                header: 'SPO2',
                                renderer(rowData) {
-                                   return <TextField value={rowData.pulseOxygenSaturation}/>;
+                                   return <CustomizedMaterialTextField value={rowData.pulseOxygenSaturation}/>;
                                }
                            }]}
                            data={$data}

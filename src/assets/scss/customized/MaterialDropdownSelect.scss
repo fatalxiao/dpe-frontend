@@ -1,6 +1,7 @@
 @import '../common.scss';
 
 .material-dropdown-select {
+    background: transparent !important;
 
     .material-dropdown-select-label {
         color: transparentize($theme-field, .3) !important;
