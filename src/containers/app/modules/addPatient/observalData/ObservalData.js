@@ -5,12 +5,27 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import StepAction from 'components/StepAction';
+
 import 'scss/containers/app/modules/addPatient/observalData/ObservalData.scss';
 
 class ObservalData extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.prevStep = ::this.prevStep;
+        this.save = ::this.save;
+
+    }
+
+    prevStep() {
+        this.props.routerPush('/app/add-patient/analgesia-data');
+    }
+
+    save() {
+
     }
 
     render() {
@@ -22,7 +37,9 @@ class ObservalData extends Component {
 
 
                 <StepAction isFirst={$activatedStep === 0}
-                            isLast={$activatedStep === $stepsLength - 1}/>
+                            isLast={$activatedStep === $stepsLength - 1}
+                            onPrev={this.prevStep}
+                            onNext={this.save}/>
 
             </div>
         );

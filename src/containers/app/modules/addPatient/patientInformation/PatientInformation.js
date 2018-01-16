@@ -15,7 +15,15 @@ import 'scss/containers/app/modules/addPatient/patientInformation/PatientInforma
 class PatientInformation extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.save = ::this.save;
+
+    }
+
+    save() {
+        this.props.routerPush('/app/add-patient/analgesia-data');
     }
 
     render() {
@@ -78,7 +86,8 @@ class PatientInformation extends Component {
                 </form>
 
                 <StepAction isFirst={$activatedStep === 0}
-                            isLast={$activatedStep === $stepsLength - 1}/>
+                            isLast={$activatedStep === $stepsLength - 1}
+                            onNext={this.save}/>
 
             </div>
         );
@@ -90,7 +99,9 @@ PatientInformation.propTypes = {
     $groupList: PropTypes.array,
 
     $stepsLength: PropTypes.number,
-    $activatedStep: PropTypes.number
+    $activatedStep: PropTypes.number,
+
+    routerPush: PropTypes.func
 
 };
 

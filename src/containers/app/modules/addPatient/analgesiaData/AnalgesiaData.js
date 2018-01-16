@@ -3,16 +3,29 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import StepAction from 'components/StepAction';
-
 import * as actions from 'reduxes/actions/index';
+
+import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
 class AnalgesiaData extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.prevStep = ::this.prevStep;
+        this.save = ::this.save;
+
+    }
+
+    prevStep() {
+        this.props.routerPush('/app/add-patient/patient-information');
+    }
+
+    save() {
+        this.props.routerPush('/app/add-patient/observal-data');
     }
 
     render() {
@@ -24,7 +37,9 @@ class AnalgesiaData extends Component {
 
 
                 <StepAction isFirst={$activatedStep === 0}
-                            isLast={$activatedStep === $stepsLength - 1}/>
+                            isLast={$activatedStep === $stepsLength - 1}
+                            onPrev={this.prevStep}
+                            onNext={this.save}/>
 
             </div>
         );
