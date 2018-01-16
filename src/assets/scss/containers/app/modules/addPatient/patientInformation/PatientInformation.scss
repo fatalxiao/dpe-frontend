@@ -9,8 +9,15 @@
             margin-bottom: 48px;
         }
 
-        .gestational-weeks .unit::after {
-            content: "Weeks";
+        .gestational-weeks {
+
+            .text-field-right-icon {
+                width: 48px;
+
+                .unit::after {
+                    content: "Weeks";
+                }
+            }
         }
 
         .gestational-days {
