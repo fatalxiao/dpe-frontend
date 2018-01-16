@@ -49,7 +49,12 @@ class AnalgesiaData extends Component {
                     <Table className="analgesia-data-table"
                            columns={[{
                                header: 'Time',
-                               renderer: '${timePoint} min'
+                               renderer(rowData) {
+                                   return rowData.timePoint <= 60 ?
+                                       `${rowData.timePoint} min`
+                                       :
+                                       `${rowData.timePoint / 60} h`;
+                               }
                            }, {
                                header: 'Contraction',
                                renderer(rowData) {
