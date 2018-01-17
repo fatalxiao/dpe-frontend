@@ -12,6 +12,7 @@ import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField'
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
+import addPatientAnalgesiaData from '../../../../../reduxes/reducers/app/modules/addPatient/AddPatientAnalgesiaDataReducer';
 
 class AnalgesiaData extends Component {
 
@@ -140,7 +141,7 @@ AnalgesiaData.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $sensoryBlockList: state.sensoryBlock.list,
-        $analgesiaData: state.analgesiaData.list
+        $analgesiaData: state.addPatientAnalgesiaData.list
     };
 }
 

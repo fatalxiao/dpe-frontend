@@ -67,6 +67,20 @@ function isUrl(value) {
     return /^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+$/.test(value);
 }
 
+function isDate(v) {
+    return ({}).toString.call(v) === '[object Date]';
+}
+
+function isEmptyObject(obj) {
+    try {
+        for (let key in obj) {
+            return false;
+        }
+    } catch (e) {
+        return true;
+    }
+}
+
 function isPerCent(perCent) {
     return isNumber(perCent) && perCent >= 0 && perCent <= 1;
 }
@@ -124,6 +138,8 @@ export default {
     isInRange,
     isEmail,
     isUrl,
+    isDate,
+    isEmptyObject,
     isPerCent,
     isDeg,
     isRGB,

@@ -1,7 +1,22 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 
 const initialState = {
-    form: {},
+    form: {
+        groupId: null,
+        id: '',
+        patientName: '',
+        age: '',
+        gestationalDays: '',
+        height: '',
+        weight: '',
+        heartRate: '',
+        initialVasScore: '',
+        cervicalDilationAtTimeOfEA: '',
+        systolicBloodPressure: '',
+        diastolicBloodPressure: '',
+        foetalHeartRate: '',
+        description: ''
+    },
     actionType: ''
 };
 

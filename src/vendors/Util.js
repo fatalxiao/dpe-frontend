@@ -2,24 +2,6 @@ import moment from 'moment';
 
 import DEFAULT_MENU from 'src/config.menu';
 
-function isEmptyObject(obj) {
-    try {
-        for (let key in obj) {
-            return false;
-        }
-    } catch (e) {
-        return true;
-    }
-}
-
-function isArray(v) {
-    return ({}).toString.call(v) === '[object Array]';
-}
-
-function isDate(v) {
-    return ({}).toString.call(v) === '[object Date]';
-}
-
 function getOffset(el) {
 
     if (!el) {
@@ -152,35 +134,35 @@ function enumerateValue(enumerate) {
 }
 
 function resetAriValue(data) {
-    let value = []
+    let value = [];
     if (data && data.length > 0) {
         for (let i = 0; i < data.length; i++) {
-            value.push(data[i].id)
+            value.push(data[i].id);
         }
     }
     return value;
 }
 
 function resetAriCurrencyValue(data) {
-    let value = []
+    let value = [];
     if (data && data.length > 0) {
         for (let i = 0; i < data.length; i++) {
             value.push({
                 id: data[i].id,
                 code: data[i].code
-            })
+            });
         }
     }
     return value;
 }
 
 function recoverAriValue(valueData, baseData) {
-    let value = []
+    let value = [];
     if (valueData && valueData.length > 0) {
         for (let i = 0; i < valueData.length; i++) {
             for (let j = 0; j < baseData.length; j++) {
                 if (valueData[i].id === baseData[j].id || valueData[i] === baseData[j].id) {
-                    value.push(baseData[j])
+                    value.push(baseData[j]);
                 }
             }
         }
@@ -188,18 +170,31 @@ function recoverAriValue(valueData, baseData) {
     return value;
 }
 
-function macthObjectByValue(data,value,valueField) {
+function macthObjectByValue(data, value, valueField) {
     for (let i = 0; i < data.length; i++) {
         if (data[i][valueField] === value) {
-            return data[i]
+            return data[i];
         }
     }
 }
 
+function days2weeksDays(days) {
+
+    if (!days || !Valid.isInteger(days)) {
+        return {
+            weeks: 0,
+            days: 0
+        };
+    }
+
+    return {
+        weeks: ~~(days / 7),
+        days: days % 7
+    };
+
+}
+
 export default {
-    isEmptyObject,
-    isArray,
-    isDate,
     getOffset,
     isEnableLocalStorage,
     isEnableSessionStorage,
@@ -213,5 +208,6 @@ export default {
     resetAriValue,
     resetAriCurrencyValue,
     recoverAriValue,
-    macthObjectByValue
+    macthObjectByValue,
+    days2weeksDays
 };
