@@ -43,8 +43,6 @@ function addPatientInformation(state = initialState, action) {
                 form[action.fieldName] = action.fieldValue;
             }
 
-            console.log(form);
-
             return {
                 ...state,
                 form
