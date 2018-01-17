@@ -21,7 +21,7 @@ class Nav extends Component {
         const {$navCollapsed, toggleNav} = this.props,
 
             wrapperClassName = ($navCollapsed ? ' collapsed' : ''),
-            toggleIconClassName = ($navCollapsed ? 'fa-angle-right' : 'fa-angle-left');
+            toggleIconClassName = ($navCollapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left');
 
         return (
             <div className={'nav' + wrapperClassName}>
@@ -34,7 +34,7 @@ class Nav extends Component {
 
                     <div className="nav-toggle"
                          onTouchTap={toggleNav}>
-                        <i className={'fa ' + toggleIconClassName + ' nav-toggle-icon'}></i>
+                        <i className={toggleIconClassName + ' nav-toggle-icon'}></i>
                     </div>
 
                 </div>
