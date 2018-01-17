@@ -10,7 +10,7 @@ export const addPatient = () => (dispatch, getState) => {
                 actionTypes.ADD_PATIENT_FAILURE
             ],
             api: AddPatientApi.addPatient,
-            params: getState().addPatient.form
+            params: getState().addPatientInformation.form
         }
     });
 };

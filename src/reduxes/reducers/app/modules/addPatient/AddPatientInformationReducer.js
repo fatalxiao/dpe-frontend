@@ -1,47 +1,37 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 
-import Valid from 'vendors/Valid';
-
 const initialState = {
-    steps: [{
-        title: 'Patient\nInformation',
-        route: '/app/add-patient/patient-information'
-    }, {
-        title: 'Analgesia\nData',
-        route: '/app/add-patient/analgesia-data'
-    }, {
-        title: 'Observal\nData',
-        route: '/app/add-patient/observal-data'
-    }],
-    activatedStep: 0
+    form: {},
+    actionType: ''
 };
 
 function addPatientInformation(state = initialState, action) {
     switch (action.type) {
 
-        case actionTypes.ADD_PATIENT_STEP_PREV: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION: {
             return {
                 ...state,
-                activatedStep: Valid.range(state.activatedStep - 1, 0, state.steps.length - 1)
+                form: action.form
             };
         }
 
-        case actionTypes.ADD_PATIENT_STEP_NEXT: {
-
-            const activatedStep = Valid.range(state.activatedStep + 1, 0, state.steps.length - 1),
-                finishedStep = state.finishedStep > activatedStep ? state.finishedStep : activatedStep;
-
+        // add patient
+        case actionTypes.ADD_PATIENT_REQUEST: {
             return {
                 ...state,
-                activatedStep,
-                finishedStep
+                actionType: actionTypes.ADD_PATIENT_REQUEST
             };
         }
-
-        case actionTypes.ADD_PATIENT_STEP_UPDATE: {
+        case actionTypes.ADD_PATIENT_SUCCESS: {
             return {
                 ...state,
-                activatedStep: action.activatedStep
+                actionType: actionTypes.ADD_PATIENT_SUCCESS
+            };
+        }
+        case actionTypes.ADD_PATIENT_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.ADD_PATIENT_FAILURE
             };
         }
 
