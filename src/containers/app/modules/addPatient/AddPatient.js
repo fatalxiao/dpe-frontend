@@ -14,7 +14,19 @@ import 'scss/containers/app/modules/addPatient/AddPatient.scss';
 class AddPatient extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.stepChangeHandler = ::this.stepChangeHandler;
+
+    }
+
+    stepChangeHandler({activatedStep}) {
+
+        const {$steps, routerPush} = this.props;
+
+        routerPush($steps[activatedStep].route);
+
     }
 
     render() {
@@ -27,7 +39,8 @@ class AddPatient extends Component {
                 <VerticalPointStep className="add-patient-stepper"
                                    steps={$steps}
                                    activatedStep={$activatedStep}
-                                   finishedStep={$activatedStep}/>
+                                   finishedStep={$steps.length - 1}
+                                   onChange={this.stepChangeHandler}/>
 
                 <div className="add-patient-content">
 
@@ -56,7 +69,9 @@ AddPatient.propTypes = {
 
     $steps: PropTypes.array,
 
-    $activatedStep: PropTypes.number
+    $activatedStep: PropTypes.number,
+
+    routerPush: PropTypes.func
 
 };
 
