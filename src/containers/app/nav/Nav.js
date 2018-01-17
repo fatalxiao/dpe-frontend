@@ -32,9 +32,9 @@ class Nav extends Component {
 
                     <Patients/>
 
-                    <div className="nav-toggle"
-                         onTouchTap={toggleNav}>
-                        <i className={toggleIconClassName + ' nav-toggle-icon'}></i>
+                    <div className="nav-toggle">
+                        <i className={toggleIconClassName + ' nav-toggle-icon'}
+                           onTouchTap={toggleNav}></i>
                     </div>
 
                 </div>
