@@ -14,8 +14,9 @@ import patient from './app/common/PatientReducer';
 import sensoryBlock from './app/common/SensoryBlockReducer';
 
 import patientList from './app/modules/PatientListReducer';
-import addPatient from './app/modules/AddPatientReducer';
-import analgesiaData from './app/modules/AnalgesiaDataReducer';
+import addPatient from './app/modules/addPatient/AddPatientReducer';
+import addPatientInformation from './app/modules/addPatient/AddPatientInformationReducer';
+import addPatientAnalgesiaData from './app/modules/addPatient/AddPatientAnalgesiaDataReducer';
 
 const rootReducer = combineReducers({
 
@@ -33,7 +34,8 @@ const rootReducer = combineReducers({
 
     patientList,
     addPatient,
-    analgesiaData,
+    addPatientInformation,
+    addPatientAnalgesiaData,
 
     router: routerReducer
 

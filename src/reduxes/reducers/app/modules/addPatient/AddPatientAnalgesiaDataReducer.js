@@ -1,4 +1,4 @@
-import * as actionTypes from 'reduxes/actionTypes';
+import * as actionTypes from 'reduxes/actionTypes/index';
 
 import Valid from 'vendors/Valid';
 
@@ -34,7 +34,7 @@ const initialState = {
     list
 };
 
-function analgesiaData(state = initialState, action) {
+function addPatientAnalgesiaData(state = initialState, action) {
     switch (action.type) {
 
         default:
@@ -43,4 +43,4 @@ function analgesiaData(state = initialState, action) {
     }
 }
 
-export default analgesiaData;
+export default addPatientAnalgesiaData;

@@ -2,9 +2,6 @@ import * as actionTypes from 'reduxes/actionTypes';
 import AddPatientApi from 'apis/app/modules/AddPatientApi';
 
 export const addPatient = () => (dispatch, getState) => {
-
-    const patientInfo = getState().addPatient.form;
-
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
@@ -13,10 +10,7 @@ export const addPatient = () => (dispatch, getState) => {
                 actionTypes.ADD_PATIENT_FAILURE
             ],
             api: AddPatientApi.addPatient,
-            params: {
-                patientInfo
-            }
+            params: getState().addPatient.form
         }
     });
-
 };

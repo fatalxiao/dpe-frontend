@@ -1,4 +1,4 @@
-import * as actionTypes from 'reduxes/actionTypes';
+import * as actionTypes from 'reduxes/actionTypes/index';
 
 import Valid from 'vendors/Valid';
 
@@ -16,7 +16,7 @@ const initialState = {
     activatedStep: 0
 };
 
-function addPatient(state = initialState, action) {
+function addPatientInformation(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.ADD_PATIENT_STEP_PREV: {
@@ -51,4 +51,4 @@ function addPatient(state = initialState, action) {
     }
 }
 
-export default addPatient;
+export default addPatientInformation;
