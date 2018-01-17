@@ -56,4 +56,9 @@
 
     }
 
+    &.collapsed {
+        color: $theme-field;
+        background: $theme-secondary;
+    }
+
 }

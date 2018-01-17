@@ -33,10 +33,12 @@ class NavBar extends Component {
 
     render() {
 
-        const {$navCollapsed} = this.props;
+        const {$navCollapsed} = this.props,
+
+            wrapperClassName = ($navCollapsed ? ' collapsed' : '');
 
         return (
-            <div className="nav-bar">
+            <div className={'nav-bar' + wrapperClassName}>
 
                 <div className="nav-bar-top">
 
