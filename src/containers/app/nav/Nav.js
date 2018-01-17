@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import NavBar from './bar/NavBar';
-import Patients from './patients/Patients';
+import Patients from './patients/NavPatient';
 
 import 'scss/containers/app/nav/Nav.scss';
 

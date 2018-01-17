@@ -10,9 +10,9 @@ import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
 import PatientList from './PatientList';
 
-import 'scss/containers/app/nav/patients/Patients.scss';
+import 'scss/containers/app/nav/patients/NavPatient.scss';
 
-class Patients extends Component {
+class NavPatient extends Component {
 
     constructor(props) {
 
@@ -72,7 +72,7 @@ class Patients extends Component {
     }
 }
 
-Patients.propTypes = {
+NavPatient.propTypes = {
 
     $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,
@@ -94,4 +94,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Patients);
+export default connect(mapStateToProps, mapDispatchToProps)(NavPatient);
