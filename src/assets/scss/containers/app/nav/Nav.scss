@@ -2,6 +2,7 @@
 
 .nav {
     width: 64px+240px;
+    transition: width $theme-transition-duration ease-in-out;
 
     .nav-inner {
         position: fixed;
@@ -11,6 +12,7 @@
         height: 100vh;
         z-index: 90;
         display: flex;
+        transition: width $theme-transition-duration ease-in-out;
 
         .nav-toggle {
             position: absolute;
