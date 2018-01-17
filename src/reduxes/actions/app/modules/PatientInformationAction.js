@@ -10,7 +10,27 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
 
 export const addPatient = () => (dispatch, getState) => {
 
-    const form = getState().addPatientInformation.form;
+    const form = getState().addPatientInformation.form,
+        params = {
+            groupId: form.groupId,
+            id: form.id,
+            patientName: form.patientName,
+            age: form.age || null,
+            gestationalDays: form.gestationalDays || null,
+            height: form.height || null,
+            weight: form.weight || null,
+            heartRate: form.heartRate || null,
+            initialVasScore: form.initialVasScore || null,
+            cervicalDilationAtTimeOfEA: form.cervicalDilationAtTimeOfEA || null,
+            systolicBloodPressure: form.systolicBloodPressure || null,
+            diastolicBloodPressure: form.diastolicBloodPressure || null,
+            foetalHeartRate: form.foetalHeartRate || null,
+            description: form.description
+        };
+
+    if (!params.groupId || !params.id) {
+        return;
+    }
 
     return dispatch({
         [actionTypes.CALL_API]: {
@@ -20,22 +40,7 @@ export const addPatient = () => (dispatch, getState) => {
                 actionTypes.ADD_PATIENT_FAILURE
             ],
             api: AddPatientApi.addPatient,
-            params: {
-                groupId: form.groupId,
-                id: form.id,
-                patientName: form.patientName,
-                age: form.age,
-                gestationalDays: form.gestationalDays,
-                height: form.height,
-                weight: form.weight,
-                heartRate: form.heartRate,
-                initialVasScore: form.initialVasScore,
-                cervicalDilationAtTimeOfEA: form.cervicalDilationAtTimeOfEA,
-                systolicBloodPressure: form.systolicBloodPressure,
-                diastolicBloodPressure: form.diastolicBloodPressure,
-                foetalHeartRate: form.foetalHeartRate,
-                description: form.description
-            },
+            params,
             successCallback() {
                 routerPush('/app/add-patient/analgesia-data');
             }

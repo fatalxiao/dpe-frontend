@@ -3,7 +3,7 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 const initialState = {
     form: {
         group: null,
-        groupId: '',
+        groupId: null,
         id: '',
         patientName: '',
         age: '',
