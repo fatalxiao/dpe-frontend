@@ -45,7 +45,6 @@ class AddPatient extends Component {
                 <div className="add-patient-content">
 
                     <h1 className="add-patient-content-title">
-                        <span className="add-patient-content-title-step">{`Step ${$activatedStep + 1}. `}</span>
                         {$steps[$activatedStep].title}
                     </h1>
 
