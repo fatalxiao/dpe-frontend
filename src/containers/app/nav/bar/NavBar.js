@@ -54,15 +54,15 @@ class NavBar extends Component {
                                 onTouchTap={this.addPatient}>
                     </IconButton>
 
+                    {
+                        $navCollapsed ?
+                            <NavMenu/>
+                            :
+                            null
+
+                    }
+
                 </div>
-
-                {
-                    $navCollapsed ?
-                        <NavMenu/>
-                        :
-                        null
-
-                }
 
                 <div className="nav-bar-bottom">
 
