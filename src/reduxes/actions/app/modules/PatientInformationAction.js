@@ -9,6 +9,9 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
 });
 
 export const addPatient = () => (dispatch, getState) => {
+
+    const form = getState().addPatientInformation.form;
+
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
@@ -17,10 +20,26 @@ export const addPatient = () => (dispatch, getState) => {
                 actionTypes.ADD_PATIENT_FAILURE
             ],
             api: AddPatientApi.addPatient,
-            params: getState().addPatientInformation.form,
+            params: {
+                groupId: form.groupId,
+                id: form.id,
+                patientName: form.patientName,
+                age: form.age,
+                gestationalDays: form.gestationalDays,
+                height: form.height,
+                weight: form.weight,
+                heartRate: form.heartRate,
+                initialVasScore: form.initialVasScore,
+                cervicalDilationAtTimeOfEA: form.cervicalDilationAtTimeOfEA,
+                systolicBloodPressure: form.systolicBloodPressure,
+                diastolicBloodPressure: form.diastolicBloodPressure,
+                foetalHeartRate: form.foetalHeartRate,
+                description: form.description
+            },
             successCallback() {
                 routerPush('/app/add-patient/analgesia-data');
             }
         }
     });
+
 };
