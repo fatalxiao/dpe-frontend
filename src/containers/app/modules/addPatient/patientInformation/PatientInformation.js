@@ -10,6 +10,8 @@ import CustomizedMaterialTextArea from 'customized/CustomizedMaterialTextArea';
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import StepAction from 'components/StepAction';
 
+import Util from 'vendors/Util';
+
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
 
 class PatientInformation extends Component {
@@ -33,7 +35,9 @@ class PatientInformation extends Component {
 
     render() {
 
-        const {$groupList, $form} = this.props;
+        const {$groupList, $form} = this.props,
+
+            {weeks: gestationalWeeks, days: gestationalDays} = Util.days2weeksDays($form.gestationalDays);
 
         return (
             <div className="patient-information">
@@ -62,46 +66,46 @@ class PatientInformation extends Component {
                     <CustomizedMaterialTextField className="col-3 gestational-weeks"
                                                  label="Gestational Days"
                                                  rightIconCls="unit"
-                                                 value={$form.gestationalDays}/>
+                                                 value={gestationalWeeks || ''}/>
                     <CustomizedMaterialTextField className="col-3 gestational-days"
                                                  label=" "
                                                  rightIconCls="unit"
-                                                 value={$form.id}/>
+                                                 value={gestationalDays || ''}/>
 
                     <CustomizedMaterialTextField className="col-3 height"
                                                  label="Height"
                                                  rightIconCls="unit"
-                                                 value={$form.id}/>
+                                                 value={$form.height}/>
                     <CustomizedMaterialTextField className="col-3 weight"
                                                  label="Weight"
                                                  rightIconCls="unit"
-                                                 value={$form.id}/>
+                                                 value={$form.weight}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Heart Rate"
-                                                 value={$form.id}/>
+                                                 value={$form.heartRate}/>
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Initial Vas Score"
-                                                 value={$form.id}/>
+                                                 value={$form.initialVasScore}/>
                     <CustomizedMaterialTextField className="col-6"
                                                  label="Cervical Dilation At Time Of EA"
-                                                 value={$form.id}/>
+                                                 value={$form.cervicalDilationAtTimeOfEA}/>
 
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Systolic Blood Pressure"
-                                                 value={$form.id}/>
+                                                 value={$form.systolicBloodPressure}/>
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Diastolic Blood Pressure"
-                                                 value={$form.id}/>
+                                                 value={$form.diastolicBloodPressure}/>
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Foetal Heart Rate"
-                                                 value={$form.id}/>
+                                                 value={$form.foetalHeartRate}/>
 
                     <CustomizedMaterialTextArea className="col-12"
                                                 label="Description"
                                                 maxLength={1000}
                                                 wordCountVisible={true}
-                                                value={$form.id}/>
+                                                value={$form.description}/>
 
                 </form>
 
