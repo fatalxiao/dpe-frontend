@@ -1,0 +1,28 @@
+@import '../../../../common';
+
+.patient-list {
+    margin-top: 24px;
+
+    .patient {
+        width: 100%;
+        height: 40px;
+
+        .patient-name {
+            line-height: 24px;
+            font-size: 16px;
+        }
+
+        .patient-desc,
+        .patient-group {
+            line-height: 16px;
+            color: $theme-description;
+            font-size: 12px;
+            white-space: pre;
+        }
+
+        .patient-group {
+            line-height: 24px;
+        }
+    }
+
+}

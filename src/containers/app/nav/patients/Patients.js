@@ -8,6 +8,7 @@ import * as actionTypes from 'reduxes/actionTypes';
 
 import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
+import PatientList from './PatientList';
 
 import 'scss/containers/app/nav/patients/Patients.scss';
 
@@ -32,7 +33,7 @@ class Patients extends Component {
 
     render() {
 
-        const {$patientList, $patientListActionType} = this.props,
+        const {$groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
             className = (hasNoPatient ? ' no-patient' : '');
@@ -41,7 +42,8 @@ class Patients extends Component {
             <div className={'patients' + className}>
 
                 {
-                    $patientListActionType === actionTypes.GET_GROUPS_REQUEST ?
+                    $groupListActionType === actionTypes.GET_GROUPS_REQUEST
+                    || $patientListActionType === actionTypes.GET_PATIENTS_REQUEST ?
                         <CircularLoading/>
                         :
                         hasNoPatient ?
@@ -61,9 +63,7 @@ class Patients extends Component {
                                             value="All Patients"
                                             iconCls="fa fa-align-left"
                                             onTouchTap={this.goToList}/>,
-                                <div key={1}>
-
-                                </div>
+                                <PatientList key="1"/>
                             ]
                 }
 
@@ -74,6 +74,7 @@ class Patients extends Component {
 
 Patients.propTypes = {
 
+    $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,
     $patientListActionType: PropTypes.string,
 
@@ -83,6 +84,7 @@ Patients.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
+        $groupListActionType: state.group.actionType,
         $patientList: state.patient.list,
         $patientListActionType: state.patient.actionType
     };
