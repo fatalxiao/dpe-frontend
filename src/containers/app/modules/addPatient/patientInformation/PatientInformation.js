@@ -20,13 +20,25 @@ class PatientInformation extends Component {
 
         super(props);
 
+        this.updateForm = ::this.updateForm;
         this.save = ::this.save;
 
     }
 
+    updateForm(field, value) {
+
+        const {$form, updatePatientInformation} = this.props;
+
+        updatePatientInformation({
+            ...$form,
+            [field]: value
+        });
+
+    }
+
     save() {
-        const {routerPush} = this.props;
-        routerPush('/app/add-patient/analgesia-data');
+        const {addPatient} = this.props;
+        addPatient();
     }
 
     componentDidMount() {
@@ -49,37 +61,45 @@ class PatientInformation extends Component {
                                                       data={$groupList}
                                                       valueField="id"
                                                       displayField="groupName"
-                                                      value={$form.groupId}/>
+                                                      value={$form.groupId}
+                                                      onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="ID"
-                                                 value={$form.id}/>
+                                                 value={$form.id}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Patient Name"
-                                                 value={$form.patientName}/>
+                                                 value={$form.patientName}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Age"
-                                                 value={$form.age}/>
+                                                 value={$form.age}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3 gestational-weeks"
                                                  label="Gestational Days"
                                                  rightIconCls="unit"
-                                                 value={gestationalWeeks || ''}/>
+                                                 value={gestationalWeeks || ''}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
                     <CustomizedMaterialTextField className="col-3 gestational-days"
                                                  label=" "
                                                  rightIconCls="unit"
-                                                 value={gestationalDays || ''}/>
+                                                 value={gestationalDays || ''}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3 height"
                                                  label="Height"
                                                  rightIconCls="unit"
-                                                 value={$form.height}/>
+                                                 value={$form.height}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
                     <CustomizedMaterialTextField className="col-3 weight"
                                                  label="Weight"
                                                  rightIconCls="unit"
-                                                 value={$form.weight}/>
+                                                 value={$form.weight}
+                                                 onChange={value => this.updateForm('groupId', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Heart Rate"
@@ -123,7 +143,9 @@ PatientInformation.propTypes = {
     $form: PropTypes.object,
 
     routerPush: PropTypes.func,
-    addPatientStepUpdate: PropTypes.func
+    addPatientStepUpdate: PropTypes.func,
+    addPatient: PropTypes.func,
+    updatePatientInformation: PropTypes.func
 
 };
 

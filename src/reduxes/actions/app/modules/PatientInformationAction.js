@@ -1,5 +1,11 @@
 import * as actionTypes from 'reduxes/actionTypes';
 import AddPatientApi from 'apis/app/modules/AddPatientApi';
+import {routerPush} from 'reduxes/actions/common/RouterAction';
+
+export const updatePatientInformation = form => ({
+    type: actionTypes.UPDATE_PATIENT_INFORMATION,
+    form
+});
 
 export const addPatient = () => (dispatch, getState) => {
     return dispatch({
@@ -10,7 +16,10 @@ export const addPatient = () => (dispatch, getState) => {
                 actionTypes.ADD_PATIENT_FAILURE
             ],
             api: AddPatientApi.addPatient,
-            params: getState().addPatientInformation.form
+            params: getState().addPatientInformation.form,
+            successCallback() {
+                routerPush('/app/add-patient/analgesia-data');
+            }
         }
     });
 };

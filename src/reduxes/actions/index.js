@@ -13,4 +13,5 @@ export * from './app/common/SensoryBlockAction';
 
 export * from './app/modules/PatientListAction';
 export * from './app/modules/AddPatientAction';
+export * from './app/modules/PatientInformationAction';
 export * from './app/modules/AnalgesiaDataAction';
