@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 import DEFAULT_MENU from 'src/config.menu';
+import Valid from './Valid';
 
 function getOffset(el) {
 
