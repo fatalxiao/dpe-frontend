@@ -6,6 +6,8 @@
     height: 100%;
     padding: 16px;
     background: $theme-secondary;
+    display: flex;
+    flex-direction: column;
 
     .add-patient-wrapper {
         text-align: center;
@@ -41,7 +43,7 @@
 
     .all-patients-button {
         font-size: 16px;
-        margin-right: 16px;
+        margin-bottom: 24px;
 
         .button-icon-left {
             margin-right: 16px;
@@ -49,8 +51,6 @@
     }
 
     &.no-patient {
-        display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
     }

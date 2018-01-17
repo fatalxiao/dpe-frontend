@@ -1,7 +1,8 @@
 @import '../../../../common';
 
 .patient-list {
-    margin-top: 24px;
+    flex: 1;
+    overflow-y: auto;
 
     .patient {
         width: 100%;
