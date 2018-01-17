@@ -41,4 +41,12 @@
             }
         }
     }
+
+    &.collapsed {
+        width: 64px;
+
+        .nav-inner {
+            width: 64px;
+        }
+    }
 }
