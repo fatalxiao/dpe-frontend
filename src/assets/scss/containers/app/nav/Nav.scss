@@ -1,40 +1,44 @@
 @import '../../../common';
 
 .nav {
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 64px+240px;
-    height: 100vh;
-    z-index: 90;
-    display: flex;
 
-    .nav-toggle {
-        position: absolute;
+    .nav-inner {
+        position: fixed;
+        left: 0;
         top: 0;
-        right: -16px;
-        box-sizing: border-box;
-        width: 17px;
-        height: 100%;
+        width: 64px+240px;
+        height: 100vh;
+        z-index: 90;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        cursor: pointer;
-        transition: opacity $theme-transition-duration ease-in-out;
-
-        .nav-toggle-icon {
-            color: $theme-highlight;
-            font-weight: 700;
-        }
-    }
-
-    &:hover {
 
         .nav-toggle {
-            border-left: 2px solid $theme-highlight;
-            opacity: 1;
+            position: absolute;
+            top: 0;
+            right: -16px;
+            box-sizing: border-box;
+            width: 17px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            cursor: pointer;
+            transition: opacity $theme-transition-duration ease-in-out;
+
+            .nav-toggle-icon {
+                color: $theme-highlight;
+                font-weight: 700;
+            }
+        }
+
+        &:hover {
+
+            .nav-toggle {
+                border-left: 2px solid $theme-highlight;
+                opacity: 1;
+            }
         }
     }
 }

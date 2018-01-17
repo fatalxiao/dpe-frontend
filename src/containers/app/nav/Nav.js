@@ -25,13 +25,17 @@ class Nav extends Component {
         return (
             <div className="nav">
 
-                <NavBar/>
+                <div className="nav-inner">
 
-                <Patients/>
+                    <NavBar/>
 
-                <div className="nav-toggle"
-                     onTouchTap={toggleNav}>
-                    <i className={'fa ' + toggleIconClassName + ' nav-toggle-icon'}></i>
+                    <Patients/>
+
+                    <div className="nav-toggle"
+                         onTouchTap={toggleNav}>
+                        <i className={'fa ' + toggleIconClassName + ' nav-toggle-icon'}></i>
+                    </div>
+
                 </div>
 
             </div>
