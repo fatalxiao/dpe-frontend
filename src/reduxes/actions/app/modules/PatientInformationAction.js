@@ -2,9 +2,10 @@ import * as actionTypes from 'reduxes/actionTypes';
 import AddPatientApi from 'apis/app/modules/AddPatientApi';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 
-export const updatePatientInformation = form => ({
-    type: actionTypes.UPDATE_PATIENT_INFORMATION,
-    form
+export const updatePatientInformationField = (fieldName, fieldValue) => ({
+    type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
+    fieldName,
+    fieldValue
 });
 
 export const addPatient = () => (dispatch, getState) => {

@@ -20,29 +20,7 @@ class PatientInformation extends Component {
 
         super(props);
 
-        this.updateForm = ::this.updateForm;
         this.save = ::this.save;
-
-    }
-
-    updateForm(field, value) {
-
-        const {$form, updatePatientInformation} = this.props,
-            form = {
-                ...$form
-            };
-
-        if (field === 'gestationalWeeks') {
-            const {days} = Util.days2weeksDays($form.gestationalDays);
-            form.gestationalDays = value * 7 + days;
-        } else if (field === 'gestationalDays') {
-            const {weeks} = Util.days2weeksDays($form.gestationalDays);
-            form.gestationalDays = weeks * 7 + value;
-        } else {
-            form[field] = value;
-        }
-
-        updatePatientInformation(form);
 
     }
 
@@ -57,9 +35,7 @@ class PatientInformation extends Component {
 
     render() {
 
-        const {$groupList, $form} = this.props,
-
-            {weeks: gestationalWeeks, days: gestationalDays} = Util.days2weeksDays($form.gestationalDays);
+        const {$groupList, $form, updatePatientInformationField: updateField} = this.props;
 
         return (
             <div className="patient-information">
@@ -71,78 +47,78 @@ class PatientInformation extends Component {
                                                       data={$groupList}
                                                       valueField="id"
                                                       displayField="groupName"
-                                                      value={$form.groupId}
-                                                      onChange={value => this.updateForm('groupId', value)}/>
+                                                      value={$form.group}
+                                                      onChange={value => updateField('group', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="ID"
                                                  value={$form.id}
-                                                 onChange={value => this.updateForm('id', value)}/>
+                                                 onChange={value => updateField('id', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Patient Name"
                                                  value={$form.patientName}
-                                                 onChange={value => this.updateForm('patientName', value)}/>
+                                                 onChange={value => updateField('patientName', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Age"
                                                  value={$form.age}
-                                                 onChange={value => this.updateForm('age', value)}/>
+                                                 onChange={value => updateField('age', value)}/>
 
                     <CustomizedMaterialTextField className="col-3 gestational-weeks"
                                                  label="Gestational Days"
                                                  rightIconCls="unit"
-                                                 value={gestationalWeeks || ''}
-                                                 onChange={value => this.updateForm('gestationalWeeks', value)}/>
+                                                 value={$form.gestationalDaysWeek}
+                                                 onChange={value => updateField('gestationalDaysWeek', value)}/>
                     <CustomizedMaterialTextField className="col-3 gestational-days"
                                                  label=" "
                                                  rightIconCls="unit"
-                                                 value={gestationalDays || ''}
-                                                 onChange={value => this.updateForm('gestationalDays', value)}/>
+                                                 value={$form.gestationalDaysDay}
+                                                 onChange={value => updateField('gestationalDaysDay', value)}/>
 
                     <CustomizedMaterialTextField className="col-3 height"
                                                  label="Height"
                                                  rightIconCls="unit"
                                                  value={$form.height}
-                                                 onChange={value => this.updateForm('height', value)}/>
+                                                 onChange={value => updateField('height', value)}/>
                     <CustomizedMaterialTextField className="col-3 weight"
                                                  label="Weight"
                                                  rightIconCls="unit"
                                                  value={$form.weight}
-                                                 onChange={value => this.updateForm('weight', value)}/>
+                                                 onChange={value => updateField('weight', value)}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Heart Rate"
                                                  value={$form.heartRate}
-                                                 onChange={value => this.updateForm('heartRate', value)}/>
+                                                 onChange={value => updateField('heartRate', value)}/>
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Initial Vas Score"
                                                  value={$form.initialVasScore}
-                                                 onChange={value => this.updateForm('initialVasScore', value)}/>
+                                                 onChange={value => updateField('initialVasScore', value)}/>
                     <CustomizedMaterialTextField className="col-6"
                                                  label="Cervical Dilation At Time Of EA"
                                                  value={$form.cervicalDilationAtTimeOfEA}
-                                                 onChange={value => this.updateForm('cervicalDilationAtTimeOfEA', value)}/>
+                                                 onChange={value => updateField('cervicalDilationAtTimeOfEA', value)}/>
 
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Systolic Blood Pressure"
                                                  value={$form.systolicBloodPressure}
-                                                 onChange={value => this.updateForm('systolicBloodPressure', value)}/>
+                                                 onChange={value => updateField('systolicBloodPressure', value)}/>
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Diastolic Blood Pressure"
                                                  value={$form.diastolicBloodPressure}
-                                                 onChange={value => this.updateForm('diastolicBloodPressure', value)}/>
+                                                 onChange={value => updateField('diastolicBloodPressure', value)}/>
                     <CustomizedMaterialTextField className="col-4"
                                                  label="Foetal Heart Rate"
                                                  value={$form.foetalHeartRate}
-                                                 onChange={value => this.updateForm('foetalHeartRate', value)}/>
+                                                 onChange={value => updateField('foetalHeartRate', value)}/>
 
                     <CustomizedMaterialTextArea className="col-12"
                                                 label="Description"
                                                 maxLength={1000}
                                                 wordCountVisible={true}
                                                 value={$form.description}
-                                                onChange={value => this.updateForm('description', value)}/>
+                                                onChange={value => updateField('description', value)}/>
 
                 </form>
 
@@ -162,7 +138,7 @@ PatientInformation.propTypes = {
     routerPush: PropTypes.func,
     addPatientStepUpdate: PropTypes.func,
     addPatient: PropTypes.func,
-    updatePatientInformation: PropTypes.func
+    updatePatientInformationField: PropTypes.func
 
 };
 
