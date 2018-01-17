@@ -33,13 +33,13 @@ class NavPatient extends Component {
 
     render() {
 
-        const {$groupListActionType, $patientList, $patientListActionType} = this.props,
+        const {$navCollapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
-            className = (hasNoPatient ? ' no-patient' : '');
+            wrapperClassName = ($navCollapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
 
         return (
-            <div className={'patients' + className}>
+            <div className={'nav-patient' + wrapperClassName}>
 
                 {
                     $groupListActionType === actionTypes.GET_GROUPS_REQUEST
@@ -74,6 +74,8 @@ class NavPatient extends Component {
 
 NavPatient.propTypes = {
 
+    $navCollapsed: PropTypes.bool,
+
     $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,
     $patientListActionType: PropTypes.string,
@@ -84,6 +86,7 @@ NavPatient.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
+        $navCollapsed: state.nav.collapsed,
         $groupListActionType: state.group.actionType,
         $patientList: state.patient.list,
         $patientListActionType: state.patient.actionType

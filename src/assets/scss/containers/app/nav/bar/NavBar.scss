@@ -3,6 +3,7 @@
 .nav-bar {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     box-sizing: border-box;
     width: 64px;
     height: 100%;

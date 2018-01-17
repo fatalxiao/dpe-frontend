@@ -33,13 +33,4 @@
             bottom: 0;
         }
     }
-
-    &.nav-menu-collapsed {
-        .patients {
-            width: 0;
-            padding: 0;
-            opacity: 0;
-        }
-    }
-
 }

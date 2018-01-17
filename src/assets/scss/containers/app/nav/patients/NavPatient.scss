@@ -1,6 +1,6 @@
 @import '../../../../common';
 
-.patients {
+.nav-patient {
     flex: 1;
     box-sizing: border-box;
     height: 100%;
@@ -8,6 +8,9 @@
     background: $theme-secondary;
     display: flex;
     flex-direction: column;
+    transition: transform $theme-transition-duration ease-in-out,
+    opacity ease-in-out $theme-transition-duration;
+    z-index: -1;
 
     .add-patient-wrapper {
         text-align: center;
@@ -53,5 +56,12 @@
     &.no-patient {
         align-items: center;
         justify-content: center;
+    }
+
+    &.collapsed {
+        transform: translateX(-200px);
+        opacity: 0;
+        transition: transform $theme-transition-duration ease-in-out,
+        opacity $theme-transition-duration ease-in-out;
     }
 }
