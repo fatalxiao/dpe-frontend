@@ -19,8 +19,9 @@ class Nav extends Component {
 
         super(props);
 
-        this.defaultWidth = 304;
-        this.minWidth = 64;
+        this.navBarWidth = 64;
+        this.navPatientWidth = 240;
+        this.defaultWidth = this.navBarWidth + this.navPatientWidth;
 
         this.resizing = false;
         this.startWidth = null;
@@ -55,11 +56,11 @@ class Nav extends Component {
         }
 
         const offsetX = e.pageX - this.mouseX,
-            navWidth = Valid.range(this.startWidth + offsetX, this.minWidth);
+            navWidth = Valid.range(this.startWidth + offsetX, this.navBarWidth);
 
         this.setState({
             navWidth,
-            navPatientCollapsed: navWidth < this.minWidth * 2
+            navPatientCollapsed: navWidth < this.navBarWidth * 2
         });
 
     }
@@ -75,7 +76,7 @@ class Nav extends Component {
         const {navWidth} = this.state;
 
         this.setState({
-            navWidth: navWidth === this.minWidth ? this.defaultWidth : this.minWidth
+            navWidth: navWidth === this.navBarWidth ? this.defaultWidth : this.navBarWidth
         });
 
     }
@@ -94,12 +95,12 @@ class Nav extends Component {
 
         const {navWidth, navPatientCollapsed} = this.state,
 
-            collapsed = navWidth === this.minWidth,
+            collapsed = navWidth === this.navBarWidth,
 
             toggleIconClassName = (collapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left'),
 
             style = {
-                width: collapsed ? this.minWidth : navWidth
+                width: collapsed ? this.navBarWidth : navWidth
             };
 
         return (
