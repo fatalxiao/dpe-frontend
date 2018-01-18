@@ -11,28 +11,4 @@
     color: #fff;
     background: $theme-primary;
     font-size: 24px;
-
-    .nav-bar-top,
-    .nav-bar-bottom {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-bar-item {
-        width: 32px;
-        height: 32px;
-        color: inherit;
-        padding: 0;
-        margin-bottom: 8px;
-
-        .button-icon {
-            vertical-align: baseline;
-        }
-
-        &:hover {
-            background: transparentize(#000, .9);
-        }
-    }
-
 }

@@ -1,19 +1,33 @@
 @import '../../../../common';
 
 .nav-bar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
     margin-bottom: 8px;
 
     .nav-bar-item {
         width: 40px;
         height: 40px;
-    }
+        color: inherit;
+        padding: 0;
+        margin-bottom: 8px;
 
-    .nav-bar-logo {
-        width: 48px;
-        height: 48px;
-        font-size: 16px !important;
-        font-weight: 700;
-        margin-bottom: 16px;
+        .button-icon {
+            vertical-align: baseline;
+        }
+
+        &.nav-bar-logo {
+            width: 48px;
+            height: 48px;
+            font-size: 16px !important;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        &:hover {
+            background: transparentize(#000, .9);
+        }
     }
 }

@@ -15,9 +15,7 @@ class NavBarBottom extends Component {
 
     render() {
         return (
-            <div className="nav-bar-bottom">
-
-            </div>
+            <div className="nav-bar-bottom"></div>
         );
     }
 }

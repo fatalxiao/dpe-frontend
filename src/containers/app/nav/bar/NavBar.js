@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import NavBarTop from './NavBarTop';
+import NavBarBottom from './NavBarBottom';
 
 import 'scss/containers/app/nav/bar/NavBar.scss';
 
@@ -17,14 +18,9 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className={'nav-bar' + wrapperClassName}>
-
+            <div className="nav-bar">
                 <NavBarTop/>
-
-                <div className="nav-bar-bottom">
-
-                </div>
-
+                <NavBarBottom/>
             </div>
         );
     }
