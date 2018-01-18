@@ -29,8 +29,14 @@ class PatientList extends Component {
 
         const {$groupList, $patientList} = this.props;
 
-        return (
-            <div className="patient-list">
+        return [
+            <FlatButton key="0"
+                        className="all-patients-button"
+                        value="All Patients"
+                        iconCls="fa fa-align-left"
+                        onTouchTap={this.goToList}/>,
+            <div key="1"
+                 className="patient-list">
 
                 {
                     $patientList.map((patient, index) => {
@@ -60,7 +66,7 @@ class PatientList extends Component {
                 }
 
             </div>
-        );
+        ];
 
     }
 }

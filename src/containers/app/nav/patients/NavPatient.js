@@ -58,14 +58,7 @@ class NavPatient extends Component {
                                     hasNoPatient ?
                                         <NoPatient/>
                                         :
-                                        [
-                                            <FlatButton key="0"
-                                                        className="all-patients-button"
-                                                        value="All Patients"
-                                                        iconCls="fa fa-align-left"
-                                                        onTouchTap={this.goToList}/>,
-                                            <PatientList key="1"/>
-                                        ]
+                                        <PatientList/>
                                 )
                         )
                 }
