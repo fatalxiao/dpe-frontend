@@ -75,13 +75,13 @@
                 }
             }
         }
+    }
 
-        &:hover {
-            .nav-resize {
-                right: -14px;
-                border-left: 2px solid $theme-highlight;
-                opacity: 1;
-            }
+    &:hover {
+        .nav-resize {
+            right: -14px;
+            border-left: 2px solid $theme-highlight;
+            opacity: 1;
         }
     }
 

@@ -75,7 +75,7 @@ class Nav extends Component {
 
         const {navWidth} = this.state;
 
-        const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 2;
+        const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 3;
 
         this.setState({
             isDragging: false,
