@@ -39,7 +39,7 @@ class NavPatient extends Component {
         const {isCollapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
-            wrapperClassName = (isCollapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
+            wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '');
 
         return (
             <div className={'nav-patient' + wrapperClassName}>

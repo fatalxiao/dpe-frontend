@@ -53,11 +53,11 @@
     }
 
     &.no-patient {
-        align-items: center;
         justify-content: center;
     }
 
     &.collapsed {
+        justify-content: flex-start;
         position: absolute;
         top: 0;
         right: 0;
