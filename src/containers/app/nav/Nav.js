@@ -28,6 +28,7 @@ class Nav extends Component {
         this.mouseX = null;
 
         this.state = {
+            isDragging: false,
             navWidth: this.defaultWidth,
             isNavPatientCollapsed: false,
             isNavPatientFold: false
@@ -60,6 +61,7 @@ class Nav extends Component {
             navWidth = Valid.range(this.startWidth + offsetX, this.navBarWidth);
 
         this.setState({
+            isDragging: true,
             navWidth,
             isNavPatientCollapsed: navWidth < this.navBarWidth * 2,
             isNavPatientFold: false
@@ -76,6 +78,7 @@ class Nav extends Component {
         const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 2;
 
         this.setState({
+            isDragging: false,
             navWidth: isFold ? this.navBarWidth : (navWidth < this.defaultWidth ? this.defaultWidth : navWidth),
             isNavPatientCollapsed: isFold,
             isNavPatientFold: isFold
@@ -107,9 +110,11 @@ class Nav extends Component {
 
     render() {
 
-        const {navWidth, isNavPatientCollapsed, isNavPatientFold} = this.state,
+        const {isDragging, navWidth, isNavPatientCollapsed, isNavPatientFold} = this.state,
 
             collapsed = navWidth === this.navBarWidth,
+
+            wrapperClassName = (isDragging ? ' dragging' : ''),
 
             toggleClassName = (collapsed ? ' collapsed' : ''),
 
@@ -118,7 +123,7 @@ class Nav extends Component {
             };
 
         return (
-            <div className="nav"
+            <div className={'nav' + wrapperClassName}
                  style={style}>
 
                 <div className="nav-inner"
