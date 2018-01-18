@@ -35,31 +35,4 @@
         }
     }
 
-    .nav-bar-top {
-        flex: 1;
-        margin-bottom: 8px;
-
-        .nav-bar-item {
-            width: 40px;
-            height: 40px;
-        }
-
-        .nav-bar-logo {
-            width: 48px;
-            height: 48px;
-            font-size: 16px !important;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-    }
-
-    .nav-bar-bottom {
-
-    }
-
-    &.collapsed {
-        color: $theme-field;
-        background: $theme-secondary;
-    }
-
 }

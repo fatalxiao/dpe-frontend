@@ -5,11 +5,9 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import NavBarTop from './NavBarTop';
+import 'scss/containers/app/nav/bar/NavBarBottom.scss';
 
-import 'scss/containers/app/nav/bar/NavBar.scss';
-
-class NavBar extends Component {
+class NavBarBottom extends Component {
 
     constructor(props) {
         super(props);
@@ -17,20 +15,14 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className={'nav-bar' + wrapperClassName}>
-
-                <NavBarTop/>
-
-                <div className="nav-bar-bottom">
-
-                </div>
+            <div className="nav-bar-bottom">
 
             </div>
         );
     }
 }
 
-NavBar.propTypes = {};
+NavBarBottom.propTypes = {};
 
 function mapStateToProps(state, ownProps) {
     return {};
@@ -40,4 +32,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarBottom);

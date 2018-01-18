@@ -34,10 +34,10 @@ class NavPatient extends Component {
 
     render() {
 
-        const {collapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
+        const {isCollapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
-            wrapperClassName = (collapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
+            wrapperClassName = (isCollapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
 
         return (
             <div className={'nav-patient' + wrapperClassName}>
@@ -48,7 +48,7 @@ class NavPatient extends Component {
                         <CircularLoading/>
                         :
                         (
-                            collapsed ?
+                            isCollapsed ?
                                 <IconButton className="all-patients-menu-item"
                                             iconCls="icon-list"
                                             tip="All Patients"
@@ -86,7 +86,8 @@ class NavPatient extends Component {
 
 NavPatient.propTypes = {
 
-    collapsed: PropTypes.bool,
+    isCollapsed: PropTypes.bool,
+    isFold: PropTypes.bool,
 
     $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,

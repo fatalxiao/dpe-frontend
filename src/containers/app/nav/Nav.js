@@ -29,7 +29,8 @@ class Nav extends Component {
 
         this.state = {
             navWidth: this.defaultWidth,
-            navPatientCollapsed: false
+            isNavPatientCollapsed: false,
+            isNavPatientFold: false
         };
 
         this.toggleMouseDownHandler = ::this.toggleMouseDownHandler;
@@ -60,13 +61,26 @@ class Nav extends Component {
 
         this.setState({
             navWidth,
-            navPatientCollapsed: navWidth < this.navBarWidth * 2
+            isNavPatientCollapsed: navWidth < this.navBarWidth * 2,
+            isNavPatientFold: false
         });
 
     }
 
     mouseUpHandler() {
+
         this.resizing = false;
+
+        const {navWidth} = this.state;
+
+        const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 2;
+
+        this.setState({
+            navWidth: isFold ? this.navBarWidth : this.defaultWidth,
+            isNavPatientCollapsed: isFold,
+            isNavPatientFold: isFold
+        });
+
     }
 
     toggleNav(e) {
@@ -93,7 +107,7 @@ class Nav extends Component {
 
     render() {
 
-        const {navWidth, navPatientCollapsed} = this.state,
+        const {navWidth, isNavPatientCollapsed, isNavPatientFold} = this.state,
 
             collapsed = navWidth === this.navBarWidth,
 
@@ -112,7 +126,8 @@ class Nav extends Component {
 
                     <NavBar/>
 
-                    <NavPatient collapsed={navPatientCollapsed}/>
+                    <NavPatient isCollapsed={isNavPatientCollapsed}
+                                isFold={isNavPatientFold}/>
 
                     <div className="nav-toggle"
                          onMouseDown={this.toggleMouseDownHandler}>
