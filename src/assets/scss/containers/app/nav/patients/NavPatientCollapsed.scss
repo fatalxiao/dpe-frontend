@@ -5,11 +5,30 @@
     flex-direction: column;
     align-items: center;
 
-    .icon-button.all-patients-menu-item {
-        border-radius: $theme-border-radius;
-        width: 48px;
-        height: 40px;
-        font-size: 24px !important;
-        text-align: center;
+    .nav-patient-collapsed-menu {
+
+        .icon-button.all-patients-menu-item {
+            border-radius: $theme-border-radius;
+            width: 48px;
+            height: 40px;
+            font-size: 24px !important;
+            text-align: center;
+        }
     }
+
+    &.fold {
+        .nav-patient-collapsed-menu {
+            margin-top: 8px;
+
+            &::before {
+                content: "";
+                display: block;
+                width: 60%;
+                height: 1px;
+                margin: 0 auto 16px;
+                background: darken($theme-border, 4%);
+            }
+        }
+    }
+
 }
