@@ -1,14 +1,12 @@
 @import '../../../common';
 
 .nav {
-    width: 64px+240px;
     transition: width $theme-transition-duration ease-in-out;
 
     .nav-inner {
         position: fixed;
         left: 0;
         top: 0;
-        width: 64px+240px;
         height: 100vh;
         z-index: 90;
         display: flex;
@@ -32,7 +30,7 @@
             .nav-toggle-icon {
                 width: 16px;
                 text-align: center;
-                line-height: 24px;
+                line-height: 36px;
                 color: $theme-highlight;
                 font-weight: 700;
                 cursor: pointer;
@@ -46,14 +44,6 @@
                 border-left: 2px solid $theme-highlight;
                 opacity: 1;
             }
-        }
-    }
-
-    &.collapsed {
-        width: 64px;
-
-        .nav-inner {
-            width: 64px;
         }
     }
 }

@@ -13,20 +13,36 @@ import 'scss/containers/app/nav/Nav.scss';
 class Nav extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.minWidth = 304;
+        this.collapsedWidth = 64;
+
+        this.state = {
+            navWidth: this.minWidth
+        };
+
     }
 
     render() {
 
         const {$navCollapsed, toggleNav} = this.props,
+            {navWidth} = this.state,
 
             wrapperClassName = ($navCollapsed ? ' collapsed' : ''),
-            toggleIconClassName = ($navCollapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left');
+            toggleIconClassName = ($navCollapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left'),
+
+            style = {
+                width: $navCollapsed ? this.collapsedWidth : navWidth
+            };
 
         return (
-            <div className={'nav' + wrapperClassName}>
+            <div className={'nav' + wrapperClassName}
+                 style={style}>
 
-                <div className="nav-inner">
+                <div className="nav-inner"
+                     style={style}>
 
                     <NavBar/>
 
