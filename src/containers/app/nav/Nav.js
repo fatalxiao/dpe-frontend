@@ -76,7 +76,7 @@ class Nav extends Component {
         const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 2;
 
         this.setState({
-            navWidth: isFold ? this.navBarWidth : this.defaultWidth,
+            navWidth: isFold ? this.navBarWidth : (navWidth < this.defaultWidth ? this.defaultWidth : navWidth),
             isNavPatientCollapsed: isFold,
             isNavPatientFold: isFold
         });
