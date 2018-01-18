@@ -28,7 +28,13 @@ class NavPatientCollapsed extends Component {
 
     render() {
 
-        const {isFold} = this.props;
+        const {isFold} = this.props,
+
+            menu = <IconButton className="all-patients-menu-item"
+                               iconCls="icon-list"
+                               tip="All Patients"
+                               tipPosition={IconButton.TipPosition.RIGHT}
+                               onTouchTap={this.goToList}/>;
 
         return (
             <div className="nav-patient-collapsed">
@@ -37,20 +43,12 @@ class NavPatientCollapsed extends Component {
                     isFold ?
                         [
                             <NavBarTop key="0">
-                                <IconButton className="all-patients-menu-item"
-                                            iconCls="icon-list"
-                                            tip="All Patients"
-                                            tipPosition={IconButton.TipPosition.RIGHT}
-                                            onTouchTap={this.goToList}/>
+                                {menu}
                             </NavBarTop>,
                             <NavBarBottom key="1"/>
                         ]
                         :
-                        <IconButton className="all-patients-menu-item"
-                                    iconCls="icon-list"
-                                    tip="All Patients"
-                                    tipPosition={IconButton.TipPosition.RIGHT}
-                                    onTouchTap={this.goToList}/>
+                        menu
                 }
 
             </div>
