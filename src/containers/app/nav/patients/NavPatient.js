@@ -8,6 +8,7 @@ import * as actionTypes from 'reduxes/actionTypes';
 
 import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
+import IconButton from 'alcedo-ui/IconButton';
 import PatientList from './PatientList';
 
 import 'scss/containers/app/nav/patients/NavPatient.scss';
@@ -33,10 +34,10 @@ class NavPatient extends Component {
 
     render() {
 
-        const {$navCollapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
+        const {collapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
-            wrapperClassName = ($navCollapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
+            wrapperClassName = (collapsed ? ' collapsed' : '') + (hasNoPatient ? ' no-patient' : '');
 
         return (
             <div className={'nav-patient' + wrapperClassName}>
@@ -46,25 +47,36 @@ class NavPatient extends Component {
                     || $patientListActionType === actionTypes.GET_PATIENTS_REQUEST ?
                         <CircularLoading/>
                         :
-                        hasNoPatient ?
-                            <div className="add-patient-wrapper">
+                        (
+                            collapsed ?
+                                <IconButton className="all-patients-menu-item"
+                                            iconCls="icon-list"
+                                            tip="All Patients"
+                                            tipPosition={IconButton.TipPosition.RIGHT}
+                                            onTouchTap={this.goToList}/>
+                                :
+                                (
+                                    hasNoPatient ?
+                                        <div className="add-patient-wrapper">
 
-                                <i className="icon-plus add-patient-icon"
-                                   onTouchTap={this.addPatient}></i>
+                                            <i className="icon-plus add-patient-icon"
+                                               onTouchTap={this.addPatient}></i>
 
-                                You have no patient now.<br/>
-                                Would you <span className="add-patient-button"
-                                                onTouchTap={this.addPatient}>Add A Patient</span> ?
-                            </div>
-                            :
-                            [
-                                <FlatButton key="0"
-                                            className="all-patients-button"
-                                            value="All Patients"
-                                            iconCls="fa fa-align-left"
-                                            onTouchTap={this.goToList}/>,
-                                <PatientList key="1"/>
-                            ]
+                                            You have no patient now.<br/>
+                                            Would you <span className="add-patient-button"
+                                                            onTouchTap={this.addPatient}>Add A Patient</span> ?
+                                        </div>
+                                        :
+                                        [
+                                            <FlatButton key="0"
+                                                        className="all-patients-button"
+                                                        value="All Patients"
+                                                        iconCls="fa fa-align-left"
+                                                        onTouchTap={this.goToList}/>,
+                                            <PatientList key="1"/>
+                                        ]
+                                )
+                        )
                 }
 
             </div>
@@ -74,7 +86,7 @@ class NavPatient extends Component {
 
 NavPatient.propTypes = {
 
-    $navCollapsed: PropTypes.bool,
+    collapsed: PropTypes.bool,
 
     $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,
@@ -86,7 +98,6 @@ NavPatient.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $navCollapsed: state.nav.collapsed,
         $groupListActionType: state.group.actionType,
         $patientList: state.patient.list,
         $patientListActionType: state.patient.actionType

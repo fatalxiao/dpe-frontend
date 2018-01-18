@@ -6,7 +6,6 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import FlatButton from 'alcedo-ui/FlatButton';
-import TouchRipple from 'alcedo-ui/TouchRipple';
 
 import Util from 'vendors/Util';
 

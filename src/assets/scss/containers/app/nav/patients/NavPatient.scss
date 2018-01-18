@@ -4,14 +4,20 @@
     flex: 1;
     box-sizing: border-box;
     height: 100%;
-    padding: 16px;
+    padding: 16px 0;
     background: $theme-secondary;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform $theme-transition-duration ease-in-out,
-    opacity ease-in-out $theme-transition-duration;
-    z-index: -1;
+    align-items: center;
+
+    .all-patients-menu-item {
+        border-radius: $theme-border-radius;
+        width: 48px !important;
+        height: 40px !important;
+        font-size: 24px !important;
+        text-align: center !important;
+    }
 
     .add-patient-wrapper {
         text-align: center;
@@ -60,9 +66,9 @@
     }
 
     &.collapsed {
-        transform: translateX(-200px);
-        opacity: 0;
-        transition: transform $theme-transition-duration ease-in-out,
-        opacity $theme-transition-duration ease-in-out;
+        width: 64px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }

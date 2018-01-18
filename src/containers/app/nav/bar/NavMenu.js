@@ -28,11 +28,11 @@ class NavMenu extends Component {
                     menu.map((item, index) => (
                         <IconButton key={index}
                                     className="nav-bar-item"
-                                    iconCls={item.iconCls}
-                                    tip={item.tip}
+                                    iconCls="icon-list"
+                                    tip="All Patients"
                                     tipPosition={IconButton.TipPosition.RIGHT}
                                     onTouchTap={() => {
-                                        item.route && routerPush(item.route);
+                                        routerPush('/app/patient-list');
                                     }}/>
                     ))
                 }
