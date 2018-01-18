@@ -29,44 +29,47 @@ class PatientList extends Component {
 
         const {$groupList, $patientList} = this.props;
 
-        return [
-            <FlatButton key="0"
-                        className="all-patients-button"
-                        value="All Patients"
-                        iconCls="fa fa-align-left"
-                        onTouchTap={this.goToList}/>,
-            <div key="1"
-                 className="patient-list">
+        return (
+            <div className="patient-list-wrapper">
 
-                {
-                    $patientList.map((patient, index) => {
+                <FlatButton className="all-patients-button"
+                            value="All Patients"
+                            iconCls="fa fa-align-left"
+                            onTouchTap={this.goToList}/>
 
-                        const groupName = $groupList.find(item => item.id === patient.groupId).groupName,
+                <div className="patient-list">
 
-                            {weeks, days} = Util.days2weeksDays(patient.gestationalDays),
-                            desc = [patient.id, `${weeks}w + ${days}d`].join('  ·  ');
+                    {
+                        $patientList.map((patient, index) => {
 
-                        return (
-                            <FlatButton key={index}
-                                        className="patient">
+                            const groupName = $groupList.find(item => item.id === patient.groupId).groupName,
 
-                                <div className="patient-name">
-                                    {patient.patientName}
-                                    <span className="patient-group"> ({groupName})</span>
-                                </div>
+                                {weeks, days} = Util.days2weeksDays(patient.gestationalDays),
+                                desc = [patient.id, `${weeks}w + ${days}d`].join('  ·  ');
 
-                                <div className="patient-desc">
-                                    {desc}
-                                </div>
+                            return (
+                                <FlatButton key={index}
+                                            className="patient">
 
-                            </FlatButton>
-                        );
+                                    <div className="patient-name">
+                                        {patient.patientName}
+                                        <span className="patient-group"> ({groupName})</span>
+                                    </div>
 
-                    })
-                }
+                                    <div className="patient-desc">
+                                        {desc}
+                                    </div>
+
+                                </FlatButton>
+                            );
+
+                        })
+                    }
+
+                </div>
 
             </div>
-        ];
+        );
 
     }
 }

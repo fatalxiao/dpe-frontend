@@ -11,47 +11,6 @@
     flex-direction: column;
     align-items: center;
 
-    .add-patient-wrapper {
-        text-align: center;
-        line-height: 24px;
-
-        .add-patient-icon {
-            display: block;
-            font-size: 96px;
-            color: $theme-description;
-            cursor: pointer;
-        }
-
-        .add-patient-button {
-            color: $theme-highlight;
-            cursor: pointer;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    .base-button {
-        width: 100%;
-        height: 48px;
-        text-align: left;
-        padding: 0 16px;
-
-        &:hover {
-            background: transparentize($theme-primary, .9);
-        }
-    }
-
-    .all-patients-button {
-        font-size: 16px;
-        margin-bottom: 24px;
-
-        .button-icon-left {
-            margin-right: 16px;
-        }
-    }
-
     &.no-patient {
         justify-content: center;
     }
