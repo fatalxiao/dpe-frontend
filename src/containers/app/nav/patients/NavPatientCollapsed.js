@@ -30,9 +30,13 @@ class NavPatientCollapsed extends Component {
 
         const {isFold} = this.props,
 
-            wrapperClassName = (isFold ? ' fold' : ''),
+            wrapperClassName = (isFold ? ' fold' : '');
 
-            menu = (
+        return (
+            <div className={'nav-patient-collapsed' + wrapperClassName}>
+
+                <NavBarTop/>
+
                 <div className="nav-patient-collapsed-menu">
                     <IconButton className="all-patients-menu-item"
                                 iconCls="icon-list"
@@ -40,22 +44,8 @@ class NavPatientCollapsed extends Component {
                                 tipPosition={IconButton.TipPosition.RIGHT}
                                 onTouchTap={this.goToList}/>
                 </div>
-            );
 
-        return (
-            <div className={'nav-patient-collapsed' + wrapperClassName}>
-
-                {
-                    isFold ?
-                        [
-                            <NavBarTop key="0">
-                                {menu}
-                            </NavBarTop>,
-                            <NavBarBottom key="1"/>
-                        ]
-                        :
-                        menu
-                }
+                <NavBarBottom/>
 
             </div>
         );
