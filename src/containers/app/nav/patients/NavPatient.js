@@ -19,20 +19,7 @@ import 'scss/containers/app/nav/patients/NavPatient.scss';
 class NavPatient extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.goToList = ::this.goToList;
-        this.addPatient = ::this.addPatient;
-
-    }
-
-    goToList() {
-        this.props.routerPush('/app/patient-list');
-    }
-
-    addPatient() {
-        this.props.routerPush('/app/add-patient');
     }
 
     render() {
