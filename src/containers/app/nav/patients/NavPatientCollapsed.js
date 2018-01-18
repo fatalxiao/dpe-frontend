@@ -7,6 +7,9 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 
+import NavBarTop from '../bar/NavBarTop';
+import NavBarBottom from '../bar/NavBarBottom';
+
 import 'scss/containers/app/nav/patients/NavPatientCollapsed.scss';
 
 class NavPatientCollapsed extends Component {
@@ -24,20 +27,43 @@ class NavPatientCollapsed extends Component {
     }
 
     render() {
+
+        const {isFold} = this.props;
+
         return (
             <div className="nav-patient-collapsed">
-                <IconButton className="all-patients-menu-item"
-                            iconCls="icon-list"
-                            tip="All Patients"
-                            tipPosition={IconButton.TipPosition.RIGHT}
-                            onTouchTap={this.goToList}/>
+
+                {
+                    isFold ?
+                        [
+                            <NavBarTop key="0">
+                                <IconButton className="all-patients-menu-item"
+                                            iconCls="icon-list"
+                                            tip="All Patients"
+                                            tipPosition={IconButton.TipPosition.RIGHT}
+                                            onTouchTap={this.goToList}/>
+                            </NavBarTop>,
+                            <NavBarBottom key="1"/>
+                        ]
+                        :
+                        <IconButton className="all-patients-menu-item"
+                                    iconCls="icon-list"
+                                    tip="All Patients"
+                                    tipPosition={IconButton.TipPosition.RIGHT}
+                                    onTouchTap={this.goToList}/>
+                }
+
             </div>
         );
     }
 }
 
 NavPatientCollapsed.propTypes = {
+
+    isFold: PropTypes.bool,
+
     routerPush: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {

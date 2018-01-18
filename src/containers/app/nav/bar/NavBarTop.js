@@ -31,6 +31,9 @@ class NavBarTop extends Component {
     }
 
     render() {
+
+        const {children} = this.props;
+
         return (
             <div className="nav-bar-top">
 
@@ -48,8 +51,11 @@ class NavBarTop extends Component {
                             onTouchTap={this.addPatient}>
                 </IconButton>
 
+                {children}
+
             </div>
         );
+
     }
 }
 

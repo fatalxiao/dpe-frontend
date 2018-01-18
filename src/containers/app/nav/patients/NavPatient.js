@@ -24,7 +24,7 @@ class NavPatient extends Component {
 
     render() {
 
-        const {isCollapsed, $groupListActionType, $patientList, $patientListActionType} = this.props,
+        const {isCollapsed, isFold, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
             wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '');
@@ -39,7 +39,7 @@ class NavPatient extends Component {
                         :
                         (
                             isCollapsed ?
-                                <NavPatientCollapsed/>
+                                <NavPatientCollapsed isFold={isFold}/>
                                 :
                                 (
                                     hasNoPatient ?
