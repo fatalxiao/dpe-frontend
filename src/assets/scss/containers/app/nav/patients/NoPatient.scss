@@ -3,6 +3,7 @@
 .no-patient {
     text-align: center;
     line-height: 24px;
+    flex-shrink: 0;
 
     .add-patient-icon {
         display: block;

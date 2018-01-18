@@ -11,6 +11,7 @@ import CircularLoading from 'alcedo-ui/CircularLoading';
 import IconButton from 'alcedo-ui/IconButton';
 
 import NavPatientCollapsed from './NavPatientCollapsed';
+import NoPatient from './NoPatient';
 import PatientList from './PatientList';
 
 import 'scss/containers/app/nav/patients/NavPatient.scss';
@@ -55,15 +56,7 @@ class NavPatient extends Component {
                                 :
                                 (
                                     hasNoPatient ?
-                                        <div className="add-patient-wrapper">
-
-                                            <i className="icon-plus add-patient-icon"
-                                               onTouchTap={this.addPatient}></i>
-
-                                            You have no patient now.<br/>
-                                            Would you <span className="add-patient-button"
-                                                            onTouchTap={this.addPatient}>Add A Patient</span> ?
-                                        </div>
+                                        <NoPatient/>
                                         :
                                         [
                                             <FlatButton key="0"
