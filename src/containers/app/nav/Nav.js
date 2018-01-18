@@ -111,7 +111,7 @@ class Nav extends Component {
 
             collapsed = navWidth === this.navBarWidth,
 
-            toggleIconClassName = (collapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left'),
+            toggleClassName = (collapsed ? ' collapsed' : ''),
 
             style = {
                 width: collapsed ? this.navBarWidth : navWidth
@@ -129,11 +129,11 @@ class Nav extends Component {
                     <NavPatient isCollapsed={isNavPatientCollapsed}
                                 isFold={isNavPatientFold}/>
 
-                    <div className="nav-toggle"
+                    <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}>
-                        <i className={toggleIconClassName + ' nav-toggle-icon'}
-                           onMouseDown={e => e.stopPropagation()}
-                           onTouchTap={this.toggleNav}></i>
+                        <div className={'nav-toggle' + toggleClassName}
+                             onMouseDown={e => e.stopPropagation()}
+                             onTouchTap={this.toggleNav}></div>
                     </div>
 
                 </div>

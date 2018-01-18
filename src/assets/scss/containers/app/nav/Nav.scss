@@ -10,7 +10,7 @@
         z-index: 90;
         display: flex;
 
-        .nav-toggle {
+        .nav-resize {
             position: absolute;
             top: 0;
             right: -16px;
@@ -19,26 +19,64 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
             opacity: 0;
             cursor: ew-resize;
             transition: opacity $theme-transition-duration ease-in-out;
 
-            .nav-toggle-icon {
+            .nav-toggle {
+                box-sizing: border-box;
                 width: 16px;
-                text-align: center;
-                line-height: 36px;
-                color: $theme-highlight;
-                font-weight: 700;
+                height: 36px;
+                padding: 10px 7px;
                 cursor: pointer;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: relative;
+                    display: block;
+                    width: 2px;
+                    height: 8px;
+                    background-color: $theme-highlight;
+                    border-radius: 16px;
+                    transition: transform $theme-transition-duration ease-in-out;
+                }
+
+                &::before {
+                    top: 1px;
+                    transform-origin: 1px 7px;
+                }
+
+                &::after {
+                    top: -1px;
+                    transform-origin: 1px 1px;
+                }
+
+                &:hover {
+
+                    &::before {
+                        transform: rotate(40deg);
+                    }
+                    &::after {
+                        transform: rotate(-40deg);
+                    }
+
+                    &.collapsed {
+                        &::before {
+                            transform: rotate(-40deg);
+                        }
+                        &::after {
+                            transform: rotate(40deg);
+                        }
+                    }
+                }
             }
         }
 
         &:hover {
-
-            .nav-toggle {
-                right: -15px;
+            .nav-resize {
+                right: -14px;
                 border-left: 2px solid $theme-highlight;
                 opacity: 1;
             }
