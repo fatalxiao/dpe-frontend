@@ -9,6 +9,8 @@ import * as actionTypes from 'reduxes/actionTypes';
 import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
 import IconButton from 'alcedo-ui/IconButton';
+
+import NavPatientCollapsed from './NavPatientCollapsed';
 import PatientList from './PatientList';
 
 import 'scss/containers/app/nav/patients/NavPatient.scss';
@@ -49,11 +51,7 @@ class NavPatient extends Component {
                         :
                         (
                             isCollapsed ?
-                                <IconButton className="all-patients-menu-item"
-                                            iconCls="icon-list"
-                                            tip="All Patients"
-                                            tipPosition={IconButton.TipPosition.RIGHT}
-                                            onTouchTap={this.goToList}/>
+                                <NavPatientCollapsed/>
                                 :
                                 (
                                     hasNoPatient ?

@@ -1,0 +1,15 @@
+@import '../../../../common';
+
+.nav-patient-collapsed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icon-button.all-patients-menu-item {
+        border-radius: $theme-border-radius;
+        width: 48px;
+        height: 40px;
+        font-size: 24px !important;
+        text-align: center;
+    }
+}
