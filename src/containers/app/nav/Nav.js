@@ -6,7 +6,10 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import NavBar from './bar/NavBar';
-import Patients from './patients/NavPatient';
+import NavPatient from './patients/NavPatient';
+
+import Event from 'vendors/Event';
+import Valid from 'vendors/Valid';
 
 import 'scss/containers/app/nav/Nav.scss';
 
@@ -16,29 +19,91 @@ class Nav extends Component {
 
         super(props);
 
-        this.minWidth = 304;
-        this.collapsedWidth = 64;
+        this.defaultWidth = 304;
+        this.minWidth = 64;
+
+        this.resizing = false;
+        this.startWidth = null;
+        this.mouseX = null;
 
         this.state = {
-            navWidth: this.minWidth
+            navWidth: this.defaultWidth,
+            navPatientCollapsed: false
         };
 
+        this.toggleMouseDownHandler = ::this.toggleMouseDownHandler;
+        this.mouseMoveHandler = ::this.mouseMoveHandler;
+        this.mouseUpHandler = ::this.mouseUpHandler;
+        this.toggleNav = ::this.toggleNav;
+
+    }
+
+    toggleMouseDownHandler(e) {
+
+        e.stopPropagation();
+
+        this.resizing = true;
+        this.startWidth = this.state.navWidth;
+        this.mouseX = e.pageX;
+
+    }
+
+    mouseMoveHandler(e) {
+
+        if (!this.resizing) {
+            return;
+        }
+
+        const offsetX = e.pageX - this.mouseX,
+            navWidth = Valid.range(this.startWidth + offsetX, this.minWidth);
+
+        this.setState({
+            navWidth,
+            navPatientCollapsed: navWidth < this.minWidth * 2
+        });
+
+    }
+
+    mouseUpHandler() {
+        this.resizing = false;
+    }
+
+    toggleNav(e) {
+
+        e.stopPropagation();
+
+        const {navWidth} = this.state;
+
+        this.setState({
+            navWidth: navWidth === this.minWidth ? this.defaultWidth : this.minWidth
+        });
+
+    }
+
+    componentDidMount() {
+        Event.addEvent(document, 'mousemove', this.mouseMoveHandler);
+        Event.addEvent(document, 'mouseup', this.mouseUpHandler);
+    }
+
+    componentWillUnmount() {
+        Event.removeEvent(document, 'mousemove', this.mouseMoveHandler);
+        Event.removeEvent(document, 'mouseup', this.mouseUpHandler);
     }
 
     render() {
 
-        const {$navCollapsed, toggleNav} = this.props,
-            {navWidth} = this.state,
+        const {navWidth, navPatientCollapsed} = this.state,
 
-            wrapperClassName = ($navCollapsed ? ' collapsed' : ''),
-            toggleIconClassName = ($navCollapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left'),
+            collapsed = navWidth === this.minWidth,
+
+            toggleIconClassName = (collapsed ? 'icon-chevron-thin-right' : 'icon-chevron-thin-left'),
 
             style = {
-                width: $navCollapsed ? this.collapsedWidth : navWidth
+                width: collapsed ? this.minWidth : navWidth
             };
 
         return (
-            <div className={'nav' + wrapperClassName}
+            <div className="nav"
                  style={style}>
 
                 <div className="nav-inner"
@@ -46,11 +111,13 @@ class Nav extends Component {
 
                     <NavBar/>
 
-                    <Patients/>
+                    <NavPatient collapsed={navPatientCollapsed}/>
 
-                    <div className="nav-toggle">
+                    <div className="nav-toggle"
+                         onMouseDown={this.toggleMouseDownHandler}>
                         <i className={toggleIconClassName + ' nav-toggle-icon'}
-                           onTouchTap={toggleNav}></i>
+                           onMouseDown={e => e.stopPropagation()}
+                           onTouchTap={this.toggleNav}></i>
                     </div>
 
                 </div>
@@ -60,18 +127,10 @@ class Nav extends Component {
     }
 }
 
-Nav.propTypes = {
-
-    $navCollapsed: PropTypes.bool,
-
-    toggleNav: PropTypes.func
-
-};
+Nav.propTypes = {};
 
 function mapStateToProps(state, ownProps) {
-    return {
-        $navCollapsed: state.nav.collapsed
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
