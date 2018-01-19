@@ -7,9 +7,6 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 
-import NavBarTop from '../bar/NavBarTop';
-import NavBarBottom from '../bar/NavBarBottom';
-
 import 'scss/containers/app/nav/patients/NavPatientCollapsed.scss';
 
 class NavPatientCollapsed extends Component {
@@ -33,20 +30,12 @@ class NavPatientCollapsed extends Component {
             wrapperClassName = (isFold ? ' fold' : '');
 
         return (
-            <div className={'nav-patient-collapsed' + wrapperClassName}>
-
-                <NavBarTop/>
-
-                <div className="nav-patient-collapsed-menu">
-                    <IconButton className="all-patients-menu-item"
-                                iconCls="icon-list"
-                                tip="All Patients"
-                                tipPosition={IconButton.TipPosition.RIGHT}
-                                onTouchTap={this.goToList}/>
-                </div>
-
-                <NavBarBottom/>
-
+            <div className={'nav-patient-menu' + wrapperClassName}>
+                <IconButton className="all-patients-menu-item"
+                            iconCls="icon-list"
+                            tip="All Patients"
+                            tipPosition={IconButton.TipPosition.RIGHT}
+                            onTouchTap={this.goToList}/>
             </div>
         );
     }

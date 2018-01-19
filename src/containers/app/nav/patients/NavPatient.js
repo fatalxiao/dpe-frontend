@@ -10,7 +10,7 @@ import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
 import IconButton from 'alcedo-ui/IconButton';
 
-import NavPatientCollapsed from './NavPatientCollapsed';
+import NavPatientCollapsed from './NavPatientMenu';
 import NoPatient from './NoPatient';
 import PatientList from './PatientList';
 
@@ -27,7 +27,8 @@ class NavPatient extends Component {
         const {isCollapsed, isFold, $groupListActionType, $patientList, $patientListActionType} = this.props,
 
             hasNoPatient = !$patientList || $patientList.length < 1,
-            wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '');
+            wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '')
+                + (isFold ? ' fold' : '');
 
         return (
             <div className={'nav-patient' + wrapperClassName}>

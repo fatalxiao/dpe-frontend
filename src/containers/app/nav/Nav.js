@@ -149,7 +149,8 @@ export default class Nav extends Component {
                 <div className="nav-inner"
                      style={innerStyle}>
 
-                    <NavBar/>
+                    <NavBar isCollapsed={isNavPatientCollapsed}
+                            isFold={isNavPatientFold}/>
 
                     <NavPatient isCollapsed={isNavPatientCollapsed}
                                 isFold={isNavPatientFold}/>

@@ -24,4 +24,9 @@
         padding-left: 0;
         padding-right: 0;
     }
+
+    &.fold {
+        left: -999px;
+        transition: left 0s $theme-transition-duration;
+    }
 }
