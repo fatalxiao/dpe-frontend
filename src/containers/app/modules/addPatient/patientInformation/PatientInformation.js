@@ -41,12 +41,12 @@ class PatientInformation extends Component {
 
         const {$form} = this.props;
 
-        // if (!$form.groupId || !$form.id || !$form.patientName) {
-        //     this.setState({
-        //         errorMsg: 'Group ID, ID and Patient Name is required!'
-        //     });
-        //     return;
-        // }
+        if (!$form.groupId || !$form.id || !$form.patientName) {
+            this.setState({
+                errorMsg: 'Group ID, ID and Patient Name is required!'
+            });
+            return;
+        }
 
         const {addPatient} = this.props;
         addPatient();

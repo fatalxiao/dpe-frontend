@@ -28,9 +28,9 @@ export const addPatient = () => (dispatch, getState) => {
             description: form.description
         };
 
-    // if (!params.groupId || !params.id) {
-    //     return;
-    // }
+    if (!params.groupId || !params.id || !params.patientName) {
+        return;
+    }
 
     return dispatch({
         [actionTypes.CALL_API]: {
