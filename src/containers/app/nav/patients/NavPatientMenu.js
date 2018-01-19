@@ -7,7 +7,7 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 
-import 'scss/containers/app/nav/patients/NavPatientCollapsed.scss';
+import 'scss/containers/app/nav/patients/NavPatientMenu.scss';
 
 class NavPatientCollapsed extends Component {
 
