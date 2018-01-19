@@ -20,13 +20,28 @@ class PatientInformation extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
         this.save = ::this.save;
 
     }
 
     save() {
+
+        const {$form} = this.props;
+
+        if (!$form.groupId || !$form.id) {
+            this.setState({
+                errorMsg: 'Group ID and ID is required!'
+            });
+            return;
+        }
+
         const {addPatient} = this.props;
         addPatient();
+
     }
 
     componentDidMount() {
@@ -48,12 +63,14 @@ class PatientInformation extends Component {
                                                       valueField="id"
                                                       displayField="groupName"
                                                       value={$form.group}
-                                                      onChange={value => updateField('group', value)}/>
+                                                      onChange={value => updateField('group', value)}
+                                                      required={true}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="ID"
                                                  value={$form.id}
-                                                 onChange={value => updateField('id', value)}/>
+                                                 onChange={value => updateField('id', value)}
+                                                 required={true}/>
 
                     <CustomizedMaterialTextField className="col-3"
                                                  label="Patient Name"
