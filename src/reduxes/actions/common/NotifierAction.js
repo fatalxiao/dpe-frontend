@@ -14,7 +14,7 @@ export const addInfoNotifier = message => dispatch => {
         notifier: {
             title: '',
             message,
-            iconCls: 'icon-info-with-circle',
+            iconCls: 'icon-info-with-circle info',
             type: Notifier.Type.INFO
         }
     });
@@ -26,7 +26,7 @@ export const addWarningNotifier = message => dispatch => {
         notifier: {
             title: '',
             message,
-            iconCls: 'icon-warning',
+            iconCls: 'icon-warning warning',
             type: Notifier.Type.WARNING
         }
     });

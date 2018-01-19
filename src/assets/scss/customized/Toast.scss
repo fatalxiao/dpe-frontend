@@ -13,11 +13,23 @@
             box-sizing: border-box;
             padding: 10px 32px 10px 48px;
 
+            & > * {
+                vertical-align: middle;
+            }
+
             .toast-icon {
                 width: 16px;
                 height: 16px;
-                top: 10px;
                 left: 16px;
+                line-height: 16px;
+                font-size: 14px !important;
+
+                &.success {
+                    color: $theme-success;
+                }
+                &.error {
+                    color: $theme-error;
+                }
             }
 
             &.theme-success {
@@ -38,14 +50,6 @@
             &.theme-error:hover {
                 background: $theme-error-bg;
                 border: 1px solid $theme-error-border;
-            }
-
-            .icon-ico-alert-success {
-                color: $theme-success;
-            }
-
-            .icon-ico-alert-error {
-                color: $theme-error;
             }
         }
     }

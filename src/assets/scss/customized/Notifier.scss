@@ -9,17 +9,20 @@
             height: auto;
             color: #262626;
 
+            .notification-icon {
+                font-size: 14px !important;
+
+                &.info {
+                    color: $theme-info;
+                }
+                &.warning {
+                    color: $theme-warning;
+                }
+            }
+
             .notification-close-Button {
                 color: #05789c;
-                font-size: 12px;
-            }
-
-            .icon-ico-alert-info {
-                color: $theme-info;
-            }
-
-            .icon-ico-alert-warning {
-                color: $theme-warning;
+                font-size: 12px !important;
             }
 
             &.theme-info {
