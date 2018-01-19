@@ -15,12 +15,24 @@
     }
 
     .nav-bar-top {
-        margin-top: -193px;
-        transition: margin-top $theme-transition-duration ease-in-out;
+        opacity: 0;
+        transition: opacity $theme-transition-duration ease-in-out;
     }
 
     .nav-patient-collapsed-menu {
-        flex: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: $theme-secondary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition-property: top, bottom;
+        transition-duration: $theme-transition-duration;
+        transition-timing-function: ease-in-out;
 
         .icon-button.all-patients-menu-item {
             border-radius: $theme-border-radius;
@@ -37,7 +49,11 @@
 
     &.fold {
         .nav-bar-top {
-            margin-top: 0;
+            opacity: 1;
+        }
+
+        .nav-patient-collapsed-menu {
+            top: 16px+185px;
         }
     }
 
