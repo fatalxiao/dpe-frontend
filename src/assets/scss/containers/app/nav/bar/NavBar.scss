@@ -12,11 +12,17 @@
     background: $theme-primary;
     font-size: 24px;
 
+    .nav-patient-menu {
+        opacity: 0;
+    }
+
     &.fold {
         color: $theme-primary;
         background: $theme-secondary;
 
         .nav-patient-menu {
+            opacity: 1;
+            transition: opacity 0s $theme-transition-duration;
 
             &::before {
                 content: "";
