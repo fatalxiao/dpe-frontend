@@ -15,11 +15,17 @@
     }
 
     .all-patients-button {
-        font-size: 16px;
+        font-size: 16px !important;
         margin-bottom: 24px;
+        font-weight: 700;
+
+        & > * {
+            vertical-align: middle;
+        }
 
         .button-icon-left {
-            margin-right: 16px;
+            font-size: 24px !important;
+            margin-right: 12px;
         }
     }
 

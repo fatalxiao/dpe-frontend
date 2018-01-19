@@ -34,7 +34,7 @@ class PatientList extends Component {
 
                 <FlatButton className="all-patients-button"
                             value="All Patients"
-                            iconCls="fa fa-align-left"
+                            iconCls="icon-list"
                             onTouchTap={this.goToList}/>
 
                 <div className="patient-list">
