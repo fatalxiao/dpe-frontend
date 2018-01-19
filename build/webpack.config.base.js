@@ -1,6 +1,6 @@
-const path = require('path'),
-    utils = require('./utils'),
-    config = require('../config');
+var path = require('path');
+var utils = require('./utils');
+var config = require('../config');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -11,35 +11,35 @@ module.exports = {
         app: './src/index.js'
     },
     output: {
-        path: config.build.assetsRoot,
+        path: config.prod.assetsRoot,
         filename: '[name].js',
-        publicPath: process.env.NODE_ENV === 'production'
-            ? config.build.assetsPublicPath
-            : config.dev.assetsPublicPath
+        publicPath: config.assetsPublicPath
     },
     resolve: {
-        extensions: ['.js', '.json'],
+        extensions: ['.js'],
         alias: {
+
             'src': resolve('src'),
             'apis': resolve('src/apis'),
             'assets': resolve('src/assets'),
             'scss': resolve('src/assets/scss'),
+            'images': resolve('src/assets/images'),
             'stylesheets': resolve('src/assets/stylesheets'),
-            'components': resolve('src/components'),
             'containers': resolve('src/containers'),
+            'components': resolve('src/components'),
             'customized': resolve('src/customized'),
-            'modules': resolve('src/containers/app/modules'),
-            'dist': resolve('dist'),
-            'vendors': resolve('src/vendors'),
             'reduxes': resolve('src/reduxes'),
-            'docs': resolve('docs')
+            'vendors': resolve('src/vendors'),
+
+            'feedManager': resolve('src/assets/scss/containers/app/modules/feedManager')
+
         }
     },
     module: {
         rules: [{
             test: /\.js$/,
             loader: 'babel-loader',
-            include: [resolve('src')]
+            include: resolve('src')
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
@@ -54,9 +54,6 @@ module.exports = {
                 limit: 1000,
                 name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
             }
-        }, {
-            test: /\.json$/,
-            loader: 'json-loader'
         }]
     }
 };

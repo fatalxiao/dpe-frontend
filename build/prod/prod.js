@@ -1,48 +1,69 @@
 delete process.env['DEBUG_FD'];
 
-process.env.NODE_ENV = '"production"';
+const config = require('../../config');
 
-const ora = require('ora'),
+process.env.NODE_ENV = config.prod.env.NODE_ENV;
+
+const fs = require('fs'),
+    ora = require('ora'),
     chalk = require('chalk'),
-    rm = require('rimraf'),
-    mkdirp = require('mkdirp'),
     webpack = require('webpack'),
-    config = require('../../config/index'),
     webpackConfig = require('./webpack.config.prod.js'),
-    spinner = ora('building for production...');
+    archiver = require('archiver'),
+    {fsExistsSync, copyRecursionSync, rmRecursionSync} = require('../utils'),
 
-spinner.start();
+    spinner = ora('building for production...').start();
 
-mkdirp(config.build.assetsSubDirectory, err => {
+webpack(webpackConfig, (err, stats) => {
+
+    spinner.stop();
 
     if (err) {
         throw err;
     }
 
-    webpack(webpackConfig, (err, stats) => {
+    process.stdout.write(stats.toString({
+        colors: true,
+        modules: false,
+        children: false,
+        chunks: false,
+        chunkModules: false
+    }) + '\n\n');
 
-        spinner.stop();
+    // remove zip file
+    if (fsExistsSync('./dpe-frontend.zip')) {
+        fs.unlinkSync('./dpe-frontend.zip');
+    }
 
-        if (err) {
-            throw err;
+    // remove temp dir
+    if (fsExistsSync('./dpe-frontend')) {
+        rmRecursionSync('./dpe-frontend');
+    }
+
+    // make temp dir
+    fs.mkdirSync('./dpe-frontend');
+
+    // copy files
+    copyRecursionSync('./dist/dist-prod', './dpe-frontend', ['node_modules']);
+    copyRecursionSync('./release', './dpe-frontend');
+
+    // make archive
+    const output = fs.createWriteStream('./dpe-frontend.zip'),
+        archive = archiver('zip', {zlib: {level: 9}});
+    output.on('close', () => {
+
+        console.log(chalk.cyan('Archive: ' + archive.pointer() + ' total bytes'));
+
+        // remove temp dir
+        if (fsExistsSync('./dpe-frontend')) {
+            rmRecursionSync('./dpe-frontend');
         }
 
-        process.stdout.write(stats.toString({
-            colors: true,
-            modules: false,
-            children: false,
-            chunks: false,
-            chunkModules: false
-        }) + '\n\n');
-
-        console.log(chalk.cyan('Build complete.'));
-
-        rm(config.build.assetsSubDirectory, err => {
-            if (err) {
-                throw err;
-            }
-        });
-
     });
+    archive.pipe(output);
+    archive.directory('./dpe-frontend', 'dpe-frontend');
+    archive.finalize();
+
+    console.log(chalk.cyan('Build complete.'));
 
 });

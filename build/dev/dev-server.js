@@ -8,6 +8,7 @@ const opn = require('opn'),
     webpack = require('webpack'),
     proxyMiddleware = require('http-proxy-middleware'),
     history = require('connect-history-api-fallback'),
+    utils = require('../utils'),
 
     port = process.env.PORT || config.dev.port,
     uri = 'http://localhost:' + port,
@@ -51,9 +52,14 @@ Object.keys(proxyTable).forEach(context => {
     }
 
     options.onProxyReq = (proxyReq, req, res) => {
+
+        const ip = utils.getClientIp(req);
+        ip && proxyReq.setHeader('ip', utils.ipParse(ip));
+
         if (req.headers && !req.headers.token && req.query && req.query.token) {
             proxyReq.setHeader('token', req.query.token);
         }
+
     };
 
     app.use(proxyMiddleware(options.filter || context, options));
@@ -76,9 +82,12 @@ devMiddleware.waitUntilValid(() => {
 module.exports = app.listen(port, err => {
 
     if (err) {
-        return console.log(err);
+        console.log(err);
+        return;
     }
 
-    opn(uri);
+    if (!!config.dev.autoOpenBrowser) {
+        opn(uri);
+    }
 
 });

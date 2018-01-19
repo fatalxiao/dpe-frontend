@@ -1,7 +1,7 @@
 const path = require('path'),
     utils = require('./../utils'),
     webpack = require('webpack'),
-    config = require('../../config/index'),
+    config = require('../../config'),
     merge = require('webpack-merge'),
     baseWebpackConfig = require('./../webpack.config.base.js'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
@@ -11,19 +11,18 @@ const path = require('path'),
     UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
     CompressionWebpackPlugin = require('compression-webpack-plugin'),
 
-    env = config.build.env;
+    env = config.prod.env;
 
 module.exports = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({
-            sourceMap: config.build.productionSourceMap,
+            sourceMap: false,
             extract: true
         })
     },
-    devtool: config.build.productionSourceMap ? '#source-map' : false,
+    devtool: false,
     output: {
-        publicPath: './',
-        path: config.build.assetsRoot,
+        path: config.prod.assetsRoot,
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
@@ -42,7 +41,7 @@ module.exports = merge(baseWebpackConfig, {
         new OptimizeCSSPlugin(),
 
         new HtmlWebpackPlugin({
-            filename: config.build.index,
+            filename: config.prod.index,
             template: './src/index.html',
             favicon: './src/assets/images/favicon.ico',
             inject: true,
@@ -55,12 +54,8 @@ module.exports = merge(baseWebpackConfig, {
 
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks(module, count) {
-                return (
-                    module.resource && /\.js$/.test(module.resource)
-                    && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
-                );
-            }
+            minChunks: module => (module.resource && /\.js$/.test(module.resource)
+            && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0)
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
@@ -70,7 +65,7 @@ module.exports = merge(baseWebpackConfig, {
 
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../../static'),
-            to: config.build.assetsSubDirectory,
+            to: config.assetsSubDirectory,
             ignore: ['.*']
         }]),
 
