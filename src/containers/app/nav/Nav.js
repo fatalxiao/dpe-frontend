@@ -34,11 +34,21 @@ class Nav extends Component {
             isNavPatientFold: false
         };
 
+        this.getNavWidth = ::this.getNavWidth;
+        this.saveNavWidth = ::this.saveNavWidth;
         this.toggleMouseDownHandler = ::this.toggleMouseDownHandler;
         this.mouseMoveHandler = ::this.mouseMoveHandler;
         this.mouseUpHandler = ::this.mouseUpHandler;
         this.toggleNav = ::this.toggleNav;
 
+    }
+
+    getNavWidth() {
+        return localStorage.getItem('navWidth') || this.defaultWidth;
+    }
+
+    saveNavWidth(navWidth) {
+        localStorage.setItem('navWidth', navWidth);
     }
 
     toggleMouseDownHandler(e) {
@@ -65,6 +75,8 @@ class Nav extends Component {
             navWidth,
             isNavPatientCollapsed: navWidth < this.navBarWidth * 2,
             isNavPatientFold: false
+        }, () => {
+            this.saveNavWidth(navWidth);
         });
 
     }
@@ -73,15 +85,17 @@ class Nav extends Component {
 
         this.resizing = false;
 
-        const {navWidth} = this.state;
-
-        const isFold = navWidth < this.navBarWidth + this.navPatientWidth / 3;
+        const {navWidth} = this.state,
+            isFold = navWidth < this.navBarWidth + this.navPatientWidth / 3,
+            newNavWidth = isFold ? this.navBarWidth : (navWidth < this.defaultWidth ? this.defaultWidth : navWidth);
 
         this.setState({
             isDragging: false,
-            navWidth: isFold ? this.navBarWidth : (navWidth < this.defaultWidth ? this.defaultWidth : navWidth),
+            navWidth: newNavWidth,
             isNavPatientCollapsed: isFold,
             isNavPatientFold: isFold
+        }, () => {
+            this.saveNavWidth(newNavWidth);
         });
 
     }

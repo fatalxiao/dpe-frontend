@@ -51,13 +51,11 @@ class App extends Component {
 
     render() {
 
-        const {
-                route, $navCollapsed, $componentLoading
-            } = this.props,
+        const {route, $componentLoading} = this.props,
             {loadingId} = this.state;
 
         return (
-            <div className={'app' + ($navCollapsed ? ' nav-menu-collapsed' : '')}>
+            <div className="app">
 
                 <Nav/>
 
@@ -89,7 +87,6 @@ class App extends Component {
 App.propTypes = {
 
     $isDesktop: PropTypes.bool,
-    $navCollapsed: PropTypes.bool,
     $componentLoading: PropTypes.bool,
 
     getGroups: PropTypes.func,
@@ -101,7 +98,6 @@ App.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $isDesktop: state.device.isDesktop,
-        $navCollapsed: state.nav.collapsed,
         $componentLoading: state.loadComponent.loading
     };
 }
