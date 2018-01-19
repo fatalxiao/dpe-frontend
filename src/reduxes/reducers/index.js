@@ -7,8 +7,6 @@ import appToaster from './common/ToasterReducer';
 import appNotifier from './common/NotifierReducer';
 import asyncMsgSeqReducer from './common/AsyncMsgSeqReducer';
 
-import nav from './app/NavReducer';
-
 import group from './app/common/GroupReducer';
 import patient from './app/common/PatientReducer';
 import sensoryBlock from './app/common/SensoryBlockReducer';
@@ -25,8 +23,6 @@ const rootReducer = combineReducers({
     appToaster,
     appNotifier,
     asyncMsgSeqReducer,
-
-    nav,
 
     group,
     patient,

@@ -6,8 +6,6 @@ export * from './common/DeviceActionType';
 export * from './common/LoadComponentActionType';
 export * from './common/AsyncMsgSeqActionType';
 
-export * from './app/NavActionType';
-
 export * from './app/common/GroupActionType';
 export * from './app/common/PatientActionType';
 export * from './app/common/SensoryBlockActionType';

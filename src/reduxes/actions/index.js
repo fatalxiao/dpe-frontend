@@ -5,8 +5,6 @@ export * from './common/RouterAction';
 export * from './common/DeviceAction';
 export * from './common/AsyncMsgSeqAction';
 
-export * from './app/NavAction';
-
 export * from './app/common/GroupAction';
 export * from './app/common/PatientAction';
 export * from './app/common/SensoryBlockAction';
