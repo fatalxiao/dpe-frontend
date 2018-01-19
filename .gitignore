@@ -16,3 +16,5 @@ package-lock.json
 
 # Dist directories
 /dist/dist-prod/dist
+/dpe-frontend
+/dpe-frontend.zip
