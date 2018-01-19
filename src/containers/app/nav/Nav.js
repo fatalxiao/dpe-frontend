@@ -1,9 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
-import * as actions from 'reduxes/actions';
 
 import NavBar from './bar/NavBar';
 import NavPatient from './patients/NavPatient';
@@ -13,7 +8,7 @@ import Valid from 'vendors/Valid';
 
 import 'scss/containers/app/nav/Nav.scss';
 
-class Nav extends Component {
+export default class Nav extends Component {
 
     constructor(props) {
 
@@ -170,15 +165,3 @@ class Nav extends Component {
         );
     }
 }
-
-Nav.propTypes = {};
-
-function mapStateToProps(state, ownProps) {
-    return {};
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
