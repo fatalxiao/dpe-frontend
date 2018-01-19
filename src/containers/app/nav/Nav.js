@@ -156,7 +156,8 @@ export default class Nav extends Component {
                                 isFold={isNavPatientFold}/>
 
                     <div className="nav-resize"
-                         onMouseDown={this.toggleMouseDownHandler}>
+                         onMouseDown={this.toggleMouseDownHandler}
+                         onTouchTap={this.toggleNav}>
                         <div className={'nav-toggle' + toggleClassName}
                              onMouseDown={e => e.stopPropagation()}
                              onTouchTap={this.toggleNav}></div>
