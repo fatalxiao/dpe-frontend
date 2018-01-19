@@ -10,8 +10,6 @@ import CustomizedMaterialTextArea from 'customized/CustomizedMaterialTextArea';
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import StepAction from 'components/StepAction';
 
-import Util from 'vendors/Util';
-
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
 
 class PatientInformation extends Component {
