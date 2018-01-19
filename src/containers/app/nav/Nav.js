@@ -133,19 +133,21 @@ export default class Nav extends Component {
             collapsed = navWidth === this.navBarWidth,
 
             wrapperClassName = (isDragging ? ' dragging' : ''),
-
             toggleClassName = (collapsed ? ' collapsed' : ''),
 
-            style = {
+            wrapperStyle = {
+                flexBasis: collapsed ? this.navBarWidth : navWidth
+            },
+            innerStyle = {
                 width: collapsed ? this.navBarWidth : navWidth
             };
 
         return (
             <div className={'nav' + wrapperClassName}
-                 style={style}>
+                 style={wrapperStyle}>
 
                 <div className="nav-inner"
-                     style={style}>
+                     style={innerStyle}>
 
                     <NavBar/>
 

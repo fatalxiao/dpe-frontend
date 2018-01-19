@@ -1,6 +1,8 @@
 @import '../../../common';
 
 .nav {
+    flex-grow: 0;
+    flex-shrink: 0;
     transition: width $theme-transition-duration ease-in-out;
 
     .nav-inner {
