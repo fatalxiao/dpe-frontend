@@ -27,15 +27,18 @@ class Nav extends Component {
         this.startWidth = null;
         this.mouseX = null;
 
+        const navWidth = this.getNavWidth();
         this.state = {
             isDragging: false,
-            navWidth: this.defaultWidth,
-            isNavPatientCollapsed: false,
-            isNavPatientFold: false
+            navWidth,
+            isNavPatientCollapsed: this.isNavPatientCollapsed(navWidth) || this.isNavPatientFold(navWidth),
+            isNavPatientFold: this.isNavPatientFold(navWidth)
         };
 
         this.getNavWidth = ::this.getNavWidth;
         this.saveNavWidth = ::this.saveNavWidth;
+        this.isNavPatientCollapsed = ::this.isNavPatientCollapsed;
+        this.isNavPatientFold = ::this.isNavPatientFold;
         this.toggleMouseDownHandler = ::this.toggleMouseDownHandler;
         this.mouseMoveHandler = ::this.mouseMoveHandler;
         this.mouseUpHandler = ::this.mouseUpHandler;
@@ -44,11 +47,19 @@ class Nav extends Component {
     }
 
     getNavWidth() {
-        return localStorage.getItem('navWidth') || this.defaultWidth;
+        return parseInt(localStorage.getItem('navWidth')) || this.defaultWidth;
     }
 
     saveNavWidth(navWidth) {
         localStorage.setItem('navWidth', navWidth);
+    }
+
+    isNavPatientCollapsed(navWidth) {
+        return navWidth < this.navBarWidth * 2;
+    }
+
+    isNavPatientFold(navWidth) {
+        return navWidth < this.navBarWidth + this.navPatientWidth / 3;
     }
 
     toggleMouseDownHandler(e) {
@@ -73,10 +84,8 @@ class Nav extends Component {
         this.setState({
             isDragging: true,
             navWidth,
-            isNavPatientCollapsed: navWidth < this.navBarWidth * 2,
+            isNavPatientCollapsed: this.isNavPatientCollapsed(navWidth),
             isNavPatientFold: false
-        }, () => {
-            this.saveNavWidth(navWidth);
         });
 
     }
@@ -86,13 +95,13 @@ class Nav extends Component {
         this.resizing = false;
 
         const {navWidth} = this.state,
-            isFold = navWidth < this.navBarWidth + this.navPatientWidth / 3,
+            isFold = this.isNavPatientFold(navWidth),
             newNavWidth = isFold ? this.navBarWidth : (navWidth < this.defaultWidth ? this.defaultWidth : navWidth);
 
         this.setState({
             isDragging: false,
             navWidth: newNavWidth,
-            isNavPatientCollapsed: isFold,
+            isNavPatientCollapsed: this.isNavPatientCollapsed(newNavWidth) || isFold,
             isNavPatientFold: isFold
         }, () => {
             this.saveNavWidth(newNavWidth);
