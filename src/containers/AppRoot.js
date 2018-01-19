@@ -63,7 +63,6 @@ class AppRoot extends Component {
                          position={Toaster.Position.TOP}
                          onToastPop={clearToaste}/>
 
-
                 <Notifier notifications={$notifiers}
                           position={Notifier.Position.TOP_RIGHT}
                           onNotificationPop={clearNotifier}/>
