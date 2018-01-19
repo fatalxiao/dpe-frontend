@@ -7,9 +7,13 @@
         .notification {
             width: 320px;
             height: auto;
-            color: #262626;
+            color: $theme-field;
+            background: #fff;
+            border: 1px solid $theme-border;
+            box-shadow: rgba(0, 0, 0, .16) 0 2px 4px !important;
 
             .notification-icon {
+                line-height: 36px;
                 font-size: 14px !important;
 
                 &.info {
@@ -26,23 +30,19 @@
             }
 
             &.theme-info {
-                background: $theme-info-bg;
-                border: 1px solid $theme-info-border;
+                border-left: 4px solid $theme-info;
             }
 
             &.theme-info:hover {
-                background: $theme-info-bg;
-                border: 1px solid $theme-info-border;
+                border-left: 4px solid $theme-info;
             }
 
             &.theme-warning {
-                background: $theme-warning-bg;
-                border: 1px solid $theme-warning-border;
+                border-left: 4px solid $theme-warning;
             }
 
             &.theme-warning:hover {
-                background: $theme-warning-bg;
-                border: 1px solid $theme-warning-border;
+                border-left: 4px solid $theme-warning;
             }
         }
 
