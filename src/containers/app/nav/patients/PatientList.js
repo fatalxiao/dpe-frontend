@@ -35,7 +35,9 @@ class PatientList extends Component {
                 <FlatButton className="all-patients-button"
                             value="All Patients"
                             iconCls="icon-list"
-                            onTouchTap={this.goToList}/>
+                            onTouchTap={this.goToList}>
+                    <span className="patients-count">{`[${$patientList.length}]`}</span>
+                </FlatButton>
 
                 <div className="patient-list">
 
