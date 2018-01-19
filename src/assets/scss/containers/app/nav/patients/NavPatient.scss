@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    top: 0;
+    right: 0;
 
     &.no-patient {
         justify-content: center;
