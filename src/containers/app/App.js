@@ -86,7 +86,6 @@ class App extends Component {
 
 App.propTypes = {
 
-    $isDesktop: PropTypes.bool,
     $componentLoading: PropTypes.bool,
 
     getGroups: PropTypes.func,
@@ -97,7 +96,6 @@ App.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $isDesktop: state.device.isDesktop,
         $componentLoading: state.loadComponent.loading
     };
 }
