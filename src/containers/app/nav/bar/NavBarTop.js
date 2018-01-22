@@ -37,9 +37,9 @@ class NavBarTop extends Component {
         return (
             <div className="nav-bar-top">
 
-                <IconButton className="nav-bar-item nav-bar-logo"
+                <IconButton className="nav-bar-item nav-bar-logo-button"
                             onTouchTap={this.goToLanding}>
-                    DPE
+                    <div className="nav-bar-logo"></div>
                 </IconButton>
 
                 <IconButton className="nav-bar-item"

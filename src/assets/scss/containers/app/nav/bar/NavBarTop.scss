@@ -1,4 +1,4 @@
-@import '../../../../common';
+@import '../../../../common.scss';
 
 .nav-bar-top {
     display: flex;
@@ -19,12 +19,20 @@
             vertical-align: baseline;
         }
 
-        &.nav-bar-logo {
+        &.nav-bar-logo-button {
             width: 48px;
             height: 48px;
             font-size: 16px !important;
             font-weight: 700;
             margin-bottom: 16px;
+
+            .nav-bar-logo {
+                height: 48px;
+                background-image: url("../../../../../images/logo.png");
+                background-position: center;
+                background-size: 36px 36px;
+                background-repeat: no-repeat;
+            }
         }
 
         &:hover {
