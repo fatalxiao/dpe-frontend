@@ -29,12 +29,16 @@ class PatientInformation extends Component {
     }
 
     updateField(fieldName, fieldValue) {
-        this.setState({
-            errorMsg: ''
-        }, () => {
-            const {updatePatientInformationField} = this.props;
-            updatePatientInformationField(fieldName, fieldValue);
-        });
+
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
+        }
+
+        const {updatePatientInformationField} = this.props;
+        updatePatientInformationField(fieldName, fieldValue);
+
     }
 
     save() {
