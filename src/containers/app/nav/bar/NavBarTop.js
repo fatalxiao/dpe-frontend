@@ -32,14 +32,14 @@ class NavBarTop extends Component {
 
     render() {
 
-        const {children} = this.props;
+        const {children, isFold} = this.props;
 
         return (
             <div className="nav-bar-top">
 
                 <IconButton className="nav-bar-item nav-bar-logo-button"
                             onTouchTap={this.goToLanding}>
-                    <div className="nav-bar-logo"></div>
+                    <div className={'nav-bar-logo' + (isFold ? ' fold' : '')}></div>
                 </IconButton>
 
                 <IconButton className="nav-bar-item"
@@ -60,7 +60,11 @@ class NavBarTop extends Component {
 }
 
 NavBarTop.propTypes = {
+
+    isFold: PropTypes.bool,
+
     routerPush: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {

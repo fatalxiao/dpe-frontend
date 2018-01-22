@@ -22,7 +22,7 @@ export default class NavBar extends Component {
         return (
             <div className={'nav-bar' + wrapperClassName}>
 
-                <NavBarTop/>
+                <NavBarTop isFold={isFold}/>
 
                 <NavPatientMenu/>
 
