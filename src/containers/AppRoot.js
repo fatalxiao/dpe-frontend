@@ -25,31 +25,11 @@ import 'scss/containers/AppRoot.scss';
 class AppRoot extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.resizeHandle = this::this.resizeHandle;
-
-    }
-
-    resizeHandle() {
-        window.innerWidth >= Config.desktopMinWidth ?
-            (!this.props.$isDesktop && this.props.switchToDesktop())
-            :
-            (this.props.$isDesktop && this.props.switchToMobile());
     }
 
     componentDidMount() {
-
-        Event.addEvent(window, 'resize', this.resizeHandle);
-        // document.getElementById('loading').style.display = 'none';
-
         this.props.submitAsyncMsgSeq();
-
-    }
-
-    componentWillUnmount() {
-        Event.removeEvent(window, 'resize', this.resizeHandle);
     }
 
     render() {
@@ -84,7 +64,6 @@ class AppRoot extends Component {
 
 AppRoot.propTypes = {
 
-    $isDesktop: PropTypes.bool,
     $toastes: PropTypes.array,
     $notifiers: PropTypes.array,
 
@@ -97,7 +76,6 @@ AppRoot.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $isDesktop: state.device.isDesktop,
         $toastes: state.appToaster.toastes,
         $notifiers: state.appNotifier.notifiers
     };

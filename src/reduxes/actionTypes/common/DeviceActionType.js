@@ -1,3 +1,0 @@
-export const SWITCH_TO_DESKTOP = 'SWITCH_TO_DESKTOP';
-
-export const SWITCH_TO_MOBILE = 'SWITCH_TO_MOBILE';
