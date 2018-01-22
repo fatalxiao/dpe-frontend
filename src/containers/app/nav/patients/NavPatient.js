@@ -6,9 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 import * as actionTypes from 'reduxes/actionTypes';
 
-import FlatButton from 'alcedo-ui/FlatButton';
 import CircularLoading from 'alcedo-ui/CircularLoading';
-import IconButton from 'alcedo-ui/IconButton';
 
 import NavPatientCollapsed from './NavPatientMenu';
 import NoPatient from './NoPatient';
