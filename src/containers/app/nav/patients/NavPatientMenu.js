@@ -24,13 +24,8 @@ class NavPatientCollapsed extends Component {
     }
 
     render() {
-
-        const {isFold} = this.props,
-
-            wrapperClassName = (isFold ? ' fold' : '');
-
         return (
-            <div className={'nav-patient-menu' + wrapperClassName}>
+            <div className="nav-patient-menu">
                 <IconButton className="all-patients-menu-item"
                             iconCls="icon-list"
                             tip="All Patients"
