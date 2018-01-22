@@ -9,8 +9,10 @@
         min-height: 100vh;
         padding: 24px 48px 64px;
 
-        .page-loading-highlight {
-            background: #90ddff !important;
+        .page-loading {
+            position: fixed;
+            left: 0;
+            top: 0;
         }
 
         .content-router-view {
