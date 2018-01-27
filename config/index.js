@@ -9,7 +9,6 @@ module.exports = {
     dev: {
         env: require('./dev.env'),
         port: 4000,
-        autoOpenBrowser: true,
         srcRoot: path.resolve(__dirname, '../src'),
         index: path.resolve(__dirname, '../src/index.html'),
         assetsVirtualRoot: path.posix.join('/', 'static'),

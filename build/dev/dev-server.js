@@ -79,15 +79,14 @@ devMiddleware.waitUntilValid(() => {
     console.log('> Listening at ' + uri + '\n');
 });
 
-module.exports = app.listen(port, err => {
+module.exports = app.listen(port, error => {
 
-    if (err) {
-        console.log(err);
+    if (error) {
+        console.log(error);
         return;
     }
 
-    if (!!config.dev.autoOpenBrowser) {
-        opn(uri);
-    }
+    console.log('> Listening at ' + uri);
+    opn(uri);
 
 });

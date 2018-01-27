@@ -44,15 +44,14 @@ app.use(history());
 
 app.use(express.static(config.prod.assetsRoot));
 
-app.listen(port, err => {
+app.listen(port, error => {
 
-    if (err) {
-        console.log(err);
+    if (error) {
+        console.log(error);
         return;
     }
 
     console.log('> Listening at ' + uri);
-
     opn(uri);
 
 });
