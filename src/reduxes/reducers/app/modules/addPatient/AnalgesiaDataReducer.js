@@ -34,7 +34,7 @@ const initialState = {
     list
 };
 
-function addPatientAnalgesiaData(state = initialState, action) {
+function analgesiaData(state = initialState, action) {
     switch (action.type) {
 
         default:
@@ -43,4 +43,4 @@ function addPatientAnalgesiaData(state = initialState, action) {
     }
 }
 
-export default addPatientAnalgesiaData;
+export default analgesiaData;

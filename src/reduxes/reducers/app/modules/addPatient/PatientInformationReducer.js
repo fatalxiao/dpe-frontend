@@ -23,7 +23,7 @@ const initialState = {
     actionType: ''
 };
 
-function addPatientInformation(state = initialState, action) {
+function patientInformation(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.UPDATE_PATIENT_INFORMATION_FIELD: {
@@ -76,4 +76,4 @@ function addPatientInformation(state = initialState, action) {
     }
 }
 
-export default addPatientInformation;
+export default patientInformation;
