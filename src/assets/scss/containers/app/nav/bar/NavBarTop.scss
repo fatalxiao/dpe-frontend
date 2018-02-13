@@ -22,21 +22,21 @@
         &.nav-bar-logo-button {
             width: 48px;
             height: 48px;
-            font-size: 16px !important;
+            font-size: 32px !important;
             font-weight: 700;
             margin-bottom: 16px;
 
-            .nav-bar-logo {
-                height: 48px;
-                background-image: url("../../../../../images/logo.png");
-                background-position: center;
-                background-size: 32px 32px;
-                background-repeat: no-repeat;
-
-                &.fold {
-                    background-image: url("../../../../../images/logo-primary.png");
-                }
-            }
+            //.nav-bar-logo {
+            //    height: 48px;
+            //    background-image: url("../../../../../images/logo.png");
+            //    background-position: center;
+            //    background-size: 32px 32px;
+            //    background-repeat: no-repeat;
+            //
+            //&.fold {
+            //    background-image: url("../../../../../images/logo-primary.png");
+            //}
+            //}
         }
 
         &:hover {
