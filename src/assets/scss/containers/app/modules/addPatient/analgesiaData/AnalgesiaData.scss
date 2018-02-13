@@ -4,25 +4,22 @@
 
     .analgesia-data-table-scroller {
         overflow-x: auto;
-    }
 
-    .vas,
-    .bromage,
-    .sbp,
-    .dbp,
-    .heart-rate,
-    .spo2 {
-        width: 64px;
-    }
+        .analgesia-data-table {
 
-    .tsb,
-    .ssb {
-        width: 64px;
-        display: inline-block;
-    }
+            .material-text-field,
+            .material-dropdown-select {
+                width: 64px;
+            }
 
-    label {
-        color: $theme-description;
+            .material-dropdown-select {
+                display: inline-block;
+            }
+
+            label {
+                color: $theme-description;
+            }
+        }
     }
 
 }

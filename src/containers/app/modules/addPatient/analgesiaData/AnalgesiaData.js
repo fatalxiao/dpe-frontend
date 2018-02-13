@@ -82,23 +82,20 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'Vas',
                                renderer: rowData =>
-                                   <TextField className="vas"
-                                              value={rowData.vasScore}
+                                   <TextField value={rowData.vasScore}
                                               onChange={value => self.updateField(rowData.id, 'vasScore', value)}/>
                            }, {
                                header: 'TSB',
                                renderer: rowData =>
                                    <div>
                                        <label>L: </label>
-                                       <DropdownSelect className="tsb"
-                                                       data={$sensoryBlockList}
+                                       <DropdownSelect data={$sensoryBlockList}
                                                        value={rowData.thoracicSensoryBlockLeft}
                                                        valueField="sensoryBlockValue"
                                                        displayField="sensoryBlockName"
                                                        onChange={value => self.updateField(rowData.id, 'thoracicSensoryBlockLeft', value)}/>
                                        <label>, R: </label>
-                                       <DropdownSelect className="tsb"
-                                                       data={$sensoryBlockList}
+                                       <DropdownSelect data={$sensoryBlockList}
                                                        value={rowData.thoracicSensoryBlockRight}
                                                        valueField="sensoryBlockValue"
                                                        displayField="sensoryBlockName"
@@ -109,15 +106,13 @@ class AnalgesiaData extends Component {
                                renderer: rowData =>
                                    <div>
                                        <label>L: </label>
-                                       <DropdownSelect className="ssb"
-                                                       data={$sensoryBlockList}
+                                       <DropdownSelect data={$sensoryBlockList}
                                                        value={rowData.sacralSensoryBlockLeft}
                                                        valueField="sensoryBlockValue"
                                                        displayField="sensoryBlockName"
                                                        onChange={value => self.updateField(rowData.id, 'sacralSensoryBlockLeft', value)}/>
                                        <label>, R: </label>
-                                       <DropdownSelect className="ssb"
-                                                       data={$sensoryBlockList}
+                                       <DropdownSelect data={$sensoryBlockList}
                                                        value={rowData.sacralSensoryBlockRight}
                                                        valueField="sensoryBlockValue"
                                                        displayField="sensoryBlockName"
@@ -126,32 +121,27 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'Bromage',
                                renderer: rowData =>
-                                   <TextField className="bromage"
-                                              value={rowData.bromageScore}
+                                   <TextField value={rowData.bromageScore}
                                               onChange={value => self.updateField(rowData.id, 'bromageScore', value)}/>
                            }, {
                                header: 'SBP',
                                renderer: rowData =>
-                                   <TextField className="sbp"
-                                              value={rowData.systolicBloodPressure}
+                                   <TextField value={rowData.systolicBloodPressure}
                                               onChange={value => self.updateField(rowData.id, 'systolicBloodPressure', value)}/>
                            }, {
                                header: 'DBP',
                                renderer: rowData =>
-                                   <TextField className="dbp"
-                                              value={rowData.diastolicBloodPressure}
+                                   <TextField value={rowData.diastolicBloodPressure}
                                               onChange={value => self.updateField(rowData.id, 'diastolicBloodPressure', value)}/>
                            }, {
                                header: 'Heart Rate',
                                renderer: rowData =>
-                                   <TextField className="heart-rate"
-                                              value={rowData.heartRate}
+                                   <TextField value={rowData.heartRate}
                                               onChange={value => self.updateField(rowData.id, 'heartRate', value)}/>
                            }, {
                                header: 'SPO2',
                                renderer: rowData =>
-                                   <TextField className="spo2"
-                                              value={rowData.pulseOxygenSaturation}
+                                   <TextField value={rowData.pulseOxygenSaturation}
                                               onChange={value => self.updateField(rowData.id, 'pulseOxygenSaturation', value)}/>
                            }]}
                            data={$analgesiaData}
