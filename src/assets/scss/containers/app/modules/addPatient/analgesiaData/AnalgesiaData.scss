@@ -18,6 +18,11 @@
     .tsb,
     .ssb {
         width: 64px;
+        display: inline-block;
+    }
+
+    label {
+        color: $theme-description;
     }
 
 }

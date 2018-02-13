@@ -88,21 +88,41 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'TSB',
                                renderer: rowData =>
-                                   <DropdownSelect className="tsb"
-                                                   data={$sensoryBlockList}
-                                                   value={rowData.thoracicSensoryBlockLeft}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
-                                                   onChange={value => self.updateField(rowData.id, 'thoracicSensoryBlockLeft', value)}/>
+                                   <div>
+                                       <label>L: </label>
+                                       <DropdownSelect className="tsb"
+                                                       data={$sensoryBlockList}
+                                                       value={rowData.thoracicSensoryBlockLeft}
+                                                       valueField="sensoryBlockValue"
+                                                       displayField="sensoryBlockName"
+                                                       onChange={value => self.updateField(rowData.id, 'thoracicSensoryBlockLeft', value)}/>
+                                       <label>, R: </label>
+                                       <DropdownSelect className="tsb"
+                                                       data={$sensoryBlockList}
+                                                       value={rowData.thoracicSensoryBlockRight}
+                                                       valueField="sensoryBlockValue"
+                                                       displayField="sensoryBlockName"
+                                                       onChange={value => self.updateField(rowData.id, 'thoracicSensoryBlockRight', value)}/>
+                                   </div>
                            }, {
                                header: 'SSB',
                                renderer: rowData =>
-                                   <DropdownSelect className="ssb"
-                                                   data={$sensoryBlockList}
-                                                   value={rowData.sacralSensoryBlockLeft}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
-                                                   onChange={value => self.updateField(rowData.id, 'sacralSensoryBlockLeft', value)}/>
+                                   <div>
+                                       <label>L: </label>
+                                       <DropdownSelect className="ssb"
+                                                       data={$sensoryBlockList}
+                                                       value={rowData.sacralSensoryBlockLeft}
+                                                       valueField="sensoryBlockValue"
+                                                       displayField="sensoryBlockName"
+                                                       onChange={value => self.updateField(rowData.id, 'sacralSensoryBlockLeft', value)}/>
+                                       <label>, R: </label>
+                                       <DropdownSelect className="ssb"
+                                                       data={$sensoryBlockList}
+                                                       value={rowData.sacralSensoryBlockRight}
+                                                       valueField="sensoryBlockValue"
+                                                       displayField="sensoryBlockName"
+                                                       onChange={value => self.updateField(rowData.id, 'sacralSensoryBlockRight', value)}/>
+                                   </div>
                            }, {
                                header: 'Bromage',
                                renderer: rowData =>
