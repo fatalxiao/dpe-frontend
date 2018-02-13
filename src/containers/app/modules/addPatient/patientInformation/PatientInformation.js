@@ -52,8 +52,7 @@ class PatientInformation extends Component {
             return;
         }
 
-        const {addPatient} = this.props;
-        addPatient();
+        this.props.routerPush('/app/add-patient/analgesia-data');
 
     }
 
@@ -63,7 +62,7 @@ class PatientInformation extends Component {
 
     render() {
 
-        const {$groupList, $form, updatePatientInformationField: updateField} = this.props,
+        const {$groupList, $form} = this.props,
             {errorMsg} = this.state;
 
         return (
