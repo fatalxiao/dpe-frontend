@@ -19,8 +19,7 @@ const initialState = {
         diastolicBloodPressure: '',
         foetalHeartRate: '',
         description: ''
-    },
-    actionType: ''
+    }
 };
 
 function patientInformation(state = initialState, action) {
@@ -48,26 +47,6 @@ function patientInformation(state = initialState, action) {
                 form
             };
 
-        }
-
-        // add patient
-        case actionTypes.ADD_PATIENT_REQUEST: {
-            return {
-                ...state,
-                actionType: actionTypes.ADD_PATIENT_REQUEST
-            };
-        }
-        case actionTypes.ADD_PATIENT_SUCCESS: {
-            return {
-                ...state,
-                actionType: actionTypes.ADD_PATIENT_SUCCESS
-            };
-        }
-        case actionTypes.ADD_PATIENT_FAILURE: {
-            return {
-                ...state,
-                actionType: actionTypes.ADD_PATIENT_FAILURE
-            };
         }
 
         default:

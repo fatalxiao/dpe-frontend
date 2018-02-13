@@ -150,16 +150,16 @@ class PatientInformation extends Component {
                               value={$form.description}
                               onChange={value => this.updateField('description', value)}/>
 
-                    {
-                        errorMsg ?
-                            <Msg type={Msg.Type.ERROR}>
-                                {errorMsg}
-                            </Msg>
-                            :
-                            null
-                    }
-
                 </form>
+
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
 
                 <StepAction isFirst={true}
                             onNext={this.next}/>

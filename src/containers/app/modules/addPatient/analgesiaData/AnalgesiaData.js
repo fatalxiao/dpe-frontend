@@ -10,6 +10,7 @@ import Checkbox from 'alcedo-ui/Checkbox';
 import StepAction from 'components/StepAction';
 import TextField from 'customized/CustomizedMaterialTextField';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
+import Msg from '../../../../../components/Msg';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
@@ -19,6 +20,10 @@ class AnalgesiaData extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
         this.updateField = ::this.updateField;
         this.prevStep = ::this.prevStep;
         this.next = ::this.next;
@@ -27,14 +32,14 @@ class AnalgesiaData extends Component {
 
     updateField(id, fieldName, fieldValue) {
 
-        const {$analgesiaData} = this.props,
-            data = $analgesiaData.find(item => item.id === id);
-
-        if (!data) {
-            return;
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
         }
 
-        data[fieldName] = fieldValue;
+        const {updateAnalgesiaDataField} = this.props;
+        updateAnalgesiaDataField(id, fieldName, fieldValue);
 
     }
 
@@ -55,6 +60,7 @@ class AnalgesiaData extends Component {
     render() {
 
         const {$sensoryBlockList, $analgesiaData} = this.props,
+            {errorMsg} = this.state,
             self = this;
 
         return (
@@ -132,6 +138,15 @@ class AnalgesiaData extends Component {
                            isPagging={false}/>
                 </div>
 
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
+
                 <StepAction onPrev={this.prevStep}
                             onNext={this.next}/>
 
@@ -146,7 +161,8 @@ AnalgesiaData.propTypes = {
     $analgesiaData: PropTypes.array,
 
     routerPush: PropTypes.func,
-    updateAddPatientStep: PropTypes.func
+    updateAddPatientStep: PropTypes.func,
+    updateAnalgesiaDataField: PropTypes.func
 
 };
 

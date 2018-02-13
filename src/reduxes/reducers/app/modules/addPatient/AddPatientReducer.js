@@ -13,7 +13,8 @@ const initialState = {
         title: 'Observal\nData',
         route: '/app/add-patient/observal-data'
     }],
-    activatedStep: 0
+    activatedStep: 0,
+    actionType: ''
 };
 
 function addPatient(state = initialState, action) {
@@ -42,6 +43,26 @@ function addPatient(state = initialState, action) {
             return {
                 ...state,
                 activatedStep: action.activatedStep
+            };
+        }
+
+        // add patient
+        case actionTypes.ADD_PATIENT_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.ADD_PATIENT_REQUEST
+            };
+        }
+        case actionTypes.ADD_PATIENT_SUCCESS: {
+            return {
+                ...state,
+                actionType: actionTypes.ADD_PATIENT_SUCCESS
+            };
+        }
+        case actionTypes.ADD_PATIENT_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.ADD_PATIENT_FAILURE
             };
         }
 

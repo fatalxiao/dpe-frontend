@@ -1,7 +1,5 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 
-import Valid from 'vendors/Valid';
-
 function getDefaultData() {
 
     const data = {
@@ -41,6 +39,22 @@ const initialState = {
 
 function analgesiaData(state = initialState, action) {
     switch (action.type) {
+
+        case actionTypes.UPDATE_ANALGESIA_DATA_FIELD: {
+
+            const data = state.data,
+                updateItem = data.find(item => item.id === action.id);
+
+            if (updateItem) {
+                updateItem[action.fieldName] = action.fieldValue;
+            }
+
+            return {
+                ...state,
+                data
+            };
+
+        }
 
         default:
             return state;
