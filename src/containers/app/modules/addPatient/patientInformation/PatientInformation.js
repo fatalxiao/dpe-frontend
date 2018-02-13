@@ -57,7 +57,7 @@ class PatientInformation extends Component {
     }
 
     componentDidMount() {
-        this.props.addPatientStepUpdate(0);
+        this.props.updateAddPatientStep(0);
     }
 
     render() {
@@ -175,7 +175,7 @@ PatientInformation.propTypes = {
     $form: PropTypes.object,
 
     routerPush: PropTypes.func,
-    addPatientStepUpdate: PropTypes.func,
+    updateAddPatientStep: PropTypes.func,
     addPatient: PropTypes.func,
     updatePatientInformationField: PropTypes.func
 

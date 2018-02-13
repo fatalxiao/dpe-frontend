@@ -5,7 +5,6 @@ import Valid from 'vendors/Valid';
 function getDefaultData() {
 
     const data = {
-            patientId: 0,
             timePoint: 0,
             hasContraction: false,
             vasScore: 10,
@@ -22,15 +21,15 @@ function getDefaultData() {
         list = [];
 
     for (let i = 0; i < 10; i++) {
-        list.push({...data, timePoint: i * 2});
+        list.push({...data, id: i, timePoint: i * 2});
     }
 
-    list.push({...data, timePoint: 30});
-    list.push({...data, timePoint: 2 * 60});
-    list.push({...data, timePoint: 3.5 * 60});
-    list.push({...data, timePoint: 5 * 60});
-    list.push({...data, timePoint: 6.5 * 60});
-    list.push({...data, timePoint: 8 * 60});
+    list.push({...data, id: 10, timePoint: 30});
+    list.push({...data, id: 11, timePoint: 2 * 60});
+    list.push({...data, id: 12, timePoint: 3.5 * 60});
+    list.push({...data, id: 13, timePoint: 5 * 60});
+    list.push({...data, id: 14, timePoint: 6.5 * 60});
+    list.push({...data, id: 15, timePoint: 8 * 60});
 
     return list;
 

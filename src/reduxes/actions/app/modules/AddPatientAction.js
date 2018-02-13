@@ -13,7 +13,7 @@ export const addPatientStepNext = () => dispatch => {
     });
 };
 
-export const addPatientStepUpdate = activatedStep => dispatch => {
+export const updateAddPatientStep = activatedStep => dispatch => {
     return dispatch({
         type: actionTypes.ADD_PATIENT_STEP_UPDATE,
         activatedStep

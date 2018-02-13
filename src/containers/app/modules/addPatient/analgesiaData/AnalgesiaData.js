@@ -19,8 +19,22 @@ class AnalgesiaData extends Component {
 
         super(props);
 
+        this.updateField = ::this.updateField;
         this.prevStep = ::this.prevStep;
         this.next = ::this.next;
+
+    }
+
+    updateField(id, fieldName, fieldValue) {
+
+        const {$analgesiaData} = this.props,
+            data = $analgesiaData.find(item => item.id === id);
+
+        if (!data) {
+            return;
+        }
+
+        data[fieldName] = fieldValue;
 
     }
 
@@ -35,12 +49,13 @@ class AnalgesiaData extends Component {
     }
 
     componentDidMount() {
-        this.props.addPatientStepUpdate(1);
+        this.props.updateAddPatientStep(1);
     }
 
     render() {
 
-        const {$sensoryBlockList, $analgesiaData} = this.props;
+        const {$sensoryBlockList, $analgesiaData} = this.props,
+            self = this;
 
         return (
             <div className="analgesia-data">
@@ -49,71 +64,69 @@ class AnalgesiaData extends Component {
                     <Table className="analgesia-data-table"
                            columns={[{
                                header: 'Time',
-                               renderer(rowData) {
-                                   return rowData.timePoint <= 60 ?
-                                       `${rowData.timePoint} min`
-                                       :
-                                       `${rowData.timePoint / 60} h`;
-                               }
+                               renderer: rowData => rowData.timePoint <= 60 ?
+                                   `${rowData.timePoint} min`
+                                   :
+                                   `${rowData.timePoint / 60} h`
                            }, {
                                header: 'Contraction',
-                               renderer(rowData) {
-                                   return <Checkbox value={rowData.hasContraction}/>;
-                               }
+                               renderer: rowData =>
+                                   <Checkbox value={rowData.hasContraction}
+                                             onChange={value => self.updateField(rowData.id, 'hasContraction', value)}/>
                            }, {
                                header: 'Vas',
-                               renderer(rowData) {
-                                   return <TextField className="vas"
-                                                     value={rowData.vasScore}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="vas"
+                                              value={rowData.vasScore}
+                                              onChange={value => self.updateField(rowData.id, 'vasScore', value)}/>
                            }, {
                                header: 'TSB',
-                               renderer(rowData) {
-                                   return <DropdownSelect className="tsb"
-                                                          data={$sensoryBlockList}
-                                                          value={rowData.thoracicSensoryBlockLeft}
-                                                          valueField="sensoryBlockValue"
-                                                          displayField="sensoryBlockName"/>;
-                               }
+                               renderer: rowData =>
+                                   <DropdownSelect className="tsb"
+                                                   data={$sensoryBlockList}
+                                                   value={rowData.thoracicSensoryBlockLeft}
+                                                   valueField="sensoryBlockValue"
+                                                   displayField="sensoryBlockName"
+                                                   onChange={value => self.updateField(rowData.id, 'thoracicSensoryBlockLeft', value)}/>
                            }, {
                                header: 'SSB',
-                               renderer(rowData) {
-                                   return <DropdownSelect className="ssb"
-                                                          data={$sensoryBlockList}
-                                                          value={rowData.sacralSensoryBlockLeft}
-                                                          valueField="sensoryBlockValue"
-                                                          displayField="sensoryBlockName"/>;
-                               }
+                               renderer: rowData =>
+                                   <DropdownSelect className="ssb"
+                                                   data={$sensoryBlockList}
+                                                   value={rowData.sacralSensoryBlockLeft}
+                                                   valueField="sensoryBlockValue"
+                                                   displayField="sensoryBlockName"
+                                                   onChange={value => self.updateField(rowData.id, 'sacralSensoryBlockLeft', value)}/>
                            }, {
                                header: 'Bromage',
-                               renderer(rowData) {
-                                   return <TextField className="bromage"
-                                                     value={rowData.bromageScore}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="bromage"
+                                              value={rowData.bromageScore}
+                                              onChange={value => self.updateField(rowData.id, 'bromageScore', value)}/>
                            }, {
                                header: 'SBP',
-                               renderer(rowData) {
-                                   return <TextField className="sbp"
-                                                     value={rowData.systolicBloodPressure}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="sbp"
+                                              value={rowData.systolicBloodPressure}
+                                              onChange={value => self.updateField(rowData.id, 'systolicBloodPressure', value)}/>
                            }, {
                                header: 'DBP',
-                               renderer(rowData) {
-                                   return <TextField className="dbp"
-                                                     value={rowData.diastolicBloodPressure}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="dbp"
+                                              value={rowData.diastolicBloodPressure}
+                                              onChange={value => self.updateField(rowData.id, 'diastolicBloodPressure', value)}/>
                            }, {
                                header: 'Heart Rate',
-                               renderer(rowData) {
-                                   return <TextField className="heart-rate"
-                                                     value={rowData.heartRate}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="heart-rate"
+                                              value={rowData.heartRate}
+                                              onChange={value => self.updateField(rowData.id, 'heartRate', value)}/>
                            }, {
                                header: 'SPO2',
-                               renderer(rowData) {
-                                   return <TextField className="spo2"
-                                                     value={rowData.pulseOxygenSaturation}/>;
-                               }
+                               renderer: rowData =>
+                                   <TextField className="spo2"
+                                              value={rowData.pulseOxygenSaturation}
+                                              onChange={value => self.updateField(rowData.id, 'pulseOxygenSaturation', value)}/>
                            }]}
                            data={$analgesiaData}
                            isPagging={false}/>
@@ -133,7 +146,7 @@ AnalgesiaData.propTypes = {
     $analgesiaData: PropTypes.array,
 
     routerPush: PropTypes.func,
-    addPatientStepUpdate: PropTypes.func
+    updateAddPatientStep: PropTypes.func
 
 };
 
