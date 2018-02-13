@@ -1,12 +1,25 @@
-import * as actionTypes from 'reduxes/actionTypes';
-import AddPatientApi from 'apis/app/modules/AddPatientApi';
-import {routerPush} from 'reduxes/actions/common/RouterAction';
+import * as actionTypes from 'reduxes/actionTypes/index';
+import {routerPush} from '../../../common/RouterAction';
+import AddPatientApi from '../../../../../apis/app/modules/AddPatientApi';
 
-export const updatePatientInformationField = (fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
-    fieldName,
-    fieldValue
-});
+export const addPatientStepPrev = () => dispatch => {
+    return dispatch({
+        type: actionTypes.ADD_PATIENT_STEP_PREV
+    });
+};
+
+export const addPatientStepNext = () => dispatch => {
+    return dispatch({
+        type: actionTypes.ADD_PATIENT_STEP_NEXT
+    });
+};
+
+export const updateAddPatientStep = activatedStep => dispatch => {
+    return dispatch({
+        type: actionTypes.ADD_PATIENT_STEP_UPDATE,
+        activatedStep
+    });
+};
 
 export const addPatient = () => (dispatch, getState) => {
 
