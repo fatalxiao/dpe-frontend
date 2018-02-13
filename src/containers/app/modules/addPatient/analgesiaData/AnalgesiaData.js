@@ -7,10 +7,10 @@ import * as actions from 'reduxes/actions/index';
 
 import Table from 'alcedo-ui/Table';
 import Checkbox from 'alcedo-ui/Checkbox';
+import Msg from 'components/Msg';
 import StepAction from 'components/StepAction';
 import TextField from 'customized/CustomizedMaterialTextField';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
-import Msg from '../../../../../components/Msg';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
