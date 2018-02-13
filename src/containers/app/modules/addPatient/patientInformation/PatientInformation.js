@@ -12,6 +12,7 @@ import StepAction from 'components/StepAction';
 import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
+import patientInformation from '../../../../../reduxes/reducers/app/modules/addPatient/PatientInformationReducer';
 
 class PatientInformation extends Component {
 
@@ -184,7 +185,7 @@ PatientInformation.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $groupList: state.group.list,
-        $form: state.addPatientInformation.form
+        $form: state.patientInformation.form
     };
 }
 
