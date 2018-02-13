@@ -4,24 +4,11 @@
     position: relative;
 
     .add-patient-stepper {
-        float: left;
-        width: 120px;
-        margin-right: 48px;
-        padding-top: 24px;
-
-        .bg-bar {
-            height: 96px;
-        }
-
-        .title {
-            white-space: pre;
-        }
+        margin-bottom: 32px;
     }
 
     .add-patient-content {
         overflow: hidden;
-        border-left: 1px solid $theme-border;
-        padding: 0 48px 0 96px;
 
         .add-patient-content-title {
             margin-bottom: 64px;
