@@ -42,8 +42,6 @@ function analgesiaData(state = initialState, action) {
 
         case actionTypes.UPDATE_ANALGESIA_DATA_FIELD: {
 
-            debugger;
-
             const data = state.data,
                 updateItem = data.find(item => item.id === action.id);
 

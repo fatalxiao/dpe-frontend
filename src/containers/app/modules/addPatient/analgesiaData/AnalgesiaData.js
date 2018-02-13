@@ -77,7 +77,7 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'Contraction',
                                renderer: rowData =>
-                                   <Checkbox value={rowData.hasContraction}
+                                   <Checkbox checked={rowData.hasContraction}
                                              onChange={value => self.updateField(rowData.id, 'hasContraction', value)}/>
                            }, {
                                header: 'Vas',
