@@ -8,8 +8,8 @@ import * as actions from 'reduxes/actions/index';
 import Table from 'alcedo-ui/Table';
 import Checkbox from 'alcedo-ui/Checkbox';
 import StepAction from 'components/StepAction';
-import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
-import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
+import TextField from 'customized/CustomizedMaterialTextField';
+import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
 
@@ -63,56 +63,56 @@ class AnalgesiaData extends Component {
                            }, {
                                header: 'Vas',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="vas"
-                                                                       value={rowData.vasScore}/>;
+                                   return <TextField className="vas"
+                                                     value={rowData.vasScore}/>;
                                }
                            }, {
                                header: 'TSB',
                                renderer(rowData) {
-                                   return <CustomizedMaterialDropdownSelect className="tsb"
-                                                                            data={$sensoryBlockList}
-                                                                            value={rowData.thoracicSensoryBlockLeft}
-                                                                            valueField="sensoryBlockValue"
-                                                                            displayField="sensoryBlockName"/>;
+                                   return <DropdownSelect className="tsb"
+                                                          data={$sensoryBlockList}
+                                                          value={rowData.thoracicSensoryBlockLeft}
+                                                          valueField="sensoryBlockValue"
+                                                          displayField="sensoryBlockName"/>;
                                }
                            }, {
                                header: 'SSB',
                                renderer(rowData) {
-                                   return <CustomizedMaterialDropdownSelect className="ssb"
-                                                                            data={$sensoryBlockList}
-                                                                            value={rowData.sacralSensoryBlockLeft}
-                                                                            valueField="sensoryBlockValue"
-                                                                            displayField="sensoryBlockName"/>;
+                                   return <DropdownSelect className="ssb"
+                                                          data={$sensoryBlockList}
+                                                          value={rowData.sacralSensoryBlockLeft}
+                                                          valueField="sensoryBlockValue"
+                                                          displayField="sensoryBlockName"/>;
                                }
                            }, {
                                header: 'Bromage',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="bromage"
-                                                                       value={rowData.bromageScore}/>;
+                                   return <TextField className="bromage"
+                                                     value={rowData.bromageScore}/>;
                                }
                            }, {
                                header: 'SBP',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="sbp"
-                                                                       value={rowData.systolicBloodPressure}/>;
+                                   return <TextField className="sbp"
+                                                     value={rowData.systolicBloodPressure}/>;
                                }
                            }, {
                                header: 'DBP',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="dbp"
-                                                                       value={rowData.diastolicBloodPressure}/>;
+                                   return <TextField className="dbp"
+                                                     value={rowData.diastolicBloodPressure}/>;
                                }
                            }, {
                                header: 'Heart Rate',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="heart-rate"
-                                                                       value={rowData.heartRate}/>;
+                                   return <TextField className="heart-rate"
+                                                     value={rowData.heartRate}/>;
                                }
                            }, {
                                header: 'SPO2',
                                renderer(rowData) {
-                                   return <CustomizedMaterialTextField className="spo2"
-                                                                       value={rowData.pulseOxygenSaturation}/>;
+                                   return <TextField className="spo2"
+                                                     value={rowData.pulseOxygenSaturation}/>;
                                }
                            }]}
                            data={$analgesiaData}
