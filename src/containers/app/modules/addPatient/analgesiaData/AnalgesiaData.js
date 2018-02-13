@@ -12,7 +12,6 @@ import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField'
 import CustomizedMaterialDropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
-import addPatientAnalgesiaData from '../../../../../reduxes/reducers/app/modules/addPatient/AddPatientAnalgesiaDataReducer';
 
 class AnalgesiaData extends Component {
 
@@ -21,7 +20,7 @@ class AnalgesiaData extends Component {
         super(props);
 
         this.prevStep = ::this.prevStep;
-        this.save = ::this.save;
+        this.next = ::this.next;
 
     }
 
@@ -30,7 +29,7 @@ class AnalgesiaData extends Component {
         routerPush('/app/add-patient/patient-information');
     }
 
-    save() {
+    next() {
         const {routerPush} = this.props;
         routerPush('/app/add-patient/observal-data');
     }
@@ -121,7 +120,7 @@ class AnalgesiaData extends Component {
                 </div>
 
                 <StepAction onPrev={this.prevStep}
-                            onNext={this.save}/>
+                            onNext={this.next}/>
 
             </div>
         );

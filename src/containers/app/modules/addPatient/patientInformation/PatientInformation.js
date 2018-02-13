@@ -24,7 +24,7 @@ class PatientInformation extends Component {
         };
 
         this.updateField = ::this.updateField;
-        this.save = ::this.save;
+        this.next = ::this.next;
 
     }
 
@@ -41,7 +41,7 @@ class PatientInformation extends Component {
 
     }
 
-    save() {
+    next() {
 
         const {$form} = this.props;
 
@@ -162,7 +162,7 @@ class PatientInformation extends Component {
                 </form>
 
                 <StepAction isFirst={true}
-                            onNext={this.save}/>
+                            onNext={this.next}/>
 
             </div>
         );
