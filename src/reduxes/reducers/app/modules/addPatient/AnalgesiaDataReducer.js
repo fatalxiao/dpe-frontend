@@ -3,13 +3,12 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 function getDefaultData() {
 
     const data = {
-            timePoint: 0,
             hasContraction: false,
             vasScore: 10,
-            thoracicSensoryBlockLeft: 1,
-            thoracicSensoryBlockRight: 1,
-            sacralSensoryBlockLeft: 1,
-            sacralSensoryBlockRight: 1,
+            thoracicSensoryBlockLeft: null,
+            thoracicSensoryBlockRight: null,
+            sacralSensoryBlockLeft: null,
+            sacralSensoryBlockRight: null,
             bromageScore: 10,
             systolicBloodPressure: 80,
             diastolicBloodPressure: 120,
