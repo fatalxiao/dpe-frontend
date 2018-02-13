@@ -140,7 +140,7 @@ AnalgesiaData.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $sensoryBlockList: state.sensoryBlock.list,
-        $analgesiaData: state.analgesiaData.list
+        $analgesiaData: state.analgesiaData.data
     };
 }
 
