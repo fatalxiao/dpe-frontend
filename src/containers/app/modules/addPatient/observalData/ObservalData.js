@@ -50,7 +50,7 @@ class ObservalData extends Component {
 
                     <MaterialProvider className="col-3"
                                       label="Has Carbetocin">
-                        <Checkbox/>
+                        <Checkbox onChange={value => this.updateField('group', value)}/>
                     </MaterialProvider>
                     <MaterialProvider className="col-3"
                                       label="Has Hemabate">
