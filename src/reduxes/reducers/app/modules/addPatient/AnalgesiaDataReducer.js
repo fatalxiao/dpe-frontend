@@ -4,16 +4,16 @@ function getDefaultData() {
 
     const data = {
             hasContraction: false,
-            vasScore: 10,
+            vasScore: '',
             thoracicSensoryBlockLeft: null,
             thoracicSensoryBlockRight: null,
             sacralSensoryBlockLeft: null,
             sacralSensoryBlockRight: null,
-            bromageScore: 10,
-            systolicBloodPressure: 80,
-            diastolicBloodPressure: 120,
-            heartRate: 70,
-            pulseOxygenSaturation: 10
+            bromageScore: '',
+            systolicBloodPressure: '',
+            diastolicBloodPressure: '',
+            heartRate: '',
+            pulseOxygenSaturation: ''
         },
         list = [];
 
