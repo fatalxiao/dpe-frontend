@@ -35,7 +35,7 @@ const initialState = {
         oneMinuteApgarScore: '',
         fiveMinuteApgarScore: '',
         hasNicu: false,
-        nicuReason: false,
+        nicuReason: '',
         arterialPh: '',
         arterialBe: '',
         venousPh: '',

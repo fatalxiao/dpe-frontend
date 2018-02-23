@@ -8,6 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import Checkbox from 'alcedo-ui/Checkbox';
 import TextField from 'customized/CustomizedMaterialTextField';
+import TextArea from 'customized/CustomizedMaterialTextArea';
 import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import StepAction from 'components/StepAction';
 import Msg from 'components/Msg';
@@ -203,6 +204,61 @@ class ObservalData extends Component {
                         <Checkbox checked={$form.hasLateralEpisiotomy}
                                   onChange={value => this.updateField('hasLateralEpisiotomy', value)}/>
                     </MaterialProvider>
+
+                    <DateTimePicker className="col-6"
+                                    label="Birth Time"
+                                    value={$form.birthTime}
+                                    onChange={value => this.updateField('birthTime', value)}/>
+                    <TextField className="col-3"
+                               label="Foetal Height"
+                               value={$form.foetalHeight}
+                               onChange={value => this.updateField('foetalHeight', value)}/>
+                    <TextField className="col-3"
+                               label="Foetal Weight"
+                               value={$form.foetalWeight}
+                               onChange={value => this.updateField('foetalWeight', value)}/>
+
+                    <TextField className="col-3"
+                               label="1min Apgar Score"
+                               value={$form.oneMinuteApgarScore}
+                               onChange={value => this.updateField('oneMinuteApgarScore', value)}/>
+                    <TextField className="col-3"
+                               label="5min Apgar Score"
+                               value={$form.fiveMinuteApgarScore}
+                               onChange={value => this.updateField('fiveMinuteApgarScore', value)}/>
+                    <MaterialProvider className="col-3"
+                                      label="Has NICU">
+                        <Checkbox checked={$form.hasNicu}
+                                  onChange={value => this.updateField('hasNicu', value)}/>
+                    </MaterialProvider>
+                    <TextField className="col-3"
+                               label="NICU Reason"
+                               value={$form.nicuReason}
+                               onChange={value => this.updateField('nicuReason', value)}/>
+
+                    <TextField className="col-3"
+                               label="Arterial PH"
+                               value={$form.arterialPh}
+                               onChange={value => this.updateField('arterialPh', value)}/>
+                    <TextField className="col-3"
+                               label="Arterial BE"
+                               value={$form.arterialBe}
+                               onChange={value => this.updateField('arterialBe', value)}/>
+                    <TextField className="col-3"
+                               label="Venous PH"
+                               value={$form.venousPh}
+                               onChange={value => this.updateField('venousPh', value)}/>
+                    <TextField className="col-3"
+                               label="Venous BE"
+                               value={$form.venousBe}
+                               onChange={value => this.updateField('venousBe', value)}/>
+
+                    <TextArea className="col-12"
+                              label="Description"
+                              maxLength={1000}
+                              wordCountVisible={true}
+                              value={$form.description}
+                              onChange={value => this.updateField('description', value)}/>
 
                 </form>
 
