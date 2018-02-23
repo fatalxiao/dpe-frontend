@@ -7,8 +7,8 @@ import * as actions from 'reduxes/actions/index';
 
 import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import Checkbox from 'alcedo-ui/Checkbox';
-import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
-import CustomizedMaterialDateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
+import TextField from 'customized/CustomizedMaterialTextField';
+import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import StepAction from 'components/StepAction';
 import Msg from 'components/Msg';
 
@@ -59,7 +59,8 @@ class ObservalData extends Component {
 
     render() {
 
-        const {$form} = this.props;
+        const {$form} = this.props,
+            {errorMsg} = this.state;
 
         return (
             <div className="observal-data">
@@ -69,27 +70,28 @@ class ObservalData extends Component {
                     <MaterialProvider className="col-3"
                                       label="Has Carbetocin">
                         <Checkbox value={$form.hasCarbetocin}
-                                  onChange={value => this.updateField('group', value)}/>
+                                  onChange={value => this.updateField('hasCarbetocin', value)}/>
                     </MaterialProvider>
                     <MaterialProvider className="col-3"
                                       label="Has Hemabate">
-                        <Checkbox/>
+                        <Checkbox value={$form.hasHemabate}
+                                  onChange={value => this.updateField('hasHemabate', value)}/>
                     </MaterialProvider>
-                    <CustomizedMaterialTextField className="col-6 local-anesthetic-consumption"
-                                                 label="Local Anesthetic Consumption"
-                                                 rightIconCls="unit"/>
+                    <TextField className="col-6 local-anesthetic-consumption"
+                               label="Local Anesthetic Consumption"
+                               rightIconCls="unit"/>
 
-                    <CustomizedMaterialTextField className="col-3"
-                                                 label="PCA Count"/>
-                    <CustomizedMaterialTextField className="col-3"
-                                                 label="Manual Bolus Count"/>
-                    <CustomizedMaterialDateTimePicker className="col-6"
-                                                      label="First PCA Time"/>
+                    <TextField className="col-3"
+                               label="PCA Count"/>
+                    <TextField className="col-3"
+                               label="Manual Bolus Count"/>
+                    <DateTimePicker className="col-6"
+                                    label="First PCA Time"/>
 
-                    <CustomizedMaterialDateTimePicker className="col-6"
-                                                      label="First Manual Bolus Time"/>
-                    <CustomizedMaterialDateTimePicker className="col-6"
-                                                      label="Duration Of Second Stage Of Labor"/>
+                    <DateTimePicker className="col-6"
+                                    label="First Manual Bolus Time"/>
+                    <DateTimePicker className="col-6"
+                                    label="Duration Of Second Stage Of Labor"/>
 
                     <MaterialProvider className="col-6"
                                       label="Has Epidural Catheter Adjuestment">
@@ -151,18 +153,18 @@ class ObservalData extends Component {
                                       label="Has Paresthesia">
                         <Checkbox/>
                     </MaterialProvider>
-                    <CustomizedMaterialDateTimePicker className="col-6"
-                                                      label="Duration Of Labor Analgesia"/>
+                    <DateTimePicker className="col-6"
+                                    label="Duration Of Labor Analgesia"/>
 
-                    <CustomizedMaterialTextField className="col-6"
-                                                 label="Patient Satisfaction Score"/>
+                    <TextField className="col-6"
+                               label="Patient Satisfaction Score"/>
                     <MaterialProvider className="col-6"
                                       label="Has Accidental Dural Punture">
                         <Checkbox/>
                     </MaterialProvider>
 
-                    <CustomizedMaterialTextField className="col-6"
-                                                 label="Lateral Episiotomy VAS Score"/>
+                    <TextField className="col-6"
+                               label="Lateral Episiotomy VAS Score"/>
                     <MaterialProvider className="col-6"
                                       label="Has Lateral Episiotomy">
                         <Checkbox/>
