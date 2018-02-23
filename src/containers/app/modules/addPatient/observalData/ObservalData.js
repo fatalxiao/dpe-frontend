@@ -19,8 +19,25 @@ class ObservalData extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
+        this.updateField = ::this.updateField;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
+
+    }
+
+    updateField(fieldName, fieldValue) {
+
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
+        }
+
+        this.props.updateObservalDataField(fieldName, fieldValue);
 
     }
 
@@ -41,7 +58,7 @@ class ObservalData extends Component {
 
     render() {
 
-        const {} = this.props;
+        const {$form} = this.props;
 
         return (
             <div className="observal-data">
@@ -50,7 +67,8 @@ class ObservalData extends Component {
 
                     <MaterialProvider className="col-3"
                                       label="Has Carbetocin">
-                        <Checkbox onChange={value => this.updateField('group', value)}/>
+                        <Checkbox value={$form.hasCarbetocin}
+                                  onChange={value => this.updateField('group', value)}/>
                     </MaterialProvider>
                     <MaterialProvider className="col-3"
                                       label="Has Hemabate">
@@ -161,12 +179,19 @@ class ObservalData extends Component {
 }
 
 ObservalData.propTypes = {
+
+    $form: PropTypes.object,
+
+    updateObservalDataField: PropTypes.func,
     routerPush: PropTypes.func,
     updateAddPatientStep: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $form: state.observalData.form
+    };
 }
 
 function mapDispatchToProps(dispatch) {

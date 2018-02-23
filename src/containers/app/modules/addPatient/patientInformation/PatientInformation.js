@@ -36,8 +36,7 @@ class PatientInformation extends Component {
             });
         }
 
-        const {updatePatientInformationField} = this.props;
-        updatePatientInformationField(fieldName, fieldValue);
+        this.props.updatePatientInformationField(fieldName, fieldValue);
 
     }
 

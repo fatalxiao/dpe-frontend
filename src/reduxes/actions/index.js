@@ -12,3 +12,4 @@ export * from './app/modules/PatientListAction';
 export * from './app/modules/addPatient/AddPatientAction';
 export * from './app/modules/addPatient/PatientInformationAction';
 export * from './app/modules/addPatient/AnalgesiaDataAction';
+export * from './app/modules/addPatient/ObservalDataAction';
