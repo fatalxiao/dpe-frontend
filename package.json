@@ -8,7 +8,7 @@
         "run:prod": "node build/run/prod-server.js"
     },
     "dependencies": {
-        "alcedo-ui": "^2.19.9",
+        "alcedo-ui": "^2.19.10",
         "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.5",
         "history": "^4.7.2",
