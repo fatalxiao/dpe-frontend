@@ -10,6 +10,7 @@ import Checkbox from 'alcedo-ui/Checkbox';
 import CustomizedMaterialTextField from 'customized/CustomizedMaterialTextField';
 import CustomizedMaterialDateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import StepAction from 'components/StepAction';
+import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/addPatient/observalData/ObservalData.scss';
 
@@ -168,6 +169,15 @@ class ObservalData extends Component {
                     </MaterialProvider>
 
                 </form>
+
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
 
                 <StepAction isLast={true}
                             onPrev={this.prevStep}
