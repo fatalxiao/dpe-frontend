@@ -25,10 +25,59 @@
             font-size: 32px !important;
             font-weight: 700;
             margin-bottom: 16px;
+
+            .logo,
+            .logo-animated {
+                position: absolute;
+                left: 8px;
+                top: 8px;
+                width: 32px;
+                height: 32px;
+                background-size: 32px 32px;
+            }
+
+            .logo {
+                background-image: url("../../../../../../assets/images/logo-white.png");
+            }
+
+            .logo-animated {
+                opacity: 0;
+                background-image: url("../../../../../../assets/images/logo-white-animated.png");
+                animation: logo-spin 1s linear infinite;
+            }
+
+            &:hover {
+                .logo {
+                    opacity: 0;
+                }
+
+                .logo-animated {
+                    opacity: 1;
+                }
+            }
         }
 
         &:hover {
             background: transparentize(#000, .9);
         }
+    }
+
+    &.fold {
+
+        .nav-bar-logo-button {
+            .logo {
+                background-image: url("../../../../../../assets/images/logo.png");
+            }
+
+            .logo-animated {
+                background-image: url("../../../../../../assets/images/logo-animated.png");
+            }
+        }
+    }
+}
+
+@keyframes logo-spin {
+    to {
+        transform: rotate(360deg)
     }
 }
