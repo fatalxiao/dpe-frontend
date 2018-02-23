@@ -8,6 +8,8 @@
         box-sizing: border-box;
         min-height: 100vh;
         padding: 24px 48px 64px;
+        overflow-x: auto;
+        overflow-y: hidden;
 
         .page-loading {
             position: fixed;
