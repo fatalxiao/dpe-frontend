@@ -14,6 +14,7 @@ import patientList from './app/modules/PatientListReducer';
 import addPatient from './app/modules/addPatient/AddPatientReducer';
 import patientInformation from './app/modules/addPatient/PatientInformationReducer';
 import analgesiaData from './app/modules/addPatient/AnalgesiaDataReducer';
+import observalData from './app/modules/addPatient/ObservalDataReducer';
 
 const rootReducer = combineReducers({
 
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
     addPatient,
     patientInformation,
     analgesiaData,
+    observalData,
 
     router: routerReducer
 
