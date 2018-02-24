@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
 function getDefaultData() {
@@ -41,11 +42,21 @@ function analgesiaData(state = initialState, action) {
 
         case actionTypes.UPDATE_ANALGESIA_DATA_FIELD: {
 
-            const data = state.data,
+            const data = _.cloneDeep(state.data),
                 updateItem = data.find(item => item.id === action.id);
 
             if (updateItem) {
                 updateItem[action.fieldName] = action.fieldValue;
+            }
+
+            if (action.fieldName === 'thoracicSensoryBlockLeft' && updateItem.thoracicSensoryBlockRight === null) {
+                updateItem.thoracicSensoryBlockRight = action.fieldValue;
+            } else if (action.fieldName === 'thoracicSensoryBlockRight' && updateItem.thoracicSensoryBlockLeft === null) {
+                updateItem.thoracicSensoryBlockLeft = action.fieldValue;
+            } else if (action.fieldName === 'sacralSensoryBlockLeft' && updateItem.sacralSensoryBlockRight === null) {
+                updateItem.sacralSensoryBlockRight = action.fieldValue;
+            } else if (action.fieldName === 'sacralSensoryBlockRight' && updateItem.sacralSensoryBlockLeft === null) {
+                updateItem.sacralSensoryBlockLeft = action.fieldValue;
             }
 
             return {

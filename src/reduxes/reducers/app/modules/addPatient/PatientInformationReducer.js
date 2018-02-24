@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
 const initialState = {
@@ -27,7 +28,7 @@ function patientInformation(state = initialState, action) {
 
         case actionTypes.UPDATE_PATIENT_INFORMATION_FIELD: {
 
-            const form = state.form;
+            const form = _.cloneDeep(state.form);
 
             if (action.fieldName === 'group') {
                 form.group = action.fieldValue;
