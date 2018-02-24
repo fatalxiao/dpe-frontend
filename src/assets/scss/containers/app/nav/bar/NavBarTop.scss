@@ -34,6 +34,7 @@
                 width: 32px;
                 height: 32px;
                 background-size: 32px 32px;
+                transition: opacity $theme-transition-duration ease-in-out;
             }
 
             .logo {
