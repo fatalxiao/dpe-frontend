@@ -50,8 +50,7 @@ class ObservalData extends Component {
     }
 
     save() {
-        const {addPatientStepNext} = this.props;
-        addPatientStepNext();
+        this.props.addPatient();
     }
 
     componentDidMount() {
@@ -286,7 +285,8 @@ ObservalData.propTypes = {
 
     updateObservalDataField: PropTypes.func,
     routerPush: PropTypes.func,
-    updateAddPatientStep: PropTypes.func
+    updateAddPatientStep: PropTypes.func,
+    addPatient: PropTypes.func
 
 };
 

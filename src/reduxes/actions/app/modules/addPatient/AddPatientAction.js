@@ -23,27 +23,34 @@ export const updateAddPatientStep = activatedStep => dispatch => {
 
 export const addPatient = () => (dispatch, getState) => {
 
-    const form = getState().addPatientInformation.form,
-        params = {
-            groupId: form.groupId,
-            id: form.id,
-            patientName: form.patientName,
-            age: form.age,
-            gestationalDays: form.gestationalDays,
-            height: form.height,
-            weight: form.weight,
-            heartRate: form.heartRate,
-            initialVasScore: form.initialVasScore,
-            cervicalDilationAtTimeOfEA: form.cervicalDilationAtTimeOfEA,
-            systolicBloodPressure: form.systolicBloodPressure,
-            diastolicBloodPressure: form.diastolicBloodPressure,
-            foetalHeartRate: form.foetalHeartRate,
-            description: form.description
-        };
+    const patientInformation = getState().patientInformation.form,
+        analgesiaData = getState().analgesiaData.data,
+        observalData = getState().observalData.form;
 
-    if (!params.groupId || !params.id || !params.patientName) {
+    if (!patientInformation.groupId || !patientInformation.id || !patientInformation.patientName) {
         return;
     }
+
+    const params = {
+        groupId: patientInformation.groupId,
+        id: patientInformation.id,
+        patient: {
+            patientName: patientInformation.patientName,
+            age: patientInformation.age,
+            gestationalDays: patientInformation.gestationalDays,
+            height: patientInformation.height,
+            weight: patientInformation.weight,
+            heartRate: patientInformation.heartRate,
+            initialVasScore: patientInformation.initialVasScore,
+            cervicalDilationAtTimeOfEA: patientInformation.cervicalDilationAtTimeOfEA,
+            systolicBloodPressure: patientInformation.systolicBloodPressure,
+            diastolicBloodPressure: patientInformation.diastolicBloodPressure,
+            foetalHeartRate: patientInformation.foetalHeartRate,
+            description: patientInformation.description
+        },
+        analgesia: analgesiaData,
+        observal: observalData
+    };
 
     return dispatch({
         [actionTypes.CALL_API]: {
@@ -55,7 +62,7 @@ export const addPatient = () => (dispatch, getState) => {
             api: AddPatientApi.addPatient,
             params,
             successCallback() {
-                routerPush('/app/add-patient/analgesia-data');
+                routerPush('/app/add-patient/patient-information');
             }
         }
     });
