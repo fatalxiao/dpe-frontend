@@ -32,9 +32,9 @@ export const addPatient = () => (dispatch, getState) => {
     }
 
     const params = {
-        groupId: patientInformation.groupId,
         id: patientInformation.id,
         patient: {
+            groupId: patientInformation.groupId,
             patientName: patientInformation.patientName,
             age: patientInformation.age,
             gestationalDays: patientInformation.gestationalDays,
