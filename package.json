@@ -4,8 +4,9 @@
     "private": true,
     "scripts": {
         "dev": "node build/dev/dev-server.js",
-        "build:prod": "npm i && rimraf dist/dist-prod/dist && node build/prod/prod.js",
-        "run:prod": "node build/run/prod-server.js"
+        "build": "npm i && rimraf dist/dist-prod/dist && node build/prod/prod.js",
+        "demo": "node build/run/prod-server.js",
+        "start": "npm run build && npm run demo"
     },
     "dependencies": {
         "alcedo-ui": "^2.19.12",
