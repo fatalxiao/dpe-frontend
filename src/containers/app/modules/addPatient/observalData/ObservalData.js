@@ -100,10 +100,10 @@ class ObservalData extends Component {
                                     label="First Manual Bolus Time"
                                     value={$form.firstManualBolusTime}
                                     onChange={value => this.updateField('firstManualBolusTime', value)}/>
-                    <DateTimePicker className="col-6"
-                                    label="Duration Of Second Stage Of Labor"
-                                    value={$form.durationOfSecondStageOfLabor}
-                                    onChange={value => this.updateField('durationOfSecondStageOfLabor', value)}/>
+                    <TextField className="col-6"
+                               label="Duration Of Second Stage Of Labor"
+                               value={$form.durationOfSecondStageOfLabor}
+                               onChange={value => this.updateField('durationOfSecondStageOfLabor', value)}/>
 
                     <MaterialProvider className="col-6"
                                       label="Has Epidural Catheter Adjuestment">
@@ -179,10 +179,10 @@ class ObservalData extends Component {
                         <Checkbox checked={$form.hasParesthesia}
                                   onChange={value => this.updateField('hasParesthesia', value)}/>
                     </MaterialProvider>
-                    <DateTimePicker className="col-6"
-                                    label="Duration Of Labor Analgesia"
-                                    value={$form.durationOfLaborAnalgesia}
-                                    onChange={value => this.updateField('durationOfLaborAnalgesia', value)}/>
+                    <TextField className="col-6"
+                               label="Duration Of Labor Analgesia"
+                               value={$form.durationOfLaborAnalgesia}
+                               onChange={value => this.updateField('durationOfLaborAnalgesia', value)}/>
 
                     <TextField className="col-6"
                                label="Patient Satisfaction Score"
