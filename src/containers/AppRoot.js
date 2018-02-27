@@ -42,7 +42,8 @@ class AppRoot extends Component {
 
                 <Notifier notifications={$notifiers}
                           position={Notifier.Position.TOP_RIGHT}
-                          onNotificationPop={clearNotifier}/>
+                          onNotificationPop={clearNotifier}
+                          duration={8000}/>
 
                 {renderRoutes(route.routes)}
 
