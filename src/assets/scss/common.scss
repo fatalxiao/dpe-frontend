@@ -13,6 +13,7 @@ $theme-info-bg: #eaf8fe;
 $theme-info-border: #c6ebfb;
 $theme-warning-bg: #fff7e6;
 $theme-warning-border: #f7dfad;
+$theme-label: lighten($theme-field, 24%);
 
 // z-index
 $root-loading-z-index: 99;
