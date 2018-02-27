@@ -9,7 +9,7 @@
         "start": "npm run build && npm run demo"
     },
     "dependencies": {
-        "alcedo-ui": "^2.19.16",
+        "alcedo-ui": "^2.20.0",
         "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.5",
         "history": "^4.7.2",

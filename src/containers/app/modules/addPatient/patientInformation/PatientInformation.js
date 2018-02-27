@@ -75,18 +75,19 @@ class PatientInformation extends Component {
                                     valueField="id"
                                     displayField="groupName"
                                     value={$form.group}
-                                    onChange={value => this.updateField('group', value)}
-                                    required={true}/>
+                                    required={true}
+                                    onChange={value => this.updateField('group', value)}/>
 
                     <TextField className="col-3"
                                label="ID"
                                value={$form.id}
-                               onChange={value => this.updateField('id', value)}
-                               required={true}/>
+                               required={true}
+                               onChange={value => this.updateField('id', value)}/>
 
                     <TextField className="col-3"
                                label="Patient Name"
                                value={$form.patientName}
+                               required={true}
                                onChange={value => this.updateField('patientName', value)}/>
 
                     <TextField className="col-3"
