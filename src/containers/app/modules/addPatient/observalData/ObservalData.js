@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import MaterialProvider from 'alcedo-ui/MaterialProvider';
-import Checkbox from 'alcedo-ui/Checkbox';
+import Checkbox from 'customized/CustomizedMaterialCheckbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
@@ -67,16 +67,14 @@ class ObservalData extends Component {
 
                 <form className="observal-data-form row">
 
-                    <MaterialProvider className="col-3"
-                                      label="Has Carbetocin">
-                        <Checkbox checked={$form.hasCarbetocin}
-                                  onChange={value => this.updateField('hasCarbetocin', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Hemabate">
-                        <Checkbox checked={$form.hasHemabate}
-                                  onChange={value => this.updateField('hasHemabate', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has Carbetocin"
+                              checked={$form.hasCarbetocin}
+                              onChange={value => this.updateField('hasCarbetocin', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Hemabate"
+                              checked={$form.hasHemabate}
+                              onChange={value => this.updateField('hasHemabate', value)}/>
                     <TextField className="col-6 local-anesthetic-consumption"
                                label="Local Anesthetic Consumption"
                                rightIconCls="unit"
@@ -105,80 +103,66 @@ class ObservalData extends Component {
                                value={$form.durationOfSecondStageOfLabor}
                                onChange={value => this.updateField('durationOfSecondStageOfLabor', value)}/>
 
-                    <MaterialProvider className="col-6"
-                                      label="Has Epidural Catheter Adjuestment">
-                        <Checkbox checked={$form.hasEpiduralCatheterAdjuestment}
-                                  onChange={value => this.updateField('hasEpiduralCatheterAdjuestment', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-6"
-                                      label="Has Epidural Catheter Replacement">
-                        <Checkbox checked={$form.hasEpiduralcatheterReplacement}
-                                  onChange={value => this.updateField('hasEpiduralcatheterReplacement', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-6"
+                              label="Has Epidural Catheter Adjuestment"
+                              checked={$form.hasEpiduralCatheterAdjuestment}
+                              onChange={value => this.updateField('hasEpiduralCatheterAdjuestment', value)}/>
+                    <Checkbox className="col-6"
+                              label="Has Epidural Catheter Replacement"
+                              checked={$form.hasEpiduralcatheterReplacement}
+                              onChange={value => this.updateField('hasEpiduralcatheterReplacement', value)}/>
 
-                    <MaterialProvider className="col-3"
-                                      label="Has Prenatal Fever">
-                        <Checkbox checked={$form.hasPrenatalFever}
-                                  onChange={value => this.updateField('hasPrenatalFever', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Vasoactive Agent">
-                        <Checkbox checked={$form.hasVasoactiveAgent}
-                                  onChange={value => this.updateField('hasVasoactiveAgent', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-6"
-                                      label="Is Unabled To Puncture Dura">
-                        <Checkbox checked={$form.isUnabledToPunctureDura}
-                                  onChange={value => this.updateField('isUnabledToPunctureDura', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has Prenatal Fever"
+                              checked={$form.hasPrenatalFever}
+                              onChange={value => this.updateField('hasPrenatalFever', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Vasoactive Agent"
+                              checked={$form.hasVasoactiveAgent}
+                              onChange={value => this.updateField('hasVasoactiveAgent', value)}/>
+                    <Checkbox className="col-6"
+                              label="Is Unabled To Puncture Dura"
+                              checked={$form.isUnabledToPunctureDura}
+                              onChange={value => this.updateField('isUnabledToPunctureDura', value)}/>
 
-                    <MaterialProvider className="col-3"
-                                      label="Has Nausea">
-                        <Checkbox checked={$form.hasNausea}
-                                  onChange={value => this.updateField('hasNausea', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Vomit">
-                        <Checkbox checked={$form.hasVomit}
-                                  onChange={value => this.updateField('hasVomit', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Pruritus">
-                        <Checkbox checked={$form.hasPruritus}
-                                  onChange={value => this.updateField('hasPruritus', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Hypotension">
-                        <Checkbox checked={$form.hasHypotension}
-                                  onChange={value => this.updateField('hasHypotension', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has Nausea"
+                              checked={$form.hasNausea}
+                              onChange={value => this.updateField('hasNausea', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Vomit"
+                              checked={$form.hasVomit}
+                              onChange={value => this.updateField('hasVomit', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Pruritus"
+                              checked={$form.hasPruritus}
+                              onChange={value => this.updateField('hasPruritus', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Hypotension"
+                              checked={$form.hasHypotension}
+                              onChange={value => this.updateField('hasHypotension', value)}/>
 
-                    <MaterialProvider className="col-3"
-                                      label="Has Caesarean Section">
-                        <Checkbox checked={$form.hasCaesareanSection}
-                                  onChange={value => this.updateField('hasCaesareanSection', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Instrumental">
-                        <Checkbox checked={$form.hasInstrumental}
-                                  onChange={value => this.updateField('hasInstrumental', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-6"
-                                      label="Has Postdural Puncture Headache">
-                        <Checkbox checked={$form.hasPostduralPunctureHeadache}
-                                  onChange={value => this.updateField('hasPostduralPunctureHeadache', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has Caesarean Section"
+                              checked={$form.hasCaesareanSection}
+                              onChange={value => this.updateField('hasCaesareanSection', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Instrumental"
+                              checked={$form.hasInstrumental}
+                              onChange={value => this.updateField('hasInstrumental', value)}/>
+                    <Checkbox className="col-6"
+                              label="Has Postdural Puncture Headache"
+                              checked={$form.hasPostduralPunctureHeadache}
+                              onChange={value => this.updateField('hasPostduralPunctureHeadache', value)}/>
 
-                    <MaterialProvider className="col-3"
-                                      label="Has Back Pain">
-                        <Checkbox checked={$form.hasBackPain}
-                                  onChange={value => this.updateField('hasBackPain', value)}/>
-                    </MaterialProvider>
-                    <MaterialProvider className="col-3"
-                                      label="Has Paresthesia">
-                        <Checkbox checked={$form.hasParesthesia}
-                                  onChange={value => this.updateField('hasParesthesia', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has Back Pain"
+                              checked={$form.hasBackPain}
+                              onChange={value => this.updateField('hasBackPain', value)}/>
+                    <Checkbox className="col-3"
+                              label="Has Paresthesia"
+                              checked={$form.hasParesthesia}
+                              onChange={value => this.updateField('hasParesthesia', value)}/>
                     <TextField className="col-6"
                                label="Duration Of Labor Analgesia"
                                value={$form.durationOfLaborAnalgesia}
@@ -188,21 +172,19 @@ class ObservalData extends Component {
                                label="Patient Satisfaction Score"
                                value={$form.patientSatisfactionScore}
                                onChange={value => this.updateField('patientSatisfactionScore', value)}/>
-                    <MaterialProvider className="col-6"
-                                      label="Has Accidental Dural Punture">
-                        <Checkbox checked={$form.hasAccidentalDuralPunture}
-                                  onChange={value => this.updateField('hasAccidentalDuralPunture', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-6"
+                              label="Has Accidental Dural Punture"
+                              checked={$form.hasAccidentalDuralPunture}
+                              onChange={value => this.updateField('hasAccidentalDuralPunture', value)}/>
 
                     <TextField className="col-6"
                                label="Lateral Episiotomy VAS Score"
                                value={$form.lateralEpisiotomyVasScore}
                                onChange={value => this.updateField('lateralEpisiotomyVasScore', value)}/>
-                    <MaterialProvider className="col-6"
-                                      label="Has Lateral Episiotomy">
-                        <Checkbox checked={$form.hasLateralEpisiotomy}
-                                  onChange={value => this.updateField('hasLateralEpisiotomy', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-6"
+                              label="Has Lateral Episiotomy"
+                              checked={$form.hasLateralEpisiotomy}
+                              onChange={value => this.updateField('hasLateralEpisiotomy', value)}/>
 
                     <DateTimePicker className="col-6"
                                     label="Birth Time"
@@ -225,11 +207,10 @@ class ObservalData extends Component {
                                label="5min Apgar Score"
                                value={$form.fiveMinuteApgarScore}
                                onChange={value => this.updateField('fiveMinuteApgarScore', value)}/>
-                    <MaterialProvider className="col-3"
-                                      label="Has NICU">
-                        <Checkbox checked={$form.hasNicu}
-                                  onChange={value => this.updateField('hasNicu', value)}/>
-                    </MaterialProvider>
+                    <Checkbox className="col-3"
+                              label="Has NICU"
+                              checked={$form.hasNicu}
+                              onChange={value => this.updateField('hasNicu', value)}/>
                     <TextField className="col-3"
                                label="NICU Reason"
                                value={$form.nicuReason}

@@ -13,10 +13,11 @@ class CustomizedMaterialTextField extends Component {
 
     render() {
 
-        const {label, ...restProps} = this.props;
+        const {className, label, ...restProps} = this.props;
 
         return (
-            <MaterialProvider label={label}
+            <MaterialProvider className={className}
+                              label={label}
                               isLabelAnimate={false}
                               useSeparator={false}>
                 <Checkbox {...restProps}/>
