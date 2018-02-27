@@ -46,7 +46,7 @@ class PatientInformation extends Component {
 
         if (!$form.groupId || !$form.id || !$form.patientName) {
             this.setState({
-                errorMsg: 'Group ID, ID and Patient Name is required!'
+                errorMsg: 'Group, ID and Patient Name is required!'
             });
             return;
         }
