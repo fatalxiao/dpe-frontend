@@ -48,7 +48,13 @@ export const addPatient = () => (dispatch, getState) => {
             foetalHeartRate: patientInformation.foetalHeartRate,
             description: patientInformation.description
         },
-        analgesia: analgesiaData,
+        analgesia: analgesiaData.map(item => ({
+            ...item,
+            thoracicSensoryBlockLeft: item.thoracicSensoryBlockLeft.sensoryBlockValue,
+            thoracicSensoryBlockRight: item.thoracicSensoryBlockRight.sensoryBlockValue,
+            sacralSensoryBlockLeft: item.sacralSensoryBlockLeft.sensoryBlockValue,
+            sacralSensoryBlockRight: item.sacralSensoryBlockRight.sensoryBlockValue
+        })),
         observal: observalData
     };
 
