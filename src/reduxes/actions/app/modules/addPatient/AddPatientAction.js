@@ -48,13 +48,22 @@ export const addPatient = () => (dispatch, getState) => {
             foetalHeartRate: patientInformation.foetalHeartRate,
             description: patientInformation.description
         },
-        analgesia: analgesiaData.map(item => ({
-            ...item,
-            thoracicSensoryBlockLeft: item.thoracicSensoryBlockLeft.sensoryBlockValue,
-            thoracicSensoryBlockRight: item.thoracicSensoryBlockRight.sensoryBlockValue,
-            sacralSensoryBlockLeft: item.sacralSensoryBlockLeft.sensoryBlockValue,
-            sacralSensoryBlockRight: item.sacralSensoryBlockRight.sensoryBlockValue
-        })),
+        analgesia: analgesiaData.map(item => {
+
+            const result = item;
+
+            function sensoryBlockhandler(key) {
+                if (item[key]) {
+                    result[key] = item[key].sensoryBlockValue;
+                }
+            }
+
+            sensoryBlockhandler('thoracicSensoryBlockLeft');
+            sensoryBlockhandler('thoracicSensoryBlockRight');
+            sensoryBlockhandler('sacralSensoryBlockLeft');
+            sensoryBlockhandler('sacralSensoryBlockRight');
+
+        }),
         observal: observalData
     };
 
