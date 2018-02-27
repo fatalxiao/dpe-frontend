@@ -32,7 +32,7 @@ export default class StepAction extends Component {
 
                 <RaisedButton className="continue-button"
                               theme={Theme.SUCCESS}
-                              value={isLast ? 'DONE' : 'CONTINUE'}
+                              value={isLast ? 'DONE' : 'SAVE and CONTINUE'}
                               onTouchTap={onNext}/>
 
             </div>
