@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MaterialTextArea from 'alcedo-ui/MaterialTextArea';
 import Theme from 'alcedo-ui/Theme';
 
-export default class CustomizedMaterialTextArea extends Component {
+class CustomizedMaterialTextArea extends Component {
 
     constructor(props) {
         super(props);
@@ -31,3 +31,5 @@ CustomizedMaterialTextArea.defaultProps = {
     clearButtonVisible: false,
     autoHeight: true
 };
+
+export default CustomizedMaterialTextArea;

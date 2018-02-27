@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MaterialDateTimePicker from 'alcedo-ui/MaterialDateTimePicker';
 import Theme from 'alcedo-ui/Theme';
 
-export default class CustomizedMaterialDateTimePicker extends Component {
+class CustomizedMaterialDateTimePicker extends Component {
 
     constructor(props) {
         super(props);
@@ -29,3 +29,5 @@ CustomizedMaterialDateTimePicker.defaultProps = {
     isLabelAnimate: false,
     clearButtonVisible: false
 };
+
+export default CustomizedMaterialDateTimePicker;

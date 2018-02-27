@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import MaterialTextField from 'alcedo-ui/MaterialTextField';
+import MaterialProvider from 'alcedo-ui/MaterialProvider';
+import Checkbox from 'alcedo-ui/Checkbox';
 import Theme from 'alcedo-ui/Theme';
 
 class CustomizedMaterialTextField extends Component {
@@ -11,8 +12,15 @@ class CustomizedMaterialTextField extends Component {
     }
 
     render() {
+
+        const {label, ...restProps} = this.props;
+
         return (
-            <MaterialTextField {...this.props}/>
+            <MaterialProvider label={label}
+                              isLabelAnimate={false}
+                              useSeparator={false}>
+                <Checkbox {...restProps}/>
+            </MaterialProvider>
         );
     }
 

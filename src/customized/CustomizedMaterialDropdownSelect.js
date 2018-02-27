@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MaterialDropdownSelect from 'alcedo-ui/MaterialDropdownSelect';
 import Theme from 'alcedo-ui/Theme';
 
-export default class CustomizedMaterialDropdownSelect extends Component {
+class CustomizedMaterialDropdownSelect extends Component {
 
     constructor(props) {
         super(props);
@@ -32,3 +32,5 @@ CustomizedMaterialDropdownSelect.defaultProps = {
     theme: Theme.HIGHLIGHT,
     isLabelAnimate: false
 };
+
+export default CustomizedMaterialDropdownSelect;
