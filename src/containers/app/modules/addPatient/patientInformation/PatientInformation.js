@@ -54,12 +54,18 @@ class PatientInformation extends Component {
 }
 
 PatientInformation.propTypes = {
+
+    $form: PropTypes.object,
+
     routerPush: PropTypes.func,
     updateAddPatientStep: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $form: state.patientInformation.form
+    };
 }
 
 function mapDispatchToProps(dispatch) {
