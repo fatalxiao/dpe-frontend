@@ -59,33 +59,35 @@ class PatientForm extends Component {
                                     onChange={value => this.updateField('group', value)}/>
                 </div>
 
-                <TextField className="col-3"
-                           label="ID"
-                           value={$form.id}
-                           required={true}
-                           onChange={value => this.updateField('id', value)}/>
-
-                <TextField className="col-3"
-                           label="Patient Name"
-                           value={$form.patientName}
-                           required={true}
-                           onChange={value => this.updateField('patientName', value)}/>
-
-                <TextField className="col-3"
-                           label="Age"
-                           value={$form.age}
-                           onChange={value => this.updateField('age', value)}/>
-
-                <TextField className="col-3 gestational-weeks"
-                           label="Gestational Days"
-                           rightIconCls="unit"
-                           value={$form.gestationalDaysWeek}
-                           onChange={value => this.updateField('gestationalDaysWeek', value)}/>
-                <TextField className="col-3 gestational-days"
-                           label=" "
-                           rightIconCls="unit"
-                           value={$form.gestationalDaysDay}
-                           onChange={value => this.updateField('gestationalDaysDay', value)}/>
+                <FieldSetTitle title="Patient Base Information"/>
+                <div className="row">
+                    <TextField className="col-3"
+                               label="ID"
+                               value={$form.id}
+                               required={true}
+                               onChange={value => this.updateField('id', value)}/>
+                    <TextField className="col-3"
+                               label="Patient Name"
+                               value={$form.patientName}
+                               required={true}
+                               onChange={value => this.updateField('patientName', value)}/>
+                    <TextField className="col-3"
+                               label="Age"
+                               value={$form.age}
+                               onChange={value => this.updateField('age', value)}/>
+                </div>
+                <div className="row">
+                    <TextField className="col-3 gestational-weeks"
+                               label="Gestational Days"
+                               rightIconCls="unit"
+                               value={$form.gestationalDaysWeek}
+                               onChange={value => this.updateField('gestationalDaysWeek', value)}/>
+                    <TextField className="col-3 gestational-days"
+                               label="Gestational Days"
+                               rightIconCls="unit"
+                               value={$form.gestationalDaysDay}
+                               onChange={value => this.updateField('gestationalDaysDay', value)}/>
+                </div>
 
                 <TextField className="col-3 height"
                            label="Height"

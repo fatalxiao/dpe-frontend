@@ -20,6 +20,10 @@
 
     .gestational-days {
 
+        .material-provider-label {
+            opacity: 0;
+        }
+
         .unit::after {
             content: "Days";
         }
