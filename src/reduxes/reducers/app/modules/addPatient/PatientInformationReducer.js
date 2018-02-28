@@ -20,7 +20,8 @@ const initialState = {
         diastolicBloodPressure: '',
         foetalHeartRate: '',
         description: ''
-    }
+    },
+    actionType: ''
 };
 
 function patientInformation(state = initialState, action) {
@@ -48,6 +49,26 @@ function patientInformation(state = initialState, action) {
                 form
             };
 
+        }
+
+        // create patient
+        case actionTypes.CREATE_PATIENT_INFORMATION_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.CREATE_PATIENT_INFORMATION_REQUEST
+            };
+        }
+        case actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS: {
+            return {
+                ...state,
+                actionType: actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS
+            };
+        }
+        case actionTypes.CREATE_PATIENT_INFORMATION_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
+            };
         }
 
         default:

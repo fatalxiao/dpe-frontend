@@ -42,7 +42,7 @@ export const createPatientInformation = () => (dispatch, getState) => {
                 description: data.description
             },
             successCallback() {
-                routerPush(`/app/add-patient/analgesia-data/${id}`);
+                routerPush(`/app/add-patient/analgesia-data/${id}`)(dispatch);
             }
         }
     });
