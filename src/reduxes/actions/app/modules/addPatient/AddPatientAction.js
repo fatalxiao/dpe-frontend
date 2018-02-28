@@ -70,9 +70,9 @@ export const addPatient = () => (dispatch, getState) => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST,
-                actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS,
-                actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
+                actionTypes.CREATE_PATIENT_INFORMATION_REQUEST,
+                actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS,
+                actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
             ],
             api: AddPatientApi.addPatient,
             params,

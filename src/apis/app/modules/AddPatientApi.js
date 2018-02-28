@@ -10,6 +10,14 @@ export default {
         });
     },
 
+    createPatientInformation(options) {
+        Api.post({
+            ...options,
+            url: `${config.appBaseUrl}/patient/createPatientInformation`,
+            cancelable: false
+        });
+    },
+
     updatePatientInformation(options) {
         Api.post({
             ...options,
