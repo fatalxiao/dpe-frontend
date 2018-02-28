@@ -1,0 +1,25 @@
+@import '../../../../../common.scss';
+
+.analgesia-data-table-wrapper {
+
+    .analgesia-data-table-scroller {
+        overflow-x: auto;
+
+        .analgesia-data-table {
+
+            .material-text-field,
+            .material-dropdown-select {
+                width: 72px;
+            }
+
+            .material-dropdown-select {
+                display: inline-block;
+            }
+
+            label {
+                color: $theme-description;
+            }
+        }
+    }
+
+}
