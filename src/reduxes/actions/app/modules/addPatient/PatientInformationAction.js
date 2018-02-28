@@ -8,6 +8,22 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
+function gestationalDaysHandler(data) {
+
+    let result = 0;
+
+    if (data.gestationalWeeks && !isNaN(data.gestationalWeeks)) {
+        result += +data.gestationalWeeks * 7;
+    }
+
+    if (data.gestationalDays && !isNaN(data.gestationalDays)) {
+        result += +data.gestationalDays;
+    }
+
+    return result;
+
+}
+
 export const createOrUpdatePatient = () => (dispatch, getState) => {
 
     const data = getState().patientInformation.form,
@@ -30,7 +46,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
                 id,
                 patientName: data.patientName,
                 age: data.age,
-                gestationalDays: data.gestationalDays,
+                gestationalDays: gestationalDaysHandler(data),
                 height: data.height,
                 weight: data.weight,
                 heartRate: data.heartRate,

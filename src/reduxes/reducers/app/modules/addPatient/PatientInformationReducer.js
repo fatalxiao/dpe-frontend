@@ -4,13 +4,11 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 const initialState = {
     form: {
         group: null,
-        groupId: null,
         id: '',
         patientName: '',
         age: '',
+        gestationalWeeks: '',
         gestationalDays: '',
-        gestationalDaysWeek: '',
-        gestationalDaysDay: '',
         height: '',
         weight: '',
         heartRate: '',
@@ -31,18 +29,7 @@ function patientInformation(state = initialState, action) {
 
             const form = _.cloneDeep(state.form);
 
-            if (action.fieldName === 'group') {
-                form.group = action.fieldValue;
-                form.groupId = action.fieldValue.id;
-            } else if (action.fieldName === 'gestationalDaysWeek') {
-                form.gestationalDaysWeek = parseInt(action.fieldValue);
-                form.gestationalDays = parseInt(action.fieldValue) * 7 + parseInt(form.gestationalDaysDay);
-            } else if (action.fieldName === 'gestationalDaysDay') {
-                form.gestationalDaysDay = parseInt(action.fieldValue);
-                form.gestationalDays = parseInt(form.gestationalDaysWeek) * 7 + parseInt(action.fieldValue);
-            } else {
-                form[action.fieldName] = action.fieldValue;
-            }
+            form[action.fieldName] = action.fieldValue;
 
             return {
                 ...state,
