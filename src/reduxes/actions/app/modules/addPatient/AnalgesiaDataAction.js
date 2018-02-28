@@ -15,6 +15,7 @@ function AnalgesiaDataHandler(data) {
     return data.map(item => {
 
         const result = {
+            timePoint: item.timePoint,
             hasContraction: item.hasContraction,
             vasScore: item.vasScore,
             bromageScore: item.bromageScore,
