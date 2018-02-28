@@ -24,7 +24,7 @@ class PatientInformation extends Component {
 
         const {$form, createOrUpdatePatient} = this.props;
 
-        if (!$form.groupId || !$form.id || !$form.patientName) {
+        if (!$form.group || !$form.id || !$form.patientName) {
             this.setState({
                 errorMsg: 'Group, ID and Patient Name is required!'
             });

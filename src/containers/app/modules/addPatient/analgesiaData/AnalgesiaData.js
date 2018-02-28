@@ -26,7 +26,7 @@ class AnalgesiaData extends Component {
 
         this.updateField = ::this.updateField;
         this.prevStep = ::this.prevStep;
-        this.next = ::this.next;
+        this.save = ::this.save;
 
     }
 
@@ -48,9 +48,9 @@ class AnalgesiaData extends Component {
         routerPush('/app/add-patient/patient-information');
     }
 
-    next() {
-        const {routerPush} = this.props;
-        routerPush('/app/add-patient/observal-data');
+    save() {
+        const {createOrUpdateAnalgesiaData} = this.props;
+        createOrUpdateAnalgesiaData(this.props.match.params.patientId);
     }
 
     componentDidMount() {
@@ -158,7 +158,7 @@ class AnalgesiaData extends Component {
                 }
 
                 <StepAction onPrev={this.prevStep}
-                            onNext={this.next}/>
+                            onNext={this.save}/>
 
             </div>
         );
@@ -172,7 +172,8 @@ AnalgesiaData.propTypes = {
 
     routerPush: PropTypes.func,
     updateAddPatientStep: PropTypes.func,
-    updateAnalgesiaDataField: PropTypes.func
+    updateAnalgesiaDataField: PropTypes.func,
+    createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 

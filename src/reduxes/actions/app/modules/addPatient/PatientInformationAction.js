@@ -29,7 +29,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
     const data = getState().patientInformation.form,
         id = data.id;
 
-    if (!data.groupId || !id || !data.patientName) {
+    if (!data.group || !id || !data.patientName) {
         return;
     }
 
@@ -42,7 +42,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
             ],
             api: PatientApi.createOrUpdatePatient,
             params: {
-                groupId: data.groupId,
+                groupId: data.group.id,
                 id,
                 patientName: data.patientName,
                 age: data.age,
