@@ -10,22 +10,9 @@ function sensoryBlockHandler(keys, item, result) {
     }
 }
 
-export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_ANALGESIA_DATA_FIELD,
-    id,
-    fieldName,
-    fieldValue
-});
+function AnalgesiaDataHandler(data) {
 
-export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => {
-
-    const data = getState().analgesiaData.data;
-
-    if (!patientId || !data) {
-        return;
-    }
-
-    const analgesiaData = data.map(item => {
+    return data.map(item => {
 
         const result = {
             hasContraction: item.hasContraction,
@@ -42,11 +29,28 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
             'thoracicSensoryBlockRight',
             'sacralSensoryBlockLeft',
             'sacralSensoryBlockRight'
-        ]);
+        ], item, result);
 
         return result;
 
     });
+
+}
+
+export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
+    type: actionTypes.UPDATE_ANALGESIA_DATA_FIELD,
+    id,
+    fieldName,
+    fieldValue
+});
+
+export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => {
+
+    const data = getState().analgesiaData.data;
+
+    if (!patientId || !data) {
+        return;
+    }
 
     return dispatch({
         [actionTypes.CALL_API]: {
@@ -58,7 +62,7 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
             api: AnalgesiaApi.createOrUpdateAnalgesiaData,
             params: {
                 patientId,
-                analgesiaData
+                analgesiaData: AnalgesiaDataHandler(data)
             },
             successCallback() {
                 routerPush(`/app/add-patient/analgesia-data/${id}`)(dispatch);
