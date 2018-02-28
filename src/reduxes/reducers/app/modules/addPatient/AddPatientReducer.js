@@ -4,13 +4,13 @@ import Valid from 'vendors/Valid';
 
 const initialState = {
     steps: [{
-        title: 'Patient\nInformation',
+        title: 'Patient Information',
         route: '/app/add-patient/patient-information'
     }, {
-        title: 'Analgesia\nData',
+        title: 'Analgesia Data',
         route: '/app/add-patient/analgesia-data'
     }, {
-        title: 'Observal\nData',
+        title: 'Observal Data',
         route: '/app/add-patient/observal-data'
     }],
     activatedStep: 0,

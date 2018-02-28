@@ -4,7 +4,7 @@ import {routerMiddleware} from 'react-router-redux';
 import rootReducer from 'reduxes/reducers';
 import ApiMiddleware from 'reduxes/middlewares/ApiMiddleware';
 
-export default function configureStore(history) {
+function configureStore(history) {
 
     const store = createStore(
         rootReducer,
@@ -25,3 +25,5 @@ export default function configureStore(history) {
     return store;
 
 };
+
+export default configureStore;
