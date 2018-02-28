@@ -27,8 +27,8 @@ class AnalgesiaData extends Component {
     }
 
     save() {
-        const {createOrUpdateAnalgesiaData} = this.props;
-        createOrUpdateAnalgesiaData(this.props.match.params.patientId);
+        const {match, createOrUpdateAnalgesiaData} = this.props;
+        createOrUpdateAnalgesiaData(match.params.patientId);
     }
 
     componentDidMount() {

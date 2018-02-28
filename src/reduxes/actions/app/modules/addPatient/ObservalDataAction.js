@@ -10,9 +10,9 @@ export const updateObservalDataField = (fieldName, fieldValue) => ({
 
 export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
 
-    const data = getState().observalData.form;
+    const observalData = getState().observalData.form;
 
-    if (!patientId || !data) {
+    if (!patientId || !observalData) {
         return;
     }
 
@@ -24,7 +24,10 @@ export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
                 actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
             ],
             api: ObservalApi.createOrUpdateObservalData,
-            params: data,
+            params: {
+                patientId,
+                observalData
+            },
             successCallback() {
                 routerPush('/app/patient-list')(dispatch);
             }

@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
-import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import Checkbox from 'customized/CustomizedMaterialCheckbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
@@ -50,7 +49,8 @@ class ObservalData extends Component {
     }
 
     save() {
-        this.props.addPatient();
+        const {match, createOrUpdateObservalData} = this.props;
+        createOrUpdateObservalData(match.params.patientId);
     }
 
     componentDidMount() {
@@ -267,7 +267,7 @@ ObservalData.propTypes = {
     updateObservalDataField: PropTypes.func,
     routerPush: PropTypes.func,
     updateAddPatientStep: PropTypes.func,
-    addPatient: PropTypes.func
+    createOrUpdateObservalData: PropTypes.func
 
 };
 
