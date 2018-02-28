@@ -2,12 +2,6 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 import PatientApi from 'apis/app/modules/addPatient/PatientApi';
 
-export const updatePatientInformationField = (fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
-    fieldName,
-    fieldValue
-});
-
 function gestationalDaysHandler(data) {
 
     let result = 0;
@@ -23,6 +17,12 @@ function gestationalDaysHandler(data) {
     return result;
 
 }
+
+export const updatePatientInformationField = (fieldName, fieldValue) => ({
+    type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
+    fieldName,
+    fieldValue
+});
 
 export const createOrUpdatePatient = () => (dispatch, getState) => {
 

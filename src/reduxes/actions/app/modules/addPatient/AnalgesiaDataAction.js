@@ -2,6 +2,14 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 import AnalgesiaApi from 'apis/app/modules/addPatient/AnalgesiaApi';
 
+function sensoryBlockHandler(keys, item, result) {
+    for (let key of keys) {
+        if (item[key]) {
+            result[key] = item[key].sensoryBlockValue;
+        }
+    }
+}
+
 export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_ANALGESIA_DATA_FIELD,
     id,
@@ -15,14 +23,6 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
 
     if (!patientId || !data) {
         return;
-    }
-
-    function sensoryBlockHandler(keys, item, result) {
-        for (let key of keys) {
-            if (item[key]) {
-                result[key] = item[key].sensoryBlockValue;
-            }
-        }
     }
 
     const analgesiaData = data.map(item => {
