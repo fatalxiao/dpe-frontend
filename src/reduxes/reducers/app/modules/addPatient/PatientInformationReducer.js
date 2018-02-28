@@ -38,7 +38,7 @@ function patientInformation(state = initialState, action) {
 
         }
 
-        // create patient
+        // update patient
         case actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST: {
             return {
                 ...state,

@@ -34,7 +34,8 @@ function getDefaultData() {
 }
 
 const initialState = {
-    data: getDefaultData()
+    data: getDefaultData(),
+    actionType: ''
 };
 
 function analgesiaData(state = initialState, action) {
@@ -64,6 +65,26 @@ function analgesiaData(state = initialState, action) {
                 data
             };
 
+        }
+
+        // update patient
+        case actionTypes.UPDATE_ANALGESIA_DATA_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_ANALGESIA_DATA_REQUEST
+            };
+        }
+        case actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS
+            };
+        }
+        case actionTypes.UPDATE_ANALGESIA_DATA_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_ANALGESIA_DATA_FAILURE
+            };
         }
 
         default:

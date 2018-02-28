@@ -65,7 +65,7 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
                 analgesiaData: AnalgesiaDataHandler(data)
             },
             successCallback() {
-                routerPush(`/app/add-patient/analgesia-data/${id}`)(dispatch);
+                routerPush(`/app/add-patient/observal-data/${patientId}`)(dispatch);
             }
         }
     });
