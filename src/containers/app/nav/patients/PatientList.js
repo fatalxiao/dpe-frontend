@@ -45,21 +45,19 @@ class PatientList extends Component {
                         $patientList.map((patient, index) => {
 
                             const groupName = $groupList.find(item => item.id === patient.groupId).groupName,
-
-                                {weeks, days} = Util.days2weeksDays(patient.gestationalDays),
-                                desc = [patient.id, `${weeks}w + ${days}d`].join('  ·  ');
+                                {weeks, days} = Util.days2weeksDays(patient.gestationalDays);
 
                             return (
                                 <FlatButton key={index}
                                             className="patient">
 
-                                    <div className="patient-name">
-                                        {patient.patientName}
-                                        <span className="patient-group"> ({groupName})</span>
+                                    <div className="patient-info">
+                                        <span className="patient-name">{patient.patientName}</span>
+                                        <span className="patient-group">{`  ${groupName}`}</span>
                                     </div>
 
                                     <div className="patient-desc">
-                                        {desc}
+                                        {`${patient.id}  ·  ${weeks}w + ${days}d`}
                                     </div>
 
                                 </FlatButton>
