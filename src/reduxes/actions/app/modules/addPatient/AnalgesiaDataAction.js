@@ -1,5 +1,5 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
-import {routerPush} from '../../../common/RouterAction';
+import {routerPush} from 'reduxes/actions/common/RouterAction';
 import AnalgesiaApi from 'apis/app/modules/addPatient/AnalgesiaApi';
 
 export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
@@ -9,14 +9,44 @@ export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
     fieldValue
 });
 
-export const createOrUpdateAnalgesiaData = () => (dispatch, getState) => {
+export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => {
 
-    const data = getState().patientInformation.form,
-        id = data.id;
+    const data = getState().analgesiaData.data;
 
-    if (!data.groupId || !id || !data.patientName) {
+    if (!patientId || !data) {
         return;
     }
+
+    function sensoryBlockHandler(keys, item, result) {
+        for (let key of keys) {
+            if (item[key]) {
+                result[key] = item[key].sensoryBlockValue;
+            }
+        }
+    }
+
+    const analgesiaData = data.map(item => {
+
+        const result = {
+            hasContraction: item.hasContraction,
+            vasScore: item.vasScore,
+            bromageScore: item.bromageScore,
+            systolicBloodPressure: item.systolicBloodPressure,
+            diastolicBloodPressure: item.diastolicBloodPressure,
+            heartRate: item.heartRate,
+            pulseOxygenSaturation: item.pulseOxygenSaturation
+        };
+
+        sensoryBlockHandler([
+            'thoracicSensoryBlockLeft',
+            'thoracicSensoryBlockRight',
+            'sacralSensoryBlockLeft',
+            'sacralSensoryBlockRight'
+        ]);
+
+        return result;
+
+    });
 
     return dispatch({
         [actionTypes.CALL_API]: {
@@ -27,20 +57,8 @@ export const createOrUpdateAnalgesiaData = () => (dispatch, getState) => {
             ],
             api: AnalgesiaApi.createOrUpdateAnalgesiaData,
             params: {
-                groupId: data.groupId,
-                id,
-                patientName: data.patientName,
-                age: data.age,
-                gestationalDays: data.gestationalDays,
-                height: data.height,
-                weight: data.weight,
-                heartRate: data.heartRate,
-                initialVasScore: data.initialVasScore,
-                cervicalDilationAtTimeOfEA: data.cervicalDilationAtTimeOfEA,
-                systolicBloodPressure: data.systolicBloodPressure,
-                diastolicBloodPressure: data.diastolicBloodPressure,
-                foetalHeartRate: data.foetalHeartRate,
-                description: data.description
+                patientId,
+                analgesiaData
             },
             successCallback() {
                 routerPush(`/app/add-patient/analgesia-data/${id}`)(dispatch);
