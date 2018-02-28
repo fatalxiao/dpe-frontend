@@ -1,6 +1,6 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from '../../../common/RouterAction';
-import AddPatientApi from 'apis/app/modules/AddPatientApi';
+import PatientApi from 'apis/app/modules/addPatient/PatientApi';
 
 export const updatePatientInformationField = (fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
@@ -8,7 +8,7 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
-export const createPatientInformation = () => (dispatch, getState) => {
+export const createPatient = () => (dispatch, getState) => {
 
     const data = getState().patientInformation.form,
         id = data.id;
@@ -24,7 +24,7 @@ export const createPatientInformation = () => (dispatch, getState) => {
                 actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS,
                 actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
             ],
-            api: AddPatientApi.createPatientInformation,
+            api: PatientApi.createPatientInformation,
             params: {
                 groupId: data.groupId,
                 id,
