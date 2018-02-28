@@ -60,6 +60,26 @@ function observalData(state = initialState, action) {
 
         }
 
+        // update observal data
+        case actionTypes.UPDATE_OBSERVAL_DATA_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_OBSERVAL_DATA_REQUEST
+            };
+        }
+        case actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS
+            };
+        }
+        case actionTypes.UPDATE_OBSERVAL_DATA_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
+            };
+        }
+
         default:
             return state;
 
