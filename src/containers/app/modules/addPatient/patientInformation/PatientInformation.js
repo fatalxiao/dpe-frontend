@@ -22,7 +22,7 @@ class PatientInformation extends Component {
 
     save() {
 
-        const {$form, createPatient} = this.props;
+        const {$form, createOrUpdatePatient} = this.props;
 
         if (!$form.groupId || !$form.id || !$form.patientName) {
             this.setState({
@@ -31,7 +31,7 @@ class PatientInformation extends Component {
             return;
         }
 
-        createPatient();
+        createOrUpdatePatient();
 
     }
 
@@ -58,7 +58,7 @@ PatientInformation.propTypes = {
     $form: PropTypes.object,
 
     updateAddPatientStep: PropTypes.func,
-    createPatient: PropTypes.func
+    createOrUpdatePatient: PropTypes.func
 
 };
 
