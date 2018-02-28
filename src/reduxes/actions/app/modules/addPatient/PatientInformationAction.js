@@ -8,7 +8,7 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
-export const createPatient = () => (dispatch, getState) => {
+export const createOrUpdatePatient = () => (dispatch, getState) => {
 
     const data = getState().patientInformation.form,
         id = data.id;
@@ -20,11 +20,11 @@ export const createPatient = () => (dispatch, getState) => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.CREATE_PATIENT_INFORMATION_REQUEST,
-                actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS,
-                actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
+                actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST,
+                actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS,
+                actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
             ],
-            api: PatientApi.createPatientInformation,
+            api: PatientApi.createOrUpdatePatient,
             params: {
                 groupId: data.groupId,
                 id,

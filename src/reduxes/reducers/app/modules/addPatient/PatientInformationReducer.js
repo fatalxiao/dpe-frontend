@@ -52,22 +52,22 @@ function patientInformation(state = initialState, action) {
         }
 
         // create patient
-        case actionTypes.CREATE_PATIENT_INFORMATION_REQUEST: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.CREATE_PATIENT_INFORMATION_REQUEST
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST
             };
         }
-        case actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS: {
             return {
                 ...state,
-                actionType: actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS
             };
         }
-        case actionTypes.CREATE_PATIENT_INFORMATION_FAILURE: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
             };
         }
 

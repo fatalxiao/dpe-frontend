@@ -3,18 +3,10 @@ import Api from 'apis/Api';
 
 export default {
 
-    createPatient(options) {
+    createOrUpdatePatient(options) {
         Api.post({
             ...options,
-            url: `${config.appBaseUrl}/patient/createPatient`,
-            cancelable: false
-        });
-    },
-
-    updatePatient(options) {
-        Api.post({
-            ...options,
-            url: `${config.appBaseUrl}/patient/updatePatient`,
+            url: `${config.appBaseUrl}/patient/createOrUpdatePatient`,
             cancelable: false
         });
     }
