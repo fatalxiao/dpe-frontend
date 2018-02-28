@@ -24,7 +24,7 @@ export const createPatientInformation = () => (dispatch, getState) => {
                 actionTypes.CREATE_PATIENT_INFORMATION_SUCCESS,
                 actionTypes.CREATE_PATIENT_INFORMATION_FAILURE
             ],
-            api: AddPatientApi.addPatient,
+            api: AddPatientApi.createPatientInformation,
             params: {
                 groupId: data.groupId,
                 id,
