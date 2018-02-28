@@ -13,7 +13,7 @@ import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaTable.scss';
 
-class AnalgesiaData extends Component {
+class AnalgesiaTable extends Component {
 
     constructor(props) {
 
@@ -145,7 +145,7 @@ class AnalgesiaData extends Component {
     }
 }
 
-AnalgesiaData.propTypes = {
+AnalgesiaTable.propTypes = {
 
     $sensoryBlockList: PropTypes.array,
     $analgesiaData: PropTypes.array,
@@ -165,4 +165,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnalgesiaData);
+export default connect(mapStateToProps, mapDispatchToProps)(AnalgesiaTable);

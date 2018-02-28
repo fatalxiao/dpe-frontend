@@ -1,0 +1,15 @@
+@import '../../../../../common.scss';
+
+.observal-data-form {
+
+    .material-text-field,
+    .material-dropdown-select,
+    .material-provider,
+    .material-date-time-picker {
+        margin-bottom: 48px;
+    }
+
+    .local-anesthetic-consumption .unit::after {
+        content: "ml";
+    }
+}
