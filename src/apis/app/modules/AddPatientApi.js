@@ -8,5 +8,13 @@ export default {
             url: `${config.appBaseUrl}/patient/addPatient`,
             cancelable: false
         });
+    },
+
+    updatePatientInformation(options) {
+        Api.post({
+            ...options,
+            url: `${config.appBaseUrl}/patient/updatePatientInformation`,
+            cancelable: false
+        });
     }
 };

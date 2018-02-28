@@ -22,10 +22,10 @@ export function configureRoutes(store) {
                     path: '/app/add-patient/patient-information',
                     component: ac(() => import('containers/app/modules/addPatient/patientInformation/PatientInformation'), store)
                 }, {
-                    path: '/app/add-patient/analgesia-data',
+                    path: '/app/add-patient/analgesia-data/:id',
                     component: ac(() => import('containers/app/modules/addPatient/analgesiaData/AnalgesiaData'), store)
                 }, {
-                    path: '/app/add-patient/observal-data',
+                    path: '/app/add-patient/observal-data/:id',
                     component: ac(() => import('containers/app/modules/addPatient/observalData/ObservalData'), store)
                 }]
             }]

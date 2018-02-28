@@ -47,22 +47,22 @@ function addPatient(state = initialState, action) {
         }
 
         // add patient
-        case actionTypes.ADD_PATIENT_REQUEST: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.ADD_PATIENT_REQUEST
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST
             };
         }
-        case actionTypes.ADD_PATIENT_SUCCESS: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS: {
             return {
                 ...state,
-                actionType: actionTypes.ADD_PATIENT_SUCCESS
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS
             };
         }
-        case actionTypes.ADD_PATIENT_FAILURE: {
+        case actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.ADD_PATIENT_FAILURE
+                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
             };
         }
 

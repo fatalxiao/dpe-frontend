@@ -16,13 +16,13 @@ class PatientInformation extends Component {
 
         super(props);
 
-        this.next = ::this.next;
+        this.save = ::this.save;
 
     }
 
-    next() {
+    save() {
 
-        const {$form} = this.props;
+        const {$form, updatePatientInformation} = this.props;
 
         if (!$form.groupId || !$form.id || !$form.patientName) {
             this.setState({
@@ -31,7 +31,7 @@ class PatientInformation extends Component {
             return;
         }
 
-        this.props.routerPush('/app/add-patient/analgesia-data');
+        updatePatientInformation();
 
     }
 
@@ -46,7 +46,7 @@ class PatientInformation extends Component {
                 <PatientForm/>
 
                 <StepAction isFirst={true}
-                            onNext={this.next}/>
+                            onNext={this.save}/>
 
             </div>
         );
@@ -57,8 +57,8 @@ PatientInformation.propTypes = {
 
     $form: PropTypes.object,
 
-    routerPush: PropTypes.func,
-    updateAddPatientStep: PropTypes.func
+    updateAddPatientStep: PropTypes.func,
+    updatePatientInformation: PropTypes.func
 
 };
 
