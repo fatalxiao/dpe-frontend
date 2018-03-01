@@ -49,8 +49,28 @@ class PatientInformation extends Component {
 
     }
 
+    componentWillReceiveProps(nextProps) {
+
+        const {match: nextMatch} = nextProps,
+            {match, getPatientInformation} = this.props;
+
+        if (nextMatch && nextMatch.params && nextMatch.params.id && match && match.params
+            && nextMatch.params.id !== match.params.id) {
+            getPatientInformation(nextMatch.params.id);
+        }
+
+    }
+
     componentDidMount() {
-        this.props.updatePatientStep(0);
+
+        const {match, updatePatientStep, getPatientInformation} = this.props;
+
+        updatePatientStep(0);
+
+        if (match && match.params && match.params.id) {
+            getPatientInformation(match.params.id);
+        }
+
     }
 
     render() {
@@ -83,6 +103,7 @@ PatientInformation.propTypes = {
 
     $form: PropTypes.object,
 
+    getPatientInformation: PropTypes.func,
     updatePatientStep: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 

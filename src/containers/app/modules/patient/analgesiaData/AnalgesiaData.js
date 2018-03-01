@@ -37,7 +37,7 @@ class AnalgesiaData extends Component {
 
     prevStep() {
         const {match, routerPush} = this.props;
-        routerPush(`/app/patient/patient-information/${match.params.patientId}`);
+        routerPush(`/app/patient/update-patient/${match.params.patientId}`);
     }
 
     save() {

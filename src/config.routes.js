@@ -19,10 +19,10 @@ export function configureRoutes(store) {
                 path: '/app/patient',
                 component: ac(() => import('containers/app/modules/patient/Patient'), store),
                 routes: [{
-                    path: '/app/patient/patient-information',
+                    path: '/app/patient/create-patient',
                     component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
                 }, {
-                    path: '/app/patient/patient-information/:id',
+                    path: '/app/patient/update-patient/:id',
                     component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
                 }, {
                     path: '/app/patient/analgesia-data/:patientId',

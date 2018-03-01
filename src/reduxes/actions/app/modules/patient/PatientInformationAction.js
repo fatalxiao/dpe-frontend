@@ -24,6 +24,27 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
+export const getPatientInformation = id => dispatch => {
+
+    if (!id) {
+        return;
+    }
+
+    return dispatch({
+        [actionTypes.CALL_API]: {
+            types: [
+                actionTypes.GET_PATIENT_INFORMATION_REQUEST,
+                actionTypes.GET_PATIENT_INFORMATION_SUCCESS,
+                actionTypes.GET_PATIENT_INFORMATION_FAILURE
+            ],
+            api: PatientApi.getPatientById,
+            params: {id},
+            successResMsgDisabled: true
+        }
+    });
+
+};
+
 export const createOrUpdatePatient = () => (dispatch, getState) => {
 
     const data = getState().patientInformation.form,
@@ -58,7 +79,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
                 description: data.description
             },
             successCallback() {
-                routerPush(`/app/add-patient/analgesia-data/${id}`)(dispatch);
+                routerPush(`/app/patient/analgesia-data/${id}`)(dispatch);
             }
         }
     });
