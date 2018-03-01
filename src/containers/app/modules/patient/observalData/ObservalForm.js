@@ -38,11 +38,28 @@ class ObservalForm extends Component {
 
                 <FieldSet title="1. Medication use">
                     <div className="row">
-                        <TextField className="col-6 local-anesthetic-consumption"
-                                   label="Local Anesthetic Consumption"
+                        <TextField className="col-3 anesthetic-consumption"
+                                   label="Test Dose"
                                    rightIconCls="unit"
-                                   value={$form.localAnestheticConsumption}
-                                   onChange={value => this.updateField('localAnestheticConsumption', value)}/>
+                                   value={$form.testDose}
+                                   onChange={value => this.updateField('testDose', value)}/>
+                        <TextField className="col-3 anesthetic-consumption"
+                                   label="Initial Dose"
+                                   rightIconCls="unit"
+                                   value={$form.initialDose}
+                                   onChange={value => this.updateField('initialDose', value)}/>
+                        <TextField className="col-3 anesthetic-consumption"
+                                   label="Pump Consumption"
+                                   rightIconCls="unit"
+                                   value={$form.pumpConsumption}
+                                   onChange={value => this.updateField('pumpConsumption', value)}/>
+                        <TextField className="col-3 anesthetic-consumption"
+                                   label="Bolus"
+                                   rightIconCls="unit"
+                                   value={$form.bolus}
+                                   onChange={value => this.updateField('bolus', value)}/>
+                    </div>
+                    <div className="row">
                         <Checkbox className="col-3"
                                   label="Carbetocin"
                                   checked={$form.hasCarbetocin}

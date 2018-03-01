@@ -3,9 +3,12 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 
 const initialState = {
     form: {
+        testDose: '',
+        initialDose: '',
+        pumpConsumption: '',
+        bolus: '',
         hasCarbetocin: false,
         hasHemabate: false,
-        localAnestheticConsumption: '',
         pcaCount: '',
         manualBolusCount: '',
         firstPcaTime: '',
