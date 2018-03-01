@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import PatientForm from './PatientForm';
+import Msg from 'components/Msg';
 import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
@@ -16,8 +17,21 @@ class PatientInformation extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
+        this.updateFieldHandler = ::this.updateFieldHandler;
         this.save = ::this.save;
 
+    }
+
+    updateFieldHandler() {
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
+        }
     }
 
     save() {
@@ -40,10 +54,22 @@ class PatientInformation extends Component {
     }
 
     render() {
+
+        const {errorMsg} = this.state;
+
         return (
             <div className="patient-information">
 
-                <PatientForm/>
+                <PatientForm onUpdateField={this.updateFieldHandler}/>
+
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
 
                 <StepAction isFirst={true}
                             onNext={this.save}/>

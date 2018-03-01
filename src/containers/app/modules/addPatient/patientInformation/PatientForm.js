@@ -9,7 +9,6 @@ import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import FieldSet from 'components/FieldSet';
-import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/addPatient/patientInformation/PatientForm.scss';
 
@@ -19,30 +18,22 @@ class PatientForm extends Component {
 
         super(props);
 
-        this.state = {
-            errorMsg: ''
-        };
-
         this.updateField = ::this.updateField;
 
     }
 
     updateField(fieldName, fieldValue) {
 
-        if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ''
-            });
-        }
+        const {onUpdateField, updatePatientInformationField} = this.props;
 
-        this.props.updatePatientInformationField(fieldName, fieldValue);
+        updatePatientInformationField(fieldName, fieldValue);
+        onUpdateField && onUpdateField();
 
     }
 
     render() {
 
-        const {$groupList, $form} = this.props,
-            {errorMsg} = this.state;
+        const {$groupList, $form} = this.props;
 
         return (
             <div className="patient-form">
@@ -150,15 +141,6 @@ class PatientForm extends Component {
                     </div>
                 </FieldSet>
 
-                {
-                    errorMsg ?
-                        <Msg type={Msg.Type.ERROR}>
-                            {errorMsg}
-                        </Msg>
-                        :
-                        null
-                }
-
             </div>
         );
     }
@@ -169,7 +151,8 @@ PatientForm.propTypes = {
     $groupList: PropTypes.array,
     $form: PropTypes.object,
 
-    updatePatientInformationField: PropTypes.func
+    updatePatientInformationField: PropTypes.func,
+    onUpdateField: PropTypes.func
 
 };
 
