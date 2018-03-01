@@ -10,7 +10,7 @@ import TextArea from 'customized/CustomizedMaterialTextArea';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import FieldSet from 'components/FieldSet';
 
-import 'scss/containers/app/modules/addPatient/patientInformation/PatientForm.scss';
+import 'scss/containers/app/modules/patient/patientInformation/PatientForm.scss';
 
 class PatientForm extends Component {
 

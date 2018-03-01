@@ -8,7 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import StepAction from 'components/StepAction';
 import ObservalForm from './ObservalForm';
 
-import 'scss/containers/app/modules/addPatient/observalData/ObservalData.scss';
+import 'scss/containers/app/modules/patient/observalData/ObservalData.scss';
 
 class ObservalData extends Component {
 

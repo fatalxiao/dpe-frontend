@@ -9,9 +9,9 @@ import * as actions from 'reduxes/actions/index';
 
 import PointStep from 'alcedo-ui/PointStep';
 
-import 'scss/containers/app/modules/addPatient/AddPatient.scss';
+import 'scss/containers/app/modules/patient/Patient.scss';
 
-class AddPatient extends Component {
+class Patient extends Component {
 
     constructor(props) {
 
@@ -34,17 +34,17 @@ class AddPatient extends Component {
         const {route, $steps, $activatedStep} = this.props;
 
         return (
-            <div className="add-patient">
+            <div className="patient">
 
-                <PointStep className="add-patient-stepper"
+                <PointStep className="patient-stepper"
                            steps={$steps}
                            activatedStep={$activatedStep}
                            finishedStep={$steps.length - 1}
                            onChange={this.stepChangeHandler}/>
 
-                <div className="add-patient-content">
+                <div className="patient-content">
 
-                    <h1 className="add-patient-content-title">
+                    <h1 className="patient-content-title">
                         {$steps[$activatedStep].title}
                     </h1>
 
@@ -53,9 +53,8 @@ class AddPatient extends Component {
                 </div>
 
                 {
-                    location.pathname === '/app/add-patient' ?
-                        <Redirect from="/app/add-patient"
-                                  to="/app/add-patient/patient-information"/>
+                    location.pathname === '/app/patient' ?
+                        <Redirect from="/app/patient" to="/app/patient/patient-information"/>
                         :
                         null
                 }
@@ -65,7 +64,7 @@ class AddPatient extends Component {
     }
 }
 
-AddPatient.propTypes = {
+Patient.propTypes = {
 
     $steps: PropTypes.array,
 
@@ -86,4 +85,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddPatient);
+export default connect(mapStateToProps, mapDispatchToProps)(Patient);

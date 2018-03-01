@@ -16,17 +16,20 @@ export function configureRoutes(store) {
                 path: '/app/patient-list',
                 component: ac(() => import('containers/app/modules/patientList/PatientList'), store)
             }, {
-                path: '/app/add-patient',
-                component: ac(() => import('containers/app/modules/addPatient/AddPatient'), store),
+                path: '/app/patient',
+                component: ac(() => import('containers/app/modules/patient/Patient'), store),
                 routes: [{
-                    path: '/app/add-patient/patient-information',
-                    component: ac(() => import('containers/app/modules/addPatient/patientInformation/PatientInformation'), store)
+                    path: '/app/patient/patient-information',
+                    component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
                 }, {
-                    path: '/app/add-patient/analgesia-data/:patientId',
-                    component: ac(() => import('containers/app/modules/addPatient/analgesiaData/AnalgesiaData'), store)
+                    path: '/app/patient/patient-information/:id',
+                    component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
                 }, {
-                    path: '/app/add-patient/observal-data/:patientId',
-                    component: ac(() => import('containers/app/modules/addPatient/observalData/ObservalData'), store)
+                    path: '/app/patient/analgesia-data/:patientId',
+                    component: ac(() => import('containers/app/modules/patient/analgesiaData/AnalgesiaData'), store)
+                }, {
+                    path: '/app/patient/observal-data/:patientId',
+                    component: ac(() => import('containers/app/modules/patient/observalData/ObservalData'), store)
                 }]
             }]
         }]

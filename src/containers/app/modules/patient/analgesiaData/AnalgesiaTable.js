@@ -11,7 +11,7 @@ import Msg from 'components/Msg';
 import TextField from 'customized/CustomizedMaterialTextField';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
-import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaTable.scss';
+import 'scss/containers/app/modules/patient/analgesiaData/AnalgesiaTable.scss';
 
 class AnalgesiaTable extends Component {
 

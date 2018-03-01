@@ -9,7 +9,7 @@ import PatientForm from './PatientForm';
 import Msg from 'components/Msg';
 import StepAction from 'components/StepAction';
 
-import 'scss/containers/app/modules/addPatient/patientInformation/PatientInformation.scss';
+import 'scss/containers/app/modules/patient/patientInformation/PatientInformation.scss';
 
 class PatientInformation extends Component {
 

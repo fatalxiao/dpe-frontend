@@ -8,7 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import StepAction from 'components/StepAction';
 import AnalgesiaTable from './AnalgesiaTable';
 
-import 'scss/containers/app/modules/addPatient/analgesiaData/AnalgesiaData.scss';
+import 'scss/containers/app/modules/patient/analgesiaData/AnalgesiaData.scss';
 
 class AnalgesiaData extends Component {
 
@@ -22,8 +22,8 @@ class AnalgesiaData extends Component {
     }
 
     prevStep() {
-        const {routerPush} = this.props;
-        routerPush('/app/add-patient/patient-information');
+        const {match, routerPush} = this.props;
+        routerPush(`/app/edit-patient/patient-information/${match.params.patientId}`);
     }
 
     save() {

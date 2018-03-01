@@ -12,7 +12,7 @@ import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import FieldSet from 'components/FieldSet';
 import Msg from 'components/Msg';
 
-import 'scss/containers/app/modules/addPatient/observalData/ObservalForm.scss';
+import 'scss/containers/app/modules/patient/observalData/ObservalForm.scss';
 
 class ObservalForm extends Component {
 

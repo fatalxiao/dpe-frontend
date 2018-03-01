@@ -1,16 +1,16 @@
 @import '../../../../common.scss';
 
-.add-patient {
+.patient {
     position: relative;
 
-    .add-patient-stepper {
+    .patient-stepper {
         margin-bottom: 32px;
     }
 
-    .add-patient-content {
+    .patient-content {
         overflow: hidden;
 
-        .add-patient-content-title {
+        .patient-content-title {
             margin-bottom: 64px;
         }
     }
