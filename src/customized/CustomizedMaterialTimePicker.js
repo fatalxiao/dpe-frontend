@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import MaterialDateTimePicker from 'alcedo-ui/MaterialDateTimePicker';
+import MaterialTimePicker from 'alcedo-ui/MaterialTimePicker';
 import Theme from 'alcedo-ui/Theme';
 
-class CustomizedMaterialDateTimePicker extends Component {
+class CustomizedMaterialTimePicker extends Component {
 
     constructor(props) {
         super(props);
@@ -12,22 +12,22 @@ class CustomizedMaterialDateTimePicker extends Component {
 
     render() {
         return (
-            <MaterialDateTimePicker {...this.props}/>
+            <MaterialTimePicker {...this.props}/>
         );
     }
 
 }
 
-CustomizedMaterialDateTimePicker.propTypes = {
+CustomizedMaterialTimePicker.propTypes = {
     theme: PropTypes.any,
     isLabelAnimate: PropTypes.bool,
     clearButtonVisible: PropTypes.bool
 };
 
-CustomizedMaterialDateTimePicker.defaultProps = {
+CustomizedMaterialTimePicker.defaultProps = {
     theme: Theme.HIGHLIGHT,
     isLabelAnimate: false,
     clearButtonVisible: false
 };
 
-export default CustomizedMaterialDateTimePicker;
+export default CustomizedMaterialTimePicker;

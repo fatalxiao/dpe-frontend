@@ -8,7 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import Checkbox from 'customized/CustomizedMaterialCheckbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
-import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
+import TimePicker from 'customized/CustomizedMaterialTimePicker';
 import FieldSet from 'components/FieldSet';
 
 import 'scss/containers/app/modules/patient/observalData/ObservalForm.scss';
@@ -73,10 +73,10 @@ class ObservalForm extends Component {
 
                 <FieldSet title="2. PCA">
                     <div className="row">
-                        <DateTimePicker className="col-6"
-                                        label="First PCA Time"
-                                        value={$form.firstPcaTime}
-                                        onChange={value => this.updateField('firstPcaTime', value)}/>
+                        <TimePicker className="col-6"
+                                    label="First PCA Time"
+                                    value={$form.firstPcaTime}
+                                    onChange={value => this.updateField('firstPcaTime', value)}/>
                         <TextField className="col-3"
                                    label="PCA Count"
                                    value={$form.pcaCount}
@@ -86,10 +86,10 @@ class ObservalForm extends Component {
 
                 <FieldSet title="3. Bolus">
                     <div className="row">
-                        <DateTimePicker className="col-6"
-                                        label="First Manual Bolus Time"
-                                        value={$form.firstManualBolusTime}
-                                        onChange={value => this.updateField('firstManualBolusTime', value)}/>
+                        <TimePicker className="col-6"
+                                    label="First Manual Bolus Time"
+                                    value={$form.firstManualBolusTime}
+                                    onChange={value => this.updateField('firstManualBolusTime', value)}/>
                         <TextField className="col-6"
                                    label="Manual Bolus Count"
                                    value={$form.manualBolusCount}
@@ -219,10 +219,10 @@ class ObservalForm extends Component {
 
                 <FieldSet title="8. Foetal">
                     <div className="row">
-                        <DateTimePicker className="col-6"
-                                        label="Birth Time"
-                                        value={$form.birthTime}
-                                        onChange={value => this.updateField('birthTime', value)}/>
+                        <TimePicker className="col-6"
+                                    label="Birth Time"
+                                    value={$form.birthTime}
+                                    onChange={value => this.updateField('birthTime', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
