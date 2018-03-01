@@ -19,7 +19,7 @@ function getDefaultData() {
         },
         list = [];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i <= 10; i++) {
         list.push({...data, id: i, timePoint: i * 2});
     }
 
