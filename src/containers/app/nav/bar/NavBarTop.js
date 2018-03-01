@@ -28,7 +28,7 @@ class NavBarTop extends Component {
     }
 
     addPatient() {
-        this.props.routerPush('/app/add-patient');
+        this.props.routerPush('/app/patient');
     }
 
     render() {

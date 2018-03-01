@@ -7,6 +7,7 @@ import * as actions from 'reduxes/actions/index';
 
 import StepAction from 'components/StepAction';
 import AnalgesiaTable from './AnalgesiaTable';
+import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/patient/analgesiaData/AnalgesiaData.scss';
 
@@ -16,9 +17,22 @@ class AnalgesiaData extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
+        this.updateFieldHandler = ::this.updateFieldHandler;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
 
+    }
+
+    updateFieldHandler() {
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
+        }
     }
 
     prevStep() {
@@ -36,16 +50,29 @@ class AnalgesiaData extends Component {
     }
 
     render() {
+
+        const {errorMsg} = this.props;
+
         return (
             <div className="analgesia-data">
 
-                <AnalgesiaTable/>
+                <AnalgesiaTable onUpdateField={this.updateFieldHandler}/>
+
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
 
                 <StepAction onPrev={this.prevStep}
                             onNext={this.save}/>
 
             </div>
         );
+
     }
 }
 
