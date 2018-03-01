@@ -6,8 +6,8 @@ const DEFAULT_FORM = {
         id: '',
         patientName: '',
         age: '',
-        gestationalWeeks: '',
-        gestationalDays: '',
+        gestationalDaysWeeks: '',
+        gestationalDaysDays: '',
         height: '',
         weight: '',
         heartRate: '',
@@ -49,11 +49,20 @@ function patientInformation(state = initialState, action) {
             };
         }
         case actionTypes.GET_PATIENT_INFORMATION_SUCCESS: {
+
+            const form = action.responseData;
+
+            if (form.gestationalDays && !isNaN(form.gestationalDays)) {
+                form.gestationalDaysWeeks = ~~(form.gestationalDays / 7);
+                form.gestationalDaysDays = form.gestationalDays % 7;
+            }
+
             return {
                 ...state,
-                form: action.responseData,
+                form,
                 getActionType: actionTypes.GET_PATIENT_INFORMATION_SUCCESS
             };
+
         }
         case actionTypes.GET_PATIENT_INFORMATION_FAILURE: {
             return {

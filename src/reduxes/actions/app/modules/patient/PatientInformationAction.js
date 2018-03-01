@@ -6,12 +6,12 @@ function gestationalDaysHandler(data) {
 
     let result = 0;
 
-    if (data.gestationalWeeks && !isNaN(data.gestationalWeeks)) {
-        result += +data.gestationalWeeks * 7;
+    if (data.gestationalDaysWeeks && !isNaN(data.gestationalDaysWeeks)) {
+        result += +data.gestationalDaysWeeks * 7;
     }
 
-    if (data.gestationalDays && !isNaN(data.gestationalDays)) {
-        result += +data.gestationalDays;
+    if (data.gestationalDaysDays && !isNaN(data.gestationalDaysDays)) {
+        result += +data.gestationalDaysDays;
     }
 
     return result;

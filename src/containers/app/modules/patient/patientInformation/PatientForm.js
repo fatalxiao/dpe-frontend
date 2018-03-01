@@ -75,13 +75,13 @@ class PatientForm extends Component {
                         <TextField className="col-3 gestational-weeks"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalWeeks || ''}
-                                   onChange={value => this.updateField('gestationalWeeks', value)}/>
+                                   value={$form.gestationalDaysWeeks || ''}
+                                   onChange={value => this.updateField('gestationalDaysWeeks', value)}/>
                         <TextField className="col-3 gestational-days"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalDays || ''}
-                                   onChange={value => this.updateField('gestationalDays', value)}/>
+                                   value={$form.gestationalDaysDays || ''}
+                                   onChange={value => this.updateField('gestationalDaysDays', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3 height"
