@@ -39,9 +39,9 @@ function AnalgesiaDataHandler(data) {
 
 }
 
-export const updateAnalgesiaDataField = (id, fieldName, fieldValue) => ({
+export const updateAnalgesiaDataField = (timePoint, fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_ANALGESIA_DATA_FIELD,
-    id,
+    timePoint,
     fieldName,
     fieldValue
 });
