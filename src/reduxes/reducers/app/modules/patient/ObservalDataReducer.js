@@ -3,8 +3,8 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 
 const initialState = {
     form: {
-        testDose: '',
-        initialDose: '',
+        testDose: '3',
+        initialDose: '8',
         pumpConsumption: '',
         bolus: '',
         hasCarbetocin: false,
