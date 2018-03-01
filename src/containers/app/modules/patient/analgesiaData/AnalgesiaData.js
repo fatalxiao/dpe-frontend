@@ -37,7 +37,7 @@ class AnalgesiaData extends Component {
 
     prevStep() {
         const {match, routerPush} = this.props;
-        routerPush(`/app/edit-patient/patient-information/${match.params.patientId}`);
+        routerPush(`/app/patient/patient-information/${match.params.patientId}`);
     }
 
     save() {
@@ -46,12 +46,12 @@ class AnalgesiaData extends Component {
     }
 
     componentDidMount() {
-        this.props.updateAddPatientStep(1);
+        this.props.updatePatientStep(1);
     }
 
     render() {
 
-        const {errorMsg} = this.props;
+        const {errorMsg} = this.state;
 
         return (
             <div className="analgesia-data">
@@ -78,7 +78,7 @@ class AnalgesiaData extends Component {
 
 AnalgesiaData.propTypes = {
     routerPush: PropTypes.func,
-    updateAddPatientStep: PropTypes.func,
+    updatePatientStep: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
 };
 

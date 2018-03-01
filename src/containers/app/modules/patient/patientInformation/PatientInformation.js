@@ -50,7 +50,7 @@ class PatientInformation extends Component {
     }
 
     componentDidMount() {
-        this.props.updateAddPatientStep(0);
+        this.props.updatePatientStep(0);
     }
 
     render() {
@@ -83,7 +83,7 @@ PatientInformation.propTypes = {
 
     $form: PropTypes.object,
 
-    updateAddPatientStep: PropTypes.func,
+    updatePatientStep: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 
 };

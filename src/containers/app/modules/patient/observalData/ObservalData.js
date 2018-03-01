@@ -7,6 +7,7 @@ import * as actions from 'reduxes/actions/index';
 
 import StepAction from 'components/StepAction';
 import ObservalForm from './ObservalForm';
+import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/patient/observalData/ObservalData.scss';
 
@@ -16,15 +17,28 @@ class ObservalData extends Component {
 
         super(props);
 
+        this.state = {
+            errorMsg: ''
+        };
+
+        this.updateFieldHandler = ::this.updateFieldHandler;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
 
     }
 
+    updateFieldHandler() {
+        if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ''
+            });
+        }
+    }
+
     prevStep() {
-        const {addPatientStepPrev, routerPush} = this.props;
-        addPatientStepPrev();
-        routerPush('/app/add-patient/analgesia-data');
+        const {patientStepPrev, routerPush} = this.props;
+        patientStepPrev();
+        routerPush('/app/patient/analgesia-data');
     }
 
     save() {
@@ -33,14 +47,26 @@ class ObservalData extends Component {
     }
 
     componentDidMount() {
-        this.props.updateAddPatientStep(2);
+        this.props.updatePatientStep(2);
     }
 
     render() {
+
+        const {errorMsg} = this.state;
+
         return (
             <div className="observal-data">
 
-                <ObservalForm/>
+                <ObservalForm onUpdateField={this.updateFieldHandler}/>
+
+                {
+                    errorMsg ?
+                        <Msg type={Msg.Type.ERROR}>
+                            {errorMsg}
+                        </Msg>
+                        :
+                        null
+                }
 
                 <StepAction isLast={true}
                             onPrev={this.prevStep}
@@ -53,7 +79,7 @@ class ObservalData extends Component {
 
 ObservalData.propTypes = {
     routerPush: PropTypes.func,
-    updateAddPatientStep: PropTypes.func,
+    updatePatientStep: PropTypes.func,
     createOrUpdateObservalData: PropTypes.func
 };
 

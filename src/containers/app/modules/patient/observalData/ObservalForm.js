@@ -10,7 +10,6 @@ import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
 import FieldSet from 'components/FieldSet';
-import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/patient/observalData/ObservalForm.scss';
 
@@ -20,30 +19,19 @@ class ObservalForm extends Component {
 
         super(props);
 
-        this.state = {
-            errorMsg: ''
-        };
-
         this.updateField = ::this.updateField;
 
     }
 
     updateField(fieldName, fieldValue) {
-
-        if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ''
-            });
-        }
-
-        this.props.updateObservalDataField(fieldName, fieldValue);
-
+        const {updateObservalDataField, onUpdateField} = this.props;
+        updateObservalDataField(fieldName, fieldValue);
+        onUpdateField && onUpdateField();
     }
 
     render() {
 
-        const {$form} = this.props,
-            {errorMsg} = this.state;
+        const {$form} = this.props;
 
         return (
             <div className="observal-data-form">
@@ -268,16 +256,6 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-
-                {
-                    errorMsg ?
-                        <Msg type={Msg.Type.ERROR}>
-                            {errorMsg}
-                        </Msg>
-                        :
-                        null
-                }
-
             </div>
         );
     }
@@ -287,7 +265,8 @@ ObservalForm.propTypes = {
 
     $form: PropTypes.object,
 
-    updateObservalDataField: PropTypes.func
+    updateObservalDataField: PropTypes.func,
+    onUpdateField: PropTypes.func
 
 };
 

@@ -5,7 +5,7 @@ const initialState = {
     actionType: ''
 };
 
-function patient(state = initialState, action) {
+function patients(state = initialState, action) {
     switch (action.type) {
 
         // get patient list
@@ -38,4 +38,4 @@ function patient(state = initialState, action) {
     }
 }
 
-export default patient;
+export default patients;

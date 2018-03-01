@@ -16,17 +16,17 @@ const initialState = {
     activatedStep: 0
 };
 
-function addPatient(state = initialState, action) {
+function patient(state = initialState, action) {
     switch (action.type) {
 
-        case actionTypes.ADD_PATIENT_STEP_PREV: {
+        case actionTypes.PATIENT_STEP_PREV: {
             return {
                 ...state,
                 activatedStep: Valid.range(state.activatedStep - 1, 0, state.steps.length - 1)
             };
         }
 
-        case actionTypes.ADD_PATIENT_STEP_NEXT: {
+        case actionTypes.PATIENT_STEP_NEXT: {
 
             const activatedStep = Valid.range(state.activatedStep + 1, 0, state.steps.length - 1),
                 finishedStep = state.finishedStep > activatedStep ? state.finishedStep : activatedStep;
@@ -38,7 +38,7 @@ function addPatient(state = initialState, action) {
             };
         }
 
-        case actionTypes.ADD_PATIENT_STEP_UPDATE: {
+        case actionTypes.PATIENT_STEP_UPDATE: {
             return {
                 ...state,
                 activatedStep: action.activatedStep
@@ -51,4 +51,4 @@ function addPatient(state = initialState, action) {
     }
 }
 
-export default addPatient;
+export default patient;
