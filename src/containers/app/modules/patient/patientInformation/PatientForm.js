@@ -55,12 +55,12 @@ class PatientForm extends Component {
                     <div className="row">
                         <TextField className="col-3"
                                    label="ID"
-                                   value={$form.id}
+                                   value={$form.id || ''}
                                    required={true}
                                    onChange={value => this.updateField('id', value)}/>
                         <TextField className="col-3"
                                    label="Patient Name"
-                                   value={$form.patientName}
+                                   value={$form.patientName || ''}
                                    required={true}
                                    onChange={value => this.updateField('patientName', value)}/>
                     </div>
@@ -70,53 +70,53 @@ class PatientForm extends Component {
                     <div className="row">
                         <TextField className="col-3"
                                    label="Age"
-                                   value={$form.age}
+                                   value={$form.age || ''}
                                    onChange={value => this.updateField('age', value)}/>
                         <TextField className="col-3 gestational-weeks"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalWeeks}
+                                   value={$form.gestationalWeeks || ''}
                                    onChange={value => this.updateField('gestationalWeeks', value)}/>
                         <TextField className="col-3 gestational-days"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalDays}
+                                   value={$form.gestationalDays || ''}
                                    onChange={value => this.updateField('gestationalDays', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3 height"
                                    label="Height"
                                    rightIconCls="unit"
-                                   value={$form.height}
+                                   value={$form.height || ''}
                                    onChange={value => this.updateField('height', value)}/>
                         <TextField className="col-3 weight"
                                    label="Weight"
                                    rightIconCls="unit"
-                                   value={$form.weight}
+                                   value={$form.weight || ''}
                                    onChange={value => this.updateField('weight', value)}/>
                         <TextField className="col-3"
                                    label="Heart Rate"
-                                   value={$form.heartRate}
+                                   value={$form.heartRate || ''}
                                    onChange={value => this.updateField('heartRate', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Initial Vas Score"
-                                   value={$form.initialVasScore}
+                                   value={$form.initialVasScore || ''}
                                    onChange={value => this.updateField('initialVasScore', value)}/>
                         <TextField className="col-6"
                                    label="Cervical Dilation At Time Of EA"
-                                   value={$form.cervicalDilationAtTimeOfEA}
+                                   value={$form.cervicalDilationAtTimeOfEA || ''}
                                    onChange={value => this.updateField('cervicalDilationAtTimeOfEA', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Systolic Blood Pressure"
-                                   value={$form.systolicBloodPressure}
+                                   value={$form.systolicBloodPressure || ''}
                                    onChange={value => this.updateField('systolicBloodPressure', value)}/>
                         <TextField className="col-3"
                                    label="Diastolic Blood Pressure"
-                                   value={$form.diastolicBloodPressure}
+                                   value={$form.diastolicBloodPressure || ''}
                                    onChange={value => this.updateField('diastolicBloodPressure', value)}/>
                     </div>
                 </FieldSet>
@@ -125,7 +125,7 @@ class PatientForm extends Component {
                     <div className="row">
                         <TextField className="col-3"
                                    label="Foetal Heart Rate"
-                                   value={$form.foetalHeartRate}
+                                   value={$form.foetalHeartRate || ''}
                                    onChange={value => this.updateField('foetalHeartRate', value)}/>
                     </div>
                 </FieldSet>
@@ -136,7 +136,7 @@ class PatientForm extends Component {
                                   label="Description"
                                   maxLength={1000}
                                   wordCountVisible={true}
-                                  value={$form.description}
+                                  value={$form.description || ''}
                                   onChange={value => this.updateField('description', value)}/>
                     </div>
                 </FieldSet>

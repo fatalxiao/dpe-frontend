@@ -1,8 +1,7 @@
 import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
-const initialState = {
-    form: {
+const DEFAULT_FORM = {
         group: null,
         id: '',
         patientName: '',
@@ -19,9 +18,12 @@ const initialState = {
         foetalHeartRate: '',
         description: ''
     },
-    getActionType: '',
-    updateActionType: ''
-};
+
+    initialState = {
+        form: _.cloneDeep(DEFAULT_FORM),
+        getActionType: '',
+        updateActionType: ''
+    };
 
 function patientInformation(state = initialState, action) {
     switch (action.type) {
@@ -49,6 +51,7 @@ function patientInformation(state = initialState, action) {
         case actionTypes.GET_PATIENT_INFORMATION_SUCCESS: {
             return {
                 ...state,
+                form: action.responseData,
                 getActionType: actionTypes.GET_PATIENT_INFORMATION_SUCCESS
             };
         }
