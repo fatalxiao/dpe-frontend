@@ -111,6 +111,11 @@ class AnalgesiaTable extends Component {
                            renderer: rowData =>
                                <TextField value={rowData.pulseOxygenSaturation || ''}
                                           onChange={value => self.updateField(rowData.id, 'pulseOxygenSaturation', value)}/>
+                       }, {
+                           header: 'FHR',
+                           renderer: rowData =>
+                               <TextField value={rowData.fetalHeartRate || ''}
+                                          onChange={value => self.updateField(rowData.id, 'fetalHeartRate', value)}/>
                        }]}
                        data={$analgesiaData}
                        isPagging={false}/>

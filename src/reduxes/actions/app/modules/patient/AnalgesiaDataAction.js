@@ -1,7 +1,6 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 import AnalgesiaApi from 'apis/app/modules/patient/AnalgesiaApi';
-import PatientApi from '../../../../../apis/app/modules/patient/PatientApi';
 
 function sensoryBlockHandler(keys, item, result) {
     for (let key of keys) {
@@ -23,7 +22,8 @@ function AnalgesiaDataHandler(data) {
             systolicBloodPressure: item.systolicBloodPressure,
             diastolicBloodPressure: item.diastolicBloodPressure,
             heartRate: item.heartRate,
-            pulseOxygenSaturation: item.pulseOxygenSaturation
+            pulseOxygenSaturation: item.pulseOxygenSaturation,
+            fetalHeartRate: item.fetalHeartRate
         };
 
         sensoryBlockHandler([

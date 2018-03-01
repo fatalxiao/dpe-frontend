@@ -18,7 +18,7 @@ class NoPatient extends Component {
     }
 
     addPatient() {
-        this.props.routerPush('/app/add-patient');
+        this.props.routerPush('/app/patient');
     }
 
     render() {
@@ -30,7 +30,7 @@ class NoPatient extends Component {
 
                 You have no patient now.<br/>
                 Would you <span className="add-patient-button"
-                                onTouchTap={this.addPatient}>Add A Patient</span> ?
+                                onTouchTap={this.addPatient}>Create new Patient</span> ?
 
             </div>
         );

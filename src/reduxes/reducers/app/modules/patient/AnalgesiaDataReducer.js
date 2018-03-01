@@ -14,7 +14,8 @@ function getDefaultData() {
             systolicBloodPressure: '',
             diastolicBloodPressure: '',
             heartRate: '',
-            pulseOxygenSaturation: ''
+            pulseOxygenSaturation: '',
+            fetalHeartRate: ''
         },
         list = [];
 
