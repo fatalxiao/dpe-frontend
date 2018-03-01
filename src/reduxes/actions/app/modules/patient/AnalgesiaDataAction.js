@@ -5,7 +5,7 @@ import AnalgesiaApi from 'apis/app/modules/addPatient/AnalgesiaApi';
 function sensoryBlockHandler(keys, item, result) {
     for (let key of keys) {
         if (item[key]) {
-            result[key] = item[key].sensoryBlockValue;
+            result[`${key}Value`] = item[key].sensoryBlockValue;
         }
     }
 }
