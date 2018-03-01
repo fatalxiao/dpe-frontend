@@ -19,7 +19,8 @@ const initialState = {
         foetalHeartRate: '',
         description: ''
     },
-    actionType: ''
+    getActionType: '',
+    updateActionType: ''
 };
 
 function patientInformation(state = initialState, action) {
@@ -38,23 +39,43 @@ function patientInformation(state = initialState, action) {
 
         }
 
+        // get patient information
+        case actionTypes.GET_PATIENT_INFORMATION_REQUEST: {
+            return {
+                ...state,
+                getActionType: actionTypes.GET_PATIENT_INFORMATION_REQUEST
+            };
+        }
+        case actionTypes.GET_PATIENT_INFORMATION_SUCCESS: {
+            return {
+                ...state,
+                getActionType: actionTypes.GET_PATIENT_INFORMATION_SUCCESS
+            };
+        }
+        case actionTypes.GET_PATIENT_INFORMATION_FAILURE: {
+            return {
+                ...state,
+                getActionType: actionTypes.GET_PATIENT_INFORMATION_FAILURE
+            };
+        }
+
         // update patient
         case actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST
+                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST
             };
         }
         case actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS
+                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS
             };
         }
         case actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
+                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
             };
         }
 

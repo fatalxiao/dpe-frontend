@@ -22,7 +22,10 @@ function sitemap(state) {
                 route: '/app/patient',
                 children: [{
                     name: 'Patient Information',
-                    route: '/app/patient/patient-information'
+                    route: '/app/patient/create-patient'
+                }, {
+                    name: 'Patient Information',
+                    route: '/app/patient/update-patient'
                 }, {
                     name: 'Analgesia Data',
                     route: '/app/patient/analgesia-data'
