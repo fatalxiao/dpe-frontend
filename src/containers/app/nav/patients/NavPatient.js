@@ -70,8 +70,8 @@ NavPatient.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $groupListActionType: state.group.actionType,
-        $patientList: state.patient.list,
-        $patientListActionType: state.patient.actionType
+        $patientList: state.patients.list,
+        $patientListActionType: state.patients.actionType
     };
 }
 

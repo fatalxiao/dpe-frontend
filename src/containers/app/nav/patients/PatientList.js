@@ -86,7 +86,7 @@ PatientList.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $groupList: state.group.list,
-        $patientList: state.patient.list
+        $patientList: state.patients.list
     };
 }
 
