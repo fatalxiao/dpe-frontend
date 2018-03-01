@@ -1,6 +1,6 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
-import PatientApi from 'apis/app/modules/addPatient/PatientApi';
+import PatientApi from 'apis/app/modules/patient/PatientApi';
 
 function gestationalDaysHandler(data) {
 

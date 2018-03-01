@@ -42,11 +42,21 @@ class AnalgesiaData extends Component {
 
     save() {
         const {match, createOrUpdateAnalgesiaData} = this.props;
-        createOrUpdateAnalgesiaData(match.params.patientId);
+        if (match && match.params && match.params.patientId) {
+            createOrUpdateAnalgesiaData(match.params.patientId);
+        }
     }
 
     componentDidMount() {
-        this.props.updatePatientStep(1);
+
+        const {match, updatePatientStep, getAnalgesiaData} = this.props;
+
+        updatePatientStep(1);
+
+        if (match && match.params && match.params.patientId) {
+            getAnalgesiaData(match.params.patientId);
+        }
+
     }
 
     render() {

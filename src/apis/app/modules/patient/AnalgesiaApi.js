@@ -3,6 +3,13 @@ import Api from 'apis/Api';
 
 export default {
 
+    getAnalgesiaDataByPatientId(options) {
+        Api.get({
+            ...options,
+            url: `${config.appBaseUrl}/analgesia/getAnalgesiaDataByPatientId/${options.params.patientId}`
+        });
+    },
+
     createOrUpdateAnalgesiaData(options) {
         Api.post({
             ...options,

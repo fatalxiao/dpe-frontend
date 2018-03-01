@@ -1,6 +1,6 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
-import ObservalApi from 'apis/app/modules/addPatient/ObservalApi';
+import ObservalApi from 'apis/app/modules/patient/ObservalApi';
 
 export const updateObservalDataField = (fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_OBSERVAL_DATA_FIELD,

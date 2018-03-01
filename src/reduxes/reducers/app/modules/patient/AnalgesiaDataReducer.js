@@ -67,7 +67,28 @@ function analgesiaData(state = initialState, action) {
 
         }
 
-        // update patient
+        // get analgesia data
+        case actionTypes.GET_ANALGESIA_DATA_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.GET_ANALGESIA_DATA_REQUEST
+            };
+        }
+        case actionTypes.GET_ANALGESIA_DATA_SUCCESS: {
+            return {
+                ...state,
+                data: action.responseData,
+                actionType: actionTypes.GET_ANALGESIA_DATA_SUCCESS
+            };
+        }
+        case actionTypes.GET_ANALGESIA_DATA_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.GET_ANALGESIA_DATA_FAILURE
+            };
+        }
+
+        // update analgesia data
         case actionTypes.UPDATE_ANALGESIA_DATA_REQUEST: {
             return {
                 ...state,
