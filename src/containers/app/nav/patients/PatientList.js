@@ -27,7 +27,7 @@ class PatientList extends Component {
 
     render() {
 
-        const {$groupList, $patientList} = this.props;
+        const {$groupList, $patientList, routerPush} = this.props;
 
         return (
             <div className="patient-list-wrapper">
@@ -49,7 +49,10 @@ class PatientList extends Component {
 
                             return (
                                 <FlatButton key={index}
-                                            className="patient">
+                                            className="patient"
+                                            onTouchTap={() => {
+                                                routerPush(`/app/patient/patient-information/${patient.id}`);
+                                            }}>
 
                                     <div className="patient-info">
                                         <span className="patient-name">{patient.patientName}</span>
