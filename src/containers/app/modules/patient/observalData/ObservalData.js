@@ -36,9 +36,8 @@ class ObservalData extends Component {
     }
 
     prevStep() {
-        const {patientStepPrev, routerPush} = this.props;
-        patientStepPrev();
-        routerPush('/app/patient/analgesia-data');
+        const {routerPush} = this.props;
+        routerPush(`/app/patient/update-patient/${match.params.patientId}`);
     }
 
     save() {

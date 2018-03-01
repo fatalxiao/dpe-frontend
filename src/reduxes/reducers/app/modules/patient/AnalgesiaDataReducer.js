@@ -75,11 +75,21 @@ function analgesiaData(state = initialState, action) {
             };
         }
         case actionTypes.GET_ANALGESIA_DATA_SUCCESS: {
+
+            const data = getDefaultData();
+
+            if (action.responseData && action.responseData.length > 0) {
+                for (let item of action.responseData) {
+                    Object.assign(data.find(dataItem => dataItem.timePoint === item.timePoint), item);
+                }
+            }
+
             return {
                 ...state,
-                data: action.responseData,
+                data,
                 actionType: actionTypes.GET_ANALGESIA_DATA_SUCCESS
             };
+
         }
         case actionTypes.GET_ANALGESIA_DATA_FAILURE: {
             return {

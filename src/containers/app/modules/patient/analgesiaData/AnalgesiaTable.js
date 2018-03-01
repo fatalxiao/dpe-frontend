@@ -50,7 +50,7 @@ class AnalgesiaTable extends Component {
                        }, {
                            header: 'Vas',
                            renderer: rowData =>
-                               <TextField value={rowData.vasScore}
+                               <TextField value={rowData.vasScore || ''}
                                           onChange={value => self.updateField(rowData.id, 'vasScore', value)}/>
                        }, {
                            header: 'TSB',
@@ -89,27 +89,27 @@ class AnalgesiaTable extends Component {
                        }, {
                            header: 'Bromage',
                            renderer: rowData =>
-                               <TextField value={rowData.bromageScore}
+                               <TextField value={rowData.bromageScore || ''}
                                           onChange={value => self.updateField(rowData.id, 'bromageScore', value)}/>
                        }, {
                            header: 'SBP',
                            renderer: rowData =>
-                               <TextField value={rowData.systolicBloodPressure}
+                               <TextField value={rowData.systolicBloodPressure || ''}
                                           onChange={value => self.updateField(rowData.id, 'systolicBloodPressure', value)}/>
                        }, {
                            header: 'DBP',
                            renderer: rowData =>
-                               <TextField value={rowData.diastolicBloodPressure}
+                               <TextField value={rowData.diastolicBloodPressure || ''}
                                           onChange={value => self.updateField(rowData.id, 'diastolicBloodPressure', value)}/>
                        }, {
                            header: 'Heart Rate',
                            renderer: rowData =>
-                               <TextField value={rowData.heartRate}
+                               <TextField value={rowData.heartRate || ''}
                                           onChange={value => self.updateField(rowData.id, 'heartRate', value)}/>
                        }, {
                            header: 'SPO2',
                            renderer: rowData =>
-                               <TextField value={rowData.pulseOxygenSaturation}
+                               <TextField value={rowData.pulseOxygenSaturation || ''}
                                           onChange={value => self.updateField(rowData.id, 'pulseOxygenSaturation', value)}/>
                        }]}
                        data={$analgesiaData}
