@@ -15,7 +15,6 @@ const DEFAULT_FORM = {
         cervicalDilationAtTimeOfEA: '',
         systolicBloodPressure: '',
         diastolicBloodPressure: '',
-        foetalHeartRate: '',
         description: ''
     },
 

@@ -121,16 +121,7 @@ class PatientForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="4. Foetal Information">
-                    <div className="row">
-                        <TextField className="col-3"
-                                   label="Foetal Heart Rate"
-                                   value={$form.foetalHeartRate || ''}
-                                   onChange={value => this.updateField('foetalHeartRate', value)}/>
-                    </div>
-                </FieldSet>
-
-                <FieldSet title="5. Others">
+                <FieldSet title="4. Others">
                     <div className="row">
                         <TextArea className="col-12"
                                   label="Description"
