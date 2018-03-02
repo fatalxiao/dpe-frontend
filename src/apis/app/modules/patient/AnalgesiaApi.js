@@ -13,7 +13,8 @@ export default {
     createOrUpdateAnalgesiaData(options) {
         Api.post({
             ...options,
-            url: `${config.appBaseUrl}/analgesia/createOrUpdateAnalgesiaData`,
+            url: `${config.appBaseUrl}/analgesia/createOrUpdateAnalgesiaData/${options.params.patientId}`,
+            params: options.params.analgesiaData,
             cancelable: false
         });
     }
