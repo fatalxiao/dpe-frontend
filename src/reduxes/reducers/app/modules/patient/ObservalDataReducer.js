@@ -1,8 +1,7 @@
 import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
-const initialState = {
-    form: {
+const DEFAULT_FORM = {
         testDose: '3',
         initialDose: '8',
         pumpConsumption: '',
@@ -45,8 +44,10 @@ const initialState = {
         venousPh: '',
         venousBe: '',
         description: ''
-    }
-};
+    },
+    initialState = {
+        form: _.cloneDeep(DEFAULT_FORM)
+    };
 
 function observalData(state = initialState, action) {
     switch (action.type) {
@@ -61,6 +62,31 @@ function observalData(state = initialState, action) {
                 form
             };
 
+        }
+
+        // get analgesia data
+        case actionTypes.GET_OBSERVAL_DATA_REQUEST: {
+            return {
+                ...state,
+                actionType: actionTypes.GET_OBSERVAL_DATA_REQUEST
+            };
+        }
+        case actionTypes.GET_OBSERVAL_DATA_SUCCESS: {
+
+            const form = action.responseData;
+
+            return {
+                ...state,
+                form,
+                actionType: actionTypes.GET_OBSERVAL_DATA_SUCCESS
+            };
+
+        }
+        case actionTypes.GET_OBSERVAL_DATA_FAILURE: {
+            return {
+                ...state,
+                actionType: actionTypes.GET_OBSERVAL_DATA_FAILURE
+            };
         }
 
         // update observal data

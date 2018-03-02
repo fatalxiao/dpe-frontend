@@ -8,6 +8,27 @@ export const updateObservalDataField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
+export const getObservalData = patientId => dispatch => {
+
+    if (!patientId) {
+        return;
+    }
+
+    return dispatch({
+        [actionTypes.CALL_API]: {
+            types: [
+                actionTypes.GET_OBSERVAL_DATA_REQUEST,
+                actionTypes.GET_OBSERVAL_DATA_SUCCESS,
+                actionTypes.GET_OBSERVAL_DATA_FAILURE
+            ],
+            api: ObservalApi.getObservalDataByPatientId,
+            params: {patientId},
+            successResMsgDisabled: true
+        }
+    });
+
+};
+
 export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
 
     const observalData = getState().observalData.form;
