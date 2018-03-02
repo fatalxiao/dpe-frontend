@@ -1,4 +1,4 @@
-import {ac} from 'components/AsyncComponent';
+import ac from 'components/AsyncComponent';
 
 import AppRoot from 'containers/AppRoot';
 
@@ -20,10 +20,10 @@ export function configureRoutes(store) {
                 component: ac(() => import('containers/app/modules/patient/Patient'), store),
                 routes: [{
                     path: '/app/patient/create-patient',
-                    component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
+                    component: ac(() => import('containers/app/modules/patient/patientInformation/CreatePatient'), store)
                 }, {
                     path: '/app/patient/update-patient/:id',
-                    component: ac(() => import('containers/app/modules/patient/patientInformation/PatientInformation'), store)
+                    component: ac(() => import('containers/app/modules/patient/patientInformation/UpdatePatient'), store)
                 }, {
                     path: '/app/patient/analgesia-data/:patientId',
                     component: ac(() => import('containers/app/modules/patient/analgesiaData/AnalgesiaData'), store)

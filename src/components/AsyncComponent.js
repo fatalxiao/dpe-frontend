@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import * as types from 'reduxes/actionTypes/index';
 
-export function asyncComponent(getComponent, store) {
+function asyncComponent(getComponent, store) {
 
     return class AsyncComponent extends Component {
 
@@ -61,4 +61,4 @@ export function asyncComponent(getComponent, store) {
 
 }
 
-export const ac = asyncComponent;
+export default asyncComponent;
