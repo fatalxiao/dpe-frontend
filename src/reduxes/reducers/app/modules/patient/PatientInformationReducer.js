@@ -27,6 +27,13 @@ const DEFAULT_FORM = {
 function patientInformation(state = initialState, action) {
     switch (action.type) {
 
+        case actionTypes.RESET_PATIENT_DATA: {
+            return {
+                ...state,
+                form: _.cloneDeep(DEFAULT_FORM)
+            };
+        }
+
         case actionTypes.UPDATE_PATIENT_INFORMATION_FIELD: {
 
             const form = _.cloneDeep(state.form);

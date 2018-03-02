@@ -42,6 +42,13 @@ const initialState = {
 function analgesiaData(state = initialState, action) {
     switch (action.type) {
 
+        case actionTypes.RESET_PATIENT_DATA: {
+            return {
+                ...state,
+                data: getDefaultData()
+            };
+        }
+
         case actionTypes.UPDATE_ANALGESIA_DATA_FIELD: {
 
             const data = _.cloneDeep(state.data),

@@ -18,3 +18,9 @@ export const updatePatientStep = activatedStep => dispatch => {
         activatedStep
     });
 };
+
+export const resetPatientData = () => dispatch => {
+    return dispatch({
+        type: actionTypes.RESET_PATIENT_DATA
+    });
+};
