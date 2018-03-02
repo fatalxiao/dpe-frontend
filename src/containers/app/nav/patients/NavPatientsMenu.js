@@ -59,7 +59,7 @@ class NavPatientCollapsed extends Component {
 
                 <Popover visible={isFold && popVisible}
                          triggerEl={this.allPatientButtonEl}
-                         // position={Popover.Position.RIGHT_TOP}
+                         position={Popover.Position.RIGHT_TOP}
                          onRequestClose={() => {
                              this.allPatientMouseHandler(false);
                          }}>

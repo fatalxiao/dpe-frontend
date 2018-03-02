@@ -14,15 +14,7 @@ import 'scss/containers/app/nav/patients/PatientList.scss';
 class PatientList extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.goToList = ::this.goToList;
-
-    }
-
-    goToList() {
-        this.props.routerPush('/app/patient-list');
     }
 
     render() {
@@ -30,46 +22,35 @@ class PatientList extends Component {
         const {$groupList, $patientList, routerPush} = this.props;
 
         return (
-            <div className="patient-list-wrapper">
+            <div className="patient-list">
 
-                <FlatButton className="all-patients-button"
-                            value="All Patients"
-                            iconCls="icon-list"
-                            onTouchTap={this.goToList}>
-                    <span className="patients-count">{`[${$patientList.length}]`}</span>
-                </FlatButton>
+                {
+                    $patientList.map((patient, index) => {
 
-                <div className="patient-list">
+                        const groupName = $groupList.find(item => item.id === patient.groupId).groupName,
+                            {weeks, days} = Util.days2weeksDays(patient.gestationalDays);
 
-                    {
-                        $patientList.map((patient, index) => {
+                        return (
+                            <FlatButton key={index}
+                                        className="patient"
+                                        onTouchTap={() => {
+                                            routerPush(`/app/patient/update-patient/${patient.id}`);
+                                        }}>
 
-                            const groupName = $groupList.find(item => item.id === patient.groupId).groupName,
-                                {weeks, days} = Util.days2weeksDays(patient.gestationalDays);
+                                <div className="patient-info">
+                                    <span className="patient-name">{patient.patientName}</span>
+                                    <span className="patient-group">{`  ${groupName}`}</span>
+                                </div>
 
-                            return (
-                                <FlatButton key={index}
-                                            className="patient"
-                                            onTouchTap={() => {
-                                                routerPush(`/app/patient/update-patient/${patient.id}`);
-                                            }}>
+                                <div className="patient-desc">
+                                    {`${patient.id}  ·  ${weeks}w + ${days}d`}
+                                </div>
 
-                                    <div className="patient-info">
-                                        <span className="patient-name">{patient.patientName}</span>
-                                        <span className="patient-group">{`  ${groupName}`}</span>
-                                    </div>
+                            </FlatButton>
+                        );
 
-                                    <div className="patient-desc">
-                                        {`${patient.id}  ·  ${weeks}w + ${days}d`}
-                                    </div>
-
-                                </FlatButton>
-                            );
-
-                        })
-                    }
-
-                </div>
+                    })
+                }
 
             </div>
         );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import NavBarTop from './NavBarTop';
 import NavBarBottom from './NavBarBottom';
-import NavPatientMenu from '../patients/NavPatientMenu';
+import NavPatientMenu from '../patients/NavPatientsMenu';
 
 import 'scss/containers/app/nav/bar/NavBar.scss';
 

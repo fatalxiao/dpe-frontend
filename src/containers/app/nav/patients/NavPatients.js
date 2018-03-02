@@ -8,9 +8,9 @@ import * as actionTypes from 'reduxes/actionTypes';
 
 import CircularLoading from 'alcedo-ui/CircularLoading';
 
-import NavPatientCollapsed from './NavPatientMenu';
+import NavPatientCollapsed from './NavPatientsMenu';
 import NoPatient from './NoPatient';
-import PatientList from './PatientList';
+import PatientListWrapper from './PatientListWrapper';
 
 import 'scss/containers/app/nav/patients/NavPatient.scss';
 
@@ -44,7 +44,7 @@ class NavPatient extends Component {
                                     hasNoPatient ?
                                         <NoPatient/>
                                         :
-                                        <PatientList/>
+                                        <PatientListWrapper/>
                                 )
                         )
                 }
