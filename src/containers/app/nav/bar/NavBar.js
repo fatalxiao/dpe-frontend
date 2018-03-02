@@ -15,7 +15,7 @@ export default class NavBar extends Component {
 
     render() {
 
-        const {isCollapsed, isFold} = this.props,
+        const {isFold} = this.props,
 
             wrapperClassName = (isFold ? ' fold' : '');
 
@@ -34,6 +34,5 @@ export default class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-    isCollapsed: PropTypes.bool,
     isFold: PropTypes.bool
 };
