@@ -47,13 +47,17 @@ class ObservalData extends Component {
 
     componentDidMount() {
 
-        const {match, updatePatientStep, getObservalData} = this.props;
+        const {updatePatientStep, resetPatientData} = this.props;
 
         updatePatientStep(2);
+        resetPatientData();
 
-        if (match && match.params && match.params.patientId) {
-            getObservalData(match.params.patientId);
-        }
+        setTimeout(() => {
+            const {match, getObservalData} = this.props;
+            if (match && match.params && match.params.patientId) {
+                getObservalData(match.params.patientId);
+            }
+        }, 0);
 
     }
 
@@ -87,6 +91,7 @@ class ObservalData extends Component {
 ObservalData.propTypes = {
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
+    resetPatientData: PropTypes.func,
     createOrUpdateObservalData: PropTypes.func,
     getObservalData: PropTypes.func
 };

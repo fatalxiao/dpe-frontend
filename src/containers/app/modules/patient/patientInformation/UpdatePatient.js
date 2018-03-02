@@ -107,9 +107,9 @@ PatientInformation.propTypes = {
 
     $form: PropTypes.object,
 
+    updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
     getPatientInformation: PropTypes.func,
-    updatePatientStep: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 
 };

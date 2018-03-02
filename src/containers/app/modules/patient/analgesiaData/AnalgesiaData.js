@@ -49,13 +49,17 @@ class AnalgesiaData extends Component {
 
     componentDidMount() {
 
-        const {match, updatePatientStep, getAnalgesiaData} = this.props;
+        const {updatePatientStep, resetPatientData} = this.props;
 
         updatePatientStep(1);
+        resetPatientData();
 
-        if (match && match.params && match.params.patientId) {
-            getAnalgesiaData(match.params.patientId);
-        }
+        setTimeout(() => {
+            const {match, getAnalgesiaData} = this.props;
+            if (match && match.params && match.params.patientId) {
+                getAnalgesiaData(match.params.patientId);
+            }
+        }, 0);
 
     }
 
@@ -89,6 +93,7 @@ class AnalgesiaData extends Component {
 AnalgesiaData.propTypes = {
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
+    resetPatientData: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
 };
 
