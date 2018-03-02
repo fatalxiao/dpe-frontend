@@ -6,7 +6,8 @@ export default {
     createOrUpdateObservalData(options) {
         Api.post({
             ...options,
-            url: `${config.appBaseUrl}/observal/createOrUpdateObservalData`,
+            url: `${config.appBaseUrl}/observal/createOrUpdateObservalData/${options.params.patientId}`,
+            params: options.params.observalData,
             cancelable: false
         });
     }
