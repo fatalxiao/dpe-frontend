@@ -5,10 +5,12 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import FieldSet from 'components/FieldSet';
+import DisplayField from 'components/DisplayField';
 
 import 'scss/containers/app/modules/patient/patientInformation/PatientForm.scss';
 
@@ -33,12 +35,35 @@ class PatientForm extends Component {
 
     render() {
 
-        const {$groupList, $form} = this.props;
+        const {$groupList, $form, isCreate} = this.props;
 
         return (
             <div className="patient-form">
 
-                <FieldSet title="1. Select Patient Group">
+                <FieldSet title="1. Patient Basic Information">
+                    <div className="row">
+                        {
+                            isCreate ?
+                                <TextField className="col-3"
+                                           label="ID"
+                                           value={$form.id || ''}
+                                           required={true}
+                                           onChange={value => this.updateField('id', value)}/>
+                                :
+                                <DisplayField className="col-3"
+                                              label="ID">
+                                    <div className="patient-id-field">{$form.id || ''}</div>
+                                </DisplayField>
+                        }
+                        <TextField className="col-3"
+                                   label="Patient Name"
+                                   value={$form.patientName || ''}
+                                   required={true}
+                                   onChange={value => this.updateField('patientName', value)}/>
+                    </div>
+                </FieldSet>
+
+                <FieldSet title="2. Select Patient Group">
                     <div className="row">
                         <DropdownSelect className="col-6"
                                         label="Group"
@@ -48,21 +73,6 @@ class PatientForm extends Component {
                                         value={$form.group}
                                         required={true}
                                         onChange={value => this.updateField('group', value)}/>
-                    </div>
-                </FieldSet>
-
-                <FieldSet title="2. Patient Basic Information">
-                    <div className="row">
-                        <TextField className="col-3"
-                                   label="ID"
-                                   value={$form.id || ''}
-                                   required={true}
-                                   onChange={value => this.updateField('id', value)}/>
-                        <TextField className="col-3"
-                                   label="Patient Name"
-                                   value={$form.patientName || ''}
-                                   required={true}
-                                   onChange={value => this.updateField('patientName', value)}/>
                     </div>
                 </FieldSet>
 
@@ -142,9 +152,15 @@ PatientForm.propTypes = {
     $groupList: PropTypes.array,
     $form: PropTypes.object,
 
+    isCreate: PropTypes.bool,
+
     updatePatientInformationField: PropTypes.func,
     onUpdateField: PropTypes.func
 
+};
+
+PatientForm.defaultProps = {
+    isCreate: false
 };
 
 function mapStateToProps(state, ownProps) {

@@ -62,7 +62,8 @@ class PatientInformation extends Component {
         return (
             <div className="patient-information">
 
-                <PatientForm onUpdateField={this.updateFieldHandler}/>
+                <PatientForm isCreate={true}
+                             onUpdateField={this.updateFieldHandler}/>
 
                 {
                     errorMsg ?
