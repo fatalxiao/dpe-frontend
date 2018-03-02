@@ -24,7 +24,7 @@ export default class NavBar extends Component {
 
                 <NavBarTop isFold={isFold}/>
 
-                <NavPatientMenu/>
+                <NavPatientMenu isFold={isFold}/>
 
                 <NavBarBottom/>
 

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
+import Popover from 'alcedo-ui/Popover';
 
 import 'scss/containers/app/nav/patients/NavPatientMenu.scss';
 
@@ -15,22 +17,55 @@ class NavPatientCollapsed extends Component {
 
         super(props);
 
+        this.state = {
+            popVisible: false
+        };
+
+        this.allPatientMouseHandler = ::this.allPatientMouseHandler;
         this.goToList = ::this.goToList;
 
+    }
+
+    allPatientMouseHandler(popVisible) {
+        this.setState({
+            popVisible
+        });
     }
 
     goToList() {
         this.props.routerPush('/app/patient-list');
     }
 
+    componentDidMount() {
+        this.allPatientButtonEl = findDOMNode(this.refs.allPatientButton);
+        console.log(this.allPatientButtonEl);
+    }
+
     render() {
+
+        const {isFold} = this.props,
+            {popVisible} = this.state;
+
         return (
             <div className="nav-patient-menu">
-                <IconButton className="all-patients-menu-item"
+
+                <IconButton ref="allPatientButton"
+                            className="all-patients-menu-item"
                             iconCls="icon-list"
-                            tip="All Patients"
-                            tipPosition={IconButton.TipPosition.RIGHT}
+                            onMouseOver={() => {
+                                this.allPatientMouseHandler(true);
+                            }}
                             onTouchTap={this.goToList}/>
+
+                <Popover visible={isFold && popVisible}
+                         triggerEl={this.allPatientButtonEl}
+                         // position={Popover.Position.RIGHT_TOP}
+                         onRequestClose={() => {
+                             this.allPatientMouseHandler(false);
+                         }}>
+                    123
+                </Popover>
+
             </div>
         );
     }
