@@ -52,7 +52,7 @@ const DEFAULT_FORM = {
 function observalData(state = initialState, action) {
     switch (action.type) {
 
-        case actionTypes.UPDATE_PATIENT_INFORMATION_FIELD: {
+        case actionTypes.UPDATE_OBSERVAL_DATA_FIELD: {
 
             const form = _.cloneDeep(state.form);
             form[action.fieldName] = action.fieldValue;
@@ -64,7 +64,7 @@ function observalData(state = initialState, action) {
 
         }
 
-        // get analgesia data
+        // get observal data
         case actionTypes.GET_OBSERVAL_DATA_REQUEST: {
             return {
                 ...state,

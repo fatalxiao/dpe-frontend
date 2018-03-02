@@ -41,22 +41,22 @@ class ObservalForm extends Component {
                         <TextField className="col-3 anesthetic-consumption"
                                    label="Test Dose"
                                    rightIconCls="unit"
-                                   value={$form.testDose}
+                                   value={$form.testDose || ''}
                                    onChange={value => this.updateField('testDose', value)}/>
                         <TextField className="col-3 anesthetic-consumption"
                                    label="Initial Dose"
                                    rightIconCls="unit"
-                                   value={$form.initialDose}
+                                   value={$form.initialDose || ''}
                                    onChange={value => this.updateField('initialDose', value)}/>
                         <TextField className="col-3 anesthetic-consumption"
                                    label="Pump Consumption"
                                    rightIconCls="unit"
-                                   value={$form.pumpConsumption}
+                                   value={$form.pumpConsumption || ''}
                                    onChange={value => this.updateField('pumpConsumption', value)}/>
                         <TextField className="col-3 anesthetic-consumption"
                                    label="Bolus"
                                    rightIconCls="unit"
-                                   value={$form.bolus}
+                                   value={$form.bolus || ''}
                                    onChange={value => this.updateField('bolus', value)}/>
                     </div>
                     <div className="row">
@@ -75,11 +75,11 @@ class ObservalForm extends Component {
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="First PCA Time"
-                                        value={$form.firstPcaTime}
+                                        value={$form.firstPcaTime || ''}
                                         onChange={value => this.updateField('firstPcaTime', value)}/>
                         <TextField className="col-3"
                                    label="PCA Count"
-                                   value={$form.pcaCount}
+                                   value={$form.pcaCount || ''}
                                    onChange={value => this.updateField('pcaCount', value)}/>
                     </div>
                 </FieldSet>
@@ -88,11 +88,11 @@ class ObservalForm extends Component {
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="First Manual Bolus Time"
-                                        value={$form.firstManualBolusTime}
+                                        value={$form.firstManualBolusTime || ''}
                                         onChange={value => this.updateField('firstManualBolusTime', value)}/>
                         <TextField className="col-6"
                                    label="Manual Bolus Count"
-                                   value={$form.manualBolusCount}
+                                   value={$form.manualBolusCount || ''}
                                    onChange={value => this.updateField('manualBolusCount', value)}/>
                     </div>
                 </FieldSet>
@@ -114,17 +114,17 @@ class ObservalForm extends Component {
                     <div className="row">
                         <TextField className="col-6"
                                    label="Duration Of Labor Analgesia"
-                                   value={$form.durationOfLaborAnalgesia}
+                                   value={$form.durationOfLaborAnalgesia || ''}
                                    onChange={value => this.updateField('durationOfLaborAnalgesia', value)}/>
                         <TextField className="col-6"
                                    label="Duration Of Second Stage Of Labor"
-                                   value={$form.durationOfSecondStageOfLabor}
+                                   value={$form.durationOfSecondStageOfLabor || ''}
                                    onChange={value => this.updateField('durationOfSecondStageOfLabor', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-6"
                                    label="Patient Satisfaction Score"
-                                   value={$form.patientSatisfactionScore}
+                                   value={$form.patientSatisfactionScore || ''}
                                    onChange={value => this.updateField('patientSatisfactionScore', value)}/>
                     </div>
                     <div className="row">
@@ -197,7 +197,7 @@ class ObservalForm extends Component {
                                   onChange={value => this.updateField('hasLateralEpisiotomy', value)}/>
                         <TextField className="col-6"
                                    label="Lateral Episiotomy VAS Score"
-                                   value={$form.lateralEpisiotomyVasScore}
+                                   value={$form.lateralEpisiotomyVasScore || ''}
                             // disabled={!$form.hasLateralEpisiotomy}
                                    onChange={value => this.updateField('lateralEpisiotomyVasScore', value)}/>
                     </div>
@@ -211,7 +211,7 @@ class ObservalForm extends Component {
                                   onChange={value => this.updateField('hasNicu', value)}/>
                         <TextArea className="col-9"
                                   label="NICU Reason"
-                                  value={$form.nicuReason}
+                                  value={$form.nicuReason || ''}
                             // disabled={!$form.hasNicu}
                                   onChange={value => this.updateField('nicuReason', value)}/>
                     </div>
@@ -221,43 +221,43 @@ class ObservalForm extends Component {
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="Birth Time"
-                                        value={$form.birthTime}
+                                        value={$form.birthTime || ''}
                                         onChange={value => this.updateField('birthTime', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Foetal Height"
-                                   value={$form.foetalHeight}
+                                   value={$form.foetalHeight || ''}
                                    onChange={value => this.updateField('foetalHeight', value)}/>
                         <TextField className="col-3"
                                    label="Foetal Weight"
-                                   value={$form.foetalWeight}
+                                   value={$form.foetalWeight || ''}
                                    onChange={value => this.updateField('foetalWeight', value)}/>
                         <TextField className="col-3"
                                    label="1min Apgar Score"
-                                   value={$form.oneMinuteApgarScore}
+                                   value={$form.oneMinuteApgarScore || ''}
                                    onChange={value => this.updateField('oneMinuteApgarScore', value)}/>
                         <TextField className="col-3"
                                    label="5min Apgar Score"
-                                   value={$form.fiveMinuteApgarScore}
+                                   value={$form.fiveMinuteApgarScore || ''}
                                    onChange={value => this.updateField('fiveMinuteApgarScore', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Arterial PH"
-                                   value={$form.arterialPh}
+                                   value={$form.arterialPh || ''}
                                    onChange={value => this.updateField('arterialPh', value)}/>
                         <TextField className="col-3"
                                    label="Arterial BE"
-                                   value={$form.arterialBe}
+                                   value={$form.arterialBe || ''}
                                    onChange={value => this.updateField('arterialBe', value)}/>
                         <TextField className="col-3"
                                    label="Venous PH"
-                                   value={$form.venousPh}
+                                   value={$form.venousPh || ''}
                                    onChange={value => this.updateField('venousPh', value)}/>
                         <TextField className="col-3"
                                    label="Venous BE"
-                                   value={$form.venousBe}
+                                   value={$form.venousBe || ''}
                                    onChange={value => this.updateField('venousBe', value)}/>
                     </div>
                 </FieldSet>
@@ -268,7 +268,7 @@ class ObservalForm extends Component {
                                   label="Description"
                                   maxLength={1000}
                                   wordCountVisible={true}
-                                  value={$form.description}
+                                  value={$form.description || ''}
                                   onChange={value => this.updateField('description', value)}/>
                     </div>
                 </FieldSet>

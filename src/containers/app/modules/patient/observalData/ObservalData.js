@@ -46,7 +46,15 @@ class ObservalData extends Component {
     }
 
     componentDidMount() {
-        this.props.updatePatientStep(2);
+
+        const {match, updatePatientStep, getObservalData} = this.props;
+
+        updatePatientStep(1);
+
+        if (match && match.params && match.params.patientId) {
+            getObservalData(match.params.patientId);
+        }
+
     }
 
     render() {
@@ -79,7 +87,8 @@ class ObservalData extends Component {
 ObservalData.propTypes = {
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
-    createOrUpdateObservalData: PropTypes.func
+    createOrUpdateObservalData: PropTypes.func,
+    getObservalData: PropTypes.func
 };
 
 function mapStateToProps(state, ownProps) {
