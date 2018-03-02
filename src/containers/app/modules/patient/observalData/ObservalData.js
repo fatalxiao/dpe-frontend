@@ -49,7 +49,7 @@ class ObservalData extends Component {
 
         const {match, updatePatientStep, getObservalData} = this.props;
 
-        updatePatientStep(1);
+        updatePatientStep(2);
 
         if (match && match.params && match.params.patientId) {
             getObservalData(match.params.patientId);
