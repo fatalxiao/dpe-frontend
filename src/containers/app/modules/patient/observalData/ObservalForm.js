@@ -32,26 +32,33 @@ class ObservalForm extends Component {
         onUpdateField && onUpdateField();
     }
 
-    formatDuration(timeStamp) {
+    formatDuration(timeStamp, isBirthTime) {
 
         if (timeStamp < 0) {
             return '';
         }
 
-        return `${timeStamp / 1000 / 60} min`;
+        return isBirthTime ?
+            `Duration: ${(timeStamp / 1000 / 60) + 60} min`
+            :
+            `Duration: ${timeStamp / 1000 / 60} min`;
 
     }
 
     render() {
 
-        const {$form} = this.props;
+        const {$form} = this.props,
+
+            pcaDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstPcaTime)),
+            bolusDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstManualBolusTime)),
+            birthDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstPcaTime), true);
 
         return (
             <div className="observal-data-form">
 
                 <FieldSet title="1. Basic Information">
                     <div className="row">
-                        <DateTimePicker className="col-3"
+                        <DateTimePicker className="col-6"
                                         label="Initial Time"
                                         value={$form.initialTime || ''}
                                         onChange={value => this.updateField('initialTime', value)}/>
@@ -95,15 +102,21 @@ class ObservalForm extends Component {
 
                 <FieldSet title="3. PCA">
                     <div className="row">
-                        <DateTimePicker className="col-3"
+                        <DateTimePicker className="col-6"
                                         label="First PCA Time"
                                         value={$form.firstPcaTime || ''}
                                         onChange={value => this.updateField('firstPcaTime', value)}/>
-                        <DisplayField className="col-3"
-                                      label="Duration">
-                            <div>{this.formatDuration(Time.duration($form.initialTime, $form.firstPcaTime))}</div>
-                        </DisplayField>
-                        <TextField className="col-3"
+                        {
+                            pcaDuration ?
+                                <DisplayField className="col-6 duration-tag">
+                                    {pcaDuration}
+                                </DisplayField>
+                                :
+                                null
+                        }
+                    </div>
+                    <div className="row">
+                        <TextField className="col-6"
                                    label="PCA Count"
                                    value={$form.pcaCount || ''}
                                    onChange={value => this.updateField('pcaCount', value)}/>
@@ -116,6 +129,16 @@ class ObservalForm extends Component {
                                         label="First Manual Bolus Time"
                                         value={$form.firstManualBolusTime || ''}
                                         onChange={value => this.updateField('firstManualBolusTime', value)}/>
+                        {
+                            bolusDuration ?
+                                <DisplayField className="col-6 duration-tag">
+                                    {bolusDuration}
+                                </DisplayField>
+                                :
+                                null
+                        }
+                    </div>
+                    <div className="row">
                         <TextField className="col-6"
                                    label="Manual Bolus Count"
                                    value={$form.manualBolusCount || ''}
@@ -249,6 +272,14 @@ class ObservalForm extends Component {
                                         label="Birth Time"
                                         value={$form.birthTime || ''}
                                         onChange={value => this.updateField('birthTime', value)}/>
+                        {
+                            birthDuration ?
+                                <DisplayField className="col-6 duration-tag">
+                                    {birthDuration}
+                                </DisplayField>
+                                :
+                                null
+                        }
                     </div>
                     <div className="row">
                         <TextField className="col-3"
