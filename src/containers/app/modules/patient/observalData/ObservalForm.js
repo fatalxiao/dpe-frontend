@@ -39,7 +39,7 @@ class ObservalForm extends Component {
         }
 
         return isBirthTime ?
-            `Duration: ${(timeStamp / 1000 / 60) + 60} min`
+            `Labor Duration: ${(timeStamp / 1000 / 60) + 60} min`
             :
             `Duration: ${timeStamp / 1000 / 60} min`;
 
@@ -51,7 +51,7 @@ class ObservalForm extends Component {
 
             pcaDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstPcaTime)),
             bolusDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstManualBolusTime)),
-            birthDuration = this.formatDuration(Time.duration($form.initialTime, $form.firstPcaTime), true);
+            birthDuration = this.formatDuration(Time.duration($form.initialTime, $form.birthTime), true);
 
         return (
             <div className="observal-data-form">
