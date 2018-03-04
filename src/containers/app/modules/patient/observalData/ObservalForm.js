@@ -36,7 +36,16 @@ class ObservalForm extends Component {
         return (
             <div className="observal-data-form">
 
-                <FieldSet title="1. Medication use">
+                <FieldSet title="1. Basic Information">
+                    <div className="row">
+                        <DateTimePicker className="col-6"
+                                        label="Initial Time"
+                                        value={$form.initialTime || ''}
+                                        onChange={value => this.updateField('initialTime', value)}/>
+                    </div>
+                </FieldSet>
+
+                <FieldSet title="2. Medication use">
                     <div className="row">
                         <TextField className="col-3 anesthetic-consumption"
                                    label="Test Dose"
@@ -71,7 +80,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="2. PCA">
+                <FieldSet title="3. PCA">
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="First PCA Time"
@@ -84,7 +93,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="3. Bolus">
+                <FieldSet title="4. Bolus">
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="First Manual Bolus Time"
@@ -97,7 +106,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="4. Epidural Catheter">
+                <FieldSet title="5. Epidural Catheter">
                     <div className="row">
                         <Checkbox className="col-6"
                                   label="Epidural Catheter Adjuestment"
@@ -110,7 +119,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="5. Labor">
+                <FieldSet title="6. Labor">
                     <div className="row">
                         <TextField className="col-6"
                                    label="Duration Of Labor Analgesia"
@@ -189,7 +198,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="6. Lateral Episiotomy">
+                <FieldSet title="7. Lateral Episiotomy">
                     <div className="row">
                         <Checkbox className="col-3"
                                   label="Lateral Episiotomy"
@@ -203,7 +212,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="7. NICU">
+                <FieldSet title="8. NICU">
                     <div className="row">
                         <Checkbox className="col-3"
                                   label="NICU"
@@ -217,7 +226,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="8. Foetal">
+                <FieldSet title="9. Foetal">
                     <div className="row">
                         <DateTimePicker className="col-6"
                                         label="Birth Time"
@@ -262,7 +271,7 @@ class ObservalForm extends Component {
                     </div>
                 </FieldSet>
 
-                <FieldSet title="9. Others">
+                <FieldSet title="10. Others">
                     <div className="row">
                         <TextArea className="col-12"
                                   label="Description"

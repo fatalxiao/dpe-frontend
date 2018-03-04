@@ -2,6 +2,7 @@ import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
 const DEFAULT_FORM = {
+        initialTime: '',
         testDose: '3',
         initialDose: '8',
         pumpConsumption: '',
@@ -80,7 +81,7 @@ function observalData(state = initialState, action) {
         }
         case actionTypes.GET_OBSERVAL_DATA_SUCCESS: {
 
-            const form = action.responseData;
+            const form = action.responseData || _.cloneDeep(DEFAULT_FORM);
 
             return {
                 ...state,
