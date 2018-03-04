@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
-import MaterialProvider from 'alcedo-ui/MaterialProvider';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
