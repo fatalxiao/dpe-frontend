@@ -45,7 +45,7 @@ class Patient extends Component {
                 <div className="patient-content">
 
                     {
-                        $activatedStep && $activatedStep >= 0 ?
+                        $activatedStep >= 0 ?
                             <h1 className="patient-content-title">
                                 {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
                             </h1>
