@@ -44,9 +44,14 @@ class Patient extends Component {
 
                 <div className="patient-content">
 
-                    <h1 className="patient-content-title">
-                        {$steps[$activatedStep].title}
-                    </h1>
+                    {
+                        $activatedStep && $activatedStep >= 0 ?
+                            <h1 className="patient-content-title">
+                                {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
+                            </h1>
+                            :
+                            null
+                    }
 
                     {renderRoutes(route.routes)}
 
