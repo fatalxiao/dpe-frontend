@@ -9,7 +9,7 @@ import PatientForm from './PatientForm';
 import Msg from 'components/Msg';
 import StepAction from 'components/StepAction';
 
-import 'scss/containers/app/modules/patient/patientInformation/PatientInformation.scss';
+import 'scss/containers/app/modules/editPatient/patientInfo/PatientInfo.scss';
 
 class PatientInformation extends Component {
 
@@ -49,10 +49,32 @@ class PatientInformation extends Component {
 
     }
 
+    componentWillReceiveProps(nextProps) {
+
+        const {match: nextMatch} = nextProps,
+            {match, getPatientInformation} = this.props;
+
+        if (nextMatch && nextMatch.params && nextMatch.params.id && match && match.params
+            && nextMatch.params.id !== match.params.id) {
+            getPatientInformation(nextMatch.params.id);
+        }
+
+    }
+
     componentDidMount() {
+
         const {updatePatientStep, resetPatientData} = this.props;
+
         updatePatientStep(0);
         resetPatientData();
+
+        setTimeout(() => {
+            const {match, getPatientInformation} = this.props;
+            if (match && match.params && match.params.id) {
+                getPatientInformation(match.params.id);
+            }
+        }, 0);
+
     }
 
     render() {
@@ -62,8 +84,7 @@ class PatientInformation extends Component {
         return (
             <div className="patient-information">
 
-                <PatientForm isCreate={true}
-                             onUpdateField={this.updateFieldHandler}/>
+                <PatientForm onUpdateField={this.updateFieldHandler}/>
 
                 {
                     errorMsg ?
@@ -88,13 +109,14 @@ PatientInformation.propTypes = {
 
     updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
+    getPatientInformation: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        $form: state.patientInformation.form
+        $form: state.patientInfo.form
     };
 }
 

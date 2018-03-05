@@ -17,19 +17,19 @@ export function configureRoutes(store) {
                 component: ac(() => import('containers/app/modules/patientList/PatientList'), store)
             }, {
                 path: '/app/patient',
-                component: ac(() => import('containers/app/modules/patient/Patient'), store),
+                component: ac(() => import('containers/app/modules/editPatient/EditPatient'), store),
                 routes: [{
                     path: '/app/patient/create-patient',
-                    component: ac(() => import('containers/app/modules/patient/patientInformation/CreatePatient'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/patientInfo/CreatePatient'), store)
                 }, {
                     path: '/app/patient/update-patient/:id',
-                    component: ac(() => import('containers/app/modules/patient/patientInformation/UpdatePatient'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/patientInfo/UpdatePatient'), store)
                 }, {
                     path: '/app/patient/analgesia-data/:patientId',
-                    component: ac(() => import('containers/app/modules/patient/analgesiaData/AnalgesiaData'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/analgesiaData/AnalgesiaData'), store)
                 }, {
                     path: '/app/patient/observal-data/:patientId',
-                    component: ac(() => import('containers/app/modules/patient/observalData/ObservalData'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/observalData/ObservalData'), store)
                 }]
             }]
         }]

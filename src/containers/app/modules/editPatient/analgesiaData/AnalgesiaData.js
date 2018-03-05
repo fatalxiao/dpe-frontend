@@ -8,12 +8,12 @@ import * as actionTypes from 'reduxes/actionTypes';
 
 import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
-import ObservalForm from './ObservalForm';
+import AnalgesiaTable from './AnalgesiaTable';
 import Msg from 'components/Msg';
 
-import 'scss/containers/app/modules/patient/observalData/ObservalData.scss';
+import 'scss/containers/app/modules/editPatient/analgesiaData/AnalgesiaData.scss';
 
-class ObservalData extends Component {
+class AnalgesiaData extends Component {
 
     constructor(props) {
 
@@ -39,25 +39,27 @@ class ObservalData extends Component {
 
     prevStep() {
         const {match, routerPush} = this.props;
-        routerPush(`/app/patient/analgesia-data/${match.params.patientId}`);
+        routerPush(`/app/patient/update-patient/${match.params.patientId}`);
     }
 
     save() {
-        const {match, createOrUpdateObservalData} = this.props;
-        createOrUpdateObservalData(match.params.patientId);
+        const {match, createOrUpdateAnalgesiaData} = this.props;
+        if (match && match.params && match.params.patientId) {
+            createOrUpdateAnalgesiaData(match.params.patientId);
+        }
     }
 
     componentWillMount() {
 
         const {updatePatientStep, resetPatientData} = this.props;
 
-        updatePatientStep(2);
+        updatePatientStep(1);
         resetPatientData();
 
         setTimeout(() => {
-            const {match, getObservalData} = this.props;
+            const {match, getAnalgesiaData} = this.props;
             if (match && match.params && match.params.patientId) {
-                getObservalData(match.params.patientId);
+                getAnalgesiaData(match.params.patientId);
             }
         }, 0);
 
@@ -69,13 +71,13 @@ class ObservalData extends Component {
             {errorMsg} = this.state;
 
         return (
-            <div className="observal-data">
+            <div className="analgesia-data">
                 {
-                    $getActionType !== actionTypes.GET_OBSERVAL_SUCCESS ?
+                    $getActionType !== actionTypes.GET_ANALGESIA_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>
-                            <ObservalForm onUpdateField={this.updateFieldHandler}/>
+                            <AnalgesiaTable onUpdateField={this.updateFieldHandler}/>
 
                             {
                                 errorMsg ?
@@ -86,32 +88,31 @@ class ObservalData extends Component {
                                     null
                             }
 
-                            <StepAction isLast={true}
-                                        onPrev={this.prevStep}
+                            <StepAction onPrev={this.prevStep}
                                         onNext={this.save}/>
 
                         </div>
                 }
             </div>
         );
+
     }
 }
 
-ObservalData.propTypes = {
+AnalgesiaData.propTypes = {
 
     $getActionType: PropTypes.string,
 
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
-    createOrUpdateObservalData: PropTypes.func,
-    getObservalData: PropTypes.func
+    createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        $getActionType: state.observal.getActionType
+        $getActionType: state.analgesiaData.getActionType
     };
 }
 
@@ -119,4 +120,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ObservalData);
+export default connect(mapStateToProps, mapDispatchToProps)(AnalgesiaData);

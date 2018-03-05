@@ -13,7 +13,7 @@ import DisplayField from 'components/DisplayField';
 
 import Util from 'vendors/Util';
 
-import 'scss/containers/app/modules/patient/patientInformation/PatientForm.scss';
+import 'scss/containers/app/modules/editPatient/patientInfo/PatientForm.scss';
 
 const format = Util.formatString;
 
@@ -169,7 +169,7 @@ PatientForm.defaultProps = {
 function mapStateToProps(state, ownProps) {
     return {
         $groupList: state.group.list,
-        $form: state.patientInformation.form
+        $form: state.patientInfo.form
     };
 }
 

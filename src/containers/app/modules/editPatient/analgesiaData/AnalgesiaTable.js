@@ -10,7 +10,7 @@ import Checkbox from 'alcedo-ui/Checkbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
-import 'scss/containers/app/modules/patient/analgesiaData/AnalgesiaTable.scss';
+import 'scss/containers/app/modules/editPatient/analgesiaData/AnalgesiaTable.scss';
 
 class AnalgesiaTable extends Component {
 

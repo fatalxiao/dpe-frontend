@@ -9,9 +9,9 @@ import * as actions from 'reduxes/actions/index';
 
 import PointStep from 'alcedo-ui/PointStep';
 
-import 'scss/containers/app/modules/patient/Patient.scss';
+import 'scss/containers/app/modules/editPatient/EditPatient.scss';
 
-class Patient extends Component {
+class EditPatient extends Component {
 
     constructor(props) {
 
@@ -69,7 +69,7 @@ class Patient extends Component {
     }
 }
 
-Patient.propTypes = {
+EditPatient.propTypes = {
 
     $steps: PropTypes.array,
 
@@ -90,4 +90,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Patient);
+export default connect(mapStateToProps, mapDispatchToProps)(EditPatient);

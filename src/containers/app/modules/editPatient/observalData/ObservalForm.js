@@ -15,7 +15,7 @@ import DisplayField from 'components/DisplayField';
 import Util from 'vendors/Util';
 import Time from 'vendors/Time';
 
-import 'scss/containers/app/modules/patient/observalData/ObservalForm.scss';
+import 'scss/containers/app/modules/editPatient/observalData/ObservalForm.scss';
 
 const format = Util.formatString;
 
