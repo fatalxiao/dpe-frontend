@@ -112,7 +112,7 @@ AnalgesiaData.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $getActionType: state.analgesiaData.getActionType
+        $getActionType: state.analgesia.getActionType
     };
 }
 

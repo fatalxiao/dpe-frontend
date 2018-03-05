@@ -26,10 +26,10 @@ export function configureRoutes(store) {
                     component: ac(() => import('containers/app/modules/editPatient/patientInfo/UpdatePatient'), store)
                 }, {
                     path: '/app/patient/analgesia-data/:patientId',
-                    component: ac(() => import('containers/app/modules/editPatient/analgesiaData/AnalgesiaData'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/analgesia/Analgesia'), store)
                 }, {
                     path: '/app/patient/observal-data/:patientId',
-                    component: ac(() => import('containers/app/modules/editPatient/observalData/ObservalData'), store)
+                    component: ac(() => import('containers/app/modules/editPatient/observal/Observal'), store)
                 }]
             }]
         }]
