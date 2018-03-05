@@ -44,7 +44,7 @@ class PatientList extends Component {
                         const patientId = patient.id,
                             disabled = patient.disabled,
 
-                            groupName = $groupList.find(item => item.id === patient.groupId).groupName,
+                            groupName = $groupList.find(item => item.id === patient.groupId).name,
 
                             itemClassName = classNames('patient', {
                                 disabled

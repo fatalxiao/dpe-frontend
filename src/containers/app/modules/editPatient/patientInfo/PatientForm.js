@@ -72,7 +72,7 @@ class PatientForm extends Component {
                                         label="Group"
                                         data={$groupList}
                                         valueField="id"
-                                        displayField="groupName"
+                                        displayField="name"
                                         value={$form.group}
                                         required={true}
                                         onChange={value => this.updateField('group', value)}/>
