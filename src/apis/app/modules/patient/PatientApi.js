@@ -16,22 +16,6 @@ export default {
             url: `${config.appBaseUrl}/patient/createOrUpdatePatient`,
             cancelable: false
         });
-    },
-
-    enablePatient(options) {
-        Api.get({
-            ...options,
-            url: `${config.appBaseUrl}/patient/enable/${options.params.id}`,
-            cancelable: false
-        });
-    },
-
-    disablePatient(options) {
-        Api.get({
-            ...options,
-            url: `${config.appBaseUrl}/patient/disable/${options.params.id}`,
-            cancelable: false
-        });
     }
 
 };
