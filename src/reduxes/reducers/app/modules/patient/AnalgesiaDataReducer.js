@@ -29,6 +29,8 @@ function getDefaultData() {
     list.push({...data, timePoint: 5 * 60});
     list.push({...data, timePoint: 6.5 * 60});
     list.push({...data, timePoint: 8 * 60});
+    list.push({...data, timePoint: 9.5 * 60});
+    list.push({...data, timePoint: 11 * 60});
 
     return list;
 
