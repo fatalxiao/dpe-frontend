@@ -48,7 +48,12 @@ const DEFAULT_FORM = {
         description: ''
     },
     initialState = {
-        form: _.cloneDeep(DEFAULT_FORM)
+
+        form: _.cloneDeep(DEFAULT_FORM),
+
+        getActionType: '',
+        updateActionType: ''
+
     };
 
 function observalData(state = initialState, action) {
@@ -77,7 +82,7 @@ function observalData(state = initialState, action) {
         case actionTypes.GET_OBSERVAL_DATA_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.GET_OBSERVAL_DATA_REQUEST
+                getActionType: actionTypes.GET_OBSERVAL_DATA_REQUEST
             };
         }
         case actionTypes.GET_OBSERVAL_DATA_SUCCESS: {
@@ -87,14 +92,14 @@ function observalData(state = initialState, action) {
             return {
                 ...state,
                 form,
-                actionType: actionTypes.GET_OBSERVAL_DATA_SUCCESS
+                getActionType: actionTypes.GET_OBSERVAL_DATA_SUCCESS
             };
 
         }
         case actionTypes.GET_OBSERVAL_DATA_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.GET_OBSERVAL_DATA_FAILURE
+                getActionType: actionTypes.GET_OBSERVAL_DATA_FAILURE
             };
         }
 
@@ -102,19 +107,19 @@ function observalData(state = initialState, action) {
         case actionTypes.UPDATE_OBSERVAL_DATA_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_OBSERVAL_DATA_REQUEST
+                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_REQUEST
             };
         }
         case actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS
+                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS
             };
         }
         case actionTypes.UPDATE_OBSERVAL_DATA_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
+                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
             };
         }
 

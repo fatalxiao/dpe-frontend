@@ -72,30 +72,27 @@ class AnalgesiaData extends Component {
 
         return (
             <div className="analgesia-data">
-
                 {
                     $getActionType === actionTypes.GET_ANALGESIA_DATA_REQUEST ?
                         <ModuleLoading/>
                         :
-                        [
-                            <AnalgesiaTable key={0}
-                                            onUpdateField={this.updateFieldHandler}/>,
-                            <StepAction key={1}
-                                        onPrev={this.prevStep}
+                        <div>
+                            <AnalgesiaTable onUpdateField={this.updateFieldHandler}/>
+
+                            {
+                                errorMsg ?
+                                    <Msg type={Msg.Type.ERROR}>
+                                        {errorMsg}
+                                    </Msg>
+                                    :
+                                    null
+                            }
+
+                            <StepAction onPrev={this.prevStep}
                                         onNext={this.save}/>
-                        ]
+
+                        </div>
                 }
-
-                {
-                    errorMsg ?
-                        <Msg type={Msg.Type.ERROR}>
-                            {errorMsg}
-                        </Msg>
-                        :
-                        null
-                }
-
-
             </div>
         );
 

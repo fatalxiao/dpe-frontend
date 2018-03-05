@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions/index';
+import * as actions from 'reduxes/actions';
+import * as actionTypes from 'reduxes/actionTypes';
 
+import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
 import ObservalForm from './ObservalForm';
 import Msg from 'components/Msg';
@@ -63,41 +65,54 @@ class ObservalData extends Component {
 
     render() {
 
-        const {errorMsg} = this.state;
+        const {$getActionType} = this.state,
+            {errorMsg} = this.state;
 
         return (
             <div className="observal-data">
-
-                <ObservalForm onUpdateField={this.updateFieldHandler}/>
-
                 {
-                    errorMsg ?
-                        <Msg type={Msg.Type.ERROR}>
-                            {errorMsg}
-                        </Msg>
+                    $getActionType === actionTypes.GET_OBSERVAL_DATA_REQUEST ?
+                        <ModuleLoading/>
                         :
-                        null
+                        <div>
+                            <ObservalForm onUpdateField={this.updateFieldHandler}/>
+
+                            {
+                                errorMsg ?
+                                    <Msg type={Msg.Type.ERROR}>
+                                        {errorMsg}
+                                    </Msg>
+                                    :
+                                    null
+                            }
+
+                            <StepAction isLast={true}
+                                        onPrev={this.prevStep}
+                                        onNext={this.save}/>
+
+                        </div>
                 }
-
-                <StepAction isLast={true}
-                            onPrev={this.prevStep}
-                            onNext={this.save}/>
-
             </div>
         );
     }
 }
 
 ObservalData.propTypes = {
+
+    $getActionType: PropTypes.string,
+
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
     createOrUpdateObservalData: PropTypes.func,
     getObservalData: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $getActionType: state.observalData.getActionType
+    };
 }
 
 function mapDispatchToProps(dispatch) {
