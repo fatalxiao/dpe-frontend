@@ -31,7 +31,7 @@ export const getObservalData = patientId => dispatch => {
 
 export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
 
-    const observalData = getState().observalData.form;
+    const observalData = getState().observal.form;
 
     if (!patientId || !observalData) {
         return;

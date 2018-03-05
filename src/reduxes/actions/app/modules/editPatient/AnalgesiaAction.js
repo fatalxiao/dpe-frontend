@@ -69,7 +69,7 @@ export const getAnalgesiaData = patientId => dispatch => {
 
 export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => {
 
-    const data = getState().analgesiaData.data;
+    const data = getState().analgesia.data;
 
     if (!patientId || !data) {
         return;

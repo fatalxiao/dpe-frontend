@@ -48,7 +48,7 @@ export const getPatientInformation = id => dispatch => {
 
 export const createOrUpdatePatient = () => (dispatch, getState) => {
 
-    const data = getState().patientInformation.form,
+    const data = getState().patientInfo.form,
         id = data.id;
 
     if (!data.group || !id || !data.patientName) {

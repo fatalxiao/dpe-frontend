@@ -81,8 +81,8 @@ EditPatient.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $steps: state.patient.steps,
-        $activatedStep: state.patient.activatedStep
+        $steps: state.editPatient.steps,
+        $activatedStep: state.editPatient.activatedStep
     };
 }
 
