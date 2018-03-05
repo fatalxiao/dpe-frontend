@@ -40,7 +40,7 @@ function AnalgesiaDataHandler(data) {
 }
 
 export const updateAnalgesiaDataField = (timePoint, fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_ANALGESIA_DATA_FIELD,
+    type: actionTypes.UPDATE_ANALGESIA_FIELD,
     timePoint,
     fieldName,
     fieldValue
@@ -55,9 +55,9 @@ export const getAnalgesiaData = patientId => dispatch => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.GET_ANALGESIA_DATA_REQUEST,
-                actionTypes.GET_ANALGESIA_DATA_SUCCESS,
-                actionTypes.GET_ANALGESIA_DATA_FAILURE
+                actionTypes.GET_ANALGESIA_REQUEST,
+                actionTypes.GET_ANALGESIA_SUCCESS,
+                actionTypes.GET_ANALGESIA_FAILURE
             ],
             api: AnalgesiaApi.getAnalgesiaDataByPatientId,
             params: {patientId},
@@ -78,9 +78,9 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.UPDATE_ANALGESIA_DATA_REQUEST,
-                actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS,
-                actionTypes.UPDATE_ANALGESIA_DATA_FAILURE
+                actionTypes.UPDATE_ANALGESIA_REQUEST,
+                actionTypes.UPDATE_ANALGESIA_SUCCESS,
+                actionTypes.UPDATE_ANALGESIA_FAILURE
             ],
             api: AnalgesiaApi.createOrUpdateAnalgesiaData,
             params: {

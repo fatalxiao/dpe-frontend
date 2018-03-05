@@ -55,7 +55,7 @@ function analgesiaData(state = initialState, action) {
             };
         }
 
-        case actionTypes.UPDATE_ANALGESIA_DATA_FIELD: {
+        case actionTypes.UPDATE_ANALGESIA_FIELD: {
 
             const data = _.cloneDeep(state.data),
                 updateItem = data.find(item => item.timePoint === action.timePoint);
@@ -82,13 +82,13 @@ function analgesiaData(state = initialState, action) {
         }
 
         // get analgesia data
-        case actionTypes.GET_ANALGESIA_DATA_REQUEST: {
+        case actionTypes.GET_ANALGESIA_REQUEST: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_ANALGESIA_DATA_REQUEST
+                getActionType: actionTypes.GET_ANALGESIA_REQUEST
             };
         }
-        case actionTypes.GET_ANALGESIA_DATA_SUCCESS: {
+        case actionTypes.GET_ANALGESIA_SUCCESS: {
 
             const data = getDefaultData();
 
@@ -101,34 +101,34 @@ function analgesiaData(state = initialState, action) {
             return {
                 ...state,
                 data,
-                getActionType: actionTypes.GET_ANALGESIA_DATA_SUCCESS
+                getActionType: actionTypes.GET_ANALGESIA_SUCCESS
             };
 
         }
-        case actionTypes.GET_ANALGESIA_DATA_FAILURE: {
+        case actionTypes.GET_ANALGESIA_FAILURE: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_ANALGESIA_DATA_FAILURE
+                getActionType: actionTypes.GET_ANALGESIA_FAILURE
             };
         }
 
         // update analgesia data
-        case actionTypes.UPDATE_ANALGESIA_DATA_REQUEST: {
+        case actionTypes.UPDATE_ANALGESIA_REQUEST: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_REQUEST
+                updateActionType: actionTypes.UPDATE_ANALGESIA_REQUEST
             };
         }
-        case actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS: {
+        case actionTypes.UPDATE_ANALGESIA_SUCCESS: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS
+                updateActionType: actionTypes.UPDATE_ANALGESIA_SUCCESS
             };
         }
-        case actionTypes.UPDATE_ANALGESIA_DATA_FAILURE: {
+        case actionTypes.UPDATE_ANALGESIA_FAILURE: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_FAILURE
+                updateActionType: actionTypes.UPDATE_ANALGESIA_FAILURE
             };
         }
 

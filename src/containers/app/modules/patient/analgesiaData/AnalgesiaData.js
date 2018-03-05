@@ -73,7 +73,7 @@ class AnalgesiaData extends Component {
         return (
             <div className="analgesia-data">
                 {
-                    $getActionType !== actionTypes.GET_ANALGESIA_DATA_SUCCESS ?
+                    $getActionType !== actionTypes.GET_ANALGESIA_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>
