@@ -62,6 +62,7 @@ class NavPatientCollapsed extends Component {
                          triggerEl={this.allPatientButtonEl}
                          position={Popover.Position.RIGHT_TOP}
                          hasTriangle={false}
+                         isTriggerPositionFixed={true}
                          onRequestClose={() => {
                              this.allPatientMouseHandler(false);
                          }}>
