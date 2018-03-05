@@ -3,7 +3,7 @@ import {routerPush} from 'reduxes/actions/common/RouterAction';
 import ObservalApi from 'apis/app/modules/patient/ObservalApi';
 
 export const updateObservalDataField = (fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_OBSERVAL_DATA_FIELD,
+    type: actionTypes.UPDATE_OBSERVAL_FIELD,
     fieldName,
     fieldValue
 });
@@ -40,9 +40,9 @@ export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.UPDATE_OBSERVAL_DATA_REQUEST,
-                actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS,
-                actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
+                actionTypes.UPDATE_OBSERVAL_REQUEST,
+                actionTypes.UPDATE_OBSERVAL_SUCCESS,
+                actionTypes.UPDATE_OBSERVAL_FAILURE
             ],
             api: ObservalApi.createOrUpdateObservalData,
             params: {

@@ -66,7 +66,7 @@ function observal(state = initialState, action) {
             };
         }
 
-        case actionTypes.UPDATE_OBSERVAL_DATA_FIELD: {
+        case actionTypes.UPDATE_OBSERVAL_FIELD: {
 
             const form = _.cloneDeep(state.form);
             form[action.fieldName] = action.fieldValue;
@@ -104,22 +104,22 @@ function observal(state = initialState, action) {
         }
 
         // update observal data
-        case actionTypes.UPDATE_OBSERVAL_DATA_REQUEST: {
+        case actionTypes.UPDATE_OBSERVAL_REQUEST: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_REQUEST
+                updateActionType: actionTypes.UPDATE_OBSERVAL_REQUEST
             };
         }
-        case actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS: {
+        case actionTypes.UPDATE_OBSERVAL_SUCCESS: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_SUCCESS
+                updateActionType: actionTypes.UPDATE_OBSERVAL_SUCCESS
             };
         }
-        case actionTypes.UPDATE_OBSERVAL_DATA_FAILURE: {
+        case actionTypes.UPDATE_OBSERVAL_FAILURE: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_OBSERVAL_DATA_FAILURE
+                updateActionType: actionTypes.UPDATE_OBSERVAL_FAILURE
             };
         }
 
