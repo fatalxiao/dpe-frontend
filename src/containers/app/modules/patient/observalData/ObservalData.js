@@ -71,7 +71,7 @@ class ObservalData extends Component {
         return (
             <div className="observal-data">
                 {
-                    $getActionType !== actionTypes.GET_OBSERVAL_DATA_SUCCESS ?
+                    $getActionType !== actionTypes.GET_OBSERVAL_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>

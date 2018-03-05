@@ -17,9 +17,9 @@ export const getObservalData = patientId => dispatch => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.GET_OBSERVAL_DATA_REQUEST,
-                actionTypes.GET_OBSERVAL_DATA_SUCCESS,
-                actionTypes.GET_OBSERVAL_DATA_FAILURE
+                actionTypes.GET_OBSERVAL_REQUEST,
+                actionTypes.GET_OBSERVAL_SUCCESS,
+                actionTypes.GET_OBSERVAL_FAILURE
             ],
             api: ObservalApi.getObservalDataByPatientId,
             params: {patientId},

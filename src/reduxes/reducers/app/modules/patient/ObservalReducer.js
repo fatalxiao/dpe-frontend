@@ -79,27 +79,27 @@ function observal(state = initialState, action) {
         }
 
         // get observal data
-        case actionTypes.GET_OBSERVAL_DATA_REQUEST: {
+        case actionTypes.GET_OBSERVAL_REQUEST: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_OBSERVAL_DATA_REQUEST
+                getActionType: actionTypes.GET_OBSERVAL_REQUEST
             };
         }
-        case actionTypes.GET_OBSERVAL_DATA_SUCCESS: {
+        case actionTypes.GET_OBSERVAL_SUCCESS: {
 
             const form = action.responseData || _.cloneDeep(DEFAULT_FORM);
 
             return {
                 ...state,
                 form,
-                getActionType: actionTypes.GET_OBSERVAL_DATA_SUCCESS
+                getActionType: actionTypes.GET_OBSERVAL_SUCCESS
             };
 
         }
-        case actionTypes.GET_OBSERVAL_DATA_FAILURE: {
+        case actionTypes.GET_OBSERVAL_FAILURE: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_OBSERVAL_DATA_FAILURE
+                getActionType: actionTypes.GET_OBSERVAL_FAILURE
             };
         }
 
