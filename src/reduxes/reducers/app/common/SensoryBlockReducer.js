@@ -1,7 +1,9 @@
 import * as actionTypes from 'reduxes/actionTypes';
 
 const initialState = {
-    list: []
+    list: [],
+    thoracicList: [],
+    sacralList: []
 };
 
 function sensoryBlock(state = initialState, action) {
@@ -11,14 +13,24 @@ function sensoryBlock(state = initialState, action) {
         case actionTypes.GET_SENSORY_BLOCKS_REQUEST: {
             return {
                 ...state,
+                list: [],
+                thoracicList: [],
+                sacralList: [],
                 actionType: actionTypes.GET_SENSORY_BLOCKS_REQUEST
             };
         }
 
         case actionTypes.GET_SENSORY_BLOCKS_SUCCESS: {
+
+            const list = action.responseData,
+                thoracicList = list.filter(item => item.type === 1),
+                sacralList = list.filter(item => item.type === 2);
+
             return {
                 ...state,
-                list: action.responseData,
+                list,
+                thoracicList,
+                sacralList,
                 actionType: actionTypes.GET_SENSORY_BLOCKS_SUCCESS
             };
         }
@@ -27,6 +39,8 @@ function sensoryBlock(state = initialState, action) {
             return {
                 ...state,
                 list: [],
+                thoracicList: [],
+                sacralList: [],
                 actionType: actionTypes.GET_SENSORY_BLOCKS_FAILURE
             };
         }

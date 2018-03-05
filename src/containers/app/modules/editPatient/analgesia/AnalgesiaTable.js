@@ -30,7 +30,7 @@ class AnalgesiaTable extends Component {
 
     render() {
 
-        const {$sensoryBlockList, $analgesiaData} = this.props,
+        const {$thoracicList, $sacralList, $analgesiaData} = this.props,
             self = this;
 
         return (
@@ -57,13 +57,13 @@ class AnalgesiaTable extends Component {
                            renderer: rowData =>
                                <div>
                                    <label>L: </label>
-                                   <DropdownSelect data={$sensoryBlockList}
+                                   <DropdownSelect data={$thoracicList}
                                                    value={rowData.thoracicSensoryBlockLeft}
                                                    valueField="value"
                                                    displayField="name"
                                                    onChange={value => self.updateField(rowData.timePoint, 'thoracicSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
-                                   <DropdownSelect data={$sensoryBlockList}
+                                   <DropdownSelect data={$thoracicList}
                                                    value={rowData.thoracicSensoryBlockRight}
                                                    valueField="value"
                                                    displayField="name"
@@ -74,16 +74,16 @@ class AnalgesiaTable extends Component {
                            renderer: rowData =>
                                <div>
                                    <label>L: </label>
-                                   <DropdownSelect data={$sensoryBlockList}
+                                   <DropdownSelect data={$sacralList}
                                                    value={rowData.sacralSensoryBlockLeft}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
+                                                   valueField="value"
+                                                   displayField="name"
                                                    onChange={value => self.updateField(rowData.timePoint, 'sacralSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
-                                   <DropdownSelect data={$sensoryBlockList}
+                                   <DropdownSelect data={$sacralList}
                                                    value={rowData.sacralSensoryBlockRight}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
+                                                   valueField="value"
+                                                   displayField="name"
                                                    onChange={value => self.updateField(rowData.timePoint, 'sacralSensoryBlockRight', value)}/>
                                </div>
                        }, {
@@ -126,7 +126,8 @@ class AnalgesiaTable extends Component {
 
 AnalgesiaTable.propTypes = {
 
-    $sensoryBlockList: PropTypes.array,
+    $thoracicList: PropTypes.array,
+    $sacralList: PropTypes.array,
     $analgesiaData: PropTypes.array,
 
     updateAnalgesiaDataField: PropTypes.func,
@@ -136,7 +137,8 @@ AnalgesiaTable.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $sensoryBlockList: state.sensoryBlock.list,
+        $thoracicList: state.sensoryBlock.thoracicList,
+        $sacralList: state.sensoryBlock.sacralList,
         $analgesiaData: state.analgesia.data
     };
 }
