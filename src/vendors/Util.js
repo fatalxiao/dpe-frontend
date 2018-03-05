@@ -195,6 +195,10 @@ function days2weeksDays(days) {
 
 }
 
+function formatString(value) {
+    return value === null || value === undefined ? '' : value;
+}
+
 export default {
     getOffset,
     isEnableLocalStorage,
@@ -210,5 +214,6 @@ export default {
     resetAriCurrencyValue,
     recoverAriValue,
     macthObjectByValue,
-    days2weeksDays
+    days2weeksDays,
+    formatString
 };

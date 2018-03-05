@@ -11,7 +11,11 @@ import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import FieldSet from 'components/FieldSet';
 import DisplayField from 'components/DisplayField';
 
+import Util from 'vendors/Util';
+
 import 'scss/containers/app/modules/patient/patientInformation/PatientForm.scss';
+
+const format = Util.formatString;
 
 class PatientForm extends Component {
 
@@ -45,18 +49,18 @@ class PatientForm extends Component {
                             isCreate ?
                                 <TextField className="col-3"
                                            label="ID"
-                                           value={$form.id || ''}
+                                           value={format($form.id)}
                                            required={true}
                                            onChange={value => this.updateField('id', value)}/>
                                 :
                                 <DisplayField className="col-3"
                                               label="ID">
-                                    <div className="patient-id-field">{$form.id || ''}</div>
+                                    <div className="patient-id-field">{format($form.id)}</div>
                                 </DisplayField>
                         }
                         <TextField className="col-3"
                                    label="Patient Name"
-                                   value={$form.patientName || ''}
+                                   value={format($form.patientName)}
                                    required={true}
                                    onChange={value => this.updateField('patientName', value)}/>
                     </div>
@@ -79,53 +83,53 @@ class PatientForm extends Component {
                     <div className="row">
                         <TextField className="col-3"
                                    label="Age"
-                                   value={$form.age || ''}
+                                   value={format($form.age)}
                                    onChange={value => this.updateField('age', value)}/>
                         <TextField className="col-3 gestational-weeks"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalDaysWeeks || ''}
+                                   value={format($form.gestationalDaysWeeks)}
                                    onChange={value => this.updateField('gestationalDaysWeeks', value)}/>
                         <TextField className="col-3 gestational-days"
                                    label="Gestational Days"
                                    rightIconCls="unit"
-                                   value={$form.gestationalDaysDays || ''}
+                                   value={format($form.gestationalDaysDays)}
                                    onChange={value => this.updateField('gestationalDaysDays', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3 height"
                                    label="Height"
                                    rightIconCls="unit"
-                                   value={$form.height || ''}
+                                   value={format($form.height)}
                                    onChange={value => this.updateField('height', value)}/>
                         <TextField className="col-3 weight"
                                    label="Weight"
                                    rightIconCls="unit"
-                                   value={$form.weight || ''}
+                                   value={format($form.weight)}
                                    onChange={value => this.updateField('weight', value)}/>
                         <TextField className="col-3"
                                    label="Heart Rate"
-                                   value={$form.heartRate || ''}
+                                   value={format($form.heartRate)}
                                    onChange={value => this.updateField('heartRate', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Initial Vas Score"
-                                   value={$form.initialVasScore || ''}
+                                   value={format($form.initialVasScore)}
                                    onChange={value => this.updateField('initialVasScore', value)}/>
                         <TextField className="col-6"
                                    label="Cervical Dilation At Time Of EA"
-                                   value={$form.cervicalDilationAtTimeOfEA || ''}
+                                   value={format($form.cervicalDilationAtTimeOfEA)}
                                    onChange={value => this.updateField('cervicalDilationAtTimeOfEA', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-3"
                                    label="Systolic Blood Pressure"
-                                   value={$form.systolicBloodPressure || ''}
+                                   value={format($form.systolicBloodPressure)}
                                    onChange={value => this.updateField('systolicBloodPressure', value)}/>
                         <TextField className="col-3"
                                    label="Diastolic Blood Pressure"
-                                   value={$form.diastolicBloodPressure || ''}
+                                   value={format($form.diastolicBloodPressure)}
                                    onChange={value => this.updateField('diastolicBloodPressure', value)}/>
                     </div>
                 </FieldSet>
@@ -136,7 +140,7 @@ class PatientForm extends Component {
                                   label="Description"
                                   maxLength={1000}
                                   wordCountVisible={true}
-                                  value={$form.description || ''}
+                                  value={format($form.description)}
                                   onChange={value => this.updateField('description', value)}/>
                     </div>
                 </FieldSet>
