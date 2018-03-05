@@ -22,9 +22,12 @@ class PatientList extends Component {
 
     }
 
-    statusTouchTapHandler(e, patientId) {
+    statusTouchTapHandler(e, patientId, disabled) {
 
         e.stopPropagation();
+
+        const {enablePatient, disablePatient} = this.props;
+        disabled ? enablePatient(patientId) : disablePatient(patientId);
 
     }
 
@@ -39,11 +42,12 @@ class PatientList extends Component {
                     $patientList.map((patient, index) => {
 
                         const patientId = patient.id,
+                            disabled = patient.disabled,
 
                             groupName = $groupList.find(item => item.id === patient.groupId).groupName,
 
                             statusClassName = classNames('patient-status', {
-                                disabled: patient.disabled
+                                disabled
                             }),
 
                             {weeks, days} = Util.days2weeksDays(patient.gestationalDays);
@@ -57,7 +61,7 @@ class PatientList extends Component {
 
                                 <div className={statusClassName}
                                      onTouchTap={e => {
-                                         this.statusTouchTapHandler(e, patientId);
+                                         this.statusTouchTapHandler(e, patientId, disabled);
                                      }}>
                                     <div className="patient-status-dot"></div>
                                 </div>
@@ -88,7 +92,9 @@ PatientList.propTypes = {
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
 
-    routerPush: PropTypes.func
+    routerPush: PropTypes.func,
+    enablePatient: PropTypes.func,
+    disablePatient: PropTypes.func
 
 };
 
