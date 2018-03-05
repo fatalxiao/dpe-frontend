@@ -9,7 +9,7 @@ export * from './app/common/PatientAction';
 export * from './app/common/SensoryBlockAction';
 
 export * from './app/modules/PatientListAction';
-export * from './app/modules/patient/PatientAction';
+export * from './app/modules/patient/EditPatientAction';
 export * from './app/modules/patient/PatientInfoAction';
 export * from './app/modules/patient/AnalgesiaAction';
 export * from './app/modules/patient/ObservalAction';
