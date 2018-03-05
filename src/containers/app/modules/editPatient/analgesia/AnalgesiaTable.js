@@ -59,14 +59,14 @@ class AnalgesiaTable extends Component {
                                    <label>L: </label>
                                    <DropdownSelect data={$sensoryBlockList}
                                                    value={rowData.thoracicSensoryBlockLeft}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
+                                                   valueField="value"
+                                                   displayField="name"
                                                    onChange={value => self.updateField(rowData.timePoint, 'thoracicSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
                                    <DropdownSelect data={$sensoryBlockList}
                                                    value={rowData.thoracicSensoryBlockRight}
-                                                   valueField="sensoryBlockValue"
-                                                   displayField="sensoryBlockName"
+                                                   valueField="value"
+                                                   displayField="name"
                                                    onChange={value => self.updateField(rowData.timePoint, 'thoracicSensoryBlockRight', value)}/>
                                </div>
                        }, {
