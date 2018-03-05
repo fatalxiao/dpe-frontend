@@ -65,7 +65,7 @@ class ObservalData extends Component {
 
     render() {
 
-        const {$getActionType} = this.state,
+        const {$getActionType} = this.props,
             {errorMsg} = this.state;
 
         return (
