@@ -47,7 +47,7 @@ class ObservalData extends Component {
         createOrUpdateObservalData(match.params.patientId);
     }
 
-    componentDidMount() {
+    componentWillMount() {
 
         const {updatePatientStep, resetPatientData} = this.props;
 
@@ -71,7 +71,7 @@ class ObservalData extends Component {
         return (
             <div className="observal-data">
                 {
-                    $getActionType === actionTypes.GET_OBSERVAL_DATA_REQUEST ?
+                    $getActionType !== actionTypes.GET_OBSERVAL_DATA_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>
@@ -111,7 +111,7 @@ ObservalData.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $getActionType: state.observalData.getActionType
+        $getActionType: state.observal.getActionType
     };
 }
 

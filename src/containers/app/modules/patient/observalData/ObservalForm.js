@@ -353,7 +353,7 @@ ObservalForm.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $form: state.observalData.form
+        $form: state.observal.form
     };
 }
 

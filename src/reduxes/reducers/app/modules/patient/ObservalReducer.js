@@ -56,7 +56,7 @@ const DEFAULT_FORM = {
 
     };
 
-function observalData(state = initialState, action) {
+function observal(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.RESET_PATIENT_DATA: {
@@ -129,4 +129,4 @@ function observalData(state = initialState, action) {
     }
 }
 
-export default observalData;
+export default observal;
