@@ -44,7 +44,8 @@ function patients(state = initialState, action) {
             list.find(item => item.id === action.id).disabled = false;
 
             return {
-                ...state
+                ...state,
+                list
             };
 
         }

@@ -26,8 +26,8 @@
 
             .patient-status-dot {
                 box-sizing: border-box;
-                width: 0;
-                height: 0;
+                width: 4px;
+                height: 4px;
                 border-radius: 50%;
                 border: 2px solid $theme-highlight;
                 margin: 6px;
@@ -37,11 +37,11 @@
             }
 
             &.disabled {
-                opacity: 0;
+                background: transparentize($theme-highlight, 1);
 
                 .patient-status-dot {
-                    width: 12px;
-                    height: 12px;
+                    width: 16px;
+                    height: 16px;
                     margin: 0;
                 }
             }
