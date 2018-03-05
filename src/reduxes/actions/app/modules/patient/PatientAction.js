@@ -1,5 +1,4 @@
 import * as actionTypes from 'reduxes/actionTypes';
-import PatientApi from '../../../../../apis/app/modules/patient/PatientApi';
 
 export const patientStepPrev = () => dispatch => {
     return dispatch({

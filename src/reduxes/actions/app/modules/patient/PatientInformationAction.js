@@ -1,6 +1,7 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 import PatientApi from 'apis/app/modules/patient/PatientApi';
+import {getPatients} from 'reduxes/actions/app/common/PatientAction';
 
 function gestationalDaysHandler(data) {
 
@@ -79,6 +80,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
                 description: data.description
             },
             successCallback() {
+                getPatients()(dispatch);
                 routerPush(`/app/patient/analgesia-data/${id}`)(dispatch);
             }
         }
