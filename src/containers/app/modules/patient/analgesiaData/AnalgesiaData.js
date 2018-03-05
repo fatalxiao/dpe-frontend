@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions/index';
+import * as actions from 'reduxes/actions';
+import * as actionTypes from 'reduxes/actionTypes';
 
+import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
 import AnalgesiaTable from './AnalgesiaTable';
 import Msg from 'components/Msg';
@@ -47,7 +49,7 @@ class AnalgesiaData extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
 
         const {updatePatientStep, resetPatientData} = this.props;
 
@@ -65,12 +67,24 @@ class AnalgesiaData extends Component {
 
     render() {
 
-        const {errorMsg} = this.state;
+        const {$getActionType} = this.props,
+            {errorMsg} = this.state;
 
         return (
             <div className="analgesia-data">
 
-                <AnalgesiaTable onUpdateField={this.updateFieldHandler}/>
+                {
+                    $getActionType === actionTypes.GET_ANALGESIA_DATA_REQUEST ?
+                        <ModuleLoading/>
+                        :
+                        [
+                            <AnalgesiaTable key={0}
+                                            onUpdateField={this.updateFieldHandler}/>,
+                            <StepAction key={1}
+                                        onPrev={this.prevStep}
+                                        onNext={this.save}/>
+                        ]
+                }
 
                 {
                     errorMsg ?
@@ -81,8 +95,6 @@ class AnalgesiaData extends Component {
                         null
                 }
 
-                <StepAction onPrev={this.prevStep}
-                            onNext={this.save}/>
 
             </div>
         );
@@ -91,14 +103,20 @@ class AnalgesiaData extends Component {
 }
 
 AnalgesiaData.propTypes = {
+
+    $getActionType: PropTypes.string,
+
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $getActionType: state.analgesiaData.getActionType
+    };
 }
 
 function mapDispatchToProps(dispatch) {

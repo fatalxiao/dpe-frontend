@@ -37,8 +37,12 @@ function getDefaultData() {
 }
 
 const initialState = {
+
     data: getDefaultData(),
-    actionType: ''
+
+    getActionType: '',
+    updateActionType: ''
+
 };
 
 function analgesiaData(state = initialState, action) {
@@ -81,7 +85,7 @@ function analgesiaData(state = initialState, action) {
         case actionTypes.GET_ANALGESIA_DATA_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.GET_ANALGESIA_DATA_REQUEST
+                getActionType: actionTypes.GET_ANALGESIA_DATA_REQUEST
             };
         }
         case actionTypes.GET_ANALGESIA_DATA_SUCCESS: {
@@ -97,14 +101,14 @@ function analgesiaData(state = initialState, action) {
             return {
                 ...state,
                 data,
-                actionType: actionTypes.GET_ANALGESIA_DATA_SUCCESS
+                getActionType: actionTypes.GET_ANALGESIA_DATA_SUCCESS
             };
 
         }
         case actionTypes.GET_ANALGESIA_DATA_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.GET_ANALGESIA_DATA_FAILURE
+                getActionType: actionTypes.GET_ANALGESIA_DATA_FAILURE
             };
         }
 
@@ -112,19 +116,19 @@ function analgesiaData(state = initialState, action) {
         case actionTypes.UPDATE_ANALGESIA_DATA_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_ANALGESIA_DATA_REQUEST
+                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_REQUEST
             };
         }
         case actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS
+                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_SUCCESS
             };
         }
         case actionTypes.UPDATE_ANALGESIA_DATA_FAILURE: {
             return {
                 ...state,
-                actionType: actionTypes.UPDATE_ANALGESIA_DATA_FAILURE
+                updateActionType: actionTypes.UPDATE_ANALGESIA_DATA_FAILURE
             };
         }
 
