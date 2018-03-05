@@ -172,6 +172,10 @@ class ObservalForm extends Component {
                     </div>
                     <div className="row">
                         <TextField className="col-6"
+                                   label="Blood Lose"
+                                   value={$form.bloodLose || ''}
+                                   onChange={value => this.updateField('bloodLose', value)}/>
+                        <TextField className="col-6"
                                    label="Patient Satisfaction Score"
                                    value={$form.patientSatisfactionScore || ''}
                                    onChange={value => this.updateField('patientSatisfactionScore', value)}/>

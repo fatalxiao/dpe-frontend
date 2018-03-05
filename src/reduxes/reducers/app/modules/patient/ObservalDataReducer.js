@@ -29,6 +29,7 @@ const DEFAULT_FORM = {
         hasBackPain: false,
         hasParesthesia: false,
         durationOfLaborAnalgesia: '',
+        bloodLose: '',
         patientSatisfactionScore: '',
         hasAccidentalDuralPunture: false,
         lateralEpisiotomyVasScore: '',
