@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import * as actionTypes from 'reduxes/actionTypes';
 
 const initialState = {
@@ -15,7 +17,6 @@ function patients(state = initialState, action) {
                 actionType: actionTypes.GET_PATIENTS_REQUEST
             };
         }
-
         case actionTypes.GET_PATIENTS_SUCCESS: {
             return {
                 ...state,
@@ -23,12 +24,56 @@ function patients(state = initialState, action) {
                 actionType: actionTypes.GET_PATIENTS_SUCCESS
             };
         }
-
         case actionTypes.GET_PATIENTS_FAILURE: {
             return {
                 ...state,
                 list: [],
                 actionType: actionTypes.GET_PATIENTS_FAILURE
+            };
+        }
+
+        // enable patient
+        case actionTypes.ENABLE_PATIENT_REQUEST: {
+            return {
+                ...state
+            };
+        }
+        case actionTypes.ENABLE_PATIENT_SUCCESS: {
+
+            const list = _.cloneDeep(state.list);
+            list.find(item => item.id === action.id).disabled = false;
+
+            return {
+                ...state
+            };
+
+        }
+        case actionTypes.ENABLE_PATIENT_FAILURE: {
+            return {
+                ...state
+            };
+        }
+
+        // disable patient
+        case actionTypes.DISABLE_PATIENT_REQUEST: {
+            return {
+                ...state
+            };
+        }
+        case actionTypes.DISABLE_PATIENT_SUCCESS: {
+
+            const list = _.cloneDeep(state.list);
+            list.find(item => item.id === action.id).disabled = true;
+
+            return {
+                ...state,
+                list
+            };
+
+        }
+        case actionTypes.DISABLE_PATIENT_FAILURE: {
+            return {
+                ...state
             };
         }
 

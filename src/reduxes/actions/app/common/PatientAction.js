@@ -33,7 +33,8 @@ export const enablePatient = id => dispatch => {
                 id
             },
             successResMsgDisabled: true
-        }
+        },
+        id
     });
 
 };
@@ -56,7 +57,8 @@ export const disablePatient = id => dispatch => {
                 id
             },
             successResMsgDisabled: true
-        }
+        },
+        id
     });
 
 };
