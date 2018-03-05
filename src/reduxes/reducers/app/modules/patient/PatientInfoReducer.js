@@ -24,7 +24,7 @@ const DEFAULT_FORM = {
         updateActionType: ''
     };
 
-function patientInformation(state = initialState, action) {
+function patientInfo(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.RESET_PATIENT_DATA: {
@@ -103,4 +103,4 @@ function patientInformation(state = initialState, action) {
     }
 }
 
-export default patientInformation;
+export default patientInfo;

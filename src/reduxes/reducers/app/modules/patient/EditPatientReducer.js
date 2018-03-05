@@ -13,7 +13,7 @@ const initialState = {
     activatedStep: -1
 };
 
-function patient(state = initialState, action) {
+function editPatient(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.PATIENT_STEP_PREV: {
@@ -48,4 +48,4 @@ function patient(state = initialState, action) {
     }
 }
 
-export default patient;
+export default editPatient;

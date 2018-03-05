@@ -45,7 +45,7 @@ const initialState = {
 
 };
 
-function analgesiaData(state = initialState, action) {
+function analgesia(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.RESET_PATIENT_DATA: {
@@ -138,4 +138,4 @@ function analgesiaData(state = initialState, action) {
     }
 }
 
-export default analgesiaData;
+export default analgesia;
