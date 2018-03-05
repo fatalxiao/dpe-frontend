@@ -10,7 +10,11 @@ import Checkbox from 'alcedo-ui/Checkbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
+import Util from 'vendors/Util';
+
 import 'scss/containers/app/modules/editPatient/analgesiaData/AnalgesiaTable.scss';
+
+const format = Util.formatString;
 
 class AnalgesiaTable extends Component {
 
@@ -50,7 +54,7 @@ class AnalgesiaTable extends Component {
                        }, {
                            header: 'Vas',
                            renderer: rowData =>
-                               <TextField value={rowData.vasScore || ''}
+                               <TextField value={format(rowData.vasScore)}
                                           onChange={value => self.updateField(rowData.timePoint, 'vasScore', value)}/>
                        }, {
                            header: 'TSB',
@@ -89,32 +93,32 @@ class AnalgesiaTable extends Component {
                        }, {
                            header: 'Bromage',
                            renderer: rowData =>
-                               <TextField value={rowData.bromageScore || ''}
+                               <TextField value={format(rowData.bromageScore)}
                                           onChange={value => self.updateField(rowData.timePoint, 'bromageScore', value)}/>
                        }, {
                            header: 'SBP',
                            renderer: rowData =>
-                               <TextField value={rowData.systolicBloodPressure || ''}
+                               <TextField value={format(rowData.systolicBloodPressure)}
                                           onChange={value => self.updateField(rowData.timePoint, 'systolicBloodPressure', value)}/>
                        }, {
                            header: 'DBP',
                            renderer: rowData =>
-                               <TextField value={rowData.diastolicBloodPressure || ''}
+                               <TextField value={format(rowData.diastolicBloodPressure)}
                                           onChange={value => self.updateField(rowData.timePoint, 'diastolicBloodPressure', value)}/>
                        }, {
                            header: 'Heart Rate',
                            renderer: rowData =>
-                               <TextField value={rowData.heartRate || ''}
+                               <TextField value={format(rowData.heartRate)}
                                           onChange={value => self.updateField(rowData.timePoint, 'heartRate', value)}/>
                        }, {
                            header: 'SPO2',
                            renderer: rowData =>
-                               <TextField value={rowData.pulseOxygenSaturation || ''}
+                               <TextField value={format(rowData.pulseOxygenSaturation)}
                                           onChange={value => self.updateField(rowData.timePoint, 'pulseOxygenSaturation', value)}/>
                        }, {
                            header: 'FHR',
                            renderer: rowData =>
-                               <TextField value={rowData.fetalHeartRate || ''}
+                               <TextField value={format(rowData.fetalHeartRate)}
                                           onChange={value => self.updateField(rowData.timePoint, 'fetalHeartRate', value)}/>
                        }]}
                        data={$analgesiaData}
