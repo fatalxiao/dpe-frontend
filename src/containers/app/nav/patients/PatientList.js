@@ -46,6 +46,9 @@ class PatientList extends Component {
 
                             groupName = $groupList.find(item => item.id === patient.groupId).groupName,
 
+                            itemClassName = classNames('patient', {
+                                disabled
+                            }),
                             statusClassName = classNames('patient-status', {
                                 disabled
                             }),
@@ -54,7 +57,7 @@ class PatientList extends Component {
 
                         return (
                             <FlatButton key={index}
-                                        className="patient"
+                                        className={itemClassName}
                                         onTouchTap={() => {
                                             routerPush(`/app/patient/update-patient/${patientId}`);
                                         }}>
