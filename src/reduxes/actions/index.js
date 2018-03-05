@@ -10,6 +10,6 @@ export * from './app/common/SensoryBlockAction';
 
 export * from './app/modules/PatientListAction';
 export * from './app/modules/patient/PatientAction';
-export * from './app/modules/patient/PatientInformationAction';
-export * from './app/modules/patient/AnalgesiaDataAction';
-export * from './app/modules/patient/ObservalDataAction';
+export * from './app/modules/patient/PatientInfoAction';
+export * from './app/modules/patient/AnalgesiaAction';
+export * from './app/modules/patient/ObservalAction';
