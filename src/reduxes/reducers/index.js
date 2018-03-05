@@ -11,10 +11,10 @@ import patients from './app/common/PatientsReducer';
 import sensoryBlock from './app/common/SensoryBlockReducer';
 
 import patientList from './app/modules/PatientListReducer';
-import editPatient from './app/modules/patient/EditPatientReducer';
-import patientInfo from './app/modules/patient/PatientInfoReducer';
-import analgesia from './app/modules/patient/AnalgesiaReducer';
-import observal from './app/modules/patient/ObservalReducer';
+import editPatient from './app/modules/editPatient/EditPatientReducer';
+import patientInfo from './app/modules/editPatient/PatientInfoReducer';
+import analgesia from './app/modules/editPatient/AnalgesiaReducer';
+import observal from './app/modules/editPatient/ObservalReducer';
 
 const rootReducer = combineReducers({
 
