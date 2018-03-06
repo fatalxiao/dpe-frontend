@@ -9,9 +9,19 @@ function sensoryBlockHandler(keys, item, result) {
     }
 }
 
-function AnalgesiaDataHandler(data) {
+function AnalgesiaDataHandler(data, {BASE_DATA}) {
 
-    return data.map(item => {
+    return data.filter(item => {
+
+        if (!item) {
+            return false;
+        }
+
+        const {timePoint, ...restItem} = item;
+
+        return JSON.stringify(restItem) !== JSON.stringify(BASE_DATA);
+
+    }).map(item => {
 
         const result = {
             timePoint: item.timePoint,
@@ -72,7 +82,7 @@ export const getAnalgesiaData = patientId => dispatch => {
 
 export const createOrUpdateAnalgesiaData = (patientId, callback) => (dispatch, getState) => {
 
-    const data = getState().analgesia.data;
+    const {data} = getState().analgesia;
 
     if (!patientId || !data) {
         return;
@@ -88,7 +98,7 @@ export const createOrUpdateAnalgesiaData = (patientId, callback) => (dispatch, g
             api: AnalgesiaApi.createOrUpdateAnalgesiaData,
             params: {
                 patientId,
-                analgesiaData: AnalgesiaDataHandler(data)
+                analgesiaData: AnalgesiaDataHandler(data, getState().analgesia)
             },
             successCallback() {
                 callback && callback();
