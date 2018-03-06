@@ -76,7 +76,7 @@ export const createPatient = callback => (dispatch, getState) => {
 
 };
 
-export const createOrUpdatePatient = (id, callback) => (dispatch, getState) => {
+export const updatePatientInfo = (id, callback) => (dispatch, getState) => {
 
     const data = getState().patientInfo.form;
 
