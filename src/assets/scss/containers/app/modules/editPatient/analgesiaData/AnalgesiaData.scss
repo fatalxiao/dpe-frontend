@@ -2,4 +2,21 @@
 
 .analgesia-data {
 
+    .add-time-point-button {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding: 8px 16px;
+        color: $theme-description;
+
+        .add-icon {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &:hover {
+            color: $theme-highlight;
+        }
+    }
 }

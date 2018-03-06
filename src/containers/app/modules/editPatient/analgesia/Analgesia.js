@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 import * as actionTypes from 'reduxes/actionTypes';
 
+import AnchorButton from 'alcedo-ui/AnchorButton';
 import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
 import AnalgesiaTable from './AnalgesiaTable';
@@ -74,6 +75,10 @@ class AnalgesiaData extends Component {
                         :
                         <div>
                             <AnalgesiaTable/>
+                            <AnchorButton className="add-time-point-button"
+                                          value="Add Time Point">
+                                <i className="icon-chevron-thin-down add-icon"></i>
+                            </AnchorButton>
                             <StepAction onPrev={this.prevStep}
                                         onNext={this.save}/>
                         </div>
