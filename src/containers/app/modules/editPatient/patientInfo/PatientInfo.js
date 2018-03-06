@@ -6,7 +6,6 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import PatientForm from './PatientForm';
-import Msg from 'components/Msg';
 import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/editPatient/patientInfo/PatientInfo.scss';
@@ -17,51 +16,16 @@ class PatientInfo extends Component {
 
         super(props);
 
-        this.state = {
-            errorMsg: ''
-        };
-
-        this.updateFieldHandler = ::this.updateFieldHandler;
         this.save = ::this.save;
 
     }
 
-    updateFieldHandler() {
-        if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ''
-            });
-        }
-    }
-
     save() {
-
-        const {$form, createOrUpdatePatient} = this.props;
-
-        if (!$form.group || !$form.id || !$form.patientName) {
-            this.setState({
-                errorMsg: 'Group, ID and Patient Name is required!'
-            });
-            return;
-        }
-
+        const {createOrUpdatePatient} = this.props;
         createOrUpdatePatient();
-
     }
 
-    componentWillReceiveProps(nextProps) {
-
-        const {match: nextMatch} = nextProps,
-            {match, getPatientInformation} = this.props;
-
-        if (nextMatch && nextMatch.params && nextMatch.params.id && match && match.params
-            && nextMatch.params.id !== match.params.id) {
-            getPatientInformation(nextMatch.params.id);
-        }
-
-    }
-
-    componentDidMount() {
+    componentWillMount() {
 
         const {updatePatientStep, resetPatientData} = this.props;
 
@@ -69,31 +33,31 @@ class PatientInfo extends Component {
         resetPatientData();
 
         setTimeout(() => {
-            const {match, getPatientInformation} = this.props;
+            const {match, getPatientInfo} = this.props;
             if (match && match.params && match.params.id) {
-                getPatientInformation(match.params.id);
+                getPatientInfo(match.params.id);
             }
         }, 0);
 
     }
 
+    componentWillReceiveProps(nextProps) {
+
+        const {match: nextMatch} = nextProps,
+            {match, getPatientInfo} = this.props;
+
+        if (nextMatch && nextMatch.params && nextMatch.params.id && match && match.params
+            && nextMatch.params.id !== match.params.id) {
+            getPatientInfo(nextMatch.params.id);
+        }
+
+    }
+
     render() {
-
-        const {errorMsg} = this.state;
-
         return (
             <div className="patient-info">
 
-                <PatientForm onUpdateField={this.updateFieldHandler}/>
-
-                {
-                    errorMsg ?
-                        <Msg type={Msg.Type.ERROR}>
-                            {errorMsg}
-                        </Msg>
-                        :
-                        null
-                }
+                <PatientForm/>
 
                 <StepAction isFirst={true}
                             onNext={this.save}/>
@@ -104,20 +68,15 @@ class PatientInfo extends Component {
 }
 
 PatientInfo.propTypes = {
-
-    $form: PropTypes.object,
-
     updatePatientStep: PropTypes.func,
     resetPatientData: PropTypes.func,
-    getPatientInformation: PropTypes.func,
+    getPatientInfo: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
-    return {
-        $form: state.patientInfo.form
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {

@@ -25,7 +25,7 @@ export const updatePatientInformationField = (fieldName, fieldValue) => ({
     fieldValue
 });
 
-export const getPatientInformation = id => dispatch => {
+export const getPatientInfo = id => dispatch => {
 
     if (!id) {
         return;
