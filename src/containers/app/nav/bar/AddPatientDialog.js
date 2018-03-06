@@ -72,10 +72,6 @@ class AddPatientDialog extends Component {
 
     }
 
-    componentWillMount() {
-        this.props.resetPatientBaseInfo();
-    }
-
     render() {
 
         const {$groupList, $form, visible, onRequestClose} = this.props,
@@ -140,7 +136,6 @@ AddPatientDialog.propTypes = {
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func,
-    resetPatientBaseInfo: PropTypes.func,
     updatePatientBaseInfoField: PropTypes.func,
     createPatient: PropTypes.func,
     routerPush: PropTypes.func

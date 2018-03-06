@@ -36,6 +36,8 @@ class NavBarTop extends Component {
     showAddPatient() {
         this.setState({
             addPatientDialogVisible: true
+        }, () => {
+            this.props.resetPatientBaseInfo();
         });
     }
 
@@ -85,7 +87,8 @@ NavBarTop.propTypes = {
 
     isFold: PropTypes.bool,
 
-    routerPush: PropTypes.func
+    routerPush: PropTypes.func,
+    resetPatientBaseInfo: PropTypes.func
 
 };
 
