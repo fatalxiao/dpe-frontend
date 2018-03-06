@@ -1,38 +1,43 @@
 import _ from 'lodash';
 import * as actionTypes from 'reduxes/actionTypes/index';
 
-function getDefaultData() {
+const BASE_DATA = {
+    hasContraction: false,
+    vasScore: '',
+    thoracicSensoryBlockLeft: null,
+    thoracicSensoryBlockRight: null,
+    sacralSensoryBlockLeft: null,
+    sacralSensoryBlockRight: null,
+    bromageScore: '',
+    systolicBloodPressure: '',
+    diastolicBloodPressure: '',
+    heartRate: '',
+    pulseOxygenSaturation: '',
+    fetalHeartRate: ''
+};
 
-    const data = {
-            hasContraction: false,
-            vasScore: '',
-            thoracicSensoryBlockLeft: null,
-            thoracicSensoryBlockRight: null,
-            sacralSensoryBlockLeft: null,
-            sacralSensoryBlockRight: null,
-            bromageScore: '',
-            systolicBloodPressure: '',
-            diastolicBloodPressure: '',
-            heartRate: '',
-            pulseOxygenSaturation: '',
-            fetalHeartRate: ''
-        },
-        list = [];
+function getDefaultData(timePoints = [0, 2, 4, 6, 8, 10, 12, 14,
+    16, 18, 20, 30, 2 * 60, 3.5 * 60, 5 * 60, 6.5 * 60, 8 * 60]) {
 
-    for (let i = 0; i <= 10; i++) {
-        list.push({...data, timePoint: i * 2});
-    }
+    // const list = [];
+    //
+    // for (let i = 0; i <= 10; i++) {
+    //     list.push({...BASE_DATA, timePoint: i * 2});
+    // }
+    //
+    // list.push({...BASE_DATA, timePoint: 30});
+    // list.push({...BASE_DATA, timePoint: 2 * 60});
+    // list.push({...BASE_DATA, timePoint: 3.5 * 60});
+    // list.push({...BASE_DATA, timePoint: 5 * 60});
+    // list.push({...BASE_DATA, timePoint: 6.5 * 60});
+    // list.push({...BASE_DATA, timePoint: 8 * 60});
+    // // list.push({...BASE_DATA, timePoint: 9.5 * 60});
+    // // list.push({...BASE_DATA, timePoint: 11 * 60});
 
-    list.push({...data, timePoint: 30});
-    list.push({...data, timePoint: 2 * 60});
-    list.push({...data, timePoint: 3.5 * 60});
-    list.push({...data, timePoint: 5 * 60});
-    list.push({...data, timePoint: 6.5 * 60});
-    list.push({...data, timePoint: 8 * 60});
-    list.push({...data, timePoint: 9.5 * 60});
-    list.push({...data, timePoint: 11 * 60});
-
-    return list;
+    return timePoints.map(timePoint => ({
+        ...BASE_DATA,
+        timePoint
+    }));
 
 }
 
@@ -90,12 +95,14 @@ function analgesia(state = initialState, action) {
         }
         case actionTypes.GET_ANALGESIA_SUCCESS: {
 
-            const data = getDefaultData();
+            let data = [];
 
             if (action.responseData && action.responseData.length > 0) {
                 for (let item of action.responseData) {
-                    Object.assign(data.find(dataItem => dataItem.timePoint === item.timePoint), item);
+                    data.push(Object.assign({...BASE_DATA}, item));
                 }
+            } else {
+                data = getDefaultData();
             }
 
             return {
