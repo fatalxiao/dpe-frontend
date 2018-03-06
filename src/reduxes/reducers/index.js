@@ -12,6 +12,7 @@ import sensoryBlock from './app/common/SensoryBlockReducer';
 
 import patientList from './app/modules/PatientListReducer';
 import editPatient from './app/modules/editPatient/EditPatientReducer';
+import patientBaseInfo from './app/modules/editPatient/PatientBaseInfoReducer';
 import patientInfo from './app/modules/editPatient/PatientInfoReducer';
 import analgesia from './app/modules/editPatient/AnalgesiaReducer';
 import observal from './app/modules/editPatient/ObservalReducer';
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
 
     patientList,
     editPatient,
+    patientBaseInfo,
     patientInfo,
     analgesia,
     observal,
