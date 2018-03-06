@@ -18,7 +18,7 @@ function gestationalDaysHandler(data) {
 
 }
 
-export const updatePatientInformationField = (fieldName, fieldValue) => ({
+export const updatePatientInfoField = (fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_PATIENT_INFO_FIELD,
     fieldName,
     fieldValue
@@ -42,35 +42,6 @@ export const getPatientInfo = id => dispatch => {
             api: PatientApi.getPatientById,
             params: {id},
             successResMsgDisabled: true
-        }
-    });
-
-};
-
-export const createPatient = callback => (dispatch, getState) => {
-
-    const data = getState().patientInfo.form;
-
-    if (!data.id || !data.patientName || !data.group) {
-        return;
-    }
-
-    return dispatch({
-        [actionTypes.CALL_API]: {
-            types: [
-                actionTypes.CREATE_PATIENT_REQUEST,
-                actionTypes.CREATE_PATIENT_SUCCESS,
-                actionTypes.CREATE_PATIENT_FAILURE
-            ],
-            api: PatientApi.createPatient,
-            params: {
-                id: data.id,
-                patientName: data.patientName,
-                groupId: data.group.id
-            },
-            successCallback() {
-                callback && callback();
-            }
         }
     });
 

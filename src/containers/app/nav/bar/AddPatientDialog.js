@@ -38,9 +38,9 @@ class AddPatientDialog extends Component {
             errorMsg: ''
         });
 
-        const {updatePatientInformationField} = this.props;
+        const {updatePatientInfoField} = this.props;
 
-        updatePatientInformationField(fieldName, fieldValue);
+        updatePatientInfoField(fieldName, fieldValue);
 
     }
 
@@ -142,7 +142,7 @@ AddPatientDialog.propTypes = {
 
     onRequestClose: PropTypes.func,
     resetPatientData: PropTypes.func,
-    updatePatientInformationField: PropTypes.func,
+    updatePatientInfoField: PropTypes.func,
     createPatient: PropTypes.func,
     routerPush: PropTypes.func
 

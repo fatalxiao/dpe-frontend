@@ -26,8 +26,8 @@ class PatientForm extends Component {
     }
 
     updateField(fieldName, fieldValue) {
-        const {updatePatientInformationField} = this.props;
-        updatePatientInformationField(fieldName, fieldValue);
+        const {updatePatientInfoField} = this.props;
+        updatePatientInfoField(fieldName, fieldValue);
     }
 
     render() {
@@ -112,7 +112,7 @@ PatientForm.propTypes = {
 
     $form: PropTypes.object,
 
-    updatePatientInformationField: PropTypes.func
+    updatePatientInfoField: PropTypes.func
 
 };
 
