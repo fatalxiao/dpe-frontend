@@ -20,8 +20,24 @@ class AnalgesiaData extends Component {
 
         this.patientId = null;
 
+        this.loadData = ::this.loadData;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
+
+    }
+
+    loadData(props = this.props) {
+
+        const {match, getPatientInfo, getAnalgesiaData} = props;
+
+        if (match && match.params && match.params.patientId) {
+
+            this.patientId = match.params.patientId;
+
+            getPatientInfo(this.patientId);
+            getAnalgesiaData(this.patientId);
+
+        }
 
     }
 
@@ -42,11 +58,7 @@ class AnalgesiaData extends Component {
         const {updatePatientStep} = this.props;
         updatePatientStep(1);
 
-        const {match, getAnalgesiaData} = this.props;
-        if (match && match.params && match.params.patientId) {
-            this.patientId = match.params.patientId;
-            getAnalgesiaData(this.patientId);
-        }
+        this.loadData();
 
     }
 
@@ -78,6 +90,7 @@ AnalgesiaData.propTypes = {
 
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
+    getPatientInfo: PropTypes.func,
     getAnalgesiaData: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
 
