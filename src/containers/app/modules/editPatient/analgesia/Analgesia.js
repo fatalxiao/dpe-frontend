@@ -19,32 +19,34 @@ class AnalgesiaData extends Component {
 
         super(props);
 
+        this.patientId = null;
+
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
 
     }
 
     prevStep() {
-        const {match, routerPush} = this.props;
-        routerPush(`/app/patient/update-patient/${match.params.patientId}`);
+        const {routerPush} = this.props;
+        routerPush(`/app/patient/info/${this.patientId}`);
     }
 
     save() {
-        const {match, createOrUpdateAnalgesiaData} = this.props;
-        if (match && match.params && match.params.patientId) {
-            createOrUpdateAnalgesiaData(match.params.patientId);
-        }
+        const {createOrUpdateAnalgesiaData, routerPush} = this.props;
+        createOrUpdateAnalgesiaData(this.patientId, () => {
+            routerPush(`/app/patient/observal/${this.patientId}`);
+        });
     }
 
     componentWillMount() {
 
         const {updatePatientStep} = this.props;
-
         updatePatientStep(1);
 
         const {match, getAnalgesiaData} = this.props;
         if (match && match.params && match.params.patientId) {
-            getAnalgesiaData(match.params.patientId);
+            this.patientId = match.params.patientId;
+            getAnalgesiaData(this.patientId);
         }
 
     }

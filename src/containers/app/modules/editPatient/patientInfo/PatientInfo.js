@@ -16,13 +16,17 @@ class PatientInfo extends Component {
 
         super(props);
 
+        this.patientId = null;
+
         this.save = ::this.save;
 
     }
 
     save() {
-        const {createOrUpdatePatient} = this.props;
-        createOrUpdatePatient(this.patientId);
+        const {createOrUpdatePatient, routerPush} = this.props;
+        createOrUpdatePatient(this.patientId, () => {
+            routerPush(`/app/patient/analgesia/${match.params.patientId}`);
+        });
     }
 
     componentWillMount() {
@@ -53,10 +57,10 @@ class PatientInfo extends Component {
 }
 
 PatientInfo.propTypes = {
+    routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
     getPatientInfo: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
-
 };
 
 function mapStateToProps(state, ownProps) {
