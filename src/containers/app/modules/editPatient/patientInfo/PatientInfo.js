@@ -27,17 +27,14 @@ class PatientInfo extends Component {
 
     componentWillMount() {
 
-        const {updatePatientStep, resetPatientData} = this.props;
+        const {updatePatientStep} = this.props;
 
         updatePatientStep(0);
-        resetPatientData();
 
-        setTimeout(() => {
-            const {match, getPatientInfo} = this.props;
-            if (match && match.params && match.params.id) {
-                getPatientInfo(match.params.id);
-            }
-        }, 0);
+        const {match, getPatientInfo} = this.props;
+        if (match && match.params && match.params.id) {
+            getPatientInfo(match.params.id);
+        }
 
     }
 
@@ -69,7 +66,6 @@ class PatientInfo extends Component {
 
 PatientInfo.propTypes = {
     updatePatientStep: PropTypes.func,
-    resetPatientData: PropTypes.func,
     getPatientInfo: PropTypes.func,
     createOrUpdatePatient: PropTypes.func
 

@@ -2,6 +2,7 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 import {routerPush} from 'reduxes/actions/common/RouterAction';
 import PatientApi from 'apis/app/modules/patient/PatientApi';
 import {getPatients} from 'reduxes/actions/app/common/PatientAction';
+import {resetPatientData} from 'reduxes/actions/app/modules/editPatient/EditPatientAction';
 
 function gestationalDaysHandler(data) {
 
@@ -30,6 +31,8 @@ export const getPatientInfo = id => dispatch => {
     if (!id) {
         return;
     }
+
+    resetPatientData()(dispatch);
 
     return dispatch({
         [actionTypes.CALL_API]: {
