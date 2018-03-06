@@ -22,30 +22,18 @@ class PatientInfo extends Component {
 
     save() {
         const {createOrUpdatePatient} = this.props;
-        createOrUpdatePatient();
+        createOrUpdatePatient(this.patientId);
     }
 
     componentWillMount() {
 
         const {updatePatientStep} = this.props;
-
         updatePatientStep(0);
 
         const {match, getPatientInfo} = this.props;
         if (match && match.params && match.params.id) {
-            getPatientInfo(match.params.id);
-        }
-
-    }
-
-    componentWillReceiveProps(nextProps) {
-
-        const {match: nextMatch} = nextProps,
-            {match, getPatientInfo} = this.props;
-
-        if (nextMatch && nextMatch.params && nextMatch.params.id && match && match.params
-            && nextMatch.params.id !== match.params.id) {
-            getPatientInfo(nextMatch.params.id);
+            this.patientId = match.params.id;
+            getPatientInfo(this.patientId);
         }
 
     }

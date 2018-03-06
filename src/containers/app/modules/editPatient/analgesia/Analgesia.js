@@ -19,22 +19,9 @@ class AnalgesiaData extends Component {
 
         super(props);
 
-        this.state = {
-            errorMsg: ''
-        };
-
-        this.updateFieldHandler = ::this.updateFieldHandler;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
 
-    }
-
-    updateFieldHandler() {
-        if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ''
-            });
-        }
     }
 
     prevStep() {
@@ -51,24 +38,20 @@ class AnalgesiaData extends Component {
 
     componentWillMount() {
 
-        const {updatePatientStep, resetPatientData} = this.props;
+        const {updatePatientStep} = this.props;
 
         updatePatientStep(1);
-        resetPatientData();
 
-        setTimeout(() => {
-            const {match, getAnalgesiaData} = this.props;
-            if (match && match.params && match.params.patientId) {
-                getAnalgesiaData(match.params.patientId);
-            }
-        }, 0);
+        const {match, getAnalgesiaData} = this.props;
+        if (match && match.params && match.params.patientId) {
+            getAnalgesiaData(match.params.patientId);
+        }
 
     }
 
     render() {
 
-        const {$getActionType} = this.props,
-            {errorMsg} = this.state;
+        const {$getActionType} = this.props;
 
         return (
             <div className="analgesia-data">
@@ -77,20 +60,9 @@ class AnalgesiaData extends Component {
                         <ModuleLoading/>
                         :
                         <div>
-                            <AnalgesiaTable onUpdateField={this.updateFieldHandler}/>
-
-                            {
-                                errorMsg ?
-                                    <Msg type={Msg.Type.ERROR}>
-                                        {errorMsg}
-                                    </Msg>
-                                    :
-                                    null
-                            }
-
+                            <AnalgesiaTable/>
                             <StepAction onPrev={this.prevStep}
                                         onNext={this.save}/>
-
                         </div>
                 }
             </div>
@@ -105,7 +77,6 @@ AnalgesiaData.propTypes = {
 
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
-    resetPatientData: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
 
 };
