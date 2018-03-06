@@ -9,7 +9,6 @@ import * as actionTypes from 'reduxes/actionTypes';
 import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
 import ObservalForm from './ObservalForm';
-import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/editPatient/observalData/ObservalData.scss';
 
@@ -19,54 +18,41 @@ class ObservalData extends Component {
 
         super(props);
 
-        this.state = {
-            errorMsg: ''
-        };
+        this.patientId = null;
 
-        this.updateFieldHandler = ::this.updateFieldHandler;
         this.prevStep = ::this.prevStep;
         this.save = ::this.save;
 
     }
 
-    updateFieldHandler() {
-        if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ''
-            });
-        }
-    }
-
     prevStep() {
-        const {match, routerPush} = this.props;
-        routerPush(`/app/patient/analgesia-data/${match.params.patientId}`);
+        const {routerPush} = this.props;
+        routerPush(`/app/patient/analgesia/${this.patientId}`);
     }
 
     save() {
-        const {match, createOrUpdateObservalData} = this.props;
-        createOrUpdateObservalData(match.params.patientId);
+        const {createOrUpdateObservalData} = this.props;
+        createOrUpdateObservalData(this.patientId, () => {
+            routerPush(`/app/patient-list`);
+        });
     }
 
     componentWillMount() {
 
-        const {updatePatientStep, resetPatientData} = this.props;
-
+        const {updatePatientStep} = this.props;
         updatePatientStep(2);
-        resetPatientData();
 
-        setTimeout(() => {
-            const {match, getObservalData} = this.props;
-            if (match && match.params && match.params.patientId) {
-                getObservalData(match.params.patientId);
-            }
-        }, 0);
+        const {match, getObservalData} = this.props;
+        if (match && match.params && match.params.patientId) {
+            this.patientId = match.params.patientId;
+            getObservalData(this.patientId);
+        }
 
     }
 
     render() {
 
-        const {$getActionType} = this.props,
-            {errorMsg} = this.state;
+        const {$getActionType} = this.props;
 
         return (
             <div className="observal-data">
@@ -76,20 +62,9 @@ class ObservalData extends Component {
                         :
                         <div>
                             <ObservalForm onUpdateField={this.updateFieldHandler}/>
-
-                            {
-                                errorMsg ?
-                                    <Msg type={Msg.Type.ERROR}>
-                                        {errorMsg}
-                                    </Msg>
-                                    :
-                                    null
-                            }
-
                             <StepAction isLast={true}
                                         onPrev={this.prevStep}
                                         onNext={this.save}/>
-
                         </div>
                 }
             </div>
@@ -103,7 +78,6 @@ ObservalData.propTypes = {
 
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
-    resetPatientData: PropTypes.func,
     createOrUpdateObservalData: PropTypes.func,
     getObservalData: PropTypes.func
 
