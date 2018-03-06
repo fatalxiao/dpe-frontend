@@ -48,13 +48,13 @@ function patientInfo(state = initialState, action) {
         }
 
         // get patient information
-        case actionTypes.GET_PATIENT_INFORMATION_REQUEST: {
+        case actionTypes.GET_PATIENT_INFO_REQUEST: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_PATIENT_INFORMATION_REQUEST
+                getActionType: actionTypes.GET_PATIENT_INFO_REQUEST
             };
         }
-        case actionTypes.GET_PATIENT_INFORMATION_SUCCESS: {
+        case actionTypes.GET_PATIENT_INFO_SUCCESS: {
 
             const form = action.responseData;
 
@@ -66,14 +66,14 @@ function patientInfo(state = initialState, action) {
             return {
                 ...state,
                 form,
-                getActionType: actionTypes.GET_PATIENT_INFORMATION_SUCCESS
+                getActionType: actionTypes.GET_PATIENT_INFO_SUCCESS
             };
 
         }
-        case actionTypes.GET_PATIENT_INFORMATION_FAILURE: {
+        case actionTypes.GET_PATIENT_INFO_FAILURE: {
             return {
                 ...state,
-                getActionType: actionTypes.GET_PATIENT_INFORMATION_FAILURE
+                getActionType: actionTypes.GET_PATIENT_INFO_FAILURE
             };
         }
 

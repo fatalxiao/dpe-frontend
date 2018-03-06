@@ -34,9 +34,9 @@ export const getPatientInfo = id => dispatch => {
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.GET_PATIENT_INFORMATION_REQUEST,
-                actionTypes.GET_PATIENT_INFORMATION_SUCCESS,
-                actionTypes.GET_PATIENT_INFORMATION_FAILURE
+                actionTypes.GET_PATIENT_INFO_REQUEST,
+                actionTypes.GET_PATIENT_INFO_SUCCESS,
+                actionTypes.GET_PATIENT_INFO_FAILURE
             ],
             api: PatientApi.getPatientById,
             params: {id},
