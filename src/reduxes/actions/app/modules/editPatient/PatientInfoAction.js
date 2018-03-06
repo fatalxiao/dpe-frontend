@@ -1,7 +1,5 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
-import {routerPush} from 'reduxes/actions/common/RouterAction';
 import PatientApi from 'apis/app/modules/patient/PatientApi';
-import {getPatients} from 'reduxes/actions/app/common/PatientAction';
 import {resetPatientData} from 'reduxes/actions/app/modules/editPatient/EditPatientAction';
 
 function gestationalDaysHandler(data) {
@@ -49,10 +47,9 @@ export const getPatientInfo = id => dispatch => {
 
 };
 
-export const createOrUpdatePatient = callback => (dispatch, getState) => {
+export const createOrUpdatePatient = (id, callback) => (dispatch, getState) => {
 
-    const data = getState().patientInfo.form,
-        id = data.id;
+    const data = getState().patientInfo.form;
 
     if (!data.group || !id || !data.patientName) {
         return;
@@ -83,7 +80,6 @@ export const createOrUpdatePatient = callback => (dispatch, getState) => {
                 description: data.description
             },
             successCallback() {
-                getPatients()(dispatch);
                 callback && callback();
             }
         }

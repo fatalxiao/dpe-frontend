@@ -1,5 +1,4 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
-import {routerPush} from 'reduxes/actions/common/RouterAction';
 import ObservalApi from 'apis/app/modules/patient/ObservalApi';
 
 export const updateObservalDataField = (fieldName, fieldValue) => ({
@@ -29,7 +28,7 @@ export const getObservalData = patientId => dispatch => {
 
 };
 
-export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
+export const createOrUpdateObservalData = (patientId, callback) => (dispatch, getState) => {
 
     const observalData = getState().observal.form;
 
@@ -50,7 +49,7 @@ export const createOrUpdateObservalData = patientId => (dispatch, getState) => {
                 observalData
             },
             successCallback() {
-                routerPush('/app/patient-list')(dispatch);
+                callback && callback();
             }
         }
     });

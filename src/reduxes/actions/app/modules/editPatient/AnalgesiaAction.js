@@ -1,5 +1,4 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
-import {routerPush} from 'reduxes/actions/common/RouterAction';
 import AnalgesiaApi from 'apis/app/modules/patient/AnalgesiaApi';
 
 function sensoryBlockHandler(keys, item, result) {
@@ -67,7 +66,7 @@ export const getAnalgesiaData = patientId => dispatch => {
 
 };
 
-export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => {
+export const createOrUpdateAnalgesiaData = (patientId, callback) => (dispatch, getState) => {
 
     const data = getState().analgesia.data;
 
@@ -88,7 +87,7 @@ export const createOrUpdateAnalgesiaData = patientId => (dispatch, getState) => 
                 analgesiaData: AnalgesiaDataHandler(data)
             },
             successCallback() {
-                routerPush(`/app/patient/observal-data/${patientId}`)(dispatch);
+                callback && callback();
             }
         }
     });
