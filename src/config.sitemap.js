@@ -48,7 +48,7 @@ export function traverseData(node, pathName) {
         return;
     }
 
-    if (new RegExp(`^${node.route}(\\/[\\d]+)?$`).test(pathName)) {
+    if (new RegExp(`^${node.route}(\\/[\\w]+)?$`).test(pathName)) {
         return [node];
     }
 
