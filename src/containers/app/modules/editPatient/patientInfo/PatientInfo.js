@@ -26,11 +26,19 @@ class PatientInfo extends Component {
     }
 
     loadData(props = this.props) {
+
         const {match, getPatientInfo} = props;
+
         if (match && match.params && match.params.id) {
+
             this.patientId = match.params.id;
+
             getPatientInfo(this.patientId);
+
+        } else {
+            routerPush('/app/patient-list');
         }
+
     }
 
     save() {

@@ -38,6 +38,8 @@ class AnalgesiaData extends Component {
             getPatientInfo(this.patientId);
             getAnalgesiaData(this.patientId);
 
+        } else {
+            routerPush('/app/patient-list');
         }
 
     }

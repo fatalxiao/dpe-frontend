@@ -37,6 +37,8 @@ class ObservalData extends Component {
             getPatientInfo(this.patientId);
             getObservalData(this.patientId);
 
+        } else {
+            routerPush('/app/patient-list');
         }
 
     }
