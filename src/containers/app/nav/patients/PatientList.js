@@ -8,8 +8,6 @@ import * as actions from 'reduxes/actions';
 
 import FlatButton from 'alcedo-ui/FlatButton';
 
-import Util from 'vendors/Util';
-
 import 'scss/containers/app/nav/patients/PatientList.scss';
 
 class PatientList extends Component {
@@ -51,9 +49,7 @@ class PatientList extends Component {
                             }),
                             statusClassName = classNames('patient-status', {
                                 disabled
-                            }),
-
-                            {weeks, days} = Util.days2weeksDays(patient.gestationalDays);
+                            });
 
                         return (
                             <FlatButton key={index}
@@ -71,11 +67,10 @@ class PatientList extends Component {
 
                                 <div className="patient-info">
                                     <span className="patient-name">{patient.patientName}</span>
-                                    <span className="patient-group">{`  ${groupName}`}</span>
                                 </div>
 
                                 <div className="patient-desc">
-                                    {`${patientId}  ·  ${weeks}w + ${days}d`}
+                                    {`${patientId}  ·  ${groupName}`}
                                 </div>
 
                             </FlatButton>

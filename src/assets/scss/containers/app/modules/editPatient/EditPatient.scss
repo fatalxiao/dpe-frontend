@@ -7,6 +7,18 @@
         margin-bottom: 32px;
     }
 
+    .patient-base-info {
+        padding-bottom: 16px;
+
+        .patient-name {
+            margin: 0;
+        }
+
+        .patient-desc {
+            opacity: .5;
+        }
+    }
+
     .patient-content {
         overflow: hidden;
 

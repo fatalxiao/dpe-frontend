@@ -54,13 +54,11 @@
             font-size: 16px;
         }
 
-        .patient-name,
-        .patient-group {
+        .patient-name {
             vertical-align: middle;
         }
 
-        .patient-desc,
-        .patient-group {
+        .patient-desc {
             height: 16px;
             color: $theme-description;
             font-size: 12px;

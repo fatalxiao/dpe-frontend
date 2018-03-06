@@ -78,6 +78,7 @@ AnalgesiaData.propTypes = {
 
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
+    getAnalgesiaData: PropTypes.func,
     createOrUpdateAnalgesiaData: PropTypes.func
 
 };

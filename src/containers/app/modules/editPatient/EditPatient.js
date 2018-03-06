@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {renderRoutes} from 'react-router-config';
-import {Redirect} from 'react-router-dom';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -31,7 +30,7 @@ class EditPatient extends Component {
 
     render() {
 
-        const {route, $steps, $activatedStep} = this.props;
+        const {route, $form, $steps, $activatedStep} = this.props;
 
         return (
             <div className="patient">
@@ -45,10 +44,21 @@ class EditPatient extends Component {
                 <div className="patient-content">
 
                     {
+                        $form ?
+                            <div className="patient-base-info">
+                                <h1 className="patient-name">{$form.patientName}</h1>
+                                <span
+                                    className="patient-desc">{`${$form.id}  ·  ${$form.group && $form.group.name}`}</span>
+                            </div>
+                            :
+                            null
+                    }
+
+                    {
                         $activatedStep >= 0 ?
-                            <h1 className="patient-content-title">
+                            <h2 className="patient-content-title">
                                 {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
-                            </h1>
+                            </h2>
                             :
                             null
                     }
@@ -64,6 +74,7 @@ class EditPatient extends Component {
 
 EditPatient.propTypes = {
 
+    $form: PropTypes.object,
     $steps: PropTypes.array,
 
     $activatedStep: PropTypes.number,
@@ -74,6 +85,7 @@ EditPatient.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
+        $form: state.patientInfo.form,
         $steps: state.editPatient.steps,
         $activatedStep: state.editPatient.activatedStep
     };
