@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
+import AddPatientDialog from './AddPatientDialog';
 
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
@@ -18,8 +19,13 @@ class NavBarTop extends Component {
 
         super(props);
 
+        this.state = {
+            addPatientDialogVisible: false
+        };
+
         this.goToLanding = ::this.goToLanding;
-        this.addPatient = ::this.addPatient;
+        this.showAddPatient = ::this.showAddPatient;
+        this.hideAddPatient = ::this.hideAddPatient;
 
     }
 
@@ -27,13 +33,22 @@ class NavBarTop extends Component {
         this.props.routerPush(DEFAULT_ROUTE);
     }
 
-    addPatient() {
-        this.props.routerPush('/app/patient');
+    showAddPatient() {
+        this.setState({
+            addPatientDialogVisible: true
+        });
+    }
+
+    hideAddPatient() {
+        this.setState({
+            addPatientDialogVisible: false
+        });
     }
 
     render() {
 
         const {children, isFold} = this.props,
+            {addPatientDialogVisible} = this.state,
 
             className = classNames('nav-bar-top', {
                 fold: isFold
@@ -53,7 +68,10 @@ class NavBarTop extends Component {
 
                 <IconButton className="nav-bar-item"
                             iconCls="icon-plus"
-                            onTouchTap={this.addPatient}/>
+                            onTouchTap={this.showAddPatient}/>
+
+                <AddPatientDialog visible={addPatientDialogVisible}
+                                  onRequestClose={this.hideAddPatient}/>
 
                 {children}
 

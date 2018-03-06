@@ -46,7 +46,7 @@ export const getPatientInformation = id => dispatch => {
 
 };
 
-export const createOrUpdatePatient = () => (dispatch, getState) => {
+export const createOrUpdatePatient = callback => (dispatch, getState) => {
 
     const data = getState().patientInfo.form,
         id = data.id;
@@ -81,7 +81,7 @@ export const createOrUpdatePatient = () => (dispatch, getState) => {
             },
             successCallback() {
                 getPatients()(dispatch);
-                routerPush(`/app/patient/analgesia-data/${id}`)(dispatch);
+                callback && callback();
             }
         }
     });

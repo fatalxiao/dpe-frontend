@@ -11,7 +11,7 @@ import StepAction from 'components/StepAction';
 
 import 'scss/containers/app/modules/editPatient/patientInfo/PatientInfo.scss';
 
-class PatientInformation extends Component {
+class PatientInfo extends Component {
 
     constructor(props) {
 
@@ -82,7 +82,7 @@ class PatientInformation extends Component {
         const {errorMsg} = this.state;
 
         return (
-            <div className="patient-information">
+            <div className="patient-info">
 
                 <PatientForm onUpdateField={this.updateFieldHandler}/>
 
@@ -103,7 +103,7 @@ class PatientInformation extends Component {
     }
 }
 
-PatientInformation.propTypes = {
+PatientInfo.propTypes = {
 
     $form: PropTypes.object,
 
@@ -124,4 +124,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PatientInformation);
+export default connect(mapStateToProps, mapDispatchToProps)(PatientInfo);

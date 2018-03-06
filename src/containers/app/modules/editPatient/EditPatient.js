@@ -59,7 +59,7 @@ class EditPatient extends Component {
 
                 {
                     location.pathname === '/app/patient' ?
-                        <Redirect from="/app/patient" to="/app/patient/create-patient"/>
+                        <Redirect from="/app/patient" to="/app/patient/patient-info"/>
                         :
                         null
                 }
