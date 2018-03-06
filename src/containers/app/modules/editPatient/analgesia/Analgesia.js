@@ -9,7 +9,6 @@ import * as actionTypes from 'reduxes/actionTypes';
 import ModuleLoading from 'components/ModuleLoading';
 import StepAction from 'components/StepAction';
 import AnalgesiaTable from './AnalgesiaTable';
-import Msg from 'components/Msg';
 
 import 'scss/containers/app/modules/editPatient/analgesiaData/AnalgesiaData.scss';
 

@@ -27,9 +27,8 @@ class AnalgesiaTable extends Component {
     }
 
     updateField(id, fieldName, fieldValue) {
-        const {updateAnalgesiaDataField, onUpdateField} = this.props;
+        const {updateAnalgesiaDataField} = this.props;
         updateAnalgesiaDataField(id, fieldName, fieldValue);
-        onUpdateField && onUpdateField();
     }
 
     render() {
@@ -134,8 +133,7 @@ AnalgesiaTable.propTypes = {
     $sacralList: PropTypes.array,
     $analgesiaData: PropTypes.array,
 
-    updateAnalgesiaDataField: PropTypes.func,
-    onUpdateField: PropTypes.func
+    updateAnalgesiaDataField: PropTypes.func
 
 };
 

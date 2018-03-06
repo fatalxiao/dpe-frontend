@@ -30,9 +30,8 @@ class ObservalForm extends Component {
     }
 
     updateField(fieldName, fieldValue) {
-        const {updateObservalDataField, onUpdateField} = this.props;
+        const {updateObservalDataField} = this.props;
         updateObservalDataField(fieldName, fieldValue);
-        onUpdateField && onUpdateField();
     }
 
     formatDuration(timeStamp, isBirthTime) {
@@ -346,8 +345,7 @@ ObservalForm.propTypes = {
 
     $form: PropTypes.object,
 
-    updateObservalDataField: PropTypes.func,
-    onUpdateField: PropTypes.func
+    updateObservalDataField: PropTypes.func
 
 };
 
