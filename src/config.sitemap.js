@@ -18,18 +18,14 @@ function sitemap(state) {
             name: 'Patient List',
             route: '/app/patient-list',
             children: [{
-                name: 'Patient',
-                route: '/app/patient',
-                children: [{
-                    name: 'Patient Information',
-                    route: '/app/patient/info'
-                }, {
-                    name: 'Analgesia Data',
-                    route: '/app/patient/analgesia'
-                }, {
-                    name: 'Observal Data',
-                    route: '/app/patient/observal'
-                }]
+                name: 'Patient Information',
+                route: '/app/patient/info'
+            }, {
+                name: 'Analgesia Data',
+                route: '/app/patient/analgesia'
+            }, {
+                name: 'Observal Data',
+                route: '/app/patient/observal'
             }]
         }]
     };

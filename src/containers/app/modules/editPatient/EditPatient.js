@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {renderRoutes} from 'react-router-config';
+import {Redirect} from 'react-router-dom';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -21,11 +22,8 @@ class EditPatient extends Component {
     }
 
     stepChangeHandler({activatedStep}) {
-
         const {$steps, routerPush} = this.props;
-
         routerPush($steps[activatedStep].route);
-
     }
 
     render() {
@@ -65,6 +63,14 @@ class EditPatient extends Component {
                     }
 
                     {renderRoutes(route.routes)}
+
+                    {
+                        location.pathname === '/app/patient' ?
+                            <Redirect from="/app/patient"
+                                      to="/app/patient-list"/>
+                            :
+                            null
+                    }
 
                 </div>
 
