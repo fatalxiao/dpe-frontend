@@ -3,6 +3,10 @@
 .paper.dialog.add-patient-dialog {
     width: 640px;
 
+    .dialog-title {
+        height: auto;
+    }
+
     .dialog-content {
         height: auto;
         padding: 36px 48px;
