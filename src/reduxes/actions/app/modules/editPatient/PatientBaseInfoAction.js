@@ -1,5 +1,6 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import PatientApi from 'apis/app/modules/patient/PatientApi';
+import {getPatients} from 'reduxes/actions/app/common/PatientAction';
 
 export const resetPatientBaseInfo = () => ({
     type: actionTypes.RESET_PATIENT_BASE_INFO
@@ -33,6 +34,7 @@ export const createPatient = callback => (dispatch, getState) => {
                 groupId: data.group.id
             },
             successCallback() {
+                getPatients()(dispatch);
                 callback && callback();
             }
         }

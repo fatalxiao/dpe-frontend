@@ -38,9 +38,8 @@ class AddPatientDialog extends Component {
             errorMsg: ''
         });
 
-        const {updatePatientInfoField} = this.props;
-
-        updatePatientInfoField(fieldName, fieldValue);
+        const {updatePatientBaseInfoField} = this.props;
+        updatePatientBaseInfoField(fieldName, fieldValue);
 
     }
 
@@ -74,7 +73,7 @@ class AddPatientDialog extends Component {
     }
 
     componentWillMount() {
-        this.props.resetPatientData();
+        this.props.resetPatientBaseInfo();
     }
 
     render() {
@@ -141,8 +140,8 @@ AddPatientDialog.propTypes = {
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func,
-    resetPatientData: PropTypes.func,
-    updatePatientInfoField: PropTypes.func,
+    resetPatientBaseInfo: PropTypes.func,
+    updatePatientBaseInfoField: PropTypes.func,
     createPatient: PropTypes.func,
     routerPush: PropTypes.func
 
@@ -151,7 +150,7 @@ AddPatientDialog.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         $groupList: state.group.list,
-        $form: state.patientInfo.form
+        $form: state.patientBaseInfo.form
     };
 }
 
