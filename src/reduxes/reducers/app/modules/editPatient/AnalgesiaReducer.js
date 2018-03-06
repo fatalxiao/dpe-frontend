@@ -18,27 +18,10 @@ const BASE_DATA = {
 
 function getDefaultData(timePoints = [0, 2, 4, 6, 8, 10, 12, 14,
     16, 18, 20, 30, 2 * 60, 3.5 * 60, 5 * 60, 6.5 * 60, 8 * 60]) {
-
-    // const list = [];
-    //
-    // for (let i = 0; i <= 10; i++) {
-    //     list.push({...BASE_DATA, timePoint: i * 2});
-    // }
-    //
-    // list.push({...BASE_DATA, timePoint: 30});
-    // list.push({...BASE_DATA, timePoint: 2 * 60});
-    // list.push({...BASE_DATA, timePoint: 3.5 * 60});
-    // list.push({...BASE_DATA, timePoint: 5 * 60});
-    // list.push({...BASE_DATA, timePoint: 6.5 * 60});
-    // list.push({...BASE_DATA, timePoint: 8 * 60});
-    // // list.push({...BASE_DATA, timePoint: 9.5 * 60});
-    // // list.push({...BASE_DATA, timePoint: 11 * 60});
-
     return timePoints.map(timePoint => ({
         ...BASE_DATA,
         timePoint
     }));
-
 }
 
 const initialState = {
@@ -57,6 +40,20 @@ function analgesia(state = initialState, action) {
             return {
                 ...state,
                 data: getDefaultData()
+            };
+        }
+
+        case actionTypes.APPEND_TIME_POINT: {
+
+            const data = _.cloneDeep(state.data);
+            data.push({
+                ...BASE_DATA,
+                timePoint: data[data.length - 1].timePoint + 1.5 * 60
+            });
+
+            return {
+                ...state,
+                data
             };
         }
 
