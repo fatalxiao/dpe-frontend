@@ -59,7 +59,7 @@ const DEFAULT_FORM = {
 function observal(state = initialState, action) {
     switch (action.type) {
 
-        case actionTypes.RESET_PATIENT_DATA: {
+        case actionTypes.RESET_PATIENT_INFO: {
             return {
                 ...state,
                 form: _.cloneDeep(DEFAULT_FORM)

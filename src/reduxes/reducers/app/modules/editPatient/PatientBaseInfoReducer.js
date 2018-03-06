@@ -24,7 +24,7 @@ const DEFAULT_FORM = {
         updateActionType: ''
     };
 
-function patientInfo(state = initialState, action) {
+function patientBaseInfo(state = initialState, action) {
     switch (action.type) {
 
         case actionTypes.RESET_PATIENT_INFO: {
@@ -47,36 +47,6 @@ function patientInfo(state = initialState, action) {
 
         }
 
-        // get patient information
-        case actionTypes.GET_PATIENT_INFO_REQUEST: {
-            return {
-                ...state,
-                getActionType: actionTypes.GET_PATIENT_INFO_REQUEST
-            };
-        }
-        case actionTypes.GET_PATIENT_INFO_SUCCESS: {
-
-            const form = action.responseData;
-
-            if (form.gestationalDays && !isNaN(form.gestationalDays)) {
-                form.gestationalDaysWeeks = ~~(form.gestationalDays / 7);
-                form.gestationalDaysDays = form.gestationalDays % 7;
-            }
-
-            return {
-                ...state,
-                form,
-                getActionType: actionTypes.GET_PATIENT_INFO_SUCCESS
-            };
-
-        }
-        case actionTypes.GET_PATIENT_INFO_FAILURE: {
-            return {
-                ...state,
-                getActionType: actionTypes.GET_PATIENT_INFO_FAILURE
-            };
-        }
-
         // create patient
         case actionTypes.CREATE_PATIENT_REQUEST: {
             return {
@@ -97,30 +67,10 @@ function patientInfo(state = initialState, action) {
             };
         }
 
-        // update patient
-        case actionTypes.UPDATE_PATIENT_INFO_REQUEST: {
-            return {
-                ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFO_REQUEST
-            };
-        }
-        case actionTypes.UPDATE_PATIENT_INFO_SUCCESS: {
-            return {
-                ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFO_SUCCESS
-            };
-        }
-        case actionTypes.UPDATE_PATIENT_INFO_FAILURE: {
-            return {
-                ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFO_FAILURE
-            };
-        }
-
         default:
             return state;
 
     }
 }
 
-export default patientInfo;
+export default patientBaseInfo;

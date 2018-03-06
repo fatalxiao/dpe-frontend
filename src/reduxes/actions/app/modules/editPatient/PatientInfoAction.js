@@ -19,7 +19,7 @@ function gestationalDaysHandler(data) {
 }
 
 export const updatePatientInformationField = (fieldName, fieldValue) => ({
-    type: actionTypes.UPDATE_PATIENT_INFORMATION_FIELD,
+    type: actionTypes.UPDATE_PATIENT_INFO_FIELD,
     fieldName,
     fieldValue
 });
