@@ -31,7 +31,7 @@ class ObservalData extends Component {
     }
 
     save() {
-        const {createOrUpdateObservalData} = this.props;
+        const {createOrUpdateObservalData, routerPush} = this.props;
         createOrUpdateObservalData(this.patientId, () => {
             routerPush(`/app/patient-list`);
         });
