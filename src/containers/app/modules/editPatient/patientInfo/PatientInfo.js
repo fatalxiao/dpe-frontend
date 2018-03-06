@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions/index';
+import * as actions from 'reduxes/actions';
+import * as actionTypes from 'reduxes/actionTypes';
 
+import ModuleLoading from 'components/ModuleLoading';
 import PatientForm from './PatientForm';
 import StepAction from 'components/StepAction';
 
@@ -18,8 +20,17 @@ class PatientInfo extends Component {
 
         this.patientId = null;
 
+        this.loadData = ::this.loadData;
         this.save = ::this.save;
 
+    }
+
+    loadData(props = this.props) {
+        const {match, getPatientInfo} = props;
+        if (match && match.params && match.params.id) {
+            this.patientId = match.params.id;
+            getPatientInfo(this.patientId);
+        }
     }
 
     save() {
@@ -29,42 +40,60 @@ class PatientInfo extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.match && nextProps.match.params
+            && this.props.match && this.props.match.params
+            && nextProps.match.params.id !== this.props.match.params.id) {
+            this.loadData(nextProps);
+        }
+    }
+
     componentWillMount() {
 
         const {updatePatientStep} = this.props;
         updatePatientStep(0);
 
-        const {match, getPatientInfo} = this.props;
-        if (match && match.params && match.params.id) {
-            this.patientId = match.params.id;
-            getPatientInfo(this.patientId);
-        }
+        this.loadData();
 
     }
 
     render() {
+
+        const {$getActionType} = this.props;
+
         return (
             <div className="patient-info">
-
-                <PatientForm/>
-
-                <StepAction isFirst={true}
-                            onNext={this.save}/>
-
+                {
+                    $getActionType !== actionTypes.GET_PATIENT_INFO_SUCCESS ?
+                        <ModuleLoading/>
+                        :
+                        <div>
+                            <PatientForm/>
+                            <StepAction isFirst={true}
+                                        onNext={this.save}/>
+                        </div>
+                }
             </div>
         );
+
     }
 }
 
 PatientInfo.propTypes = {
+
+    $getActionType: PropTypes.string,
+
     routerPush: PropTypes.func,
     updatePatientStep: PropTypes.func,
     getPatientInfo: PropTypes.func,
     updatePatientInfo: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $getActionType: state.patientInfo.getActionType
+    };
 }
 
 function mapDispatchToProps(dispatch) {
