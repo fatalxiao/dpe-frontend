@@ -93,9 +93,7 @@ export const createOrUpdatePatient = (id, callback) => (dispatch, getState) => {
             ],
             api: PatientApi.createOrUpdatePatient,
             params: {
-                groupId: data.group.id,
                 id,
-                patientName: data.patientName,
                 age: data.age,
                 gestationalDays: gestationalDaysHandler(data),
                 height: data.height,

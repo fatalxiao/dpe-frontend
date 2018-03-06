@@ -57,13 +57,6 @@ class EditPatient extends Component {
 
                 </div>
 
-                {
-                    location.pathname === '/app/patient' ?
-                        <Redirect from="/app/patient" to="/app/patient/patient-info"/>
-                        :
-                        null
-                }
-
             </div>
         );
     }

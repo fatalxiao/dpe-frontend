@@ -68,7 +68,7 @@ class AddPatientDialog extends Component {
 
         createPatient(() => {
             onRequestClose();
-            routerPush('/app/patient');
+            routerPush(`/app/patient/info/${$form.id}`);
         });
 
     }
