@@ -43,21 +43,22 @@ class EditPatient extends Component {
 
                     {
                         $form && $form.patientName ?
-                            <div className="patient-base-info">
-                                <h1 className="patient-name">{$form.patientName}</h1>
-                                <div className="patient-desc">
-                                    {`${$form.id}  ·  ${$form.group && $form.group.name}`}
+                            <div>
+                                <div className="patient-base-info">
+                                    <h1 className="patient-name">{$form.patientName}</h1>
+                                    <div className="patient-desc">
+                                        {`${$form.id}  ·  ${$form.group && $form.group.name}`}
+                                    </div>
                                 </div>
+                                {
+                                    $activatedStep >= 0 ?
+                                        <h2 className="patient-content-title">
+                                            {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
+                                        </h2>
+                                        :
+                                        null
+                                }
                             </div>
-                            :
-                            null
-                    }
-
-                    {
-                        $activatedStep >= 0 ?
-                            <h2 className="patient-content-title">
-                                {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
-                            </h2>
                             :
                             null
                     }
