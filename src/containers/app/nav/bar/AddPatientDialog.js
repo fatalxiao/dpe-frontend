@@ -46,7 +46,7 @@ class AddPatientDialog extends Component {
 
     save() {
 
-        const {$form, createOrUpdatePatient, onRequestClose, routerPush} = this.props,
+        const {$form, createPatient, onRequestClose, routerPush} = this.props,
             error = [];
 
         if (!$form.id) {
@@ -66,7 +66,7 @@ class AddPatientDialog extends Component {
             return;
         }
 
-        createOrUpdatePatient(() => {
+        createPatient(() => {
             onRequestClose();
             routerPush('/app/patient');
         });
@@ -143,7 +143,7 @@ AddPatientDialog.propTypes = {
     onRequestClose: PropTypes.func,
     resetPatientData: PropTypes.func,
     updatePatientInformationField: PropTypes.func,
-    createOrUpdatePatient: PropTypes.func,
+    createPatient: PropTypes.func,
     routerPush: PropTypes.func
 
 };

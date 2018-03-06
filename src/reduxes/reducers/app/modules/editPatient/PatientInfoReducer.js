@@ -77,23 +77,43 @@ function patientInfo(state = initialState, action) {
             };
         }
 
+        // create patient
+        case actionTypes.CREATE_PATIENT_REQUEST: {
+            return {
+                ...state,
+                updateActionType: actionTypes.CREATE_PATIENT_REQUEST
+            };
+        }
+        case actionTypes.CREATE_PATIENT_SUCCESS: {
+            return {
+                ...state,
+                updateActionType: actionTypes.CREATE_PATIENT_SUCCESS
+            };
+        }
+        case actionTypes.CREATE_PATIENT_FAILURE: {
+            return {
+                ...state,
+                updateActionType: actionTypes.CREATE_PATIENT_FAILURE
+            };
+        }
+
         // update patient
-        case actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST: {
+        case actionTypes.UPDATE_PATIENT_INFO_REQUEST: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST
+                updateActionType: actionTypes.UPDATE_PATIENT_INFO_REQUEST
             };
         }
-        case actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS: {
+        case actionTypes.UPDATE_PATIENT_INFO_SUCCESS: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS
+                updateActionType: actionTypes.UPDATE_PATIENT_INFO_SUCCESS
             };
         }
-        case actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE: {
+        case actionTypes.UPDATE_PATIENT_INFO_FAILURE: {
             return {
                 ...state,
-                updateActionType: actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
+                updateActionType: actionTypes.UPDATE_PATIENT_INFO_FAILURE
             };
         }
 

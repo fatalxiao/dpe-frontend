@@ -47,20 +47,49 @@ export const getPatientInfo = id => dispatch => {
 
 };
 
-export const createOrUpdatePatient = (id, callback) => (dispatch, getState) => {
+export const createPatient = callback => (dispatch, getState) => {
 
     const data = getState().patientInfo.form;
 
-    if (!data.group || !id || !data.patientName) {
+    if (!data.id || !data.patientName || !data.group) {
         return;
     }
 
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
-                actionTypes.UPDATE_PATIENT_INFORMATION_REQUEST,
-                actionTypes.UPDATE_PATIENT_INFORMATION_SUCCESS,
-                actionTypes.UPDATE_PATIENT_INFORMATION_FAILURE
+                actionTypes.CREATE_PATIENT_REQUEST,
+                actionTypes.CREATE_PATIENT_SUCCESS,
+                actionTypes.CREATE_PATIENT_FAILURE
+            ],
+            api: PatientApi.createPatient,
+            params: {
+                id: data.id,
+                patientName: data.patientName,
+                groupId: data.group.id
+            },
+            successCallback() {
+                callback && callback();
+            }
+        }
+    });
+
+};
+
+export const createOrUpdatePatient = (id, callback) => (dispatch, getState) => {
+
+    const data = getState().patientInfo.form;
+
+    if (!id) {
+        return;
+    }
+
+    return dispatch({
+        [actionTypes.CALL_API]: {
+            types: [
+                actionTypes.UPDATE_PATIENT_INFO_REQUEST,
+                actionTypes.UPDATE_PATIENT_INFO_SUCCESS,
+                actionTypes.UPDATE_PATIENT_INFO_FAILURE
             ],
             api: PatientApi.createOrUpdatePatient,
             params: {
