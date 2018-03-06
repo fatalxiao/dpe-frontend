@@ -39,7 +39,6 @@ class NavPatientCollapsed extends Component {
 
     componentDidMount() {
         this.allPatientButtonEl = findDOMNode(this.refs.allPatientButton);
-        console.log(this.allPatientButtonEl);
     }
 
     render() {
