@@ -75,9 +75,9 @@ class AnalgesiaData extends Component {
                         :
                         <div>
                             <AnalgesiaTable/>
-                            <AnchorButton className="add-time-point-button"
-                                          value="Add Time Point">
-                                <i className="icon-chevron-thin-down add-icon"></i>
+                            <AnchorButton className="append-time-point-button"
+                                          value="Append Time Point">
+                                <i className="icon-chevron-thin-down down-icon"></i>
                             </AnchorButton>
                             <StepAction onPrev={this.prevStep}
                                         onNext={this.save}/>

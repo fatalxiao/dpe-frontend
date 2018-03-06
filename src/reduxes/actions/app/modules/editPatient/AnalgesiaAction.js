@@ -38,6 +38,10 @@ function AnalgesiaDataHandler(data) {
 
 }
 
+export const appendTimePoint = () => ({
+    type: actionTypes.APPEND_TIME_POINT
+});
+
 export const updateAnalgesiaDataField = (timePoint, fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_ANALGESIA_FIELD,
     timePoint,
