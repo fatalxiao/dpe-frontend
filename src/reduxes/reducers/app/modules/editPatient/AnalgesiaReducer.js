@@ -48,7 +48,7 @@ const initialState = {
 function analgesia(state = initialState, action) {
     switch (action.type) {
 
-        case actionTypes.RESET_PATIENT_INFO: {
+        case actionTypes.RESET_PATIENT_DATA: {
             return {
                 ...state,
                 data: getDefaultData()
