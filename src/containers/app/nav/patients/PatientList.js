@@ -59,7 +59,7 @@ class PatientList extends Component {
                             <FlatButton key={index}
                                         className={itemClassName}
                                         onTouchTap={() => {
-                                            routerPush(`/app/patient/update-patient/${patientId}`);
+                                            routerPush(`/app/patient/info/${patientId}`);
                                         }}>
 
                                 <div className={statusClassName}
