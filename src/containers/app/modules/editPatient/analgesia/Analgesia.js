@@ -65,7 +65,7 @@ class AnalgesiaData extends Component {
 
     render() {
 
-        const {$getActionType} = this.props;
+        const {$getActionType, appendTimePoint} = this.props;
 
         return (
             <div className="analgesia-data">
@@ -76,7 +76,8 @@ class AnalgesiaData extends Component {
                         <div>
                             <AnalgesiaTable/>
                             <AnchorButton className="append-time-point-button"
-                                          value="Append Time Point">
+                                          value="Append Time Point"
+                                          onTouchTap={appendTimePoint}>
                                 <i className="icon-chevron-thin-down down-icon"></i>
                             </AnchorButton>
                             <StepAction onPrev={this.prevStep}
@@ -94,6 +95,7 @@ AnalgesiaData.propTypes = {
     $getActionType: PropTypes.string,
 
     routerPush: PropTypes.func,
+    appendTimePoint: PropTypes.func,
     updatePatientStep: PropTypes.func,
     getPatientInfo: PropTypes.func,
     getAnalgesiaData: PropTypes.func,
