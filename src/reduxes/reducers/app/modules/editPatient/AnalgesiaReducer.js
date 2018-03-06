@@ -95,14 +95,35 @@ function analgesia(state = initialState, action) {
         }
         case actionTypes.GET_ANALGESIA_SUCCESS: {
 
-            let data = [];
+            const data = getDefaultData();
 
             if (action.responseData && action.responseData.length > 0) {
-                for (let item of action.responseData) {
-                    data.push(Object.assign({...BASE_DATA}, item));
+
+                for (let resItem of action.responseData) {
+
+                    const item = data.find(a => a.timePoint === resItem.timePoint);
+
+                    if (item) {
+                        Object.assign(item, resItem);
+                    } else {
+
+                        let timePoint = DEFAULT_TIMEPOINTS[DEFAULT_TIMEPOINTS.length - 1];
+
+                        while (timePoint < resItem.timePoint) {
+
+                            timePoint += 1.5 * 60;
+
+                            if (timePoint >= resItem.timePoint) {
+                                data.push(Object.assign({...BASE_DATA, timePoint}, resItem));
+                            } else {
+                                const i = data.findIndex(a => a.timePoint === timePoint);
+                                if (i < 0) {
+                                    data.push({...BASE_DATA, timePoint});
+                                }
+                            }
+                        }
+                    }
                 }
-            } else {
-                data = getDefaultData();
             }
 
             return {
