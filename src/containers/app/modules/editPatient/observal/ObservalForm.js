@@ -262,7 +262,7 @@ class ObservalForm extends Component {
                         <TextField className="col-6"
                                    label="Lateral Episiotomy VAS Score"
                                    value={format($form.lateralEpisiotomyVasScore)}
-                            // disabled={!$form.hasLateralEpisiotomy}
+                                   disabled={!$form.hasLateralEpisiotomy}
                                    onChange={value => this.updateField('lateralEpisiotomyVasScore', value)}/>
                     </div>
                 </FieldSet>
@@ -276,7 +276,7 @@ class ObservalForm extends Component {
                         <TextArea className="col-9"
                                   label="NICU Reason"
                                   value={format($form.nicuReason)}
-                            // disabled={!$form.hasNicu}
+                                  disabled={!$form.hasNicu}
                                   onChange={value => this.updateField('nicuReason', value)}/>
                     </div>
                 </FieldSet>
