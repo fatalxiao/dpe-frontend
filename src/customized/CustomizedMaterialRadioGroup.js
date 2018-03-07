@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import MaterialProvider from 'alcedo-ui/MaterialProvider';
-import Checkbox from 'alcedo-ui/Checkbox';
+import RadioGroup from 'alcedo-ui/RadioGroup';
 import Theme from 'alcedo-ui/Theme';
 
-class CustomizedMaterialCheckbox extends Component {
+class CustomizedMaterialRadioGroup extends Component {
 
     constructor(props) {
         super(props);
@@ -20,23 +20,23 @@ class CustomizedMaterialCheckbox extends Component {
                               label={label}
                               isLabelAnimate={false}
                               useSeparator={false}>
-                <Checkbox {...restProps}/>
+                <RadioGroup {...restProps}/>
             </MaterialProvider>
         );
     }
 
 }
 
-CustomizedMaterialCheckbox.propTypes = {
+CustomizedMaterialRadioGroup.propTypes = {
     theme: PropTypes.any,
     isLabelAnimate: PropTypes.bool,
     clearButtonVisible: PropTypes.bool
 };
 
-CustomizedMaterialCheckbox.defaultProps = {
+CustomizedMaterialRadioGroup.defaultProps = {
     theme: Theme.HIGHLIGHT,
     isLabelAnimate: false,
     clearButtonVisible: false
 };
 
-export default CustomizedMaterialCheckbox;
+export default CustomizedMaterialRadioGroup;

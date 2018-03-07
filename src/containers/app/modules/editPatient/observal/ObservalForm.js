@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import Checkbox from 'customized/CustomizedMaterialCheckbox';
+import RadioGroup from 'customized/CustomizedMaterialRadioGroup';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import DateTimePicker from 'customized/CustomizedMaterialDateTimePicker';
