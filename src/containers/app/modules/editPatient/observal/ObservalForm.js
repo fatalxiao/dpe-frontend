@@ -26,6 +26,14 @@ class ObservalForm extends Component {
 
         super(props);
 
+        this.genderList = [{
+            label: 'Male',
+            value: 1
+        }, {
+            label: 'Female',
+            value: 2
+        }];
+
         this.updateField = ::this.updateField;
 
     }
@@ -275,7 +283,13 @@ class ObservalForm extends Component {
 
                 <FieldSet title="9. Foetal">
                     <div className="row">
-                        <DateTimePicker className="col-6"
+                        <RadioGroup className="col-3"
+                                    label="Foetal Gender"
+                                    name="foetalGender"
+                                    data={this.genderList}
+                                    value={format($form.foetalGender)}
+                                    onChange={value => this.updateField('foetalGender', value)}/>
+                        <DateTimePicker className="col-3"
                                         label="Birth Time"
                                         value={format($form.birthTime)}
                                         onChange={value => this.updateField('birthTime', value)}/>
