@@ -71,10 +71,11 @@ export const updatePatientInfo = (id, callback) => (dispatch, getState) => {
                 weight: data.weight,
                 heartRate: data.heartRate,
                 initialVasScore: data.initialVasScore,
-                cervicalDilationAtTimeOfEA: data.cervicalDilationAtTimeOfEA,
                 systolicBloodPressure: data.systolicBloodPressure,
                 diastolicBloodPressure: data.diastolicBloodPressure,
                 foetalHeartRate: data.foetalHeartRate,
+                cervicalDilationAtTimeOfEA: data.cervicalDilationAtTimeOfEA,
+                hasOxytocinAtTimeOfEA: data.hasOxytocinAtTimeOfEA,
                 description: data.description
             },
             successCallback() {
