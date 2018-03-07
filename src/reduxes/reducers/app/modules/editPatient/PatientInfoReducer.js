@@ -12,9 +12,11 @@ const DEFAULT_FORM = {
         weight: '',
         heartRate: '',
         initialVasScore: '',
-        cervicalDilationAtTimeOfEA: '',
         systolicBloodPressure: '',
         diastolicBloodPressure: '',
+        cervicalDilationAtTimeOfEA: '',
+        hasOxytocinAtTimeOfEA: '',
+        status: 1,
         description: ''
     },
 

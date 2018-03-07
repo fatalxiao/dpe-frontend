@@ -40,7 +40,7 @@ class PatientList extends Component {
                     $patientList.map((patient, index) => {
 
                         const patientId = patient.id,
-                            disabled = patient.disabled,
+                            disabled = patient.status === 0,
 
                             groupName = $groupList.find(item => item.id === patient.groupId).name,
 
