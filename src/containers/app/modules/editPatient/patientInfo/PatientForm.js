@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import Checkbox from 'customized/CustomizedMaterialCheckbox';
 import TextField from 'customized/CustomizedMaterialTextField';
 import TextArea from 'customized/CustomizedMaterialTextArea';
 import FieldSet from 'components/FieldSet';
@@ -75,12 +76,6 @@ class PatientForm extends Component {
                                    label="Initial Vas Score"
                                    value={format($form.initialVasScore)}
                                    onChange={value => this.updateField('initialVasScore', value)}/>
-                        <TextField className="col-6"
-                                   label="Cervical Dilation At Time Of EA"
-                                   value={format($form.cervicalDilationAtTimeOfEA)}
-                                   onChange={value => this.updateField('cervicalDilationAtTimeOfEA', value)}/>
-                    </div>
-                    <div className="row">
                         <TextField className="col-3"
                                    label="Systolic Blood Pressure"
                                    value={format($form.systolicBloodPressure)}
@@ -89,6 +84,16 @@ class PatientForm extends Component {
                                    label="Diastolic Blood Pressure"
                                    value={format($form.diastolicBloodPressure)}
                                    onChange={value => this.updateField('diastolicBloodPressure', value)}/>
+                    </div>
+                    <div className="row">
+                        <TextField className="col-6"
+                                   label="Cervical Dilation At Time Of EA"
+                                   value={format($form.cervicalDilationAtTimeOfEA)}
+                                   onChange={value => this.updateField('cervicalDilationAtTimeOfEA', value)}/>
+                        <Checkbox className="col-6"
+                                  label="Oxytocin At Time Of EA"
+                                  checked={$form.hasOxytocinAtTimeOfEA}
+                                  onChange={value => this.updateField('hasOxytocinAtTimeOfEA', value)}/>
                     </div>
                 </FieldSet>
 
