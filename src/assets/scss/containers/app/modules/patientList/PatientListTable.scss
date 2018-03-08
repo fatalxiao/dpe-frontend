@@ -4,5 +4,29 @@
 
     .group-select {
         width: 160px;
+
+        .dropdown-select {
+            border-bottom-color: transparent !important;
+        }
+
+        .dropdown-trigger {
+            padding-left: 0;
+
+            .dropdown-trigger-icon {
+                opacity: 0;
+            }
+        }
+
+        &:hover {
+
+            .dropdown-select {
+                border-bottom-color: $theme-border;
+            }
+
+            .dropdown-trigger-icon {
+                opacity: 1;
+            }
+        }
+
     }
 }
