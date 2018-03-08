@@ -2,6 +2,16 @@
 
 .patient-list-table {
 
+    .id-link {
+        color: $theme-field;
+        text-decoration: none !important;
+
+        &:hover {
+            color: $theme-highlight;
+            text-decoration: underline !important;
+        }
+    }
+
     .name-field {
         width: 160px;
 

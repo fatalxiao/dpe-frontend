@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {NavLink} from 'react-router-dom';
 import _ from 'lodash';
 
 import * as actions from 'reduxes/actions/index';
@@ -50,7 +51,11 @@ class PatientListTable extends Component {
                        header: 'ID',
                        sortable: true,
                        sortProp: 'id',
-                       renderer: 'id'
+                       renderer: rowData =>
+                           <NavLink className="id-link"
+                                    to={`/app/patient/info/${rowData.id}`}>
+                               {rowData.id}
+                           </NavLink>
                    }, {
                        header: 'Name',
                        sortable: true,
