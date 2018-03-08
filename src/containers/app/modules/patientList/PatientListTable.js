@@ -5,6 +5,10 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import Table from 'alcedo-ui/Table';
+
+import 'scss/containers/app/modules/patientList/PatientListTable.scss';
+
 class PatientListTable extends Component {
 
     constructor(props) {
@@ -13,9 +17,18 @@ class PatientListTable extends Component {
 
     render() {
         return (
-            <div className="patient-list-table">
-
-            </div>
+            <Table className="patient-list-table"
+                   columns={[{
+                       header: 'ID',
+                       sortable: true,
+                       sortProp: 'id',
+                       renderer: 'id'
+                   }, {
+                       header: 'ID',
+                       sortable: true,
+                       sortProp: 'id',
+                       renderer: 'id'
+                   }]}/>
         );
     }
 }

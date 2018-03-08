@@ -42,10 +42,10 @@ class EditPatient extends Component {
                 <div className="patient-content">
 
                     {
-                        $form && $form.patientName ?
+                        $form && $form.name ?
                             <div>
                                 <div className="patient-base-info">
-                                    <h1 className="patient-name">{$form.patientName}</h1>
+                                    <h1 className="patient-name">{$form.name}</h1>
                                     <div className="patient-desc">
                                         {`${$form.id}  ·  ${$form.group && $form.group.name}`}
                                     </div>

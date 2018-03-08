@@ -4,7 +4,7 @@ import * as actionTypes from 'reduxes/actionTypes/index';
 const DEFAULT_FORM = {
         group: null,
         id: '',
-        patientName: ''
+        name: ''
     },
 
     initialState = {

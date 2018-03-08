@@ -51,8 +51,8 @@ class AddPatientDialog extends Component {
         if (!$form.id) {
             error.push('ID');
         }
-        if (!$form.patientName) {
-            error.push('Patient Name');
+        if (!$form.name) {
+            error.push('Name');
         }
         if (!$form.group) {
             error.push('Group');
@@ -93,10 +93,10 @@ class AddPatientDialog extends Component {
                                    required={true}
                                    onChange={value => this.updateField('id', value)}/>
                         <TextField className="col-6"
-                                   label="Patient Name"
-                                   value={format($form.patientName)}
+                                   label="Name"
+                                   value={format($form.name)}
                                    required={true}
-                                   onChange={value => this.updateField('patientName', value)}/>
+                                   onChange={value => this.updateField('name', value)}/>
                     </div>
                 </FieldSet>
 

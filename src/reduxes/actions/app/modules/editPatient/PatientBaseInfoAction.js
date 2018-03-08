@@ -16,7 +16,7 @@ export const createPatient = callback => (dispatch, getState) => {
 
     const data = getState().patientBaseInfo.form;
 
-    if (!data.id || !data.patientName || !data.group) {
+    if (!data.id || !data.name || !data.group) {
         return;
     }
 
@@ -30,7 +30,7 @@ export const createPatient = callback => (dispatch, getState) => {
             api: PatientApi.createPatient,
             params: {
                 id: data.id,
-                patientName: data.patientName,
+                name: data.name,
                 groupId: data.group.id
             },
             successCallback() {

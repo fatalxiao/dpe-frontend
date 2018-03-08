@@ -5,6 +5,10 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions/index';
 
+import PatientListTable from './PatientListTable';
+
+import 'scss/containers/app/modules/patientList/PatientList.scss';
+
 class PatientList extends Component {
 
     constructor(props) {
@@ -14,6 +18,8 @@ class PatientList extends Component {
     render() {
         return (
             <div className="patient-list">
+
+                <PatientListTable/>
 
             </div>
         );

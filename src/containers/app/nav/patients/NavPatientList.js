@@ -66,7 +66,7 @@ class PatientList extends Component {
                                 </div>
 
                                 <div className="patient-info">
-                                    <span className="patient-name">{patient.patientName}</span>
+                                    <span className="patient-name">{patient.name}</span>
                                 </div>
 
                                 <div className="patient-desc">
