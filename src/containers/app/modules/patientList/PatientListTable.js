@@ -15,7 +15,16 @@ import 'scss/containers/app/modules/patientList/PatientListTable.scss';
 class PatientListTable extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.statusChangeHandler = ::this.statusChangeHandler;
+
+    }
+
+    statusChangeHandler(id, value) {
+        const {enablePatient, disablePatient} = this.props;
+        value ? enablePatient(id) : disablePatient(id);
     }
 
     render() {
@@ -56,7 +65,10 @@ class PatientListTable extends Component {
                        sortProp: 'status',
                        renderer(rowData) {
                            return <Switcher value={rowData.status === 1}
-                                            size={Switcher.Size.SMALL}/>;
+                                            size={Switcher.Size.SMALL}
+                                            onChange={value => {
+                                                self.statusChangeHandler(rowData.id, value);
+                                            }}/>;
                        }
                    }]}/>
         );
@@ -66,7 +78,10 @@ class PatientListTable extends Component {
 PatientListTable.propTypes = {
 
     $groupList: PropTypes.array,
-    $patientList: PropTypes.array
+    $patientList: PropTypes.array,
+
+    enablePatient: PropTypes.func,
+    disablePatient: PropTypes.func
 
 };
 

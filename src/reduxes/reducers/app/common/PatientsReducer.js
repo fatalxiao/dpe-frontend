@@ -41,7 +41,7 @@ function patients(state = initialState, action) {
         case actionTypes.ENABLE_PATIENT_SUCCESS: {
 
             const list = _.cloneDeep(state.list);
-            list.find(item => item.id === action.id).disabled = false;
+            list.find(item => item.id === action.id).status = 1;
 
             return {
                 ...state,
@@ -64,7 +64,7 @@ function patients(state = initialState, action) {
         case actionTypes.DISABLE_PATIENT_SUCCESS: {
 
             const list = _.cloneDeep(state.list);
-            list.find(item => item.id === action.id).disabled = true;
+            list.find(item => item.id === action.id).status = 0;
 
             return {
                 ...state,
