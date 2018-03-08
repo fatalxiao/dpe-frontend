@@ -9,8 +9,8 @@ import * as actionTypes from 'reduxes/actionTypes';
 import CircularLoading from 'alcedo-ui/CircularLoading';
 
 import NavPatientCollapsed from './NavPatientsMenu';
-import NoPatient from './NoPatient';
-import PatientListWrapper from './PatientListWrapper';
+import NoPatient from './NavNoPatient';
+import PatientListWrapper from './NavPatientListWrapper';
 
 import 'scss/containers/app/nav/patients/NavPatient.scss';
 

@@ -8,7 +8,7 @@ import * as actions from 'reduxes/actions';
 
 import FlatButton from 'alcedo-ui/FlatButton';
 
-import 'scss/containers/app/nav/patients/PatientList.scss';
+import 'scss/containers/app/nav/patients/NavPatientList.scss';
 
 class PatientList extends Component {
 
@@ -34,7 +34,7 @@ class PatientList extends Component {
         const {$groupList, $patientList, routerPush} = this.props;
 
         return (
-            <div className="patient-list">
+            <div className="nav-patient-list">
 
                 {
                     $patientList.map((patient, index) => {

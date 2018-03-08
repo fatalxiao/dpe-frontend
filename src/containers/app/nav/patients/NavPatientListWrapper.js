@@ -6,9 +6,9 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import FlatButton from 'alcedo-ui/FlatButton';
-import PatientList from './PatientList';
+import PatientList from './NavPatientList';
 
-import 'scss/containers/app/nav/patients/PatientListWrapper.scss';
+import 'scss/containers/app/nav/patients/NavPatientListWrapper.scss';
 
 class PatientListWrapper extends Component {
 
@@ -29,7 +29,7 @@ class PatientListWrapper extends Component {
         const {$patientList} = this.props;
 
         return (
-            <div className="patient-list-wrapper">
+            <div className="nav-patient-list-wrapper">
 
                 <FlatButton className="all-patients-button"
                             value="All Patients"

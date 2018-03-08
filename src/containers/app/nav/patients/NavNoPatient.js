@@ -5,9 +5,9 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import 'scss/containers/app/nav/patients/NoPatient.scss';
+import 'scss/containers/app/nav/patients/NavNoPatient.scss';
 
-class NoPatient extends Component {
+class NavNoPatient extends Component {
 
     constructor(props) {
 
@@ -23,7 +23,7 @@ class NoPatient extends Component {
 
     render() {
         return (
-            <div className="no-patient">
+            <div className="nav-no-patient">
 
                 <i className="icon-plus add-patient-icon"
                    onTouchTap={this.addPatient}></i>
@@ -37,7 +37,7 @@ class NoPatient extends Component {
     }
 }
 
-NoPatient.propTypes = {
+NavNoPatient.propTypes = {
     routerPush: PropTypes.func
 };
 
@@ -49,4 +49,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoPatient);
+export default connect(mapStateToProps, mapDispatchToProps)(NavNoPatient);

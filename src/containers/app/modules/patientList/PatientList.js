@@ -13,7 +13,7 @@ class PatientList extends Component {
 
     render() {
         return (
-            <div className="dpe-list">
+            <div className="patient-list">
 
             </div>
         );

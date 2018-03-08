@@ -8,7 +8,7 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 import Popover from 'alcedo-ui/Popover';
-import PatientList from './PatientList';
+import PatientList from './NavPatientList';
 
 import 'scss/containers/app/nav/patients/NavPatientMenu.scss';
 
