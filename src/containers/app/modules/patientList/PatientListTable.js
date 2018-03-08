@@ -71,7 +71,10 @@ class PatientListTable extends Component {
                                                   data={$groupList}
                                                   valueField="id"
                                                   displayField="name"
-                                                  value={rowData.group}/>;
+                                                  value={rowData.group}
+                                                  onChange={value => {
+                                                      self.groupChangeHandler(rowData.id, value);
+                                                  }}/>;
                        }
                    }, {
                        header: 'Status',
