@@ -13,20 +13,7 @@ import 'scss/containers/app/nav/patients/NavPatientList.scss';
 class PatientList extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.statusTouchTapHandler = ::this.statusTouchTapHandler;
-
-    }
-
-    statusTouchTapHandler(e, patientId, disabled) {
-
-        e.stopPropagation();
-
-        const {enablePatient, disablePatient} = this.props;
-        disabled ? enablePatient(patientId) : disablePatient(patientId);
-
     }
 
     render() {
@@ -40,30 +27,14 @@ class PatientList extends Component {
                     $patientList.map((patient, index) => {
 
                         const patientId = patient.id,
-                            disabled = patient.status === 0,
-
-                            groupName = $groupList.find(item => item.id === patient.groupId).name,
-
-                            itemClassName = classNames('patient', {
-                                disabled
-                            }),
-                            statusClassName = classNames('patient-status', {
-                                disabled
-                            });
+                            groupName = $groupList.find(item => item.id === patient.groupId).name;
 
                         return (
                             <FlatButton key={index}
-                                        className={itemClassName}
+                                        className="patient"
                                         onTouchTap={() => {
                                             routerPush(`/app/patient/info/${patientId}`);
                                         }}>
-
-                                <div className={statusClassName}
-                                     onTouchTap={e => {
-                                         this.statusTouchTapHandler(e, patientId, disabled);
-                                     }}>
-                                    <div className="patient-status-dot"></div>
-                                </div>
 
                                 <div className="patient-info">
                                     <span className="patient-name">{patient.name}</span>
@@ -90,9 +61,7 @@ PatientList.propTypes = {
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
 
-    routerPush: PropTypes.func,
-    enablePatient: PropTypes.func,
-    disablePatient: PropTypes.func
+    routerPush: PropTypes.func
 
 };
 
