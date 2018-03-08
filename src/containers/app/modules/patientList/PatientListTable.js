@@ -20,13 +20,18 @@ class PatientListTable extends Component {
         super(props);
 
         this.nameChangeHandler = ::this.nameChangeHandler;
+        this.groupChangeHandler = ::this.groupChangeHandler;
         this.statusChangeHandler = ::this.statusChangeHandler;
 
     }
 
     nameChangeHandler = _.debounce((id, value) => {
-
+        this.props.updatePatientName(id, value);
     }, 250);
+
+    groupChangeHandler(id, value) {
+        this.props.updatePatientGroup(id, value);
+    }
 
     statusChangeHandler(id, value) {
         const {enablePatient, disablePatient} = this.props;
@@ -89,6 +94,8 @@ PatientListTable.propTypes = {
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
 
+    updatePatientName: PropTypes.func,
+    updatePatientGroup: PropTypes.func,
     enablePatient: PropTypes.func,
     disablePatient: PropTypes.func
 

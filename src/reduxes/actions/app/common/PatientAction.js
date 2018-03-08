@@ -28,7 +28,7 @@ export const updatePatientName = (id, name) => dispatch => {
                 actionTypes.UPDATE_PATIENT_NAME_SUCCESS,
                 actionTypes.UPDATE_PATIENT_NAME_FAILURE
             ],
-            api: PatientApi.updatePatientInfo,
+            api: PatientApi.updatePatientName,
             params: {
                 id,
                 name
@@ -54,7 +54,7 @@ export const updatePatientGroup = (id, group) => dispatch => {
                 actionTypes.UPDATE_PATIENT_GROUP_SUCCESS,
                 actionTypes.UPDATE_PATIENT_GROUP_FAILURE
             ],
-            api: PatientApi.updatePatientInfo,
+            api: PatientApi.updatePatientGroup,
             params: {
                 id,
                 groupId: group.id

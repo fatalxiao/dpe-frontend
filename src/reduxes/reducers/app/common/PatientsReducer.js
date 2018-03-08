@@ -34,6 +34,62 @@ function patients(state = initialState, action) {
             };
         }
 
+        // update patient name
+        case actionTypes.UPDATE_PATIENT_NAME_REQUEST: {
+            return {
+                ...state,
+                getActionType: actionTypes.UPDATE_PATIENT_NAME_REQUEST
+            };
+        }
+        case actionTypes.UPDATE_PATIENT_NAME_SUCCESS: {
+
+            const list = _.cloneDeep(state.list);
+
+            list.find(item => item.id === action.id).name = action.name;
+
+            return {
+                ...state,
+                list,
+                getActionType: actionTypes.UPDATE_PATIENT_NAME_SUCCESS
+            };
+
+        }
+        case actionTypes.UPDATE_PATIENT_NAME_FAILURE: {
+            return {
+                ...state,
+                getActionType: actionTypes.UPDATE_PATIENT_NAME_FAILURE
+            };
+        }
+
+        // update patient name
+        case actionTypes.UPDATE_PATIENT_GROUP_REQUEST: {
+            return {
+                ...state,
+                getActionType: actionTypes.UPDATE_PATIENT_GROUP_REQUEST
+            };
+        }
+        case actionTypes.UPDATE_PATIENT_GROUP_SUCCESS: {
+
+            const list = _.cloneDeep(state.list),
+                item = list.find(item => item.id === action.id);
+
+            item.group = action.group;
+            item.groupId = action.group.id;
+
+            return {
+                ...state,
+                list,
+                getActionType: actionTypes.UPDATE_PATIENT_GROUP_SUCCESS
+            };
+
+        }
+        case actionTypes.UPDATE_PATIENT_GROUP_FAILURE: {
+            return {
+                ...state,
+                getActionType: actionTypes.UPDATE_PATIENT_GROUP_FAILURE
+            };
+        }
+
         // enable patient
         case actionTypes.ENABLE_PATIENT_REQUEST: {
             return {
