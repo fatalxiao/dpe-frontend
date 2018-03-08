@@ -5,6 +5,10 @@
 
     .analgesia-data-table {
 
+        .table-row {
+            border: none !important;
+        }
+
         .material-text-field,
         .material-dropdown-select {
             width: 72px;

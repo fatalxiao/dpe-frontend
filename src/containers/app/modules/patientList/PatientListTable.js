@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import Table from 'alcedo-ui/Table';
+import Switcher from 'alcedo-ui/Switcher';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 
 import 'scss/containers/app/modules/patientList/PatientListTable.scss';
@@ -38,10 +39,19 @@ class PatientListTable extends Component {
                        sortable: true,
                        sortProp: 'groupId',
                        renderer(rowData) {
-                           return <DropdownSelect data={$groupList}
+                           return <DropdownSelect className="group-select"
+                                                  data={$groupList}
                                                   valueField="id"
                                                   displayField="name"
                                                   value={rowData.group}/>;
+                       }
+                   }, {
+                       header: 'Status',
+                       sortable: true,
+                       sortProp: 'status',
+                       renderer(rowData) {
+                           return <Switcher value={rowData.status === 1}
+                                            size={Switcher.Size.SMALL}/>;
                        }
                    }]}/>
         );
