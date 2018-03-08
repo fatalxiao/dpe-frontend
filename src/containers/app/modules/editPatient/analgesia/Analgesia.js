@@ -76,7 +76,7 @@ class AnalgesiaData extends Component {
                         <ModuleLoading/>
                         :
                         <div>
-                            <AnalgesiaTable/>
+                            <AnalgesiaTable patientId={this.patientId}/>
                             <AnchorButton className="append-time-point-button"
                                           value="Append Time Point"
                                           onTouchTap={appendTimePoint}>

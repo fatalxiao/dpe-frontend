@@ -80,7 +80,7 @@ export const getAnalgesiaData = patientId => dispatch => {
 
 };
 
-export const createOrUpdateAnalgesiaData = (patientId, callback) => (dispatch, getState) => {
+export const createOrUpdateAnalgesiaData = (patientId, callback, successResMsgDisabled) => (dispatch, getState) => {
 
     const {data} = getState().analgesia;
 
@@ -100,6 +100,7 @@ export const createOrUpdateAnalgesiaData = (patientId, callback) => (dispatch, g
                 patientId,
                 analgesiaData: AnalgesiaDataHandler(data, getState().analgesia)
             },
+            successResMsgDisabled,
             successCallback() {
                 callback && callback();
             }

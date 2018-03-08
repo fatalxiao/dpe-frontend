@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import _ from 'lodash';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -23,13 +24,22 @@ class AnalgesiaTable extends Component {
         super(props);
 
         this.updateField = ::this.updateField;
+        this.save = ::this.save;
 
     }
 
-    updateField(id, fieldName, fieldValue) {
+    updateField(timePoint, fieldName, fieldValue) {
         const {updateAnalgesiaDataField} = this.props;
-        updateAnalgesiaDataField(id, fieldName, fieldValue);
+        updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
+        setTimeout(() => {
+            this.save();
+        }, 0);
     }
+
+    save = _.debounce(() => {
+        const {patientId, createOrUpdateAnalgesiaData} = this.props;
+        patientId && createOrUpdateAnalgesiaData(patientId, undefined, true);
+    }, 250);
 
     render() {
 
@@ -129,11 +139,13 @@ class AnalgesiaTable extends Component {
 
 AnalgesiaTable.propTypes = {
 
+    patientId: PropTypes.string,
     $thoracicList: PropTypes.array,
     $sacralList: PropTypes.array,
     $analgesiaData: PropTypes.array,
 
-    updateAnalgesiaDataField: PropTypes.func
+    updateAnalgesiaDataField: PropTypes.func,
+    createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 
