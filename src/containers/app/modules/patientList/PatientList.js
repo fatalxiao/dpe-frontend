@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions/index';
 
 import PatientListTable from './PatientListTable';
+import NavNoPatient from 'containers/app/nav/patients/NavNoPatient';
 
 import 'scss/containers/app/modules/patientList/PatientList.scss';
 
@@ -16,20 +17,32 @@ class PatientList extends Component {
     }
 
     render() {
+
+        const {$patientList} = this.props;
+
         return (
             <div className="patient-list">
 
-                <PatientListTable/>
+                {
+                    $patientList && $patientList.length > 0 ?
+                        <PatientListTable/>
+                        :
+                        <NavNoPatient/>
+                }
 
             </div>
         );
     }
 }
 
-PatientList.propTypes = {};
+PatientList.propTypes = {
+    $patientList: PropTypes.array
+};
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $patientList: state.patients.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
