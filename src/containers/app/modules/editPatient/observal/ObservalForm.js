@@ -38,11 +38,6 @@ class ObservalForm extends Component {
 
     }
 
-    updateField(fieldName, fieldValue) {
-        const {updateObservalDataField} = this.props;
-        updateObservalDataField(fieldName, fieldValue);
-    }
-
     formatDuration(timeStamp, isBirthTime) {
 
         if (timeStamp < 0) {
@@ -55,6 +50,22 @@ class ObservalForm extends Component {
             `Duration: ${~~(timeStamp / 1000 / 60)} min`;
 
     }
+
+    updateField(fieldName, fieldValue) {
+
+        const {updateObservalDataField} = this.props;
+        updateObservalDataField(fieldName, fieldValue);
+
+        setTimeout(() => {
+            this.save();
+        }, 0);
+
+    }
+
+    save = _.debounce(() => {
+        const {patientId, createOrUpdateObservalData} = this.props;
+        patientId && createOrUpdateObservalData(patientId, undefined, true);
+    }, 250);
 
     render() {
 
@@ -358,9 +369,11 @@ class ObservalForm extends Component {
 
 ObservalForm.propTypes = {
 
+    patientId: PropTypes.string,
     $form: PropTypes.object,
 
-    updateObservalDataField: PropTypes.func
+    updateObservalDataField: PropTypes.func,
+    createOrUpdateObservalData: PropTypes.func
 
 };
 

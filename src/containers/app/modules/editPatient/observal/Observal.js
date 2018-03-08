@@ -75,7 +75,7 @@ class ObservalData extends Component {
                         <ModuleLoading/>
                         :
                         <div>
-                            <ObservalForm onUpdateField={this.updateFieldHandler}/>
+                            <ObservalForm patientId={this.patientId}/>
                             <StepAction isLast={true}
                                         onPrev={this.prevStep}
                                         onNext={this.save}/>

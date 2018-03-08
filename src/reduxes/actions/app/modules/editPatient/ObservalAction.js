@@ -28,7 +28,7 @@ export const getObservalData = patientId => dispatch => {
 
 };
 
-export const createOrUpdateObservalData = (patientId, callback) => (dispatch, getState) => {
+export const createOrUpdateObservalData = (patientId, callback, successResMsgDisabled) => (dispatch, getState) => {
 
     const observalData = getState().observal.form;
 
@@ -48,6 +48,7 @@ export const createOrUpdateObservalData = (patientId, callback) => (dispatch, ge
                 patientId,
                 observalData
             },
+            successResMsgDisabled,
             successCallback() {
                 callback && callback();
             }
