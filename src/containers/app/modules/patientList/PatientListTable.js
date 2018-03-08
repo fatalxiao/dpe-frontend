@@ -8,6 +8,7 @@ import * as actions from 'reduxes/actions/index';
 import Table from 'alcedo-ui/Table';
 import Switcher from 'alcedo-ui/Switcher';
 import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
+import TextField from 'customized/CustomizedMaterialTextField';
 
 import 'scss/containers/app/modules/patientList/PatientListTable.scss';
 
@@ -33,7 +34,10 @@ class PatientListTable extends Component {
                        header: 'Name',
                        sortable: true,
                        sortProp: 'name',
-                       renderer: 'name'
+                       renderer(rowData) {
+                           return <TextField className="name-field"
+                                             value={rowData.name}/>;
+                       }
                    }, {
                        header: 'Group',
                        sortable: true,

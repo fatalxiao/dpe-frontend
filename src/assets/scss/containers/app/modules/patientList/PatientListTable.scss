@@ -2,6 +2,25 @@
 
 .patient-list-table {
 
+    .name-field {
+        width: 160px;
+
+        .text-field {
+            border-bottom-color: transparent;
+
+            .text-field-input {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        &:hover {
+            .text-field {
+                border-bottom-color: $theme-border;
+            }
+        }
+    }
+
     .group-select {
         width: 160px;
 
