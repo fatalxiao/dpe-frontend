@@ -20,7 +20,8 @@ class PatientListTable extends Component {
 
     render() {
 
-        const {$groupList, $patientList} = this.props;
+        const {$groupList, $patientList} = this.props,
+            self = this;
 
         return (
             <Table className="patient-list-table"
