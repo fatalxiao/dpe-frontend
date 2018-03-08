@@ -4,7 +4,9 @@ import * as actionTypes from 'reduxes/actionTypes';
 
 const initialState = {
     list: [],
-    actionType: ''
+    getActionType: '',
+    enableActionType: '',
+    disableActionType: ''
 };
 
 function patients(state = initialState, action) {
@@ -14,28 +16,29 @@ function patients(state = initialState, action) {
         case actionTypes.GET_PATIENTS_REQUEST: {
             return {
                 ...state,
-                actionType: actionTypes.GET_PATIENTS_REQUEST
+                getActionType: actionTypes.GET_PATIENTS_REQUEST
             };
         }
         case actionTypes.GET_PATIENTS_SUCCESS: {
             return {
                 ...state,
                 list: action.responseData,
-                actionType: actionTypes.GET_PATIENTS_SUCCESS
+                getActionType: actionTypes.GET_PATIENTS_SUCCESS
             };
         }
         case actionTypes.GET_PATIENTS_FAILURE: {
             return {
                 ...state,
                 list: [],
-                actionType: actionTypes.GET_PATIENTS_FAILURE
+                getActionType: actionTypes.GET_PATIENTS_FAILURE
             };
         }
 
         // enable patient
         case actionTypes.ENABLE_PATIENT_REQUEST: {
             return {
-                ...state
+                ...state,
+                enableActionType: actionTypes.ENABLE_PATIENT_REQUEST
             };
         }
         case actionTypes.ENABLE_PATIENT_SUCCESS: {
@@ -45,20 +48,23 @@ function patients(state = initialState, action) {
 
             return {
                 ...state,
-                list
+                list,
+                enableActionType: actionTypes.ENABLE_PATIENT_SUCCESS
             };
 
         }
         case actionTypes.ENABLE_PATIENT_FAILURE: {
             return {
-                ...state
+                ...state,
+                enableActionType: actionTypes.ENABLE_PATIENT_FAILURE
             };
         }
 
         // disable patient
         case actionTypes.DISABLE_PATIENT_REQUEST: {
             return {
-                ...state
+                ...state,
+                disableActionType: actionTypes.DISABLE_PATIENT_REQUEST
             };
         }
         case actionTypes.DISABLE_PATIENT_SUCCESS: {
@@ -68,13 +74,15 @@ function patients(state = initialState, action) {
 
             return {
                 ...state,
-                list
+                list,
+                disableActionType: actionTypes.DISABLE_PATIENT_SUCCESS
             };
 
         }
         case actionTypes.DISABLE_PATIENT_FAILURE: {
             return {
-                ...state
+                ...state,
+                disableActionType: actionTypes.DISABLE_PATIENT_FAILURE
             };
         }
 

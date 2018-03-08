@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import _ from 'lodash';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -18,9 +19,14 @@ class PatientListTable extends Component {
 
         super(props);
 
+        this.nameChangeHandler = ::this.nameChangeHandler;
         this.statusChangeHandler = ::this.statusChangeHandler;
 
     }
+
+    nameChangeHandler = _.debounce((id, value) => {
+
+    }, 250);
 
     statusChangeHandler(id, value) {
         const {enablePatient, disablePatient} = this.props;
@@ -46,7 +52,10 @@ class PatientListTable extends Component {
                        sortProp: 'name',
                        renderer(rowData) {
                            return <TextField className="name-field"
-                                             value={rowData.name}/>;
+                                             value={rowData.name}
+                                             onChange={value => {
+                                                 self.nameChangeHandler(rowData.id, value);
+                                             }}/>;
                        }
                    }, {
                        header: 'Group',

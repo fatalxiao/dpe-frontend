@@ -11,6 +11,19 @@ export default {
         });
     },
 
+    updatePatientInfo(options) {
+
+        const name = `updatePatientInfo/${options.id}`;
+        RequestManagement.cancelByName(name);
+
+        Api.post({
+            ...options,
+            name,
+            url: `${config.appBaseUrl}/patient/updatePatient`
+        });
+
+    },
+
     enablePatient(options) {
         Api.post({
             ...options,

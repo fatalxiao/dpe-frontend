@@ -71,7 +71,7 @@ function mapStateToProps(state, ownProps) {
     return {
         $groupListActionType: state.group.actionType,
         $patientList: state.patients.list,
-        $patientListActionType: state.patients.actionType
+        $patientListActionType: state.patients.getActionType
     };
 }
 
