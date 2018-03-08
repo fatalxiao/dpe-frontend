@@ -47,7 +47,7 @@ export const getPatientInfo = id => dispatch => {
 
 };
 
-export const updatePatientInfo = (id, callback) => (dispatch, getState) => {
+export const updatePatientInfo = (id, callback, successResMsgDisabled) => (dispatch, getState) => {
 
     const data = getState().patientInfo.form;
 
@@ -78,6 +78,7 @@ export const updatePatientInfo = (id, callback) => (dispatch, getState) => {
                 hasOxytocinAtTimeOfEA: data.hasOxytocinAtTimeOfEA,
                 description: data.description
             },
+            successResMsgDisabled,
             successCallback() {
                 callback && callback();
             }

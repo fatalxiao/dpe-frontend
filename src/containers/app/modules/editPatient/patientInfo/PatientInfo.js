@@ -76,7 +76,7 @@ class PatientInfo extends Component {
                         <ModuleLoading/>
                         :
                         <div>
-                            <PatientForm/>
+                            <PatientForm patientId={this.patientId}/>
                             <StepAction isFirst={true}
                                         onNext={this.save}/>
                         </div>

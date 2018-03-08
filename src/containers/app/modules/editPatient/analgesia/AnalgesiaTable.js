@@ -29,11 +29,14 @@ class AnalgesiaTable extends Component {
     }
 
     updateField(timePoint, fieldName, fieldValue) {
+
         const {updateAnalgesiaDataField} = this.props;
         updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
+
         setTimeout(() => {
             this.save();
         }, 0);
+
     }
 
     save = _.debounce(() => {

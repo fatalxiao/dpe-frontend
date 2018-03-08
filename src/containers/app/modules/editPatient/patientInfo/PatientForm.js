@@ -23,13 +23,25 @@ class PatientForm extends Component {
         super(props);
 
         this.updateField = ::this.updateField;
+        this.save = ::this.save;
 
     }
 
     updateField(fieldName, fieldValue) {
+
         const {updatePatientInfoField} = this.props;
         updatePatientInfoField(fieldName, fieldValue);
+
+        setTimeout(() => {
+            this.save();
+        }, 0);
+
     }
+
+    save = _.debounce(() => {
+        const {patientId, updatePatientInfo} = this.props;
+        patientId && updatePatientInfo(patientId, undefined, true);
+    }, 250);
 
     render() {
 
@@ -92,7 +104,7 @@ class PatientForm extends Component {
                                    onChange={value => this.updateField('cervicalDilationAtTimeOfEA', value)}/>
                         <Checkbox className="col-6"
                                   label="Oxytocin At Time Of EA"
-                                  checked={$form.hasOxytocinAtTimeOfEA}
+                                  checked={!!$form.hasOxytocinAtTimeOfEA}
                                   onChange={value => this.updateField('hasOxytocinAtTimeOfEA', value)}/>
                     </div>
                 </FieldSet>
@@ -115,9 +127,11 @@ class PatientForm extends Component {
 
 PatientForm.propTypes = {
 
+    patientId: PropTypes.string,
     $form: PropTypes.object,
 
-    updatePatientInfoField: PropTypes.func
+    updatePatientInfoField: PropTypes.func,
+    updatePatientInfo: PropTypes.func
 
 };
 
