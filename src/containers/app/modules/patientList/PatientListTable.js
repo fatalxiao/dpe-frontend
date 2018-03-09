@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {NavLink} from 'react-router-dom';
 import _ from 'lodash';
 
-import * as actions from 'reduxes/actions/index';
+import * as actions from 'reduxes/actions';
 
 import Table from 'alcedo-ui/Table';
 import Switcher from 'alcedo-ui/Switcher';
