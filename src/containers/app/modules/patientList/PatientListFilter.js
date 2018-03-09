@@ -5,7 +5,10 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import 'scss/containers/app/modules/patientList/PatientList.scss';
+import TextField from 'customized/CustomizedMaterialTextField';
+import RaisedButton from 'alcedo-ui/RaisedButton';
+
+import 'scss/containers/app/modules/patientList/PatientListFilter.scss';
 
 class PatientListFilter extends Component {
 
@@ -15,17 +18,29 @@ class PatientListFilter extends Component {
 
     render() {
 
-        const {} = this.props;
+        const {filterValue} = this.props;
 
         return (
             <div className="patient-list-filter">
+
+                <TextField className="patient-filter"
+                           value={filterValue}
+                           placeholder="Filter Patients ..."
+                           rightIconCls="icon-magnifying-glass"/>
+
+                <RaisedButton className="create-patient-button"
+                              theme={RaisedButton.Theme.PRIMARY}
+                              iconCls="icon-plus"
+                              value="Create Patient"/>
 
             </div>
         );
     }
 }
 
-PatientListFilter.propTypes = {};
+PatientListFilter.propTypes = {
+    filterValue: PropTypes.string
+};
 
 function mapStateToProps(state, ownProps) {
     return {};

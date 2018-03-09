@@ -45,54 +45,59 @@ class PatientListTable extends Component {
             self = this;
 
         return (
-            <Table className="patient-list-table"
-                   data={$patientList}
-                   columns={[{
-                       header: 'ID',
-                       sortable: true,
-                       sortProp: 'id',
-                       renderer: rowData =>
-                           <NavLink className="id-link"
-                                    to={`/app/patient/info/${rowData.id}`}>
-                               {rowData.id}
-                           </NavLink>
-                   }, {
-                       header: 'Name',
-                       sortable: true,
-                       sortProp: 'name',
-                       renderer(rowData) {
-                           return <TextField className="name-field"
-                                             value={rowData.name}
-                                             onChange={value => {
-                                                 self.nameChangeHandler(rowData.id, value);
-                                             }}/>;
-                       }
-                   }, {
-                       header: 'Group',
-                       sortable: true,
-                       sortProp: 'groupId',
-                       renderer(rowData) {
-                           return <DropdownSelect className="group-select"
-                                                  data={$groupList}
-                                                  valueField="id"
-                                                  displayField="name"
-                                                  value={rowData.group}
-                                                  onChange={value => {
-                                                      self.groupChangeHandler(rowData.id, value);
-                                                  }}/>;
-                       }
-                   }, {
-                       header: 'Status',
-                       sortable: true,
-                       sortProp: 'status',
-                       renderer(rowData) {
-                           return <Switcher value={rowData.status === 1}
-                                            size={Switcher.Size.SMALL}
-                                            onChange={value => {
-                                                self.statusChangeHandler(rowData.id, value);
-                                            }}/>;
-                       }
-                   }]}/>
+            <div className="patient-list-table-wrapper">
+
+
+                <Table className="patient-list-table"
+                       data={$patientList}
+
+                       columns={[{
+                           header: 'ID',
+                           sortable: true,
+                           sortProp: 'id',
+                           renderer: rowData =>
+                               <NavLink className="id-link"
+                                        to={`/app/patient/info/${rowData.id}`}>
+                                   {rowData.id}
+                               </NavLink>
+                       }, {
+                           header: 'Name',
+                           sortable: true,
+                           sortProp: 'name',
+                           renderer(rowData) {
+                               return <TextField className="name-field"
+                                                 value={rowData.name}
+                                                 onChange={value => {
+                                                     self.nameChangeHandler(rowData.id, value);
+                                                 }}/>;
+                           }
+                       }, {
+                           header: 'Group',
+                           sortable: true,
+                           sortProp: 'groupId',
+                           renderer(rowData) {
+                               return <DropdownSelect className="group-select"
+                                                      data={$groupList}
+                                                      valueField="id"
+                                                      displayField="name"
+                                                      value={rowData.group}
+                                                      onChange={value => {
+                                                          self.groupChangeHandler(rowData.id, value);
+                                                      }}/>;
+                           }
+                       }, {
+                           header: 'Status',
+                           sortable: true,
+                           sortProp: 'status',
+                           renderer(rowData) {
+                               return <Switcher value={rowData.status === 1}
+                                                size={Switcher.Size.SMALL}
+                                                onChange={value => {
+                                                    self.statusChangeHandler(rowData.id, value);
+                                                }}/>;
+                           }
+                       }]}/>
+            </div>
         );
     }
 }

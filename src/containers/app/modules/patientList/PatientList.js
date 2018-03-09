@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
+import PatientListFilter from './PatientListFilter';
 import PatientListTable from './PatientListTable';
 import NavNoPatient from 'containers/app/nav/patients/NavNoPatient';
 
@@ -13,23 +14,31 @@ import 'scss/containers/app/modules/patientList/PatientList.scss';
 class PatientList extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.state = {
+            filterValue: ''
+        };
+
     }
 
     render() {
 
-        const {$patientList} = this.props;
+        const {$patientList} = this.props,
+            {filterValue} = this.state;
 
         return (
             <div className="patient-list">
-
                 {
                     $patientList && $patientList.length > 0 ?
-                        <PatientListTable/>
+                        <div>
+                            <PatientListFilter filterValue={filterValue}/>
+                            <PatientListTable/>
+                        </div>
                         :
                         <NavNoPatient/>
                 }
-
             </div>
         );
     }

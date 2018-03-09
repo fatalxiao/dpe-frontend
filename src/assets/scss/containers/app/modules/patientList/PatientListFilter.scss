@@ -1,5 +1,33 @@
 @import '../../../../common.scss';
 
 .patient-list-filter {
+    @include float-fix;
+    margin-bottom: 48px;
 
+    .patient-filter {
+        float: left;
+
+        .text-field-right-icon {
+            .button-icon {
+                font-size: 20px;
+                color: $theme-description;
+            }
+        }
+    }
+
+    .create-patient-button {
+        float: right;
+        width: auto;
+        padding: 0 12px 0 8px;
+
+        .button-icon,
+        .base-button-value {
+            vertical-align: middle;
+        }
+
+        .button-icon {
+            font-size: 20px;
+            margin-right: 4px;
+        }
+    }
 }
