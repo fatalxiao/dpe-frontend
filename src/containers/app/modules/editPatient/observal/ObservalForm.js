@@ -45,7 +45,7 @@ class ObservalForm extends Component {
         }
 
         return isBirthTime ?
-            `Labor Duration: ${~~(timeStamp / 1000 / 60) + 60} min`
+            `Duration of Analgesia: ${~~(timeStamp / 1000 / 60) + 60} min`
             :
             `Duration: ${~~(timeStamp / 1000 / 60)} min`;
 
