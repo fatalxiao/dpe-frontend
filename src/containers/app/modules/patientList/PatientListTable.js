@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavLink} from 'react-router-dom';
 import _ from 'lodash';
-import classNames from 'classnames';
 
 import * as actions from 'reduxes/actions';
 
@@ -47,14 +46,10 @@ class PatientListTable extends Component {
             filteredData = filterValue ?
                 $patientList.filter(item => item.id.includes(filterValue) || item.name.includes(filterValue))
                 :
-                $patientList,
+                $patientList;
 
-            tableClassName = classNames('patient-list-table', {
-                hidden: !filteredData || filteredData.length < 1
-            });
-
-        return (
-            <Table className={tableClassName}
+        return filteredData && filteredData.length > 0 ?
+            <Table className="patient-list-table"
                    data={filteredData}
                    columns={[{
                        header: 'ID',
@@ -102,7 +97,10 @@ class PatientListTable extends Component {
                                             }}/>;
                        }
                    }]}/>
-        );
+            :
+            <div className="patient-list-table-empty">
+                No Patient Find
+            </div>;
     }
 }
 
