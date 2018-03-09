@@ -184,9 +184,9 @@ class ObservalForm extends Component {
                 <FieldSet title="6. Labor">
                     <div className="row">
                         <TextField className="col-6"
-                                   label="Duration Of Labor Analgesia"
-                                   value={format($form.durationOfLaborAnalgesia)}
-                                   onChange={value => this.updateField('durationOfLaborAnalgesia', value)}/>
+                                   label="Duration Of First Stage Of Labor"
+                                   value={format($form.durationOfFirstStageOfLabor)}
+                                   onChange={value => this.updateField('durationOfFirstStageOfLabor', value)}/>
                         <TextField className="col-6"
                                    label="Duration Of Second Stage Of Labor"
                                    value={format($form.durationOfSecondStageOfLabor)}
