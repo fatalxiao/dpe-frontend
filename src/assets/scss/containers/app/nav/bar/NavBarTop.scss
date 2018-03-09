@@ -59,6 +59,7 @@
         }
 
         &:hover {
+            color: inherit;
             background: transparentize(#000, .9);
         }
     }
