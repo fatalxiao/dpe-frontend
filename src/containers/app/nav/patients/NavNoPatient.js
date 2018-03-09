@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import AddPatientDialog from 'containers/app/nav/bar/AddPatientDialog';
+import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import 'scss/containers/app/nav/patients/NavNoPatient.scss';
 

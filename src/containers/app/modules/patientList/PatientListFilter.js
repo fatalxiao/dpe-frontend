@@ -7,18 +7,43 @@ import * as actions from 'reduxes/actions';
 
 import TextField from 'customized/CustomizedMaterialTextField';
 import RaisedButton from 'alcedo-ui/RaisedButton';
+import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import 'scss/containers/app/modules/patientList/PatientListFilter.scss';
 
 class PatientListFilter extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.state = {
+            addPatientDialogVisible: false
+        };
+
+        this.showAddPatient = ::this.showAddPatient;
+        this.hideAddPatient = ::this.hideAddPatient;
+
+    }
+
+    showAddPatient() {
+        this.setState({
+            addPatientDialogVisible: true
+        }, () => {
+            this.props.resetPatientBaseInfo();
+        });
+    }
+
+    hideAddPatient() {
+        this.setState({
+            addPatientDialogVisible: false
+        });
     }
 
     render() {
 
-        const {filterValue} = this.props;
+        const {filterValue} = this.props,
+            {addPatientDialogVisible} = this.state;
 
         return (
             <div className="patient-list-filter">
@@ -31,7 +56,11 @@ class PatientListFilter extends Component {
                 <RaisedButton className="create-patient-button"
                               theme={RaisedButton.Theme.PRIMARY}
                               iconCls="icon-plus"
-                              value="Create Patient"/>
+                              value="Create Patient"
+                              onTouchTap={this.showAddPatient}/>
+
+                <AddPatientDialog visible={addPatientDialogVisible}
+                                  onRequestClose={this.hideAddPatient}/>
 
             </div>
         );
@@ -39,7 +68,11 @@ class PatientListFilter extends Component {
 }
 
 PatientListFilter.propTypes = {
-    filterValue: PropTypes.string
+
+    filterValue: PropTypes.string,
+
+    resetPatientBaseInfo: PropTypes.func
+
 };
 
 function mapStateToProps(state, ownProps) {

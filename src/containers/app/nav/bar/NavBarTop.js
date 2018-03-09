@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
-import AddPatientDialog from './AddPatientDialog';
+import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import {DEFAULT_ROUTE} from 'src/config.routes';
 

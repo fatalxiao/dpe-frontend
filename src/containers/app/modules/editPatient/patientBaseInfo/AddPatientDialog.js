@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
+import * as actions from 'reduxes/actions/index';
 
 import Dialog from 'alcedo-ui/Dialog';
 import TextField from 'customized/CustomizedMaterialTextField';
