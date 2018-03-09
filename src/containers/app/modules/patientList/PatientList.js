@@ -21,6 +21,14 @@ class PatientList extends Component {
             filterValue: ''
         };
 
+        this.filterValueChangeHandler = ::this.filterValueChangeHandler;
+
+    }
+
+    filterValueChangeHandler(filterValue) {
+        this.setState({
+            filterValue
+        });
     }
 
     render() {
@@ -33,8 +41,9 @@ class PatientList extends Component {
                 {
                     $patientList && $patientList.length > 0 ?
                         <div>
-                            <PatientListFilter filterValue={filterValue}/>
-                            <PatientListTable/>
+                            <PatientListFilter filterValue={filterValue}
+                                               onFilterChange={this.filterValueChangeHandler}/>
+                            <PatientListTable filterValue={filterValue}/>
                         </div>
                         :
                         <NavNoPatient/>

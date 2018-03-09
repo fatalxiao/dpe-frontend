@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavLink} from 'react-router-dom';
 import _ from 'lodash';
+import classNames from 'classnames';
 
 import * as actions from 'reduxes/actions';
 
@@ -41,12 +42,20 @@ class PatientListTable extends Component {
 
     render() {
 
-        const {$groupList, $patientList} = this.props,
-            self = this;
+        const {$groupList, $patientList, filterValue} = this.props,
+            self = this,
+            filteredData = filterValue ?
+                $patientList.filter(item => item.id.includes(filterValue) || item.name.includes(filterValue))
+                :
+                $patientList,
+
+            tableClassName = classNames('patient-list-table', {
+                hidden: !filteredData || filteredData.length < 1
+            });
 
         return (
-            <Table className="patient-list-table"
-                   data={$patientList}
+            <Table className={tableClassName}
+                   data={filteredData}
                    columns={[{
                        header: 'ID',
                        sortable: true,
@@ -101,6 +110,7 @@ PatientListTable.propTypes = {
 
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
+    filterValue: PropTypes.string,
 
     updatePatientName: PropTypes.func,
     updatePatientGroup: PropTypes.func,

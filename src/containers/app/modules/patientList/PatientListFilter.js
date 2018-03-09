@@ -42,7 +42,7 @@ class PatientListFilter extends Component {
 
     render() {
 
-        const {filterValue} = this.props,
+        const {filterValue, onFilterChange} = this.props,
             {addPatientDialogVisible} = this.state;
 
         return (
@@ -51,7 +51,8 @@ class PatientListFilter extends Component {
                 <TextField className="patient-filter"
                            value={filterValue}
                            placeholder="Filter Patients ..."
-                           rightIconCls="icon-magnifying-glass"/>
+                           rightIconCls="icon-magnifying-glass"
+                           onChange={onFilterChange}/>
 
                 <RaisedButton className="create-patient-button"
                               theme={RaisedButton.Theme.PRIMARY}
@@ -71,7 +72,8 @@ PatientListFilter.propTypes = {
 
     filterValue: PropTypes.string,
 
-    resetPatientBaseInfo: PropTypes.func
+    resetPatientBaseInfo: PropTypes.func,
+    onFilterChange: PropTypes.func
 
 };
 
