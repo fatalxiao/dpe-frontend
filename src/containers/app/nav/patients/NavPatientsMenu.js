@@ -47,17 +47,18 @@ class NavPatientCollapsed extends Component {
             {popVisible} = this.state;
 
         return (
-            <div className="nav-patient-menu">
+            <div className="nav-patient-popover">
 
                 <IconButton ref="allPatientButton"
-                            className="all-patients-menu-item"
+                            className="nav-patient-popover-item"
                             iconCls="icon-list"
                             onMouseOver={() => {
                                 this.allPatientMouseHandler(true);
                             }}
                             onTouchTap={this.goToList}/>
 
-                <Popover visible={isFold && popVisible}
+                <Popover className=""
+                    visible={isFold && popVisible}
                          triggerEl={this.allPatientButtonEl}
                          position={Popover.Position.RIGHT_TOP}
                          hasTriangle={false}

@@ -1,12 +1,12 @@
 @import '../../../../common';
 
-.nav-patient-menu {
+.nav-patient-popover {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: $theme-secondary;
 
-    .icon-button.all-patients-menu-item {
+    .icon-button.nav-patient-popover-item {
         border-radius: $theme-border-radius;
         width: 48px;
         height: 48px;
