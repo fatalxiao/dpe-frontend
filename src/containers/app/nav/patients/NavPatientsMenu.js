@@ -47,7 +47,7 @@ class NavPatientCollapsed extends Component {
             {popVisible} = this.state;
 
         return (
-            <div className="nav-patient-popover">
+            <div className="nav-patient-popover-wrapper">
 
                 <IconButton ref="allPatientButton"
                             className="nav-patient-popover-item"
