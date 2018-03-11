@@ -89,22 +89,22 @@ class ObservalForm extends Component {
 
                 <FieldSet title="2. Medication use">
                     <div className="row">
-                        <TextField className="col-3 anesthetic-consumption"
+                        <TextField className="col-3 unit-ml"
                                    label="Test Dose"
                                    rightIconCls="unit"
                                    value={format($form.testDose)}
                                    onChange={value => this.updateField('testDose', value)}/>
-                        <TextField className="col-3 anesthetic-consumption"
+                        <TextField className="col-3 unit-ml"
                                    label="Initial Dose"
                                    rightIconCls="unit"
                                    value={format($form.initialDose)}
                                    onChange={value => this.updateField('initialDose', value)}/>
-                        <TextField className="col-3 anesthetic-consumption"
+                        <TextField className="col-3 unit-ml"
                                    label="Pump Consumption"
                                    rightIconCls="unit"
                                    value={format($form.pumpConsumption)}
                                    onChange={value => this.updateField('pumpConsumption', value)}/>
-                        <TextField className="col-3 anesthetic-consumption"
+                        <TextField className="col-3 unit-ml"
                                    label="Bolus"
                                    rightIconCls="unit"
                                    value={format($form.bolus)}

@@ -81,7 +81,7 @@ body {
 
 .unit-days {
     .icon-button.text-field-right-icon {
-        width: 56px;
+        width: 60px;
 
         .unit::after {
             content: "days";
@@ -89,9 +89,19 @@ body {
     }
 }
 
+.unit-hours {
+    .icon-button.text-field-right-icon {
+        width: 60px;
+
+        .unit::after {
+            content: "hours";
+        }
+    }
+}
+
 .unit-minutes {
     .icon-button.text-field-right-icon {
-        width: 56px;
+        width: 60px;
 
         .unit::after {
             content: "minutes";
@@ -111,6 +121,14 @@ body {
     .icon-button.text-field-right-icon {
         .unit::after {
             content: "kg";
+        }
+    }
+}
+
+.unit-ml {
+    .icon-button.text-field-right-icon {
+        .unit::after {
+            content: "ml";
         }
     }
 }
