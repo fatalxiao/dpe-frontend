@@ -18,23 +18,31 @@ class PatientList extends Component {
         super(props);
 
         this.state = {
-            filterValue: ''
+            filterValue: '',
+            filterGroup: {id: 0, name: 'All'}
         };
 
-        this.filterValueChangeHandler = ::this.filterValueChangeHandler;
+        this.filterChangeHandler = ::this.filterChangeHandler;
+        this.groupChangeHandler = ::this.groupChangeHandler;
 
     }
 
-    filterValueChangeHandler(filterValue) {
+    filterChangeHandler(filterValue) {
         this.setState({
             filterValue
+        });
+    }
+
+    groupChangeHandler(filterGroup) {
+        this.setState({
+            filterGroup
         });
     }
 
     render() {
 
         const {$patientList} = this.props,
-            {filterValue} = this.state;
+            {filterValue, filterGroup} = this.state;
 
         return (
             <div className="patient-list">
@@ -42,8 +50,11 @@ class PatientList extends Component {
                     $patientList && $patientList.length > 0 ?
                         <div>
                             <PatientListFilter filterValue={filterValue}
-                                               onFilterChange={this.filterValueChangeHandler}/>
-                            <PatientListTable filterValue={filterValue}/>
+                                               filterGroup={filterGroup}
+                                               onFilterChange={this.filterChangeHandler}
+                                               onGroupChange={this.groupChangeHandler}/>
+                            <PatientListTable filterValue={filterValue}
+                                              filterGroup={filterGroup}/>
                         </div>
                         :
                         <NavNoPatient/>

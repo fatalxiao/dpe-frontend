@@ -5,9 +5,12 @@
     margin-bottom: 48px;
 
     .patient-filter-wrapper {
+        @include float-fix;
         float: left;
 
         .patient-filter {
+            float: left;
+            width: 200px;
 
             .material-provider-label-wrapper {
                 display: none;
@@ -18,6 +21,15 @@
                     font-size: 20px;
                     color: $theme-description;
                 }
+            }
+        }
+
+        .group-select {
+            float: left;
+            width: 120px;
+
+            .material-provider-label-wrapper {
+                display: none;
             }
         }
     }

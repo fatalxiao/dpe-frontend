@@ -43,7 +43,7 @@ class PatientListFilter extends Component {
 
     render() {
 
-        const {$groupList, filterValue, filterGroup, onFilterChange} = this.props,
+        const {$groupList, filterValue, filterGroup, onFilterChange, onGroupChange} = this.props,
             {addPatientDialogVisible} = this.state;
 
         return (
@@ -57,14 +57,12 @@ class PatientListFilter extends Component {
                                rightIconCls="icon-magnifying-glass"
                                onChange={onFilterChange}/>
 
-                    {/*<DropdownSelect className="hover-activated group-select"*/}
-                                    {/*data={[{id: 0, name: 'All'}, ...$groupList]}*/}
-                                    {/*valueField="id"*/}
-                                    {/*displayField="name"*/}
-                                    {/*value={filterGroup}*/}
-                                    {/*onChange={value => {*/}
-                                        {/*self.groupChangeHandler(rowData.id, value);*/}
-                                    {/*}}/>*/}
+                    <DropdownSelect className="group-select"
+                                    data={[{id: 0, name: 'All'}, ...$groupList]}
+                                    valueField="id"
+                                    displayField="name"
+                                    value={filterGroup}
+                                    onChange={onGroupChange}/>
 
                 </div>
 
@@ -86,9 +84,11 @@ PatientListFilter.propTypes = {
 
     $groupList: PropTypes.array,
     filterValue: PropTypes.string,
+    filterGroup: PropTypes.object,
 
     resetPatientBaseInfo: PropTypes.func,
-    onFilterChange: PropTypes.func
+    onFilterChange: PropTypes.func,
+    onGroupChange: PropTypes.func
 
 };
 
