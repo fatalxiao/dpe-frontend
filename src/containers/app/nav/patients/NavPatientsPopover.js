@@ -57,8 +57,8 @@ class NavPatientCollapsed extends Component {
                             }}
                             onTouchTap={this.goToList}/>
 
-                <Popover className=""
-                    visible={isFold && popVisible}
+                <Popover className="nav-patient-popover"
+                         visible={isFold && popVisible}
                          triggerEl={this.allPatientButtonEl}
                          position={Popover.Position.RIGHT_TOP}
                          hasTriangle={false}

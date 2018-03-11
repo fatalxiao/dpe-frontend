@@ -19,3 +19,11 @@
     }
 
 }
+
+.nav-patient-popover {
+
+    .popover-content {
+        max-height: 480px;
+        overflow-y: auto;
+    }
+}
