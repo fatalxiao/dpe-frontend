@@ -91,7 +91,7 @@ function observal(state = initialState, action) {
         }
         case actionTypes.GET_OBSERVAL_SUCCESS: {
 
-            const form = action.responseData;
+            const form = action.responseData || _.cloneDeep(DEFAULT_FORM);
 
             if (form.durationOfFirstStageOfLabor && !isNaN(form.durationOfFirstStageOfLabor)) {
                 form.durationOfFirstStageOfLaborHours = ~~(form.durationOfFirstStageOfLabor / 60);

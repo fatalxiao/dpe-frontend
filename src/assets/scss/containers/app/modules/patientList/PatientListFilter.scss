@@ -4,17 +4,20 @@
     @include float-fix;
     margin-bottom: 48px;
 
-    .patient-filter {
+    .patient-filter-wrapper {
         float: left;
 
-        .material-provider-label-wrapper {
-            display: none;
-        }
+        .patient-filter {
 
-        .text-field-right-icon {
-            .button-icon {
-                font-size: 20px;
-                color: $theme-description;
+            .material-provider-label-wrapper {
+                display: none;
+            }
+
+            .text-field-right-icon {
+                .button-icon {
+                    font-size: 20px;
+                    color: $theme-description;
+                }
             }
         }
     }

@@ -58,7 +58,7 @@ function patientInfo(state = initialState, action) {
         }
         case actionTypes.GET_PATIENT_INFO_SUCCESS: {
 
-            const form = action.responseData;
+            const form = action.responseData || _.cloneDeep(DEFAULT_FORM);
 
             if (form.gestationalDays && !isNaN(form.gestationalDays)) {
                 form.gestationalDaysWeeks = ~~(form.gestationalDays / 7);

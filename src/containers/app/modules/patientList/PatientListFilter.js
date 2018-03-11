@@ -7,6 +7,7 @@ import * as actions from 'reduxes/actions';
 
 import TextField from 'customized/CustomizedMaterialTextField';
 import RaisedButton from 'alcedo-ui/RaisedButton';
+import DropdownSelect from 'customized/CustomizedMaterialDropdownSelect';
 import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import 'scss/containers/app/modules/patientList/PatientListFilter.scss';
@@ -42,17 +43,30 @@ class PatientListFilter extends Component {
 
     render() {
 
-        const {filterValue, onFilterChange} = this.props,
+        const {$groupList, filterValue, filterGroup, onFilterChange} = this.props,
             {addPatientDialogVisible} = this.state;
 
         return (
             <div className="patient-list-filter">
 
-                <TextField className="patient-filter"
-                           value={filterValue}
-                           placeholder="Filter Patients ..."
-                           rightIconCls="icon-magnifying-glass"
-                           onChange={onFilterChange}/>
+                <div className="patient-filter-wrapper">
+
+                    <TextField className="patient-filter"
+                               value={filterValue}
+                               placeholder="Filter Patients ..."
+                               rightIconCls="icon-magnifying-glass"
+                               onChange={onFilterChange}/>
+
+                    {/*<DropdownSelect className="hover-activated group-select"*/}
+                                    {/*data={[{id: 0, name: 'All'}, ...$groupList]}*/}
+                                    {/*valueField="id"*/}
+                                    {/*displayField="name"*/}
+                                    {/*value={filterGroup}*/}
+                                    {/*onChange={value => {*/}
+                                        {/*self.groupChangeHandler(rowData.id, value);*/}
+                                    {/*}}/>*/}
+
+                </div>
 
                 <RaisedButton className="create-patient-button"
                               theme={RaisedButton.Theme.PRIMARY}
@@ -70,6 +84,7 @@ class PatientListFilter extends Component {
 
 PatientListFilter.propTypes = {
 
+    $groupList: PropTypes.array,
     filterValue: PropTypes.string,
 
     resetPatientBaseInfo: PropTypes.func,
@@ -78,7 +93,9 @@ PatientListFilter.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $groupList: state.group.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
