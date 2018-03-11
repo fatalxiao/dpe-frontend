@@ -7,6 +7,10 @@
     .patient-filter {
         float: left;
 
+        .material-provider-label-wrapper {
+            display: none;
+        }
+
         .text-field-right-icon {
             .button-icon {
                 font-size: 20px;
