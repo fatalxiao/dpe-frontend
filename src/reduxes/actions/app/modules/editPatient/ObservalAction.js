@@ -1,6 +1,22 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import ObservalApi from 'apis/app/modules/patient/ObservalApi';
 
+function durationHandler(data) {
+
+    let result = 0;
+
+    if (data.durationOfFirstStageOfLaborHours && !isNaN(data.durationOfFirstStageOfLaborHours)) {
+        result += +data.durationOfFirstStageOfLaborHours * 60;
+    }
+
+    if (data.durationOfFirstStageOfLaborMinutes && !isNaN(data.durationOfFirstStageOfLaborMinutes)) {
+        result += +data.durationOfFirstStageOfLaborMinutes;
+    }
+
+    return result;
+
+}
+
 export const updateObservalDataField = (fieldName, fieldValue) => ({
     type: actionTypes.UPDATE_OBSERVAL_FIELD,
     fieldName,
@@ -46,7 +62,11 @@ export const createOrUpdateObservalData = (patientId, callback, successResMsgDis
             api: ObservalApi.createOrUpdateObservalData,
             params: {
                 patientId,
-                observalData
+                observalData: {
+                    ...observalData,
+                    durationOfFirstStageOfLabor: durationHandler(observalData),
+                    durationOfSecondStageOfLabor: durationHandler(observalData)
+                }
             },
             successResMsgDisabled,
             successCallback() {
