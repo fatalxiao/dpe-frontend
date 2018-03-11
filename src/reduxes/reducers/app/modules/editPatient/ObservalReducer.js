@@ -14,7 +14,11 @@ const DEFAULT_FORM = {
         firstPcaTime: '',
         firstManualBolusTime: '',
         durationOfFirstStageOfLabor: '',
+        durationOfFirstStageOfLaborHours: '',
+        durationOfFirstStageOfLaborMinutes: '',
         durationOfSecondStageOfLabor: '',
+        durationOfSecondStageOfLaborHours: '',
+        durationOfSecondStageOfLaborMinutes: '',
         hasEpiduralCatheterAdjuestment: false,
         hasEpiduralcatheterReplacement: false,
         hasPrenatalFever: false,
@@ -87,7 +91,16 @@ function observal(state = initialState, action) {
         }
         case actionTypes.GET_OBSERVAL_SUCCESS: {
 
-            const form = action.responseData || _.cloneDeep(DEFAULT_FORM);
+            const form = action.responseData;
+
+            if (form.durationOfFirstStageOfLabor && !isNaN(form.durationOfFirstStageOfLabor)) {
+                form.durationOfFirstStageOfLaborHours = ~~(form.durationOfFirstStageOfLabor / 60);
+                form.durationOfFirstStageOfLaborMinutes = form.durationOfFirstStageOfLabor % 60;
+            }
+            if (form.durationOfSecondStageOfLabor && !isNaN(form.durationOfSecondStageOfLabor)) {
+                form.durationOfSecondStageOfLaborHours = ~~(form.durationOfSecondStageOfLabor / 60);
+                form.durationOfSecondStageOfLaborMinutes = form.durationOfSecondStageOfLabor % 60;
+            }
 
             return {
                 ...state,
