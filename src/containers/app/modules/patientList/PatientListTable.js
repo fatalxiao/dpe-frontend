@@ -65,7 +65,7 @@ class PatientListTable extends Component {
                        sortable: true,
                        sortProp: 'name',
                        renderer(rowData) {
-                           return <TextField className="name-field"
+                           return <TextField className="hover-activated name-field"
                                              value={rowData.name}
                                              onChange={value => {
                                                  self.nameChangeHandler(rowData.id, value);
@@ -76,7 +76,7 @@ class PatientListTable extends Component {
                        sortable: true,
                        sortProp: 'groupId',
                        renderer(rowData) {
-                           return <DropdownSelect className="group-select"
+                           return <DropdownSelect className="hover-activated group-select"
                                                   data={$groupList}
                                                   valueField="id"
                                                   displayField="name"

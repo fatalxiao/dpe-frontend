@@ -15,56 +15,18 @@
     .name-field {
         width: 100%;
 
-        .material-provider-label-wrapper {
-            display: none;
-        }
-
-        .text-field {
-            border-bottom-color: transparent;
-
-            .text-field-input {
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
-
-        &:hover {
-            .text-field {
-                border-bottom-color: $theme-border;
-            }
+        .text-field-input {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
     .group-select {
         width: 100%;
 
-        .material-provider-label-wrapper {
-            display: none;
-        }
-
-        .dropdown-select {
-            border-bottom-color: transparent !important;
-        }
-
         .dropdown-trigger {
             padding-left: 0;
-
-            .dropdown-trigger-icon {
-                opacity: 0;
-            }
         }
-
-        &:hover {
-
-            .dropdown-select {
-                border-bottom-color: $theme-border;
-            }
-
-            .dropdown-trigger-icon {
-                opacity: 1;
-            }
-        }
-
     }
 }
 
