@@ -7,25 +7,10 @@
         margin-bottom: 48px;
     }
 
-    .gestational-weeks {
-
-        .text-field-right-icon {
-            width: 56px;
-
-            .unit::after {
-                content: "Weeks";
-            }
-        }
-    }
-
     .gestational-days {
 
         .material-provider-label {
             opacity: 0;
-        }
-
-        .unit::after {
-            content: "Days";
         }
 
         &::before {
@@ -39,14 +24,6 @@
             text-align: center;
             color: $theme-description;
         }
-    }
-
-    .height .unit::after {
-        content: "cm";
-    }
-
-    .weight .unit::after {
-        content: "kg";
     }
 
     .msg {

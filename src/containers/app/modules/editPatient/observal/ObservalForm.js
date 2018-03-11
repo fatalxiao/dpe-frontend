@@ -183,14 +183,24 @@ class ObservalForm extends Component {
 
                 <FieldSet title="6. Labor">
                     <div className="row">
-                        <TextField className="col-6"
-                                   label="Duration Of First Stage Of Labor"
-                                   value={format($form.durationOfFirstStageOfLabor)}
-                                   onChange={value => this.updateField('durationOfFirstStageOfLabor', value)}/>
-                        <TextField className="col-6"
-                                   label="Duration Of Second Stage Of Labor"
-                                   value={format($form.durationOfSecondStageOfLabor)}
-                                   onChange={value => this.updateField('durationOfSecondStageOfLabor', value)}/>
+                        <TextField className="col-3 unit-hours"
+                                   label="First Stage Of Labor"
+                                   rightIconCls="unit"
+                                   value={format($form.durationOfFirstStageOfLaborHours)}
+                                   onChange={value => this.updateField('durationOfFirstStageOfLaborHours', value)}/>
+                        <TextField className="col-3 unit-minutes"
+                                   rightIconCls="unit"
+                                   value={format($form.durationOfFirstStageOfLaborMinutes)}
+                                   onChange={value => this.updateField('durationOfFirstStageOfLaborMinutes', value)}/>
+                        <TextField className="col-3 unit-hours"
+                                   label="Second Stage Of Labor"
+                                   rightIconCls="unit"
+                                   value={format($form.durationOfSecondStageOfLaborHours)}
+                                   onChange={value => this.updateField('durationOfSecondStageOfLaborHours', value)}/>
+                        <TextField className="col-3 unit-minutes"
+                                   rightIconCls="unit"
+                                   value={format($form.durationOfSecondStageOfLaborMinutes)}
+                                   onChange={value => this.updateField('durationOfSecondStageOfLaborMinutes', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-6"

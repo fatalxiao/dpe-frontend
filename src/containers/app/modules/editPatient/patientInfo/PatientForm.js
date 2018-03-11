@@ -56,24 +56,24 @@ class PatientForm extends Component {
                                    label="Age"
                                    value={format($form.age)}
                                    onChange={value => this.updateField('age', value)}/>
-                        <TextField className="col-3 gestational-weeks"
+                        <TextField className="col-3 unit-weeks"
                                    label="Gestational Days"
                                    rightIconCls="unit"
                                    value={format($form.gestationalDaysWeeks)}
                                    onChange={value => this.updateField('gestationalDaysWeeks', value)}/>
-                        <TextField className="col-3 gestational-days"
+                        <TextField className="col-3 unit-days gestational-days"
                                    label="Gestational Days"
                                    rightIconCls="unit"
                                    value={format($form.gestationalDaysDays)}
                                    onChange={value => this.updateField('gestationalDaysDays', value)}/>
                     </div>
                     <div className="row">
-                        <TextField className="col-3 height"
+                        <TextField className="col-3 unit-cm"
                                    label="Height"
                                    rightIconCls="unit"
                                    value={format($form.height)}
                                    onChange={value => this.updateField('height', value)}/>
-                        <TextField className="col-3 weight"
+                        <TextField className="col-3 unit-kg"
                                    label="Weight"
                                    rightIconCls="unit"
                                    value={format($form.weight)}

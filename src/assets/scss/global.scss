@@ -68,3 +68,49 @@ body {
 .hidden-input {
     display: none;
 }
+
+.unit-weeks {
+    .icon-button.text-field-right-icon {
+        width: 56px;
+
+        .unit::after {
+            content: "weeks";
+        }
+    }
+}
+
+.unit-days {
+    .icon-button.text-field-right-icon {
+        width: 56px;
+
+        .unit::after {
+            content: "days";
+        }
+    }
+}
+
+.unit-minutes {
+    .icon-button.text-field-right-icon {
+        width: 56px;
+
+        .unit::after {
+            content: "minutes";
+        }
+    }
+}
+
+.unit-cm {
+    .icon-button.text-field-right-icon {
+        .unit::after {
+            content: "cm";
+        }
+    }
+}
+
+.unit-kg {
+    .icon-button.text-field-right-icon {
+        .unit::after {
+            content: "kg";
+        }
+    }
+}
