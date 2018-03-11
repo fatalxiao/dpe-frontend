@@ -62,7 +62,6 @@ class PatientForm extends Component {
                                    value={format($form.gestationalDaysWeeks)}
                                    onChange={value => this.updateField('gestationalDaysWeeks', value)}/>
                         <TextField className="col-3 unit-days gestational-days"
-                                   label="Gestational Days"
                                    rightIconCls="unit"
                                    value={format($form.gestationalDaysDays)}
                                    onChange={value => this.updateField('gestationalDaysDays', value)}/>

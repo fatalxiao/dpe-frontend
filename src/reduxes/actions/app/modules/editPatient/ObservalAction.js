@@ -1,16 +1,18 @@
 import * as actionTypes from 'reduxes/actionTypes/index';
 import ObservalApi from 'apis/app/modules/patient/ObservalApi';
 
-function durationHandler(data) {
+function durationHandler(data, key) {
 
+    const hoursKey = `${key}Hours`,
+        minutesKey = `${key}Minutes`;
     let result = 0;
 
-    if (data.durationOfFirstStageOfLaborHours && !isNaN(data.durationOfFirstStageOfLaborHours)) {
-        result += +data.durationOfFirstStageOfLaborHours * 60;
+    if (data[hoursKey] && !isNaN(data[hoursKey])) {
+        result += +data[hoursKey] * 60;
     }
 
-    if (data.durationOfFirstStageOfLaborMinutes && !isNaN(data.durationOfFirstStageOfLaborMinutes)) {
-        result += +data.durationOfFirstStageOfLaborMinutes;
+    if (data[minutesKey] && !isNaN(data[minutesKey])) {
+        result += +data[minutesKey];
     }
 
     return result;
@@ -64,8 +66,8 @@ export const createOrUpdateObservalData = (patientId, callback, successResMsgDis
                 patientId,
                 observalData: {
                     ...observalData,
-                    durationOfFirstStageOfLabor: durationHandler(observalData),
-                    durationOfSecondStageOfLabor: durationHandler(observalData)
+                    durationOfFirstStageOfLabor: durationHandler(observalData, 'durationOfFirstStageOfLabor'),
+                    durationOfSecondStageOfLabor: durationHandler(observalData, 'durationOfSecondStageOfLabor')
                 }
             },
             successResMsgDisabled,

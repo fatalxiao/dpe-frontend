@@ -8,11 +8,6 @@
     }
 
     .gestational-days {
-
-        .material-provider-label {
-            opacity: 0;
-        }
-
         &::before {
             content: "+";
             position: absolute;
