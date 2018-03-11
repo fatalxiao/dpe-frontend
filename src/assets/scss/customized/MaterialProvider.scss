@@ -2,7 +2,9 @@
 
 .material-provider {
     .material-provider-label {
+        display: block;
         color: $theme-label;
+        height: 16px;
     }
 
     &[disabled] {
