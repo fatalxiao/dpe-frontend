@@ -47,6 +47,10 @@ class NavBarTop extends Component {
         });
     }
 
+    export() {
+
+    }
+
     render() {
 
         const {children, isFold} = this.props,
@@ -71,6 +75,10 @@ class NavBarTop extends Component {
                 <IconButton className="nav-bar-item"
                             iconCls="icon-plus"
                             onTouchTap={this.showAddPatient}/>
+
+                <IconButton className="nav-bar-item export"
+                            iconCls="icon-download"
+                            onTouchTap={this.export}/>
 
                 <AddPatientDialog visible={addPatientDialogVisible}
                                   onRequestClose={this.hideAddPatient}/>
