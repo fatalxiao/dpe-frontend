@@ -43,7 +43,7 @@ class PatientListFilter extends Component {
 
     render() {
 
-        const {$groupList, filterValue, filterGroup, onFilterChange, onGroupChange} = this.props,
+        const {filterValue, groupList, filterGroup, statusList, filterStatus, onFilterChange} = this.props,
             {addPatientDialogVisible} = this.state;
 
         return (
@@ -55,14 +55,27 @@ class PatientListFilter extends Component {
                                value={filterValue}
                                placeholder="Filter Patients ..."
                                rightIconCls="icon-magnifying-glass"
-                               onChange={onFilterChange}/>
+                               onChange={value => {
+                                   onFilterChange(value, filterGroup, filterStatus);
+                               }}/>
 
                     <DropdownSelect className="group-select"
-                                    data={[{id: 0, name: 'All Groups'}, ...$groupList]}
+                                    data={groupList}
                                     valueField="id"
                                     displayField="name"
                                     value={filterGroup}
-                                    onChange={onGroupChange}/>
+                                    onChange={value => {
+                                        onFilterChange(filterValue, value, filterStatus);
+                                    }}/>
+
+                    <DropdownSelect className="group-select"
+                                    data={statusList}
+                                    valueField="id"
+                                    displayField="name"
+                                    value={filterStatus}
+                                    onChange={value => {
+                                        onFilterChange(filterValue, filterGroup, value);
+                                    }}/>
 
                 </div>
 
@@ -82,20 +95,19 @@ class PatientListFilter extends Component {
 
 PatientListFilter.propTypes = {
 
-    $groupList: PropTypes.array,
     filterValue: PropTypes.string,
+    groupList: PropTypes.array,
     filterGroup: PropTypes.object,
+    statusList: PropTypes.array,
+    filterStatus: PropTypes.object,
 
     resetPatientBaseInfo: PropTypes.func,
-    onFilterChange: PropTypes.func,
-    onGroupChange: PropTypes.func
+    onFilterChange: PropTypes.func
 
 };
 
 function mapStateToProps(state, ownProps) {
-    return {
-        $groupList: state.group.list
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {

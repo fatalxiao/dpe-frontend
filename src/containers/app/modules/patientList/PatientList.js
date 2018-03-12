@@ -17,32 +17,37 @@ class PatientList extends Component {
 
         super(props);
 
+        this.allGroup = {id: 0, name: 'All Groups'};
+        this.allStatus = {id: -1, name: 'All Status'};
+
+        this.statusList = [this.allStatus, {
+            id: 1, name: 'Enabled'
+        }, {
+            id: 0, name: 'Disabled'
+        }];
+
         this.state = {
             filterValue: '',
-            filterGroup: {id: 0, name: 'All Groups'}
+            filterGroup: this.allGroup,
+            filterStatus: this.allStatus
         };
 
         this.filterChangeHandler = ::this.filterChangeHandler;
-        this.groupChangeHandler = ::this.groupChangeHandler;
 
     }
 
-    filterChangeHandler(filterValue) {
+    filterChangeHandler(filterValue, filterGroup, filterStatus) {
         this.setState({
-            filterValue
-        });
-    }
-
-    groupChangeHandler(filterGroup) {
-        this.setState({
-            filterGroup
+            filterValue,
+            filterGroup,
+            filterStatus
         });
     }
 
     render() {
 
-        const {$patientList} = this.props,
-            {filterValue, filterGroup} = this.state;
+        const {$groupList, $patientList} = this.props,
+            {filterValue, filterGroup, filterStatus} = this.state;
 
         return (
             <div className="patient-list">
@@ -50,9 +55,11 @@ class PatientList extends Component {
                     $patientList && $patientList.length > 0 ?
                         <div>
                             <PatientListFilter filterValue={filterValue}
+                                               groupList={[this.allGroup, ...$groupList]}
                                                filterGroup={filterGroup}
-                                               onFilterChange={this.filterChangeHandler}
-                                               onGroupChange={this.groupChangeHandler}/>
+                                               statusList={this.statusList}
+                                               filterStatus={filterStatus}
+                                               onFilterChange={this.filterChangeHandler}/>
                             <PatientListTable filterValue={filterValue}
                                               filterGroup={filterGroup}/>
                         </div>
@@ -65,11 +72,13 @@ class PatientList extends Component {
 }
 
 PatientList.propTypes = {
+    $groupList: PropTypes.array,
     $patientList: PropTypes.array
 };
 
 function mapStateToProps(state, ownProps) {
     return {
+        $groupList: state.group.list,
         $patientList: state.patients.list
     };
 }
