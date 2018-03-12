@@ -10,7 +10,7 @@ import PatientList from './NavPatientList';
 
 import 'scss/containers/app/nav/patients/NavPatientListWrapper.scss';
 
-class PatientListWrapper extends Component {
+class NavPatientListWrapper extends Component {
 
     constructor(props) {
 
@@ -46,7 +46,7 @@ class PatientListWrapper extends Component {
     }
 }
 
-PatientListWrapper.propTypes = {
+NavPatientListWrapper.propTypes = {
 
     $patientList: PropTypes.array,
 
@@ -64,4 +64,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PatientListWrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(NavPatientListWrapper);
