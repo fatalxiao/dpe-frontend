@@ -28,6 +28,8 @@ class NavBarTop extends Component {
         this.goToLanding = ::this.goToLanding;
         this.showAddPatient = ::this.showAddPatient;
         this.hideAddPatient = ::this.hideAddPatient;
+        this.export = ::this.export;
+        this.exportLoadedHandler = ::this.exportLoadedHandler;
 
     }
 
@@ -50,11 +52,15 @@ class NavBarTop extends Component {
     }
 
     export() {
-        this.refs.downloadField.download();
+        this.downloadFieldEl.download();
     }
 
-    exportLoadedHandler() {
+    exportLoadedHandler(e, innerText) {
 
+    }
+
+    componentDidMount() {
+        this.downloadFieldEl = this.refs.downloadField;
     }
 
     render() {
