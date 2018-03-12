@@ -18,12 +18,12 @@ class PatientList extends Component {
         super(props);
 
         this.allGroup = {id: 0, name: 'All Groups'};
-        this.allStatus = {id: '-1', name: 'All Status'};
+        this.allStatus = {id: -1, name: 'All Status'};
 
         this.statusList = [this.allStatus, {
-            id: '1', name: 'Enabled'
+            id: 1, name: 'Enabled'
         }, {
-            id: '0', name: 'Disabled'
+            id: 0, name: 'Disabled'
         }];
 
         this.state = {
@@ -49,12 +49,12 @@ class PatientList extends Component {
         const {$patientList} = this.props,
             {filterValue, filterGroup, filterStatus} = this.state;
 
-        $patientList.filter(item =>
+        return $patientList.filter(item =>
             (item.id.includes(filterValue) || item.name.includes(filterValue))
             &&
-            (filterGroup.id !== 0 && item.groupId === filterGroup.id)
+            (filterGroup.id === 0 ? true : item.groupId === filterGroup.id)
             &&
-            (filterStatus.id !== '-1' && item.status === filterStatus.id)
+            (filterStatus.id === -1 ? true : item.status === filterStatus.id)
         );
 
     }
@@ -62,8 +62,7 @@ class PatientList extends Component {
     render() {
 
         const {$groupList, $patientList} = this.props,
-            {filterValue, filterGroup, filterStatus} = this.state,
-            data = this.filterData();
+            {filterValue, filterGroup, filterStatus} = this.state;
 
         return (
             <div className="patient-list">
@@ -76,7 +75,7 @@ class PatientList extends Component {
                                                statusList={this.statusList}
                                                filterStatus={filterStatus}
                                                onFilterChange={this.filterChangeHandler}/>
-                            <PatientListTable data={data}/>
+                            <PatientListTable data={this.filterData()}/>
                         </div>
                         :
                         <NavNoPatient/>

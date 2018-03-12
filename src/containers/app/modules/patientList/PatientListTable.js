@@ -44,7 +44,7 @@ class PatientListTable extends Component {
         const {$groupList, data} = this.props,
             self = this;
 
-        return filteredData && filteredData.length > 0 ?
+        return data && data.length > 0 ?
             <Table className="patient-list-table"
                    data={data}
                    columns={[{
