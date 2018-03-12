@@ -97,6 +97,16 @@ class PatientForm extends Component {
                                    onChange={value => this.updateField('diastolicBloodPressure', value)}/>
                     </div>
                     <div className="row">
+                        <TextField className="col-3"
+                                   label="Fetal Heart Rate"
+                                   value={format($form.fetalHeartRate)}
+                                   onChange={value => this.updateField('fetalHeartRate', value)}/>
+                        <TextField className="col-3"
+                                   label="Pulse Oxygen Saturation"
+                                   value={format($form.pulseOxygenSaturation)}
+                                   onChange={value => this.updateField('pulseOxygenSaturation', value)}/>
+                    </div>
+                    <div className="row">
                         <TextField className="col-6"
                                    label="Cervical Dilation At Time Of EA"
                                    value={format($form.cervicalDilationAtTimeOfEA)}

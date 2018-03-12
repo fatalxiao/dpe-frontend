@@ -14,6 +14,8 @@ const DEFAULT_FORM = {
         initialVasScore: '',
         systolicBloodPressure: '',
         diastolicBloodPressure: '',
+        fetalHeartRate: '',
+        pulseOxygenSaturation: '',
         cervicalDilationAtTimeOfEA: '',
         hasOxytocinAtTimeOfEA: '',
         status: 1,
