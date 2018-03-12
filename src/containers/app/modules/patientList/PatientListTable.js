@@ -41,16 +41,12 @@ class PatientListTable extends Component {
 
     render() {
 
-        const {$groupList, $patientList, filterValue} = this.props,
-            self = this,
-            filteredData = filterValue ?
-                $patientList.filter(item => item.id.includes(filterValue) || item.name.includes(filterValue))
-                :
-                $patientList;
+        const {$groupList, data} = this.props,
+            self = this;
 
         return filteredData && filteredData.length > 0 ?
             <Table className="patient-list-table"
-                   data={filteredData}
+                   data={data}
                    columns={[{
                        header: 'ID',
                        sortable: true,
@@ -107,8 +103,7 @@ class PatientListTable extends Component {
 PatientListTable.propTypes = {
 
     $groupList: PropTypes.array,
-    $patientList: PropTypes.array,
-    filterValue: PropTypes.string,
+    data: PropTypes.array,
 
     updatePatientName: PropTypes.func,
     updatePatientGroup: PropTypes.func,
@@ -119,8 +114,7 @@ PatientListTable.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        $groupList: state.group.list,
-        $patientList: state.patients.list
+        $groupList: state.group.list
     };
 }
 
