@@ -11,7 +11,7 @@ import Event from 'vendors/Event';
 
 import 'scss/containers/app/nav/patients/NavPatientList.scss';
 
-class PatientList extends Component {
+class NavPatientList extends Component {
 
     constructor(props) {
         super(props);
@@ -60,7 +60,7 @@ class PatientList extends Component {
     }
 }
 
-PatientList.propTypes = {
+NavPatientList.propTypes = {
 
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
@@ -80,4 +80,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PatientList);
+export default connect(mapStateToProps, mapDispatchToProps)(NavPatientList);
