@@ -10,9 +10,9 @@ import IconButton from 'alcedo-ui/IconButton';
 import Popover from 'alcedo-ui/Popover';
 import PatientList from './NavPatientList';
 
-import 'scss/containers/app/nav/patients/NavPatientMenu.scss';
+import 'scss/containers/app/nav/patients/NavPatientPopover.scss';
 
-class NavPatientCollapsed extends Component {
+class NavPatientsPopover extends Component {
 
     constructor(props) {
 
@@ -74,7 +74,7 @@ class NavPatientCollapsed extends Component {
     }
 }
 
-NavPatientCollapsed.propTypes = {
+NavPatientsPopover.propTypes = {
 
     isFold: PropTypes.bool,
 
@@ -90,4 +90,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavPatientCollapsed);
+export default connect(mapStateToProps, mapDispatchToProps)(NavPatientsPopover);
