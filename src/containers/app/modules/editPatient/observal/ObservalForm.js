@@ -272,6 +272,16 @@ class ObservalForm extends Component {
                                   checked={$form.hasAccidentalDuralPunture}
                                   onChange={value => this.updateField('hasAccidentalDuralPunture', value)}/>
                     </div>
+                    <div className="row">
+                        <Checkbox className="col-6"
+                                  label="IV Epidural Catheter Insertion"
+                                  checked={$form.isIVEpiduralCatheterInsertion}
+                                  onChange={value => this.updateField('isIVEpiduralCatheterInsertion', value)}/>
+                        <Checkbox className="col-6"
+                                  label="Intrathecal Epidural Catheter Insertion"
+                                  checked={$form.isIntrathecalEpiduralCatheterInsertion}
+                                  onChange={value => this.updateField('isIntrathecalEpiduralCatheterInsertion', value)}/>
+                    </div>
                 </FieldSet>
 
                 <FieldSet title="7. Lateral Episiotomy">
