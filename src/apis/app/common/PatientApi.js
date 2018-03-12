@@ -20,6 +20,14 @@ export default {
         });
     },
 
+    exportPatients(options) {
+        Api.get({
+            ...options,
+            url: `${config.appBaseUrl}/patient/exportPatients`,
+            cancelable: false
+        });
+    },
+
     updatePatientName(options) {
 
         const name = `updatePatientName/${options.id}`;

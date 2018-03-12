@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
+import DownloadField from 'alcedo-ui/DownloadField';
 import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import {DEFAULT_ROUTE} from 'src/config.routes';
@@ -48,6 +49,10 @@ class NavBarTop extends Component {
     }
 
     export() {
+        this.refs.downloadField.download();
+    }
+
+    exportLoadedHandler() {
 
     }
 
@@ -82,6 +87,10 @@ class NavBarTop extends Component {
 
                 <AddPatientDialog visible={addPatientDialogVisible}
                                   onRequestClose={this.hideAddPatient}/>
+
+                <DownloadField ref="downloadField"
+                               url={url}
+                               onLoad={this.exportLoadedHandler}/>
 
                 {children}
 
