@@ -37,9 +37,7 @@ class App extends Component {
         }, 250);
     }
 
-    componentDidMount() {
-
-        Dom.removeClass(document.querySelector('html'), 'full-size');
+    componentWillMount() {
 
         const {getGroups, getSensoryBlocks, getPatients} = this.props;
 
@@ -47,6 +45,10 @@ class App extends Component {
         getSensoryBlocks();
         getPatients();
 
+    }
+
+    componentDidMount() {
+        Dom.removeClass(document.querySelector('html'), 'full-size');
     }
 
     render() {
