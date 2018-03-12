@@ -10,6 +10,7 @@ import IconButton from 'alcedo-ui/IconButton';
 import DownloadField from 'alcedo-ui/DownloadField';
 import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
+import config from 'src/config';
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
 import 'scss/containers/app/nav/bar/NavBarTop.scss';
@@ -89,7 +90,7 @@ class NavBarTop extends Component {
                                   onRequestClose={this.hideAddPatient}/>
 
                 <DownloadField ref="downloadField"
-                               url={url}
+                               url={`${config.appBaseUrl}/patient/exportPatients`}
                                onLoad={this.exportLoadedHandler}/>
 
                 {children}
