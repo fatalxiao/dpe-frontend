@@ -58,7 +58,7 @@ class PatientListFilter extends Component {
                                onChange={onFilterChange}/>
 
                     <DropdownSelect className="group-select"
-                                    data={[{id: 0, name: 'All'}, ...$groupList]}
+                                    data={[{id: 0, name: 'All Groups'}, ...$groupList]}
                                     valueField="id"
                                     displayField="name"
                                     value={filterGroup}

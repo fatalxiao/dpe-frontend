@@ -19,7 +19,7 @@ class PatientList extends Component {
 
         this.state = {
             filterValue: '',
-            filterGroup: {id: 0, name: 'All'}
+            filterGroup: {id: 0, name: 'All Groups'}
         };
 
         this.filterChangeHandler = ::this.filterChangeHandler;
