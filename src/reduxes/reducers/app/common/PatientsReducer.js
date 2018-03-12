@@ -5,6 +5,7 @@ import * as actionTypes from 'reduxes/actionTypes';
 const initialState = {
     list: [],
     getActionType: '',
+    getFullActionType: '',
     enableActionType: '',
     disableActionType: ''
 };
@@ -31,6 +32,26 @@ function patients(state = initialState, action) {
                 ...state,
                 list: [],
                 getActionType: actionTypes.GET_PATIENTS_FAILURE
+            };
+        }
+
+        // get full patient list
+        case actionTypes.GET_FULL_PATIENTS_REQUEST: {
+            return {
+                ...state,
+                getFullActionType: actionTypes.GET_FULL_PATIENTS_REQUEST
+            };
+        }
+        case actionTypes.GET_FULL_PATIENTS_SUCCESS: {
+            return {
+                ...state,
+                getFullActionType: actionTypes.GET_FULL_PATIENTS_SUCCESS
+            };
+        }
+        case actionTypes.GET_FULL_PATIENTS_FAILURE: {
+            return {
+                ...state,
+                getFullActionType: actionTypes.GET_FULL_PATIENTS_FAILURE
             };
         }
 
