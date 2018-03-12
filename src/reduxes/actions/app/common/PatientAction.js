@@ -15,6 +15,20 @@ export const getPatients = () => dispatch => {
     });
 };
 
+export const getFullPatients = () => dispatch => {
+    return dispatch({
+        [actionTypes.CALL_API]: {
+            types: [
+                actionTypes.GET_FULL_PATIENTS_REQUEST,
+                actionTypes.GET_FULL_PATIENTS_SUCCESS,
+                actionTypes.GET_FULL_PATIENTS_FAILURE
+            ],
+            api: PatientApi.getFullPatients,
+            successResMsgDisabled: true
+        }
+    });
+};
+
 export const updatePatientName = (id, name) => dispatch => {
 
     if (!id || !name) {

@@ -12,6 +12,14 @@ export default {
         });
     },
 
+    getFullPatients(options) {
+        Api.get({
+            ...options,
+            url: `${config.appBaseUrl}/patient/getFullPatients`,
+            cancelable: false
+        });
+    },
+
     updatePatientName(options) {
 
         const name = `updatePatientName/${options.id}`;
