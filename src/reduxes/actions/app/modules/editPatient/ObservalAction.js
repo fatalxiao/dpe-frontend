@@ -54,6 +54,10 @@ export const createOrUpdateObservalData = (patientId, callback, successResMsgDis
         return;
     }
 
+    if (isNaN(observalData.arterialBe) || isNaN(observalData.venousBe)) {
+        return;
+    }
+
     return dispatch({
         [actionTypes.CALL_API]: {
             types: [
