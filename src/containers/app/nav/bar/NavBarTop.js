@@ -85,7 +85,8 @@ class NavBarTop extends Component {
             {searchDrawerVisible, addPatientDialogVisible} = this.state,
 
             className = classNames('nav-bar-top', {
-                fold: isFold
+                fold: isFold,
+                'search-drawer-visible': searchDrawerVisible
             });
 
         return (
