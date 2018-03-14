@@ -15,12 +15,43 @@ import 'scss/containers/app/nav/bar/NavSearch.scss';
 class NavSearch extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.state = {
+            filterValue: ''
+        };
+
+        this.filter = ::this.filter;
+        this.filterChangeHandler = ::this.filterChangeHandler;
+
+    }
+
+    filter(filterValue, props = this.props) {
+
+        const {$patientList} = props;
+
+        if (!filterValue) {
+            return $patientList;
+        }
+
+        return $patientList ?
+            $patientList.filter(item => (item.id && item.id.includes(filterValue)) || (item.name && item.name.includes(filterValue)))
+            :
+            [];
+
+    }
+
+    filterChangeHandler(filterValue) {
+        this.setState({
+            filterValue
+        });
     }
 
     render() {
 
         const {visible, onRequestClose} = this.props,
+            {filterValue} = this.state,
 
             className = classNames('nav-search-wrapper', {
                 hidden: !visible
@@ -34,9 +65,12 @@ class NavSearch extends Component {
                        nonRounded={true}
                        depth={6}>
 
-                    <TextField className="nav-search-field"/>
+                    <TextField className="nav-search-field"
+                               value={filterValue}
+                               placeholder="Search"
+                               onChange={this.filterChangeHandler}/>
 
-                    <NavPatientList/>
+                    <NavPatientList data={this.filter(filterValue)}/>
 
                 </Paper>
             </div>
@@ -47,6 +81,7 @@ class NavSearch extends Component {
 
 NavSearch.propTypes = {
 
+    $patientList: PropTypes.array,
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func
@@ -54,7 +89,9 @@ NavSearch.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $patientList: state.patients.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {
