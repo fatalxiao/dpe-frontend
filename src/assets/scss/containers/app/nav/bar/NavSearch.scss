@@ -51,6 +51,11 @@
             .nav-patient-list {
                 width: 100%;
             }
+
+            .no-patient-found {
+                color: $theme-description;
+                font-size: 18px;
+            }
         }
     }
 

@@ -53,6 +53,8 @@ class NavSearch extends Component {
         const {visible, onRequestClose} = this.props,
             {filterValue} = this.state,
 
+            data = this.filter(filterValue),
+
             className = classNames('nav-search-wrapper', {
                 hidden: !visible
             });
@@ -69,7 +71,14 @@ class NavSearch extends Component {
                                    value={filterValue}
                                    placeholder="Search"
                                    onChange={this.filterChangeHandler}/>
-                        <NavPatientList data={this.filter(filterValue)}/>
+                        {
+                            data && data.length > 0 ?
+                                <NavPatientList data={this.filter(filterValue)}/>
+                                :
+                                <div className="no-patient-found">
+                                    No Patient Found
+                                </div>
+                        }
                     </div>
                 </Paper>
             </div>
