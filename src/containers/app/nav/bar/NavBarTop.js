@@ -97,7 +97,7 @@ class NavBarTop extends Component {
                     <div className="logo-animated"/>
                 </IconButton>
 
-                <IconButton className="nav-bar-item"
+                <IconButton className="nav-bar-item nav-bar-search-button"
                             iconCls="icon-magnifying-glass"
                             onTouchTap={this.showSearch}/>
 
@@ -105,7 +105,7 @@ class NavBarTop extends Component {
                             iconCls="icon-plus"
                             onTouchTap={this.showAddPatient}/>
 
-                <IconButton className="nav-bar-item export"
+                <IconButton className="nav-bar-item nav-bar-export-button"
                             iconCls="icon-download"
                             onTouchTap={this.export}/>
 

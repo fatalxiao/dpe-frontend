@@ -18,8 +18,10 @@
         position: absolute;
         left: 0;
         top: 0;
+        box-sizing: border-box;
         width: 400px;
         height: 100%;
+        padding-left: 64px;
         transform: translate3d(0, 0, 0);
         transition: transform $theme-transition-duration ease-in-out;
     }

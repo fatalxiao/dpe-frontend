@@ -19,10 +19,6 @@
             vertical-align: baseline;
         }
 
-        &.export {
-            font-size: 20px !important;
-        }
-
         &.nav-bar-logo-button {
             width: 48px;
             height: 48px;
@@ -60,6 +56,15 @@
                     opacity: 1;
                 }
             }
+        }
+
+        &.nav-bar-export-button {
+            font-size: 20px !important;
+        }
+
+        &.nav-bar-logo-button,
+        &.nav-bar-search-button {
+            z-index: 2;
         }
 
         &:hover {
