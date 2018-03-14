@@ -64,7 +64,7 @@ class ObservalForm extends Component {
 
     save = _.debounce(() => {
         const {patientId, createOrUpdateObservalData} = this.props;
-        patientId && createOrUpdateObservalData(patientId, undefined, true);
+        patientId && createOrUpdateObservalData(patientId, undefined, true, true);
     }, 250);
 
     render() {

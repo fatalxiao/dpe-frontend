@@ -46,39 +46,37 @@ export const getObservalData = patientId => dispatch => {
 
 };
 
-export const createOrUpdateObservalData = (patientId, callback, successResMsgDisabled) => (dispatch, getState) => {
+export const createOrUpdateObservalData = (patientId, callback, successResMsgDisabled, failureResMsgDisabled = true) =>
+    (dispatch, getState) => {
 
-    const observalData = getState().observal.form;
+        const observalData = getState().observal.form;
 
-    if (!patientId || !observalData) {
-        return;
-    }
-
-    if (isNaN(observalData.arterialBe) || isNaN(observalData.venousBe)) {
-        return;
-    }
-
-    return dispatch({
-        [actionTypes.CALL_API]: {
-            types: [
-                actionTypes.UPDATE_OBSERVAL_REQUEST,
-                actionTypes.UPDATE_OBSERVAL_SUCCESS,
-                actionTypes.UPDATE_OBSERVAL_FAILURE
-            ],
-            api: ObservalApi.createOrUpdateObservalData,
-            params: {
-                patientId,
-                observalData: {
-                    ...observalData,
-                    durationOfFirstStageOfLabor: durationHandler(observalData, 'durationOfFirstStageOfLabor'),
-                    durationOfSecondStageOfLabor: durationHandler(observalData, 'durationOfSecondStageOfLabor')
-                }
-            },
-            successResMsgDisabled,
-            successCallback() {
-                callback && callback();
-            }
+        if (!patientId || !observalData) {
+            return;
         }
-    });
 
-};
+        return dispatch({
+            [actionTypes.CALL_API]: {
+                types: [
+                    actionTypes.UPDATE_OBSERVAL_REQUEST,
+                    actionTypes.UPDATE_OBSERVAL_SUCCESS,
+                    actionTypes.UPDATE_OBSERVAL_FAILURE
+                ],
+                api: ObservalApi.createOrUpdateObservalData,
+                params: {
+                    patientId,
+                    observalData: {
+                        ...observalData,
+                        durationOfFirstStageOfLabor: durationHandler(observalData, 'durationOfFirstStageOfLabor'),
+                        durationOfSecondStageOfLabor: durationHandler(observalData, 'durationOfSecondStageOfLabor')
+                    }
+                },
+                successResMsgDisabled,
+                failureResMsgDisabled,
+                successCallback() {
+                    callback && callback();
+                }
+            }
+        });
+
+    };
