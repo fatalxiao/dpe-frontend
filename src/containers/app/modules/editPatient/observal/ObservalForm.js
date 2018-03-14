@@ -334,12 +334,14 @@ class ObservalForm extends Component {
                         }
                     </div>
                     <div className="row">
-                        <TextField className="col-3"
+                        <TextField className="col-3 unit-cm"
                                    label="Foetal Height"
+                                   rightIconCls="unit"
                                    value={format($form.foetalHeight)}
                                    onChange={value => this.updateField('foetalHeight', value)}/>
-                        <TextField className="col-3"
+                        <TextField className="col-3 unit-g"
                                    label="Foetal Weight"
+                                   rightIconCls="unit"
                                    value={format($form.foetalWeight)}
                                    onChange={value => this.updateField('foetalWeight', value)}/>
                         <TextField className="col-3"

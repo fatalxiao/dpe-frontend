@@ -123,6 +123,14 @@ body {
     }
 }
 
+.unit-g {
+    .icon-button.text-field-right-icon {
+        .unit::after {
+            content: "g";
+        }
+    }
+}
+
 .unit-ml {
     .icon-button.text-field-right-icon {
         .unit::after {
