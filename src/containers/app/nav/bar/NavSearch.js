@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import Paper from 'alcedo-ui/Paper';
+import TextField from 'alcedo-ui/TextField';
+import NavPatientList from 'containers/app/nav/patients/NavPatientList';
 
 import 'scss/containers/app/nav/bar/NavSearch.scss';
 
@@ -31,6 +33,10 @@ class NavSearch extends Component {
                 <Paper className="nav-search"
                        nonRounded={true}
                        depth={6}>
+
+                    <TextField className="nav-search-field"/>
+
+                    <NavPatientList/>
 
                 </Paper>
             </div>

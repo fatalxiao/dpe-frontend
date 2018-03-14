@@ -19,7 +19,8 @@ class NavPatientList extends Component {
 
     render() {
 
-        const {$groupList, $patientList, routerPush} = this.props;
+        const {$groupList, $patientList, data, routerPush} = this.props,
+            listData = data || $patientList;
 
         return (
             <div className="nav-patient-list"
@@ -28,7 +29,7 @@ class NavPatientList extends Component {
                  }}>
 
                 {
-                    $patientList.map((patient, index) => {
+                    listData && listData.map((patient, index) => {
 
                         const patientId = patient.id,
                             groupName = $groupList.find(item => item.id === patient.groupId).name;
@@ -64,6 +65,7 @@ NavPatientList.propTypes = {
 
     $groupList: PropTypes.array,
     $patientList: PropTypes.array,
+    data: PropTypes.array,
 
     routerPush: PropTypes.func
 
