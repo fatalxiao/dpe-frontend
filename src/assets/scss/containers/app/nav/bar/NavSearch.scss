@@ -26,6 +26,9 @@
         transition: transform $theme-transition-duration ease-in-out;
 
         .nav-search-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             background: $theme-field-bg;
             transition: opacity $theme-transition-duration ease-in-out $theme-transition-duration;
 
@@ -47,8 +50,7 @@
 
             .nav-patient-list {
                 width: 100%;
-                height: calc(100% - 64px);
-                overflow-y: auto;
+                height: auto;
             }
         }
     }

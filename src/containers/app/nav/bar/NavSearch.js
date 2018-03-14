@@ -69,7 +69,6 @@ class NavSearch extends Component {
                                    value={filterValue}
                                    placeholder="Search"
                                    onChange={this.filterChangeHandler}/>
-
                         <NavPatientList data={this.filter(filterValue)}/>
                     </div>
                 </Paper>
