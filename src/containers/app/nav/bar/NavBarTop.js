@@ -56,7 +56,7 @@ class NavBarTop extends Component {
     }
 
     exportLoadedHandler(e, innerText) {
-        console.log(JSON.parse(innerText));
+        //
     }
 
     componentDidMount() {
