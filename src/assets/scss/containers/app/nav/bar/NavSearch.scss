@@ -21,9 +21,31 @@
         box-sizing: border-box;
         width: 400px;
         height: 100%;
-        padding-left: 64px;
+        padding: 80px 80px 0;
         transform: translate3d(0, 0, 0);
         transition: transform $theme-transition-duration ease-in-out;
+
+        .nav-search-field {
+            width: 100%;
+            border: none;
+            margin-bottom: 24px;
+
+            .text-field-placeholder,
+            .text-field-input {
+                font-size: 20px;
+                padding: 9px 8px;
+            }
+
+            .clear-icon {
+                font-size: 16px !important;
+            }
+        }
+
+        .nav-patient-list {
+            width: 100%;
+            height: calc(100% - 64px);
+            overflow-y: auto;
+        }
     }
 
     &.hidden {
