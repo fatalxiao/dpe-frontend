@@ -94,7 +94,7 @@ class PatientListTable extends Component {
                        }
                    }]}/>
             :
-            <div className="patient-list-table-empty">
+            <div className="no-patient-found">
                 No Patient Found
             </div>;
     }
