@@ -25,26 +25,31 @@
         transform: translate3d(0, 0, 0);
         transition: transform $theme-transition-duration ease-in-out;
 
-        .nav-search-field {
-            width: 100%;
-            border: none;
-            margin-bottom: 24px;
+        .nav-search-content {
+            background: $theme-field-bg;
+            transition: opacity $theme-transition-duration ease-in-out $theme-transition-duration;
 
-            .text-field-placeholder,
-            .text-field-input {
-                font-size: 20px;
-                padding: 9px 8px;
+            .nav-search-field {
+                width: 100%;
+                border: none;
+                margin-bottom: 24px;
+
+                .text-field-placeholder,
+                .text-field-input {
+                    font-size: 20px;
+                    padding: 9px 8px;
+                }
+
+                .clear-icon {
+                    font-size: 16px !important;
+                }
             }
 
-            .clear-icon {
-                font-size: 16px !important;
+            .nav-patient-list {
+                width: 100%;
+                height: calc(100% - 64px);
+                overflow-y: auto;
             }
-        }
-
-        .nav-patient-list {
-            width: 100%;
-            height: calc(100% - 64px);
-            overflow-y: auto;
         }
     }
 
@@ -58,6 +63,11 @@
 
         .nav-search {
             transform: translate3d(-400px, 0, 0);
+
+            .nav-search-content {
+                opacity: 0;
+                transition: opacity 0s ease-in-out;
+            }
         }
     }
 }

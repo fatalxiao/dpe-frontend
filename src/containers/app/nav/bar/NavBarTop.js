@@ -28,7 +28,7 @@ class NavBarTop extends Component {
         };
 
         this.goToLanding = ::this.goToLanding;
-        this.showSearch = ::this.showSearch;
+        this.toggleSearch = ::this.toggleSearch;
         this.hideSearch = ::this.hideSearch;
         this.showAddPatient = ::this.showAddPatient;
         this.hideAddPatient = ::this.hideAddPatient;
@@ -41,9 +41,9 @@ class NavBarTop extends Component {
         this.props.routerPush(DEFAULT_ROUTE);
     }
 
-    showSearch() {
+    toggleSearch() {
         this.setState({
-            searchDrawerVisible: true
+            searchDrawerVisible: !this.state.searchDrawerVisible
         });
     }
 
@@ -98,8 +98,8 @@ class NavBarTop extends Component {
                 </IconButton>
 
                 <IconButton className="nav-bar-item nav-bar-search-button"
-                            iconCls="icon-magnifying-glass"
-                            onTouchTap={this.showSearch}/>
+                            iconCls={searchDrawerVisible ? 'icon-reply' : 'icon-magnifying-glass'}
+                            onTouchTap={this.toggleSearch}/>
 
                 <IconButton className="nav-bar-item"
                             iconCls="icon-plus"

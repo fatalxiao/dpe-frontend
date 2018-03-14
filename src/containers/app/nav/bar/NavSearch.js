@@ -64,14 +64,14 @@ class NavSearch extends Component {
                 <Paper className="nav-search"
                        nonRounded={true}
                        depth={6}>
+                    <div className="nav-search-content">
+                        <TextField className="nav-search-field"
+                                   value={filterValue}
+                                   placeholder="Search"
+                                   onChange={this.filterChangeHandler}/>
 
-                    <TextField className="nav-search-field"
-                               value={filterValue}
-                               placeholder="Search"
-                               onChange={this.filterChangeHandler}/>
-
-                    <NavPatientList data={this.filter(filterValue)}/>
-
+                        <NavPatientList data={this.filter(filterValue)}/>
+                    </div>
                 </Paper>
             </div>
         );
