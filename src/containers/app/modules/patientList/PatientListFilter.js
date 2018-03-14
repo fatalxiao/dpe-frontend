@@ -53,7 +53,7 @@ class PatientListFilter extends Component {
 
                     <TextField className="patient-filter"
                                value={filterValue}
-                               placeholder="Filter Patients ..."
+                               placeholder="Search"
                                rightIconCls="icon-magnifying-glass"
                                onChange={value => {
                                    onFilterChange(value, filterGroup, filterStatus);
