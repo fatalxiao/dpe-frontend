@@ -1,9 +1,8 @@
 @import '../common.scss';
 
 .tip {
-    opacity: .8;
 
-    .tip-triangle {
+    .trigger-pop-triangle-wrapper {
         display: none;
     }
 
@@ -11,6 +10,6 @@
         font-size: 12px;
         padding: 4px !important;
         color: #fff;
-        background: #000 !important;
+        background: transparentize(#000, .2) !important;
     }
 }

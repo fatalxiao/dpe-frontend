@@ -99,14 +99,20 @@ class NavBarTop extends Component {
 
                 <IconButton className="nav-bar-item nav-bar-search-button"
                             iconCls={searchDrawerVisible ? 'icon-reply' : 'icon-magnifying-glass'}
+                            tip={searchDrawerVisible ? 'Back' : 'Search'}
+                            tipPosition={IconButton.TipPosition.RIGHT}
                             onTouchTap={this.toggleSearch}/>
 
                 <IconButton className="nav-bar-item"
                             iconCls="icon-plus"
+                            tip="Add Patient"
+                            tipPosition={IconButton.TipPosition.RIGHT}
                             onTouchTap={this.showAddPatient}/>
 
                 <IconButton className="nav-bar-item nav-bar-export-button"
                             iconCls="icon-download"
+                            tip="Export"
+                            tipPosition={IconButton.TipPosition.RIGHT}
                             onTouchTap={this.export}/>
 
                 <NavSearch visible={searchDrawerVisible}
