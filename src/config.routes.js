@@ -34,4 +34,4 @@ export function configureRoutes(store) {
 
 }
 
-export const DEFAULT_ROUTE = '/app/patient-list';
+export const DEFAULT_ROUTE = '/app/dashboard';
