@@ -12,6 +12,7 @@
         "alcedo-ui": "^2.21.0",
         "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.5",
+        "highcharts": "^6.0.7",
         "history": "^4.7.2",
         "js-cookie": "^2.2.0",
         "lodash": "^4.17.5",
