@@ -34,10 +34,11 @@ class SolidGaugeChart extends Component {
                 type: 'solidgauge'
             },
             title: {
-                text: title,
+                text: `<div>${value}</div><div>${title}</div>`,
                 align: 'center',
                 verticalAlign: 'middle',
-                useHTML: true
+                useHTML: true,
+                floating: true
             },
             tooltip: {
                 enabled: false
@@ -53,14 +54,14 @@ class SolidGaugeChart extends Component {
             },
             plotOptions: {
                 solidgauge: {
-                    borderWidth: '10px',
+                    borderWidth: '6px',
                     dataLabels: {
                         enabled: false
                     }
                 }
             },
             series: [{
-                borderColor: '#f00',
+                borderColor: '#536277',
                 data: [{
                     radius: '100%',
                     innerRadius: '100%',
