@@ -44,7 +44,14 @@ class SolidGaugeChart extends Component {
                 enabled: false
             },
             pane: {
-                background: null
+                startAngle: 0,
+                endAngle: 360,
+                background: [{
+                    outerRadius: '100%',
+                    innerRadius: '100%',
+                    borderWidth: '6px',
+                    borderColor: '#f7f7f7'
+                }]
             },
             yAxis: {
                 min: 0,
