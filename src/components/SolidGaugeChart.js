@@ -24,7 +24,7 @@ class SolidGaugeChart extends Component {
 
     getConfig(props = this.props) {
 
-        const {title, value} = props;
+        const {title, value, total} = props;
 
         return {
             credits: {
@@ -34,7 +34,7 @@ class SolidGaugeChart extends Component {
                 type: 'solidgauge'
             },
             title: {
-                text: `<div class="solid-gauge-chart-value">${value}</div><div class="solid-gauge-chart-title">${title}</div>`,
+                text: `<div class="solid-gauge-chart-value">${value}<span class="solid-gauge-chart-total">/${total}</span></div><div class="solid-gauge-chart-title">${title}</div>`,
                 align: 'center',
                 verticalAlign: 'middle',
                 useHTML: true,
@@ -48,7 +48,7 @@ class SolidGaugeChart extends Component {
             },
             yAxis: {
                 min: 0,
-                max: 120,
+                max: total,
                 lineWidth: 0,
                 tickPositions: []
             },
@@ -106,7 +106,9 @@ SolidGaugeChart.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
 
-    value: PropTypes.number
+    title: PropTypes.string,
+    value: PropTypes.number,
+    total: PropTypes.number
 
 };
 

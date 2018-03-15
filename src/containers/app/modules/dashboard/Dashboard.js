@@ -18,13 +18,17 @@ class Dashboard extends Component {
     }
 
     render() {
+
+        const {$patientList} = this.props;
+
         return (
             <div className="dpe-dashboard">
 
                 <div className="row">
                     <SolidGaugeChart className="col-4 chart"
                                      title="Patients"
-                                     value={100}/>
+                                     value={$patientList.length}
+                                     total={120}/>
                 </div>
 
             </div>
@@ -32,10 +36,14 @@ class Dashboard extends Component {
     }
 }
 
-Dashboard.propTypes = {};
+Dashboard.propTypes = {
+    $patientList: PropTypes.array
+};
 
 function mapStateToProps(state, ownProps) {
-    return {};
+    return {
+        $patientList: state.patients.list
+    };
 }
 
 function mapDispatchToProps(dispatch) {

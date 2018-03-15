@@ -7,6 +7,11 @@
         font-size: 32px;
         color: $theme-field;
         margin-top: -20px;
+
+        .solid-gauge-chart-total {
+            font-size: 14px;
+            color: $theme-description;
+        }
     }
 
     .solid-gauge-chart-title {
