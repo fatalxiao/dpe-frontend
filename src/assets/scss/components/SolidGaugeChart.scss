@@ -2,4 +2,17 @@
 
 .solid-gauge-chart {
 
+    .solid-gauge-chart-value {
+        text-align: center;
+        font-size: 32px;
+        color: $theme-field;
+        margin-top: -20px;
+    }
+
+    .solid-gauge-chart-title {
+        text-align: center;
+        font-size: 14px;
+        color: $theme-description;
+    }
+
 }

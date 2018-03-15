@@ -22,7 +22,7 @@ class Dashboard extends Component {
             <div className="dpe-dashboard">
 
                 <div className="row">
-                    <SolidGaugeChart className="col-3 chart"
+                    <SolidGaugeChart className="col-4 chart"
                                      title="Patients"
                                      value={100}/>
                 </div>

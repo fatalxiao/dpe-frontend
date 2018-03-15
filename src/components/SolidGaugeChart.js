@@ -5,7 +5,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
 import classNames from 'classnames';
 
-import 'scss/components/FieldSet.scss';
+import 'scss/components/SolidGaugeChart.scss';
 
 HighchartsMore(Highcharts);
 SolidGauge(Highcharts);
@@ -34,7 +34,7 @@ class SolidGaugeChart extends Component {
                 type: 'solidgauge'
             },
             title: {
-                text: `<div>${value}</div><div>${title}</div>`,
+                text: `<div class="solid-gauge-chart-value">${value}</div><div class="solid-gauge-chart-title">${title}</div>`,
                 align: 'center',
                 verticalAlign: 'middle',
                 useHTML: true,
