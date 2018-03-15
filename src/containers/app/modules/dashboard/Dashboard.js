@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import SolidGaugeChart from 'components/SolidGaugeChart';
+import CircularChart from 'components/CircularChart';
 
 import 'scss/containers/app/modules/dashboard/Dashboard.scss';
 
@@ -29,6 +30,13 @@ class Dashboard extends Component {
                                      title="Patients"
                                      value={$patientList.length}
                                      total={120}/>
+                    <CircularChart className="col-4 chart"
+                                   title="Group"
+                                   data={[
+                                       ['DPE+PIEB', 20],
+                                       ['DPE+CEI', 5],
+                                       ['EP+CEI', 8]
+                                   ]}/>
                 </div>
 
             </div>

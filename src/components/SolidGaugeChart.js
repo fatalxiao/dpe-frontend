@@ -61,7 +61,7 @@ class SolidGaugeChart extends Component {
                 }
             },
             series: [{
-                borderColor: '#536277',
+                borderColor: '#5BB0E6',
                 data: [{
                     radius: '100%',
                     innerRadius: '100%',

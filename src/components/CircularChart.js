@@ -19,7 +19,9 @@ class CircularChart extends Component {
 
     getConfig(props = this.props) {
 
-        const {title, value, total} = props;
+        const {title, data} = props,
+            total = data ? data.map(item => item[1]).reduce((a, b) => a + b) : 0,
+            self = this;
 
         return [{
             credits: {
@@ -28,9 +30,11 @@ class CircularChart extends Component {
             chart: {
                 type: 'pie'
             },
+            colors: ['#5BB0E6', '#87d068', '#fa0', '#f50'],
             title: {
                 floating: true,
-                text: ''
+                useHTML: true,
+                text: title
             },
             tooltip: {
                 enabled: false
@@ -41,17 +45,17 @@ class CircularChart extends Component {
                     dataLabels: {
                         enabled: false
                     },
-                    showInLegend: true,
+                    showInLegend: false,
                     point: {
                         events: {
                             mouseOver: function (e) {
-                                chart.setTitle({
-                                    text: e.target.name + '\t' + e.target.y
+                                self.chart.setTitle({
+                                    text: `<div class="circular-chart-value">${e.target.y}<span class="circular-chart-total">/${total}</span></div><div class="circular-chart-title">${e.target.name}</div>`
                                 });
                             },
                             mouseOut: function (e) {
-                                chart.setTitle({
-                                    text: ''
+                                self.chart.setTitle({
+                                    text: title
                                 });
                             }
                         }
@@ -59,23 +63,18 @@ class CircularChart extends Component {
                 }
             },
             series: [{
-                innerSize: '80%',
-                name: '市场份额',
-                data: [
-                    ['DPE+PIEB', 20],
-                    ['DPE+CEI', 5],
-                    ['EP+CEI', 8]
-                ]
+                innerSize: '90%',
+                name: '',
+                data
             }]
         }, function (c) {
             // 环形图圆心
-            console.log(c.series[0]);
             var centerY = c.series[0].center[1],
                 titleHeight = parseInt(c.title.styles.fontSize);
             c.setTitle({
                 y: centerY + titleHeight / 2
             });
-            chart = c;
+            self.chart = c;
         }];
     }
 
@@ -97,7 +96,7 @@ class CircularChart extends Component {
 
         const {className, ...restProps} = this.props,
 
-            chartClassName = classNames('solid-gauge-chart', {
+            chartClassName = classNames('circular-chart', {
                 [className]: className
             });
 
@@ -115,8 +114,7 @@ CircularChart.propTypes = {
     style: PropTypes.object,
 
     title: PropTypes.string,
-    value: PropTypes.number,
-    total: PropTypes.number
+    data: PropTypes.array
 
 };
 
