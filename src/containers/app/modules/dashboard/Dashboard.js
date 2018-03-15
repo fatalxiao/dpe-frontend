@@ -18,6 +18,37 @@ class Dashboard extends Component {
 
     }
 
+    getGroupData(patientList) {
+
+        if (!patientList || patientList.length < 1) {
+            return [];
+        }
+
+        const data = {};
+
+        for (let item of patientList) {
+
+            if (!item.group) {
+                continue;
+            }
+
+            if (item.group.name in data) {
+                data[item.group.name]++;
+            } else {
+                data[item.group.name] = 1;
+            }
+
+        }
+
+        const result = [];
+        for (let groupName in data) {
+            result.push([groupName, data[groupName]]);
+        }
+
+        return result;
+
+    }
+
     render() {
 
         const {$patientList} = this.props;
@@ -32,11 +63,7 @@ class Dashboard extends Component {
                                      total={120}/>
                     <CircularChart className="col-4 chart"
                                    title="Group"
-                                   data={[
-                                       ['DPE+PIEB', 20],
-                                       ['DPE+CEI', 5],
-                                       ['EP+CEI', 8]
-                                   ]}/>
+                                   data={this.getGroupData($patientList)}/>
                 </div>
 
             </div>
