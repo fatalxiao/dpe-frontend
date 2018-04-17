@@ -1,16 +1,19 @@
-const express = require('express'),
+const moment = require('moment'),
+    express = require('express'),
     proxyMiddleware = require('http-proxy-middleware'),
     history = require('connect-history-api-fallback'),
     opn = require('opn'),
     compression = require('compression'),
-    utils = require('../utils'),
 
+    config = require('../config.js'),
+    utils = require('../utils.js'),
+
+    env = process.env.NODE_ENV,
     app = express(),
-    config = require('../../config'),
-    port = config.prod.port,
+    port = config[env].port,
     uri = 'http://localhost:' + port,
 
-    proxyTable = config.prod.proxyTable;
+    proxyTable = config[env].proxyTable;
 
 Object.keys(proxyTable).forEach(context => {
 
@@ -38,20 +41,24 @@ Object.keys(proxyTable).forEach(context => {
 
 });
 
-app.use(compression());
+app
+.use(compression())
+.use(history())
+.use(express.static(config[env].assetsRoot, {
+    setHeaders: res => {
+        res.setHeader('Cache-Control', 'max-age=2592000');
+        res.setHeader('Expires', `${moment().add(1, 'months').utc().format('ddd, DD MMM YYYY HH:mm:ss')} GTM`);
+    }
+}))
+.listen(port, err => {
 
-app.use(history());
-
-app.use(express.static(config.prod.assetsRoot));
-
-app.listen(port, error => {
-
-    if (error) {
-        console.log(error);
+    if (err) {
+        console.log(err);
         return;
     }
 
     console.log('> Listening at ' + uri);
+
     opn(uri);
 
 });

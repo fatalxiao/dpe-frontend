@@ -48,9 +48,6 @@ app
         res.setHeader('Expires', `${moment().add(1, 'months').utc().format('ddd, DD MMM YYYY HH:mm:ss')} GTM`);
     }
 }))
-.get('/derby_forever_health/status.ci', (req, res) => {
-    res.sendStatus(200);
-})
 .listen(port, err => {
 
     if (err) {
