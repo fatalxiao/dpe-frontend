@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "dev": "cross-env NODE_ENV=development node build/dev/dev-server.js",
+        "dev": "cross-env NODE_ENV=development node build/dev/server.js",
         "build": "npm i && rimraf dist/dist-prod/dist && node build/prod/prod.js",
         "demo": "node build/run/prod-server.js",
         "start": "npm run build && npm run demo"
