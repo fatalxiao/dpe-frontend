@@ -1,20 +1,15 @@
-delete process.env['DEBUG_FD'];
-
-const config = require('../../config');
-
-process.env.NODE_ENV = config.dev.env.NODE_ENV;
-
 const opn = require('opn'),
     webpack = require('webpack'),
     proxyMiddleware = require('http-proxy-middleware'),
     history = require('connect-history-api-fallback'),
-    utils = require('../utils'),
 
-    port = process.env.PORT || config.dev.port,
+    config = require('../config.js'),
+    utils = require('../utils.js'),
+
+    port = process.env.PORT || config.development.port,
     uri = 'http://localhost:' + port,
 
-    // API 转发配置
-    proxyTable = config.dev.proxyTable,
+    proxyTable = config.development.proxyTable,
 
     express = require('express'),
     app = express(),
@@ -31,15 +26,12 @@ const opn = require('opn'),
         log: console.log
     });
 
-// html 模板改变时刷新页面
 compiler.plugin('compilation', compilation => {
-    compilation.plugin('html-webpack-plugin-after-emit', (data, cb) => {
+    compilation.plugin('html-webpack-plugin-after-emit', data => {
         hotMiddleware.publish({action: 'reload'});
-        cb();
     });
 });
 
-// 转发 API 请求
 Object.keys(proxyTable).forEach(context => {
 
     let options = proxyTable[context];
@@ -66,27 +58,22 @@ Object.keys(proxyTable).forEach(context => {
 
 });
 
-// browserHistory 前端路由重定向
-app.use(history());
-
-app.use(devMiddleware);
-app.use(hotMiddleware);
-
-// 托管静态文件
-app.use(config.dev.assetsVirtualRoot, express.static('./static'));
+app
+.use(history())
+.use(devMiddleware)
+.use(hotMiddleware)
+.use(config.development.assetsVirtualRoot, express.static('./static'));
 
 devMiddleware.waitUntilValid(() => {
     console.log('> Listening at ' + uri + '\n');
 });
 
-module.exports = app.listen(port, error => {
+module.exports = app.listen(port, err => {
 
-    if (error) {
-        console.log(error);
-        return;
+    if (err) {
+        return console.log(err);
     }
 
-    console.log('> Listening at ' + uri);
     opn(uri);
 
 });
