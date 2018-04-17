@@ -10,7 +10,7 @@ const fs = require('fs'),
     {fsExistsSync, copyRecursionSync, rmRecursionSync} = require('../utils.js'),
 
     env = process.env.NODE_ENV,
-    name = `dplatform-click-web-${env}`,
+    name = `dpe-frontend`,
     path = `./${name}`,
     zipPath = `./${name}.zip`,
     spinner = ora('building for production...');
@@ -48,10 +48,7 @@ webpack(webpackConfig, (err, stats) => {
 
     // copy files
     copyRecursionSync(config[env].rootDirectory, path, ['node_modules', '.DS_Store']);
-    copyRecursionSync('./release/server', path);
-    if (env !== 'production') {
-        copyRecursionSync('./release/shell', path);
-    }
+    copyRecursionSync('./release', path);
 
     // make archive
     const output = fs.createWriteStream(zipPath),
