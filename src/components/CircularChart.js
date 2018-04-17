@@ -20,7 +20,7 @@ class CircularChart extends Component {
     getConfig(props = this.props) {
 
         const {title, data} = props,
-            total = data ? data.map(item => item[1]).reduce((a, b) => a + b) : 0,
+            total = data && data.length > 0 ? data.map(item => item[1]).reduce((a, b) => a + b) : 0,
             self = this;
 
         return [{
