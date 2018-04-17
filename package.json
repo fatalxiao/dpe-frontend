@@ -1,7 +1,9 @@
 {
     "name": "dpe-frontend",
+    "author": "liangxiaojun",
     "version": "1.0.0",
-    "private": true,
+    "description": "DPE ReactJs Front-end Project.",
+    "main": "./src/index.js",
     "scripts": {
         "dev": "cross-env NODE_ENV=development node build/dev/server.js",
         "clean:prod": "rimraf dist/dist-prod/dist",
@@ -10,6 +12,19 @@
         "build:prod": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
         "run:prod": "cross-env NODE_ENV=production node build/run/server.js",
         "start:prod": "npm run build:prod && npm run run:prod"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fatalxiao/dpe-frontend"
+    },
+    "keywords": [
+        "dpe",
+        "react",
+        "ui"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fatalxiao/dpe-frontend/issues"
     },
     "dependencies": {
         "alcedo-ui": "^2.22.6",
