@@ -1,18 +1,21 @@
-delete process.env['DEBUG_FD'];
-
-const config = require('../../config');
-
-process.env.NODE_ENV = config.prod.env.NODE_ENV;
-
 const fs = require('fs'),
     ora = require('ora'),
     chalk = require('chalk'),
     webpack = require('webpack'),
-    webpackConfig = require('./webpack.config.prod.js'),
     archiver = require('archiver'),
-    {fsExistsSync, copyRecursionSync, rmRecursionSync} = require('../utils'),
+    crypto = require('crypto'),
 
-    spinner = ora('building for production...').start();
+    config = require('../config.js'),
+    webpackConfig = require('./webpack.config.prod.js'),
+    {fsExistsSync, copyRecursionSync, rmRecursionSync} = require('../utils.js'),
+
+    env = process.env.NODE_ENV,
+    name = `dplatform-click-web-${env}`,
+    path = `./${name}`,
+    zipPath = `./${name}.zip`,
+    spinner = ora('building for production...');
+
+spinner.start();
 
 webpack(webpackConfig, (err, stats) => {
 
@@ -31,39 +34,49 @@ webpack(webpackConfig, (err, stats) => {
     }) + '\n\n');
 
     // remove zip file
-    if (fsExistsSync('./dpe-frontend.zip')) {
-        fs.unlinkSync('./dpe-frontend.zip');
+    if (fsExistsSync(zipPath)) {
+        fs.unlinkSync(zipPath);
     }
 
     // remove temp dir
-    if (fsExistsSync('./dpe-frontend')) {
-        rmRecursionSync('./dpe-frontend');
+    if (fsExistsSync(path)) {
+        rmRecursionSync(path);
     }
 
     // make temp dir
-    fs.mkdirSync('./dpe-frontend');
+    fs.mkdirSync(path);
 
     // copy files
-    copyRecursionSync('./dist/dist-prod', './dpe-frontend', ['node_modules']);
-    copyRecursionSync('./release', './dpe-frontend');
+    copyRecursionSync(config[env].rootDirectory, path, ['node_modules', '.DS_Store']);
+    copyRecursionSync('./release/server', path);
+    if (env !== 'production') {
+        copyRecursionSync('./release/shell', path);
+    }
 
     // make archive
-    const output = fs.createWriteStream('./dpe-frontend.zip'),
+    const output = fs.createWriteStream(zipPath),
         archive = archiver('zip', {zlib: {level: 9}});
     output.on('close', () => {
 
         console.log(chalk.cyan('Archive: ' + archive.pointer() + ' total bytes'));
 
         // remove temp dir
-        if (fsExistsSync('./dpe-frontend')) {
-            rmRecursionSync('./dpe-frontend');
+        if (fsExistsSync(path)) {
+            rmRecursionSync(path);
         }
+
+        // calculate SHA-256 Hash
+        const rs = fs.createReadStream(zipPath),
+            hash = crypto.createHash('sha256');
+        rs.on('data', hash.update.bind(hash));
+        rs.on('end', function () {
+            console.log('SHA-256 Hash: ', hash.digest('hex'));
+            console.log(chalk.cyan('Build complete.'));
+        });
 
     });
     archive.pipe(output);
-    archive.directory('./dpe-frontend', 'dpe-frontend');
+    archive.directory(path, name);
     archive.finalize();
-
-    console.log(chalk.cyan('Build complete.'));
 
 });
