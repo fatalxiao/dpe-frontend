@@ -9,9 +9,9 @@
         "clean": "rimraf dist",
         "dll": "cross-env NODE_ENV=production node build/dll/dll.js",
         "package": "cross-env NODE_ENV=production node build/prod/prod.js",
-        "build": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
+        "build": "npm i && npm run clean && npm run dll && npm run package",
         "run": "cross-env NODE_ENV=production node build/run/server.js",
-        "start": "npm run build:prod && npm run run:prod"
+        "start": "npm run build && npm run run"
     },
     "repository": {
         "type": "git",
