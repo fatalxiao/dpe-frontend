@@ -15,6 +15,6 @@ node_modules
 package-lock.json
 
 # Dist directories
-/dist/dist-prod/dist
+/dist
 /dpe-frontend
 /dpe-frontend.zip
