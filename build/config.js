@@ -18,10 +18,10 @@ module.exports = {
 
     production: {
         port: 4001,
-        index: path.resolve(__dirname, '../dist/dist-prod/dist/index.html'),
-        rootDirectory: 'dist/dist-prod',
-        assetsDirectory: 'dist/dist-prod/dist',
-        assetsRoot: path.resolve(__dirname, '../dist/dist-prod/dist'),
+        index: path.resolve(__dirname, '../dist/index.html'),
+        rootDirectory: 'dist',
+        assetsDirectory: 'dist',
+        assetsRoot: path.resolve(__dirname, '../dist'),
         proxyTable: {
             '/dpe': 'http://localhost:4100'
         }

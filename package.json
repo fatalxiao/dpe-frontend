@@ -6,7 +6,7 @@
     "main": "./src/index.js",
     "scripts": {
         "dev": "cross-env NODE_ENV=development node build/dev/server.js",
-        "clean:prod": "rimraf dist/dist-prod/dist",
+        "clean:prod": "rimraf dist",
         "dll:prod": "cross-env NODE_ENV=production node build/dll/dll.js",
         "package:prod": "cross-env NODE_ENV=production node build/prod/prod.js",
         "build:prod": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
