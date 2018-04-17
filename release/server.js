@@ -1,19 +1,18 @@
-process.env.NODE_ENV = 'production';
-
-var express = require('express'),
+const moment = require('moment'),
+    express = require('express'),
     path = require('path'),
     proxyMiddleware = require('http-proxy-middleware'),
     history = require('connect-history-api-fallback'),
     compression = require('compression'),
-    utils = require('./utils'),
+
+    config = require('../src/config.js'),
+    utils = require('./utils.js'),
 
     app = express(),
-    config = require('./config'),
     port = config.serverPort,
     uri = 'http://localhost:' + port,
     proxyTable = config.proxyTable;
 
-// 转发 API 请求
 Object.keys(proxyTable).forEach(context => {
 
     var options = proxyTable[context];
@@ -40,15 +39,19 @@ Object.keys(proxyTable).forEach(context => {
 
 });
 
-app.use(compression());
-
-// browserHistory 前端路由重定向
-app.use(history());
-
-// 加载打包后的静态前端文件
-app.use(express.static(path.join(__dirname, 'dist')));
-
-app.listen(port, err => {
+app
+.use(compression())
+.use(history())
+.use(express.static(path.join(__dirname, 'dist'), {
+    setHeaders: res => {
+        res.setHeader('Cache-Control', 'max-age=2592000');
+        res.setHeader('Expires', `${moment().add(1, 'months').utc().format('ddd, DD MMM YYYY HH:mm:ss')} GTM`);
+    }
+}))
+.get('/derby_forever_health/status.ci', (req, res) => {
+    res.sendStatus(200);
+})
+.listen(port, err => {
 
     if (err) {
         console.log(err);
