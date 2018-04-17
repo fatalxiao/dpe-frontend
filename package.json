@@ -4,9 +4,12 @@
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_ENV=development node build/dev/server.js",
-        "build": "npm i && rimraf dist/dist-prod/dist && node build/prod/prod.js",
-        "demo": "node build/run/prod-server.js",
-        "start": "npm run build && npm run demo"
+        "clean:prod": "rimraf dist/dist-prod/dist",
+        "dll:prod": "cross-env NODE_ENV=production node build/dll/dll.js",
+        "package:prod": "cross-env NODE_ENV=production node build/prod/prod.js",
+        "build:prod": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
+        "run:prod": "cross-env NODE_ENV=production node build/run/server.js",
+        "start:prod": "npm run build:prod && npm run run:prod"
     },
     "dependencies": {
         "alcedo-ui": "^2.22.6",
