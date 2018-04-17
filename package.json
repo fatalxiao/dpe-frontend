@@ -6,12 +6,12 @@
     "main": "./src/index.js",
     "scripts": {
         "dev": "cross-env NODE_ENV=development node build/dev/server.js",
-        "clean:prod": "rimraf dist",
-        "dll:prod": "cross-env NODE_ENV=production node build/dll/dll.js",
-        "package:prod": "cross-env NODE_ENV=production node build/prod/prod.js",
-        "build:prod": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
-        "run:prod": "cross-env NODE_ENV=production node build/run/server.js",
-        "start:prod": "npm run build:prod && npm run run:prod"
+        "clean": "rimraf dist",
+        "dll": "cross-env NODE_ENV=production node build/dll/dll.js",
+        "package": "cross-env NODE_ENV=production node build/prod/prod.js",
+        "build": "npm i && npm run clean:prod && npm run dll:prod && npm run package:prod",
+        "run": "cross-env NODE_ENV=production node build/run/server.js",
+        "start": "npm run build:prod && npm run run:prod"
     },
     "repository": {
         "type": "git",
