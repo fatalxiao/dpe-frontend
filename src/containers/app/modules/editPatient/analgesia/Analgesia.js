@@ -56,7 +56,7 @@ class AnalgesiaData extends Component {
         });
     }
 
-    componentWillMount() {
+    componentDidMount() {
 
         const {updatePatientStep} = this.props;
         updatePatientStep(1);

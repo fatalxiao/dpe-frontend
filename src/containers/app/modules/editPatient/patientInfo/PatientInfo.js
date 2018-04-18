@@ -56,7 +56,7 @@ class PatientInfo extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
 
         const {updatePatientStep} = this.props;
         updatePatientStep(0);
