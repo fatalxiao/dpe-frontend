@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavLink} from 'react-router-dom';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 
 import * as actions from 'reduxes/actions';
 
@@ -26,7 +26,7 @@ class PatientListTable extends Component {
 
     }
 
-    nameChangeHandler = _.debounce((id, value) => {
+    nameChangeHandler = debounce((id, value) => {
         this.props.updatePatientName(id, value);
     }, 250);
 
