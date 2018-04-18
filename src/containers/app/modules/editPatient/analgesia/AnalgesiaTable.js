@@ -152,16 +152,8 @@ AnalgesiaTable.propTypes = {
 
 };
 
-function mapStateToProps(state, ownProps) {
-    return {
-        $thoracicList: state.sensoryBlock.thoracicList,
-        $sacralList: state.sensoryBlock.sacralList,
-        $analgesiaData: state.analgesia.data
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AnalgesiaTable);
+export default connect(state => ({
+    $thoracicList: state.sensoryBlock.thoracicList,
+    $sacralList: state.sensoryBlock.sacralList,
+    $analgesiaData: state.analgesia.data
+}), dispatch => bindActionCreators(actions, dispatch))(AnalgesiaTable);
