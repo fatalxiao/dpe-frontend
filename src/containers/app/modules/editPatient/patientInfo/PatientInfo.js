@@ -98,14 +98,6 @@ PatientInfo.propTypes = {
 
 };
 
-function mapStateToProps(state, ownProps) {
-    return {
-        $getActionType: state.patientInfo.getActionType
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PatientInfo);
+export default connect(state => ({
+    $getActionType: state.patientInfo.getActionType
+}), dispatch => bindActionCreators(actions, dispatch))(PatientInfo);
