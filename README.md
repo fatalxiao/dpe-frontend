@@ -1,8 +1,9 @@
 # DPE-Frontend
 
-Dural Puncture Epidural data management front-end part. Including input and export. Back-end part: [dpe-backend][back-end].
+Dural Puncture Epidural data management front-end part including input and export using [alcedo-ui][alcedo-ui-url]. Back-end part: [dpe-backend][dpe-back-end-url].
 
-[back-end]: https://github.com/fatalxiao/dpe-backend
+[alcedo-ui-url]: https://github.com/alcedo-ui/alcedo-ui
+[dpe-back-end-url]: https://github.com/fatalxiao/dpe-backend
 
 ## Usage
 
