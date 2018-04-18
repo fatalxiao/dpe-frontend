@@ -112,14 +112,6 @@ PatientListTable.propTypes = {
 
 };
 
-function mapStateToProps(state, ownProps) {
-    return {
-        $groupList: state.group.list
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PatientListTable);
+export default connect(state => ({
+    $groupList: state.group.list
+}), dispatch => bindActionCreators(actions, dispatch))(PatientListTable);
