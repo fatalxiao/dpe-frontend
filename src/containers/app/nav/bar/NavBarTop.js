@@ -38,7 +38,7 @@ class NavBarTop extends Component {
     }
 
     goToLanding() {
-        this.props.routerPush(DEFAULT_ROUTE);
+        this.props.$routerPush(DEFAULT_ROUTE);
     }
 
     toggleSearch() {
@@ -57,7 +57,7 @@ class NavBarTop extends Component {
         this.setState({
             addPatientDialogVisible: true
         }, () => {
-            this.props.resetPatientBaseInfo();
+            this.props.$resetPatientBaseInfo();
         });
     }
 
@@ -138,9 +138,12 @@ NavBarTop.propTypes = {
 
     isFold: PropTypes.bool,
 
-    routerPush: PropTypes.func,
-    resetPatientBaseInfo: PropTypes.func
+    $routerPush: PropTypes.func,
+    $resetPatientBaseInfo: PropTypes.func
 
 };
 
-export default connect(state => ({}), dispatch => bindActionCreators(actions, dispatch))(NavBarTop);
+export default connect(state => ({}), dispatch => bindActionCreators({
+    $routerPush: actions.routerPush,
+    $resetPatientBaseInfo: actions.resetPatientBaseInfo
+}, dispatch))(NavBarTop);
