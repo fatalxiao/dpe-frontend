@@ -27,16 +27,16 @@ class PatientListTable extends Component {
     }
 
     nameChangeHandler = debounce((id, value) => {
-        this.props.updatePatientName(id, value);
+        this.props.$updatePatientName(id, value);
     }, 250);
 
     groupChangeHandler(id, value) {
-        this.props.updatePatientGroup(id, value);
+        this.props.$updatePatientGroup(id, value);
     }
 
     statusChangeHandler(id, value) {
-        const {enablePatient, disablePatient} = this.props;
-        value ? enablePatient(id) : disablePatient(id);
+        const {$enablePatient, $disablePatient} = this.props;
+        value ? $enablePatient(id) : $disablePatient(id);
     }
 
     render() {
@@ -105,13 +105,18 @@ PatientListTable.propTypes = {
     $groupList: PropTypes.array,
     data: PropTypes.array,
 
-    updatePatientName: PropTypes.func,
-    updatePatientGroup: PropTypes.func,
-    enablePatient: PropTypes.func,
-    disablePatient: PropTypes.func
+    $updatePatientName: PropTypes.func,
+    $updatePatientGroup: PropTypes.func,
+    $enablePatient: PropTypes.func,
+    $disablePatient: PropTypes.func
 
 };
 
 export default connect(state => ({
     $groupList: state.group.list
-}), dispatch => bindActionCreators(actions, dispatch))(PatientListTable);
+}), dispatch => bindActionCreators({
+    $updatePatientName: actions.updatePatientName,
+    $updatePatientGroup: actions.updatePatientGroup,
+    $enablePatient: actions.enablePatient,
+    $disablePatient: actions.disablePatient
+}, dispatch))(PatientListTable);
