@@ -47,7 +47,7 @@ class Dashboard extends Component {
 
     render() {
 
-        const {$patientList} = this.props;
+        const {patientList} = this.props;
 
         return (
             <div className="dpe-dashboard">
@@ -55,11 +55,11 @@ class Dashboard extends Component {
                 <div className="row">
                     <SolidGaugeChart className="col-4 chart"
                                      title="Patients"
-                                     value={$patientList.length}
+                                     value={patientList.length}
                                      total={120}/>
                     <CircularChart className="col-4 chart"
                                    title="Group"
-                                   data={this.getGroupData($patientList)}/>
+                                   data={this.getGroupData(patientList)}/>
                 </div>
 
             </div>
@@ -68,9 +68,9 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-    $patientList: PropTypes.array
+    patientList: PropTypes.array
 };
 
 export default connect(state => ({
-    $patientList: state.patients.list
+    patientList: state.patients.list
 }), dispatch => bindActionCreators({}, dispatch))(Dashboard);
