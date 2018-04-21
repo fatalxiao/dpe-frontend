@@ -53,8 +53,8 @@ class ObservalForm extends Component {
 
     updateField(fieldName, fieldValue) {
 
-        const {updateObservalDataField} = this.props;
-        updateObservalDataField(fieldName, fieldValue);
+        const {$updateObservalDataField} = this.props;
+        $updateObservalDataField(fieldName, fieldValue);
 
         setTimeout(() => {
             this.save();
@@ -63,8 +63,8 @@ class ObservalForm extends Component {
     }
 
     save = _.debounce(() => {
-        const {patientId, createOrUpdateObservalData} = this.props;
-        patientId && createOrUpdateObservalData(patientId, undefined, true, true);
+        const {patientId, $createOrUpdateObservalData} = this.props;
+        patientId && $createOrUpdateObservalData(patientId, undefined, true, true);
     }, 250);
 
     render() {
@@ -394,11 +394,14 @@ ObservalForm.propTypes = {
     patientId: PropTypes.string,
     $form: PropTypes.object,
 
-    updateObservalDataField: PropTypes.func,
-    createOrUpdateObservalData: PropTypes.func
+    $updateObservalDataField: PropTypes.func,
+    $createOrUpdateObservalData: PropTypes.func
 
 };
 
 export default connect(state => ({
     $form: state.observal.form
-}), dispatch => bindActionCreators(actions, dispatch))(ObservalForm);
+}), dispatch => bindActionCreators({
+    $updateObservalDataField: actions.updateObservalDataField,
+    $createOrUpdateObservalData: actions.createOrUpdateObservalData
+}, dispatch))(ObservalForm);
