@@ -24,7 +24,6 @@ class NavTitle extends Component {
 
         return (
             <div className="nav-title">
-
                 {
                     navPath && navPath.length > 0 ?
                         <div className="nav-title-crumbs-wrapper">
@@ -50,7 +49,6 @@ class NavTitle extends Component {
                         :
                         null
                 }
-
             </div>
         );
 
