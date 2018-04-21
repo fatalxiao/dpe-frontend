@@ -30,8 +30,8 @@ class AnalgesiaTable extends Component {
 
     updateField(timePoint, fieldName, fieldValue) {
 
-        const {$updateAnalgesiaDataField} = this.props;
-        $updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
+        const {updateAnalgesiaDataField} = this.props;
+        updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
 
         setTimeout(() => {
             this.save();
@@ -40,13 +40,13 @@ class AnalgesiaTable extends Component {
     }
 
     save = debounce(() => {
-        const {patientId, $createOrUpdateAnalgesiaData} = this.props;
-        patientId && $createOrUpdateAnalgesiaData(patientId, undefined, true);
+        const {patientId, createOrUpdateAnalgesiaData} = this.props;
+        patientId && createOrUpdateAnalgesiaData(patientId, undefined, true);
     }, 250);
 
     render() {
 
-        const {$thoracicList, $sacralList, $analgesiaData} = this.props;
+        const {thoracicList, sacralList, analgesiaData} = this.props;
 
         return (
             <div className="analgesia-data-table-scroller">
@@ -72,13 +72,13 @@ class AnalgesiaTable extends Component {
                            renderer: rowData =>
                                <div>
                                    <label>L: </label>
-                                   <DropdownSelect data={$thoracicList}
+                                   <DropdownSelect data={thoracicList}
                                                    value={rowData.thoracicSensoryBlockLeft}
                                                    valueField="value"
                                                    displayField="name"
                                                    onChange={value => this.updateField(rowData.timePoint, 'thoracicSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
-                                   <DropdownSelect data={$thoracicList}
+                                   <DropdownSelect data={thoracicList}
                                                    value={rowData.thoracicSensoryBlockRight}
                                                    valueField="value"
                                                    displayField="name"
@@ -89,13 +89,13 @@ class AnalgesiaTable extends Component {
                            renderer: rowData =>
                                <div>
                                    <label>L: </label>
-                                   <DropdownSelect data={$sacralList}
+                                   <DropdownSelect data={sacralList}
                                                    value={rowData.sacralSensoryBlockLeft}
                                                    valueField="value"
                                                    displayField="name"
                                                    onChange={value => this.updateField(rowData.timePoint, 'sacralSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
-                                   <DropdownSelect data={$sacralList}
+                                   <DropdownSelect data={sacralList}
                                                    value={rowData.sacralSensoryBlockRight}
                                                    valueField="value"
                                                    displayField="name"
@@ -132,7 +132,7 @@ class AnalgesiaTable extends Component {
                                <TextField value={format(rowData.fetalHeartRate)}
                                           onChange={value => this.updateField(rowData.timePoint, 'fetalHeartRate', value)}/>
                        }]}
-                       data={$analgesiaData}
+                       data={analgesiaData}
                        idProp="timePoint"
                        isPagging={false}/>
             </div>
@@ -143,20 +143,20 @@ class AnalgesiaTable extends Component {
 AnalgesiaTable.propTypes = {
 
     patientId: PropTypes.string,
-    $thoracicList: PropTypes.array,
-    $sacralList: PropTypes.array,
-    $analgesiaData: PropTypes.array,
+    thoracicList: PropTypes.array,
+    sacralList: PropTypes.array,
+    analgesiaData: PropTypes.array,
 
-    $updateAnalgesiaDataField: PropTypes.func,
-    $createOrUpdateAnalgesiaData: PropTypes.func
+    updateAnalgesiaDataField: PropTypes.func,
+    createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $thoracicList: state.sensoryBlock.thoracicList,
-    $sacralList: state.sensoryBlock.sacralList,
-    $analgesiaData: state.analgesia.data
+    thoracicList: state.sensoryBlock.thoracicList,
+    sacralList: state.sensoryBlock.sacralList,
+    analgesiaData: state.analgesia.data
 }), dispatch => bindActionCreators({
-    $updateAnalgesiaDataField: actions.updateAnalgesiaDataField,
-    $createOrUpdateAnalgesiaData: actions.createOrUpdateAnalgesiaData
+    updateAnalgesiaDataField: actions.updateAnalgesiaDataField,
+    createOrUpdateAnalgesiaData: actions.createOrUpdateAnalgesiaData
 }, dispatch))(AnalgesiaTable);
