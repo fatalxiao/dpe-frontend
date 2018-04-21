@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import debounce from 'lodash/debounce';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -38,7 +39,7 @@ class PatientForm extends Component {
 
     }
 
-    save = _.debounce(() => {
+    save = debounce(() => {
         const {patientId, $updatePatientInfo} = this.props;
         patientId && $updatePatientInfo(patientId, undefined, true);
     }, 250);
