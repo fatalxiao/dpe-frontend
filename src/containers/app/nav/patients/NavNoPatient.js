@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
 import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
@@ -56,8 +53,4 @@ class NavNoPatient extends Component {
     }
 }
 
-NavNoPatient.propTypes = {
-    routerPush: PropTypes.func
-};
-
-export default connect(state => ({}), dispatch => bindActionCreators({}, dispatch))(NavNoPatient);
+export default NavNoPatient;
