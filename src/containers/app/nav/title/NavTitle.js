@@ -18,9 +18,9 @@ class NavTitle extends Component {
 
     render() {
 
-        const {$state} = this.props,
+        const {state} = this.props,
             pathName = location.pathname,
-            navPath = getPath(pathName, $state);
+            navPath = getPath(pathName, state);
 
         return (
             <div className="nav-title">
@@ -58,9 +58,9 @@ class NavTitle extends Component {
 }
 
 NavTitle.propTypes = {
-    $state: PropTypes.object
+    state: PropTypes.object
 };
 
 export default connect(state => ({
-    $state: state
+    state
 }), dispatch => bindActionCreators({}, dispatch))(NavTitle);
