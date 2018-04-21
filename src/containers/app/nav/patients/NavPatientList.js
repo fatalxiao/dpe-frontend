@@ -19,8 +19,8 @@ class NavPatientList extends Component {
 
     render() {
 
-        const {$groupList, $patientList, data, $routerPush} = this.props,
-            listData = data || $patientList;
+        const {groupList, patientList, data, routerPush} = this.props,
+            listData = data || patientList;
 
         return (
             <div className="nav-patient-list"
@@ -32,13 +32,13 @@ class NavPatientList extends Component {
                     listData && listData.map((patient, index) => {
 
                         const patientId = patient.id,
-                            groupName = $groupList.find(item => item.id === patient.groupId).name;
+                            groupName = groupList.find(item => item.id === patient.groupId).name;
 
                         return (
                             <FlatButton key={index}
                                         className="patient"
                                         onTouchTap={() => {
-                                            $routerPush(`/app/patient/info/${patientId}`);
+                                            routerPush(`/app/patient/info/${patientId}`);
                                         }}>
 
                                 <div className="patient-info">
@@ -63,17 +63,17 @@ class NavPatientList extends Component {
 
 NavPatientList.propTypes = {
 
-    $groupList: PropTypes.array,
-    $patientList: PropTypes.array,
+    groupList: PropTypes.array,
+    patientList: PropTypes.array,
     data: PropTypes.array,
 
-    $routerPush: PropTypes.func
+    routerPush: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $groupList: state.group.list,
-    $patientList: state.patients.list
+    groupList: state.group.list,
+    patientList: state.patients.list
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush
+    routerPush: actions.routerPush
 }, dispatch))(NavPatientList);
