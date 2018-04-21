@@ -54,14 +54,11 @@ class NavPatient extends Component {
 }
 
 NavPatient.propTypes = {
-
     isCollapsed: PropTypes.bool,
     isFold: PropTypes.bool,
-
     groupListActionType: PropTypes.string,
     patientList: PropTypes.array,
     patientListActionType: PropTypes.string
-
 };
 
 export default connect(state => ({
