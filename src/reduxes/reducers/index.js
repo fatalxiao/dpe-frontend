@@ -4,7 +4,6 @@ import {routerReducer} from 'react-router-redux';
 import loadComponent from './common/LoadComponentReducer';
 import appToaster from './common/ToasterReducer';
 import appNotifier from './common/NotifierReducer';
-import asyncMsgSeqReducer from './common/AsyncMsgSeqReducer';
 
 import group from './app/common/GroupReducer';
 import patients from './app/common/PatientsReducer';
@@ -22,7 +21,6 @@ const rootReducer = combineReducers({
     loadComponent,
     appToaster,
     appNotifier,
-    asyncMsgSeqReducer,
 
     group,
     patients,
