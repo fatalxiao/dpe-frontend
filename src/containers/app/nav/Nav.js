@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import NavBar from './bar/NavBar';
 import NavPatient from './patients/NavPatients';
@@ -133,7 +133,7 @@ class Nav extends Component {
 
             collapsed = navWidth === this.navBarWidth,
 
-            wrapperClassName = classnames('nav', {
+            wrapperClassName = classNames('nav', {
                 dragging: isDragging
             }),
             wrapperStyle = {
@@ -142,7 +142,7 @@ class Nav extends Component {
             innerStyle = {
                 width: collapsed ? this.navBarWidth : navWidth
             },
-            toggleClassName = classnames('nav-toggle', {
+            toggleClassName = classNames('nav-toggle', {
                 collapsed
             });
 
