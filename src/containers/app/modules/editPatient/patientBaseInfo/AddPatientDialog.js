@@ -38,23 +38,23 @@ class AddPatientDialog extends Component {
             errorMsg: ''
         });
 
-        const {$updatePatientBaseInfoField} = this.props;
-        $updatePatientBaseInfoField(fieldName, fieldValue);
+        const {updatePatientBaseInfoField} = this.props;
+        updatePatientBaseInfoField(fieldName, fieldValue);
 
     }
 
     save() {
 
-        const {$form, $createPatient, onRequestClose, $routerPush} = this.props,
+        const {form, createPatient, onRequestClose, routerPush} = this.props,
             error = [];
 
-        if (!$form.id) {
+        if (!form.id) {
             error.push('ID');
         }
-        if (!$form.name) {
+        if (!form.name) {
             error.push('Name');
         }
-        if (!$form.group) {
+        if (!form.group) {
             error.push('Group');
         }
 
@@ -65,16 +65,16 @@ class AddPatientDialog extends Component {
             return;
         }
 
-        $createPatient(() => {
+        createPatient(() => {
             onRequestClose();
-            $routerPush(`/app/patient/info/${$form.id}`);
+            routerPush(`/app/patient/info/${form.id}`);
         });
 
     }
 
     render() {
 
-        const {$groupList, $form, visible, onRequestClose} = this.props,
+        const {groupList, form, visible, onRequestClose} = this.props,
             {errorMsg} = this.state;
 
         return (
@@ -89,12 +89,12 @@ class AddPatientDialog extends Component {
                     <div className="row">
                         <TextField className="col-6"
                                    label="ID"
-                                   value={format($form.id)}
+                                   value={format(form.id)}
                                    required={true}
                                    onChange={value => this.updateField('id', value)}/>
                         <TextField className="col-6"
                                    label="Name"
-                                   value={format($form.name)}
+                                   value={format(form.name)}
                                    required={true}
                                    onChange={value => this.updateField('name', value)}/>
                     </div>
@@ -104,10 +104,10 @@ class AddPatientDialog extends Component {
                     <div className="row">
                         <DropdownSelect className="col-12"
                                         label="Group"
-                                        data={$groupList}
+                                        data={groupList}
                                         valueField="id"
                                         displayField="name"
-                                        value={$form.group}
+                                        value={form.group}
                                         required={true}
                                         onChange={value => this.updateField('group', value)}/>
                     </div>
@@ -130,23 +130,23 @@ class AddPatientDialog extends Component {
 
 AddPatientDialog.propTypes = {
 
-    $groupList: PropTypes.array,
-    $form: PropTypes.object,
+    groupList: PropTypes.array,
+    form: PropTypes.object,
 
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func,
-    $routerPush: PropTypes.func,
-    $updatePatientBaseInfoField: PropTypes.func,
-    $createPatient: PropTypes.func
+    routerPush: PropTypes.func,
+    updatePatientBaseInfoField: PropTypes.func,
+    createPatient: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $groupList: state.group.list,
-    $form: state.patientBaseInfo.form
+    groupList: state.group.list,
+    form: state.patientBaseInfo.form
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush,
-    $updatePatientBaseInfoField: actions.updatePatientBaseInfoField,
-    $createPatient: actions.createPatient
+    routerPush: actions.routerPush,
+    updatePatientBaseInfoField: actions.updatePatientBaseInfoField,
+    createPatient: actions.createPatient
 }, dispatch))(AddPatientDialog);
