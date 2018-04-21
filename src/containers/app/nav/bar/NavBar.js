@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import NavBarTop from './NavBarTop';
 import NavBarBottom from './NavBarBottom';
@@ -18,7 +18,7 @@ class NavBar extends Component {
 
         const {isFold} = this.props,
 
-            wrapperClassName = classnames('nav-bar', {
+            wrapperClassName = classNames('nav-bar', {
                 fold: isFold
             });
 
