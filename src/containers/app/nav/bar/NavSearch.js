@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
-import * as actions from 'reduxes/actions';
-
 import Paper from 'alcedo-ui/Paper';
 import TextField from 'alcedo-ui/TextField';
 import NavPatientList from 'containers/app/nav/patients/NavPatientList';
@@ -36,7 +34,9 @@ class NavSearch extends Component {
         }
 
         return $patientList ?
-            $patientList.filter(item => (item.id && item.id.includes(filterValue)) || (item.name && item.name.includes(filterValue)))
+            $patientList.filter(item =>
+                (item.id && item.id.includes(filterValue)) || (item.name && item.name.includes(filterValue))
+            )
             :
             [];
 
@@ -98,4 +98,4 @@ NavSearch.propTypes = {
 
 export default connect(state => ({
     $patientList: state.patients.list
-}), dispatch => bindActionCreators(actions, dispatch))(NavSearch);
+}), dispatch => bindActionCreators({}, dispatch))(NavSearch);
