@@ -47,7 +47,7 @@
         "react-router-redux": "^5.0.0-alpha.6",
         "react-tap-event-plugin": "^3.0.2",
         "react-transition-group": "^2.3.1",
-        "redux": "^3.7.2",
+        "redux": "^4.0.0",
         "redux-thunk": "^2.2.0"
     },
     "devDependencies": {
@@ -86,18 +86,18 @@
         "ora": "^2.0.0",
         "path": "^0.12.7",
         "postcss-loader": "^2.1.4",
-        "react-hot-loader": "^4.0.1",
+        "react-hot-loader": "^4.1.1",
         "redbox-react": "^1.5.0",
         "request": "^2.85.0",
         "rimraf": "^2.6.2",
         "sass-loader": "^7.0.1",
         "shelljs": "^0.8.1",
-        "style-loader": "^0.20.3",
-        "uglifyjs-webpack-plugin": "^1.2.4",
+        "style-loader": "^0.21.0",
+        "uglifyjs-webpack-plugin": "^1.2.5",
         "url-loader": "^1.0.1",
-        "webpack": "^4.5.0",
+        "webpack": "^4.6.0",
         "webpack-dev-middleware": "^3.1.2",
-        "webpack-hot-middleware": "^2.21.2",
+        "webpack-hot-middleware": "^2.22.1",
         "webpack-merge": "^4.1.2"
     }
 }
