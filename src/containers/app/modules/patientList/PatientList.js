@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
-
 import PatientListFilter from './PatientListFilter';
 import PatientListTable from './PatientListTable';
 import NavNoPatient from 'containers/app/nav/patients/NavNoPatient';
@@ -93,4 +91,4 @@ PatientList.propTypes = {
 export default connect(state => ({
     $groupList: state.group.list,
     $patientList: state.patients.list
-}), dispatch => bindActionCreators(actions, dispatch))(PatientList);
+}), dispatch => bindActionCreators({}, dispatch))(PatientList);
