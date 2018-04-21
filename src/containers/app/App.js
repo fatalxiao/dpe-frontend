@@ -22,11 +22,11 @@ class App extends Component {
 
     componentDidMount() {
 
-        const {getGroups, getSensoryBlocks, getPatients} = this.props;
+        const {$getGroups, $getSensoryBlocks, $getPatients} = this.props;
 
-        getGroups();
-        getSensoryBlocks();
-        getPatients();
+        $getGroups();
+        $getSensoryBlocks();
+        $getPatients();
 
     }
 
@@ -65,12 +65,16 @@ App.propTypes = {
 
     $componentLoading: PropTypes.bool,
 
-    getGroups: PropTypes.func,
-    getSensoryBlocks: PropTypes.func,
-    getPatients: PropTypes.func
+    $getGroups: PropTypes.func,
+    $getSensoryBlocks: PropTypes.func,
+    $getPatients: PropTypes.func
 
 };
 
 export default connect(state => ({
     $componentLoading: state.loadComponent.loading
-}), dispatch => bindActionCreators(actions, dispatch))(App);
+}), dispatch => bindActionCreators({
+    $getGroups: actions.getGroups,
+    $getSensoryBlocks: actions.getSensoryBlocks,
+    $getPatients: actions.getPatients
+}, dispatch))(App);
