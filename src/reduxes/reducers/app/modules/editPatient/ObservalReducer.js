@@ -20,7 +20,7 @@ const DEFAULT_FORM = {
         durationOfSecondStageOfLaborHours: '',
         durationOfSecondStageOfLaborMinutes: '',
         hasEpiduralCatheterAdjuestment: false,
-        hasEpiduralcatheterReplacement: false,
+        hasEpiduralCatheterReplacement: false,
         hasPrenatalFever: false,
         hasVasoactiveAgent: false,
         isIVEpiduralCatheterInsertion: false,
