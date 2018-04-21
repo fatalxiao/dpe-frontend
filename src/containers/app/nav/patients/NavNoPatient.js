@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
-
 import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 
 import 'scss/containers/app/nav/patients/NavNoPatient.scss';
@@ -62,4 +60,4 @@ NavNoPatient.propTypes = {
     routerPush: PropTypes.func
 };
 
-export default connect(state => ({}), dispatch => bindActionCreators(actions, dispatch))(NavNoPatient);
+export default connect(state => ({}), dispatch => bindActionCreators({}, dispatch))(NavNoPatient);
