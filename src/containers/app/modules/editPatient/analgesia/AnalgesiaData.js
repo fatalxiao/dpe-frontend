@@ -29,37 +29,37 @@ class AnalgesiaData extends Component {
 
     loadData(props = this.props) {
 
-        const {match, getPatientInfo, getAnalgesiaData} = props;
+        const {match, $getPatientInfo, $getAnalgesiaData} = props;
 
         if (match && match.params && match.params.patientId) {
 
             this.patientId = match.params.patientId;
 
-            getPatientInfo(this.patientId);
-            getAnalgesiaData(this.patientId);
+            $getPatientInfo(this.patientId);
+            $getAnalgesiaData(this.patientId);
 
         } else {
-            routerPush('/app/patient-list');
+            $routerPush('/app/patient-list');
         }
 
     }
 
     prevStep() {
-        const {routerPush} = this.props;
-        routerPush(`/app/patient/info/${this.patientId}`);
+        const {$routerPush} = this.props;
+        $routerPush(`/app/patient/info/${this.patientId}`);
     }
 
     save() {
-        const {createOrUpdateAnalgesiaData, routerPush} = this.props;
-        createOrUpdateAnalgesiaData(this.patientId, () => {
-            routerPush(`/app/patient/observal/${this.patientId}`);
+        const {$createOrUpdateAnalgesiaData, $routerPush} = this.props;
+        $createOrUpdateAnalgesiaData(this.patientId, () => {
+            $routerPush(`/app/patient/observal/${this.patientId}`);
         });
     }
 
     componentDidMount() {
 
-        const {updatePatientStep} = this.props;
-        updatePatientStep(1);
+        const {$updatePatientStep} = this.props;
+        $updatePatientStep(1);
 
         this.loadData();
 
@@ -67,7 +67,7 @@ class AnalgesiaData extends Component {
 
     render() {
 
-        const {$getActionType, appendTimePoint} = this.props;
+        const {$getActionType, $appendTimePoint} = this.props;
 
         return (
             <div className="analgesia-data">
@@ -79,7 +79,7 @@ class AnalgesiaData extends Component {
                             <AnalgesiaTable patientId={this.patientId}/>
                             <AnchorButton className="append-time-point-button"
                                           value="Append Time Point"
-                                          onTouchTap={appendTimePoint}>
+                                          onTouchTap={$appendTimePoint}>
                                 <i className="icon-chevron-thin-down down-icon"></i>
                             </AnchorButton>
                             <StepAction onPrev={this.prevStep}
@@ -96,15 +96,22 @@ AnalgesiaData.propTypes = {
 
     $getActionType: PropTypes.string,
 
-    routerPush: PropTypes.func,
-    appendTimePoint: PropTypes.func,
-    updatePatientStep: PropTypes.func,
-    getPatientInfo: PropTypes.func,
-    getAnalgesiaData: PropTypes.func,
-    createOrUpdateAnalgesiaData: PropTypes.func
+    $routerPush: PropTypes.func,
+    $appendTimePoint: PropTypes.func,
+    $updatePatientStep: PropTypes.func,
+    $getPatientInfo: PropTypes.func,
+    $getAnalgesiaData: PropTypes.func,
+    $createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 
 export default connect(state => ({
     $getActionType: state.analgesia.getActionType
-}), dispatch => bindActionCreators(actions, dispatch))(AnalgesiaData);
+}), dispatch => bindActionCreators({
+    $routerPush: actions.routerPush,
+    $appendTimePoint: actions.appendTimePoint,
+    $updatePatientStep: actions.updatePatientStep,
+    $getPatientInfo: actions.getPatientInfo,
+    $getAnalgesiaData: actions.getAnalgesiaData,
+    $createOrUpdateAnalgesiaData: actions.createOrUpdateAnalgesiaData
+}, dispatch))(AnalgesiaData);
