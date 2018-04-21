@@ -177,8 +177,8 @@ class ObservalForm extends Component {
                                   onChange={value => this.updateField('hasEpiduralCatheterAdjuestment', value)}/>
                         <Checkbox className="col-6"
                                   label="Epidural Catheter Replacement"
-                                  checked={$form.hasEpiduralcatheterReplacement}
-                                  onChange={value => this.updateField('hasEpiduralcatheterReplacement', value)}/>
+                                  checked={$form.hasEpiduralCatheterReplacement}
+                                  onChange={value => this.updateField('hasEpiduralCatheterReplacement', value)}/>
                     </div>
                 </FieldSet>
 
