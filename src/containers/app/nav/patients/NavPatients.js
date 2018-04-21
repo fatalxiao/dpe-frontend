@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import * as actionTypes from 'reduxes/actionTypes';
 
@@ -26,7 +26,7 @@ class NavPatient extends Component {
 
             hasNoPatient = !patientList || patientList.length < 1,
 
-            wrapperClassName = classnames('nav-patient', {
+            wrapperClassName = classNames('nav-patient', {
                 'no-patient': hasNoPatient,
                 collapsed: isCollapsed,
                 fold: isFold
