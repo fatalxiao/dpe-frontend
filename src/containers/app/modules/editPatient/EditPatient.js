@@ -22,8 +22,8 @@ class EditPatient extends Component {
     }
 
     stepChangeHandler({activatedStep}) {
-        const {$steps, routerPush} = this.props;
-        routerPush($steps[activatedStep].route);
+        const {$steps, $routerPush} = this.props;
+        $routerPush($steps[activatedStep].route);
     }
 
     render() {
@@ -87,7 +87,7 @@ EditPatient.propTypes = {
 
     $activatedStep: PropTypes.number,
 
-    routerPush: PropTypes.func
+    $routerPush: PropTypes.func
 
 };
 
@@ -95,4 +95,6 @@ export default connect(state => ({
     $form: state.patientInfo.form,
     $steps: state.editPatient.steps,
     $activatedStep: state.editPatient.activatedStep
-}), dispatch => bindActionCreators(actions, dispatch))(EditPatient);
+}), dispatch => bindActionCreators({
+    $routerPush: actions.routerPush
+}, dispatch))(EditPatient);
