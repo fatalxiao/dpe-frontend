@@ -41,8 +41,7 @@ class PatientListTable extends Component {
 
     render() {
 
-        const {groupList, data} = this.props,
-            self = this;
+        const {groupList, data} = this.props;
 
         return data && data.length > 0 ?
             <Table className="patient-list-table"
@@ -60,38 +59,35 @@ class PatientListTable extends Component {
                        header: 'Name',
                        sortable: true,
                        sortProp: 'name',
-                       renderer(rowData) {
-                           return <TextField className="hover-activated name-field"
-                                             value={rowData.name}
-                                             onChange={value => {
-                                                 self.nameChangeHandler(rowData.id, value);
-                                             }}/>;
-                       }
+                       renderer: rowData =>
+                           <TextField className="hover-activated name-field"
+                                      value={rowData.name}
+                                      onChange={value => {
+                                          this.nameChangeHandler(rowData.id, value);
+                                      }}/>
                    }, {
                        header: 'Group',
                        sortable: true,
                        sortProp: 'groupId',
-                       renderer(rowData) {
-                           return <DropdownSelect className="hover-activated group-select"
-                                                  data={groupList}
-                                                  valueField="id"
-                                                  displayField="name"
-                                                  value={rowData.group}
-                                                  onChange={value => {
-                                                      self.groupChangeHandler(rowData.id, value);
-                                                  }}/>;
-                       }
+                       renderer: rowData =>
+                           <DropdownSelect className="hover-activated group-select"
+                                           data={groupList}
+                                           valueField="id"
+                                           displayField="name"
+                                           value={rowData.group}
+                                           onChange={value => {
+                                               this.groupChangeHandler(rowData.id, value);
+                                           }}/>
                    }, {
                        header: 'Status',
                        sortable: true,
                        sortProp: 'status',
-                       renderer(rowData) {
-                           return <Switcher value={rowData.status === 1}
-                                            size={Switcher.Size.SMALL}
-                                            onChange={value => {
-                                                self.statusChangeHandler(rowData.id, value);
-                                            }}/>;
-                       }
+                       renderer: rowData =>
+                           <Switcher value={rowData.status === 1}
+                                     size={Switcher.Size.SMALL}
+                                     onChange={value => {
+                                         this.statusChangeHandler(rowData.id, value);
+                                     }}/>
                    }]}/>
             :
             <div className="no-patient-found">
