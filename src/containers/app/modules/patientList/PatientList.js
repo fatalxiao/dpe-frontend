@@ -44,10 +44,10 @@ class PatientList extends Component {
 
     filterData() {
 
-        const {$patientList} = this.props,
+        const {patientList} = this.props,
             {filterValue, filterGroup, filterStatus} = this.state;
 
-        return $patientList.filter(item =>
+        return patientList.filter(item =>
             (item.id.includes(filterValue) || item.name.includes(filterValue))
             &&
             (filterGroup.id === 0 ? true : item.groupId === filterGroup.id)
@@ -59,16 +59,16 @@ class PatientList extends Component {
 
     render() {
 
-        const {$groupList, $patientList} = this.props,
+        const {groupList, patientList} = this.props,
             {filterValue, filterGroup, filterStatus} = this.state;
 
         return (
             <div className="patient-list">
                 {
-                    $patientList && $patientList.length > 0 ?
+                    patientList && patientList.length > 0 ?
                         <div>
                             <PatientListFilter filterValue={filterValue}
-                                               groupList={[this.allGroup, ...$groupList]}
+                                               groupList={[this.allGroup, ...groupList]}
                                                filterGroup={filterGroup}
                                                statusList={this.statusList}
                                                filterStatus={filterStatus}
@@ -84,11 +84,11 @@ class PatientList extends Component {
 }
 
 PatientList.propTypes = {
-    $groupList: PropTypes.array,
-    $patientList: PropTypes.array
+    groupList: PropTypes.array,
+    patientList: PropTypes.array
 };
 
 export default connect(state => ({
-    $groupList: state.group.list,
-    $patientList: state.patients.list
+    groupList: state.group.list,
+    patientList: state.patients.list
 }), dispatch => bindActionCreators({}, dispatch))(PatientList);
