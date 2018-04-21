@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
-
 import SolidGaugeChart from 'components/SolidGaugeChart';
 import CircularChart from 'components/CircularChart';
 
@@ -75,4 +73,4 @@ Dashboard.propTypes = {
 
 export default connect(state => ({
     $patientList: state.patients.list
-}), dispatch => bindActionCreators(actions, dispatch))(Dashboard);
+}), dispatch => bindActionCreators({}, dispatch))(Dashboard);
