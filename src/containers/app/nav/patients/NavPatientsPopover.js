@@ -34,7 +34,7 @@ class NavPatientsPopover extends Component {
     }
 
     goToList() {
-        this.props.$routerPush('/app/patient-list');
+        this.props.routerPush('/app/patient-list');
     }
 
     componentDidMount() {
@@ -75,13 +75,10 @@ class NavPatientsPopover extends Component {
 }
 
 NavPatientsPopover.propTypes = {
-
     isFold: PropTypes.bool,
-
-    $routerPush: PropTypes.func
-
+    routerPush: PropTypes.func
 };
 
 export default connect(state => ({}), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush
+    routerPush: actions.routerPush
 }, dispatch))(NavPatientsPopover);
