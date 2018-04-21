@@ -27,14 +27,14 @@ class NavSearch extends Component {
 
     filter(filterValue, props = this.props) {
 
-        const {$patientList} = props;
+        const {patientList} = props;
 
         if (!filterValue) {
-            return $patientList;
+            return patientList;
         }
 
-        return $patientList ?
-            $patientList.filter(item =>
+        return patientList ?
+            patientList.filter(item =>
                 (item.id && item.id.includes(filterValue)) || (item.name && item.name.includes(filterValue))
             )
             :
@@ -89,7 +89,7 @@ class NavSearch extends Component {
 
 NavSearch.propTypes = {
 
-    $patientList: PropTypes.array,
+    patientList: PropTypes.array,
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func
@@ -97,5 +97,5 @@ NavSearch.propTypes = {
 };
 
 export default connect(state => ({
-    $patientList: state.patients.list
+    patientList: state.patients.list
 }), dispatch => bindActionCreators({}, dispatch))(NavSearch);
