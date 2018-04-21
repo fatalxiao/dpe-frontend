@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
 
 import NavBar from './bar/NavBar';
 import NavPatient from './patients/NavPatients';
@@ -132,18 +133,21 @@ class Nav extends Component {
 
             collapsed = navWidth === this.navBarWidth,
 
-            wrapperClassName = (isDragging ? ' dragging' : ''),
-            toggleClassName = (collapsed ? ' collapsed' : ''),
-
+            wrapperClassName = classnames('nav', {
+                dragging: isDragging
+            }),
             wrapperStyle = {
                 flexBasis: collapsed ? this.navBarWidth : navWidth
             },
             innerStyle = {
                 width: collapsed ? this.navBarWidth : navWidth
-            };
+            },
+            toggleClassName = classnames('nav-toggle', {
+                collapsed
+            });
 
         return (
-            <div className={'nav' + wrapperClassName}
+            <div className={wrapperClassName}
                  style={wrapperStyle}>
 
                 <div className="nav-inner"
@@ -158,7 +162,7 @@ class Nav extends Component {
                     <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}
                          onTouchTap={this.toggleNav}>
-                        <div className={'nav-toggle' + toggleClassName}
+                        <div className={toggleClassName}
                              onMouseDown={e => e.stopPropagation()}
                              onTouchTap={this.toggleNav}></div>
                     </div>
