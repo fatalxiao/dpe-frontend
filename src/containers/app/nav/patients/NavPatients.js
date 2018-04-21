@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import classnames from 'classnames';
 
 import * as actionTypes from 'reduxes/actionTypes';
 
@@ -24,12 +25,15 @@ class NavPatient extends Component {
         const {isCollapsed, isFold, groupListActionType, patientList, patientListActionType} = this.props,
 
             hasNoPatient = !patientList || patientList.length < 1,
-            wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '')
-                + (isFold ? ' fold' : '');
+
+            wrapperClassName = classnames('nav-patient', {
+                'no-patient': hasNoPatient,
+                collapsed: isCollapsed,
+                fold: isFold
+            });
 
         return (
-            <div className={'nav-patient' + wrapperClassName}>
-
+            <div className={wrapperClassName}>
                 {
                     groupListActionType === actionTypes.GET_GROUPS_REQUEST
                     || patientListActionType === actionTypes.GET_PATIENTS_REQUEST ?
@@ -47,7 +51,6 @@ class NavPatient extends Component {
                                 )
                         )
                 }
-
             </div>
         );
     }
