@@ -29,8 +29,8 @@ class PatientForm extends Component {
 
     updateField(fieldName, fieldValue) {
 
-        const {updatePatientInfoField} = this.props;
-        updatePatientInfoField(fieldName, fieldValue);
+        const {$updatePatientInfoField} = this.props;
+        $updatePatientInfoField(fieldName, fieldValue);
 
         setTimeout(() => {
             this.save();
@@ -39,8 +39,8 @@ class PatientForm extends Component {
     }
 
     save = _.debounce(() => {
-        const {patientId, updatePatientInfo} = this.props;
-        patientId && updatePatientInfo(patientId, undefined, true);
+        const {patientId, $updatePatientInfo} = this.props;
+        patientId && $updatePatientInfo(patientId, undefined, true);
     }, 250);
 
     render() {
@@ -139,11 +139,14 @@ PatientForm.propTypes = {
     patientId: PropTypes.string,
     $form: PropTypes.object,
 
-    updatePatientInfoField: PropTypes.func,
-    updatePatientInfo: PropTypes.func
+    $updatePatientInfoField: PropTypes.func,
+    $updatePatientInfo: PropTypes.func
 
 };
 
 export default connect(state => ({
     $form: state.patientInfo.form
-}), dispatch => bindActionCreators(actions, dispatch))(PatientForm);
+}), dispatch => bindActionCreators({
+    $updatePatientInfoField: actions.updatePatientInfoField,
+    $updatePatientInfo: actions.updatePatientInfo
+}, dispatch))(PatientForm);
