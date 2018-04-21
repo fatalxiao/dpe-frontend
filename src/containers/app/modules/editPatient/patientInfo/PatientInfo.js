@@ -27,24 +27,24 @@ class PatientInfo extends Component {
 
     loadData(props = this.props) {
 
-        const {match, $getPatientInfo} = props;
+        const {match, getPatientInfo} = props;
 
         if (match && match.params && match.params.id) {
 
             this.patientId = match.params.id;
 
-            $getPatientInfo(this.patientId);
+            getPatientInfo(this.patientId);
 
         } else {
-            $routerPush('/app/patient-list');
+            routerPush('/app/patient-list');
         }
 
     }
 
     save() {
-        const {$updatePatientInfo, $routerPush} = this.props;
-        $updatePatientInfo(this.patientId, () => {
-            $routerPush(`/app/patient/analgesia/${this.patientId}`);
+        const {updatePatientInfo, routerPush} = this.props;
+        updatePatientInfo(this.patientId, () => {
+            routerPush(`/app/patient/analgesia/${this.patientId}`);
         });
     }
 
@@ -58,8 +58,8 @@ class PatientInfo extends Component {
 
     componentDidMount() {
 
-        const {$updatePatientStep} = this.props;
-        $updatePatientStep(0);
+        const {updatePatientStep} = this.props;
+        updatePatientStep(0);
 
         this.loadData();
 
@@ -67,12 +67,12 @@ class PatientInfo extends Component {
 
     render() {
 
-        const {$getActionType} = this.props;
+        const {getActionType} = this.props;
 
         return (
             <div className="patient-info">
                 {
-                    $getActionType !== actionTypes.GET_PATIENT_INFO_SUCCESS ?
+                    getActionType !== actionTypes.GET_PATIENT_INFO_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>
@@ -89,20 +89,20 @@ class PatientInfo extends Component {
 
 PatientInfo.propTypes = {
 
-    $getActionType: PropTypes.string,
+    getActionType: PropTypes.string,
 
-    $routerPush: PropTypes.func,
-    $updatePatientStep: PropTypes.func,
-    $getPatientInfo: PropTypes.func,
-    $updatePatientInfo: PropTypes.func
+    routerPush: PropTypes.func,
+    updatePatientStep: PropTypes.func,
+    getPatientInfo: PropTypes.func,
+    updatePatientInfo: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $getActionType: state.patientInfo.getActionType
+    getActionType: state.patientInfo.getActionType
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush,
-    $updatePatientStep: actions.updatePatientStep,
-    $getPatientInfo: actions.getPatientInfo,
-    $updatePatientInfo: actions.updatePatientInfo
+    routerPush: actions.routerPush,
+    updatePatientStep: actions.updatePatientStep,
+    getPatientInfo: actions.getPatientInfo,
+    updatePatientInfo: actions.updatePatientInfo
 }, dispatch))(PatientInfo);
