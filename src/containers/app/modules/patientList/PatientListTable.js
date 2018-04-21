@@ -27,21 +27,21 @@ class PatientListTable extends Component {
     }
 
     nameChangeHandler = debounce((id, value) => {
-        this.props.$updatePatientName(id, value);
+        this.props.updatePatientName(id, value);
     }, 250);
 
     groupChangeHandler(id, value) {
-        this.props.$updatePatientGroup(id, value);
+        this.props.updatePatientGroup(id, value);
     }
 
     statusChangeHandler(id, value) {
-        const {$enablePatient, $disablePatient} = this.props;
-        value ? $enablePatient(id) : $disablePatient(id);
+        const {enablePatient, disablePatient} = this.props;
+        value ? enablePatient(id) : disablePatient(id);
     }
 
     render() {
 
-        const {$groupList, data} = this.props,
+        const {groupList, data} = this.props,
             self = this;
 
         return data && data.length > 0 ?
@@ -73,7 +73,7 @@ class PatientListTable extends Component {
                        sortProp: 'groupId',
                        renderer(rowData) {
                            return <DropdownSelect className="hover-activated group-select"
-                                                  data={$groupList}
+                                                  data={groupList}
                                                   valueField="id"
                                                   displayField="name"
                                                   value={rowData.group}
@@ -102,21 +102,21 @@ class PatientListTable extends Component {
 
 PatientListTable.propTypes = {
 
-    $groupList: PropTypes.array,
+    groupList: PropTypes.array,
     data: PropTypes.array,
 
-    $updatePatientName: PropTypes.func,
-    $updatePatientGroup: PropTypes.func,
-    $enablePatient: PropTypes.func,
-    $disablePatient: PropTypes.func
+    updatePatientName: PropTypes.func,
+    updatePatientGroup: PropTypes.func,
+    enablePatient: PropTypes.func,
+    disablePatient: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $groupList: state.group.list
+    groupList: state.group.list
 }), dispatch => bindActionCreators({
-    $updatePatientName: actions.updatePatientName,
-    $updatePatientGroup: actions.updatePatientGroup,
-    $enablePatient: actions.enablePatient,
-    $disablePatient: actions.disablePatient
+    updatePatientName: actions.updatePatientName,
+    updatePatientGroup: actions.updatePatientGroup,
+    enablePatient: actions.enablePatient,
+    disablePatient: actions.disablePatient
 }, dispatch))(PatientListTable);
