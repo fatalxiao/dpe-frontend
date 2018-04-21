@@ -21,7 +21,7 @@ class NavPatientListWrapper extends Component {
     }
 
     goToList() {
-        this.props.routerPush('/app/patient-list');
+        this.props.$routerPush('/app/patient-list');
     }
 
     render() {
@@ -47,13 +47,12 @@ class NavPatientListWrapper extends Component {
 }
 
 NavPatientListWrapper.propTypes = {
-
     $patientList: PropTypes.array,
-
-    routerPush: PropTypes.func
-
+    $routerPush: PropTypes.func
 };
 
 export default connect(state => ({
     $patientList: state.patients.list
-}), dispatch => bindActionCreators(actions, dispatch))(NavPatientListWrapper);
+}), dispatch => bindActionCreators({
+    $routerPush: actions.routerPush
+}, dispatch))(NavPatientListWrapper);
