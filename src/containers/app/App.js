@@ -22,16 +22,14 @@ class App extends Component {
 
     componentDidMount() {
 
+        Dom.removeClass(document.querySelector('html'), 'full-size');
+
         const {$getGroups, $getSensoryBlocks, $getPatients} = this.props;
 
         $getGroups();
         $getSensoryBlocks();
         $getPatients();
 
-    }
-
-    componentDidMount() {
-        Dom.removeClass(document.querySelector('html'), 'full-size');
     }
 
     render() {
