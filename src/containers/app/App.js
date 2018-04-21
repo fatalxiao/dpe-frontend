@@ -24,17 +24,17 @@ class App extends Component {
 
         Dom.removeClass(document.querySelector('html'), 'full-size');
 
-        const {$getGroups, $getSensoryBlocks, $getPatients} = this.props;
+        const {getGroups, getSensoryBlocks, getPatients} = this.props;
 
-        $getGroups();
-        $getSensoryBlocks();
-        $getPatients();
+        getGroups();
+        getSensoryBlocks();
+        getPatients();
 
     }
 
     render() {
 
-        const {route, $componentLoading} = this.props;
+        const {route, componentLoading} = this.props;
 
         return (
             <div className="app">
@@ -44,7 +44,7 @@ class App extends Component {
                 <div ref="appContent"
                      className="app-content">
 
-                    <PageLoading visible={$componentLoading}
+                    <PageLoading visible={componentLoading}
                                  showStripes={false}/>
 
                     <NavTitle/>
@@ -61,18 +61,18 @@ class App extends Component {
 
 App.propTypes = {
 
-    $componentLoading: PropTypes.bool,
+    componentLoading: PropTypes.bool,
 
-    $getGroups: PropTypes.func,
-    $getSensoryBlocks: PropTypes.func,
-    $getPatients: PropTypes.func
+    getGroups: PropTypes.func,
+    getSensoryBlocks: PropTypes.func,
+    getPatients: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $componentLoading: state.loadComponent.loading
+    componentLoading: state.loadComponent.loading
 }), dispatch => bindActionCreators({
-    $getGroups: actions.getGroups,
-    $getSensoryBlocks: actions.getSensoryBlocks,
-    $getPatients: actions.getPatients
+    getGroups: actions.getGroups,
+    getSensoryBlocks: actions.getSensoryBlocks,
+    getPatients: actions.getPatients
 }, dispatch))(App);
