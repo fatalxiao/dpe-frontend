@@ -22,38 +22,38 @@ class EditPatient extends Component {
     }
 
     stepChangeHandler({activatedStep}) {
-        const {$steps, $routerPush} = this.props;
-        $routerPush($steps[activatedStep].route);
+        const {steps, routerPush} = this.props;
+        routerPush(steps[activatedStep].route);
     }
 
     render() {
 
-        const {route, $form, $steps, $activatedStep} = this.props;
+        const {route, form, steps, activatedStep} = this.props;
 
         return (
             <div className="patient">
 
                 <PointStep className="patient-stepper"
-                           steps={$steps}
-                           activatedStep={$activatedStep}
-                           finishedStep={$steps.length - 1}
+                           steps={steps}
+                           activatedStep={activatedStep}
+                           finishedStep={steps.length - 1}
                            onChange={this.stepChangeHandler}/>
 
                 <div className="patient-content">
 
                     {
-                        $form && $form.name ?
+                        form && form.name ?
                             <div>
                                 <div className="patient-base-info">
-                                    <h1 className="patient-name">{$form.name}</h1>
+                                    <h1 className="patient-name">{form.name}</h1>
                                     <div className="patient-desc">
-                                        {`${$form.id}  ·  ${$form.group && $form.group.name}`}
+                                        {`${form.id}  ·  ${form.group && form.group.name}`}
                                     </div>
                                 </div>
                                 {
-                                    $activatedStep >= 0 ?
+                                    activatedStep >= 0 ?
                                         <h2 className="patient-content-title">
-                                            {`Step ${$activatedStep + 1}. ${$steps[$activatedStep].title}`}
+                                            {`Step ${activatedStep + 1}. ${steps[activatedStep].title}`}
                                         </h2>
                                         :
                                         null
@@ -82,19 +82,19 @@ class EditPatient extends Component {
 
 EditPatient.propTypes = {
 
-    $form: PropTypes.object,
-    $steps: PropTypes.array,
+    form: PropTypes.object,
+    steps: PropTypes.array,
 
-    $activatedStep: PropTypes.number,
+    activatedStep: PropTypes.number,
 
-    $routerPush: PropTypes.func
+    routerPush: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $form: state.patientInfo.form,
-    $steps: state.editPatient.steps,
-    $activatedStep: state.editPatient.activatedStep
+    form: state.patientInfo.form,
+    steps: state.editPatient.steps,
+    activatedStep: state.editPatient.activatedStep
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush
+    routerPush: actions.routerPush
 }, dispatch))(EditPatient);
