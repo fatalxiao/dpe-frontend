@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import debounce from 'lodash/debounce';
 
 import * as actions from 'reduxes/actions/index';
 
@@ -62,7 +63,7 @@ class ObservalForm extends Component {
 
     }
 
-    save = _.debounce(() => {
+    save = debounce(() => {
         const {patientId, $createOrUpdateObservalData} = this.props;
         patientId && $createOrUpdateObservalData(patientId, undefined, true, true);
     }, 250);
