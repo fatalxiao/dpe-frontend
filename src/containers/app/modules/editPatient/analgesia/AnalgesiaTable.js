@@ -46,8 +46,7 @@ class AnalgesiaTable extends Component {
 
     render() {
 
-        const {$thoracicList, $sacralList, $analgesiaData} = this.props,
-            self = this;
+        const {$thoracicList, $sacralList, $analgesiaData} = this.props;
 
         return (
             <div className="analgesia-data-table-scroller">
@@ -62,12 +61,12 @@ class AnalgesiaTable extends Component {
                            header: 'Contraction',
                            renderer: rowData =>
                                <Checkbox checked={rowData.hasContraction}
-                                         onChange={value => self.updateField(rowData.timePoint, 'hasContraction', value)}/>
+                                         onChange={value => this.updateField(rowData.timePoint, 'hasContraction', value)}/>
                        }, {
                            header: 'Vas',
                            renderer: rowData =>
                                <TextField value={format(rowData.vasScore)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'vasScore', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'vasScore', value)}/>
                        }, {
                            header: 'TSB',
                            renderer: rowData =>
@@ -77,13 +76,13 @@ class AnalgesiaTable extends Component {
                                                    value={rowData.thoracicSensoryBlockLeft}
                                                    valueField="value"
                                                    displayField="name"
-                                                   onChange={value => self.updateField(rowData.timePoint, 'thoracicSensoryBlockLeft', value)}/>
+                                                   onChange={value => this.updateField(rowData.timePoint, 'thoracicSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
                                    <DropdownSelect data={$thoracicList}
                                                    value={rowData.thoracicSensoryBlockRight}
                                                    valueField="value"
                                                    displayField="name"
-                                                   onChange={value => self.updateField(rowData.timePoint, 'thoracicSensoryBlockRight', value)}/>
+                                                   onChange={value => this.updateField(rowData.timePoint, 'thoracicSensoryBlockRight', value)}/>
                                </div>
                        }, {
                            header: 'SSB',
@@ -94,46 +93,47 @@ class AnalgesiaTable extends Component {
                                                    value={rowData.sacralSensoryBlockLeft}
                                                    valueField="value"
                                                    displayField="name"
-                                                   onChange={value => self.updateField(rowData.timePoint, 'sacralSensoryBlockLeft', value)}/>
+                                                   onChange={value => this.updateField(rowData.timePoint, 'sacralSensoryBlockLeft', value)}/>
                                    <label>, R: </label>
                                    <DropdownSelect data={$sacralList}
                                                    value={rowData.sacralSensoryBlockRight}
                                                    valueField="value"
                                                    displayField="name"
-                                                   onChange={value => self.updateField(rowData.timePoint, 'sacralSensoryBlockRight', value)}/>
+                                                   onChange={value => this.updateField(rowData.timePoint, 'sacralSensoryBlockRight', value)}/>
                                </div>
                        }, {
                            header: 'Bromage',
                            renderer: rowData =>
                                <TextField value={format(rowData.bromageScore)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'bromageScore', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'bromageScore', value)}/>
                        }, {
                            header: 'SBP',
                            renderer: rowData =>
                                <TextField value={format(rowData.systolicBloodPressure)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'systolicBloodPressure', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'systolicBloodPressure', value)}/>
                        }, {
                            header: 'DBP',
                            renderer: rowData =>
                                <TextField value={format(rowData.diastolicBloodPressure)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'diastolicBloodPressure', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'diastolicBloodPressure', value)}/>
                        }, {
                            header: 'Heart Rate',
                            renderer: rowData =>
                                <TextField value={format(rowData.heartRate)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'heartRate', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'heartRate', value)}/>
                        }, {
                            header: 'SPO2',
                            renderer: rowData =>
                                <TextField value={format(rowData.pulseOxygenSaturation)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'pulseOxygenSaturation', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'pulseOxygenSaturation', value)}/>
                        }, {
                            header: 'FHR',
                            renderer: rowData =>
                                <TextField value={format(rowData.fetalHeartRate)}
-                                          onChange={value => self.updateField(rowData.timePoint, 'fetalHeartRate', value)}/>
+                                          onChange={value => this.updateField(rowData.timePoint, 'fetalHeartRate', value)}/>
                        }]}
                        data={$analgesiaData}
+                       idProp="timePoint"
                        isPagging={false}/>
             </div>
         );
