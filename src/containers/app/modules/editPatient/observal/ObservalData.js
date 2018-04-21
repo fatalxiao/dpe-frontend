@@ -28,37 +28,37 @@ class ObservalData extends Component {
 
     loadData(props = this.props) {
 
-        const {match, $getPatientInfo, $getObservalData} = props;
+        const {match, getPatientInfo, getObservalData} = props;
 
         if (match && match.params && match.params.patientId) {
 
             this.patientId = match.params.patientId;
 
-            $getPatientInfo(this.patientId);
-            $getObservalData(this.patientId);
+            getPatientInfo(this.patientId);
+            getObservalData(this.patientId);
 
         } else {
-            $routerPush('/app/patient-list');
+            routerPush('/app/patient-list');
         }
 
     }
 
     prevStep() {
-        const {$routerPush} = this.props;
-        $routerPush(`/app/patient/analgesia/${this.patientId}`);
+        const {routerPush} = this.props;
+        routerPush(`/app/patient/analgesia/${this.patientId}`);
     }
 
     save() {
-        const {$createOrUpdateObservalData, $routerPush} = this.props;
-        $createOrUpdateObservalData(this.patientId, () => {
-            $routerPush(`/app/patient-list`);
+        const {createOrUpdateObservalData, routerPush} = this.props;
+        createOrUpdateObservalData(this.patientId, () => {
+            routerPush(`/app/patient-list`);
         });
     }
 
     componentDidMount() {
 
-        const {$updatePatientStep} = this.props;
-        $updatePatientStep(2);
+        const {updatePatientStep} = this.props;
+        updatePatientStep(2);
 
         this.loadData();
 
@@ -66,12 +66,12 @@ class ObservalData extends Component {
 
     render() {
 
-        const {$getActionType} = this.props;
+        const {getActionType} = this.props;
 
         return (
             <div className="observal-data">
                 {
-                    $getActionType !== actionTypes.GET_OBSERVAL_SUCCESS ?
+                    getActionType !== actionTypes.GET_OBSERVAL_SUCCESS ?
                         <ModuleLoading/>
                         :
                         <div>
@@ -88,22 +88,22 @@ class ObservalData extends Component {
 
 ObservalData.propTypes = {
 
-    $getActionType: PropTypes.string,
+    getActionType: PropTypes.string,
 
-    $routerPush: PropTypes.func,
-    $updatePatientStep: PropTypes.func,
-    $getPatientInfo: PropTypes.func,
-    $getObservalData: PropTypes.func,
-    $createOrUpdateObservalData: PropTypes.func
+    routerPush: PropTypes.func,
+    updatePatientStep: PropTypes.func,
+    getPatientInfo: PropTypes.func,
+    getObservalData: PropTypes.func,
+    createOrUpdateObservalData: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $getActionType: state.observal.getActionType
+    getActionType: state.observal.getActionType
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush,
-    $updatePatientStep: actions.updatePatientStep,
-    $getPatientInfo: actions.getPatientInfo,
-    $getObservalData: actions.getObservalData,
-    $createOrUpdateObservalData: actions.createOrUpdateObservalData
+    routerPush: actions.routerPush,
+    updatePatientStep: actions.updatePatientStep,
+    getPatientInfo: actions.getPatientInfo,
+    getObservalData: actions.getObservalData,
+    createOrUpdateObservalData: actions.createOrUpdateObservalData
 }, dispatch))(ObservalData);
