@@ -27,18 +27,18 @@ class AppRoot extends Component {
 
     render() {
 
-        const {$toastes, $notifiers, route, location, $clearToaste, $clearNotifier} = this.props;
+        const {toastes, notifiers, route, location, clearToaste, clearNotifier} = this.props;
 
         return (
             <div className="app-root">
 
-                <Toaster toasts={$toastes}
+                <Toaster toasts={toastes}
                          position={Toaster.Position.TOP}
-                         onToastPop={$clearToaste}/>
+                         onToastPop={clearToaste}/>
 
-                <Notifier notifications={$notifiers}
+                <Notifier notifications={notifiers}
                           position={Notifier.Position.TOP_RIGHT}
-                          onNotificationPop={$clearNotifier}
+                          onNotificationPop={clearNotifier}
                           duration={8000}/>
 
                 {renderRoutes(route.routes)}
@@ -58,18 +58,18 @@ class AppRoot extends Component {
 
 AppRoot.propTypes = {
 
-    $toastes: PropTypes.array,
-    $notifiers: PropTypes.array,
+    toastes: PropTypes.array,
+    notifiers: PropTypes.array,
 
-    $clearToaste: PropTypes.func,
-    $clearNotifier: PropTypes.func
+    clearToaste: PropTypes.func,
+    clearNotifier: PropTypes.func
 
 };
 
 export default connect(state => ({
-    $toastes: state.appToaster.toastes,
-    $notifiers: state.appNotifier.notifiers
+    toastes: state.appToaster.toastes,
+    notifiers: state.appNotifier.notifiers
 }), dispatch => bindActionCreators({
-    $clearToaste: actions.clearToaste,
-    $clearNotifier: actions.clearNotifier
+    clearToaste: actions.clearToaste,
+    clearNotifier: actions.clearNotifier
 }, dispatch))(AppRoot);
