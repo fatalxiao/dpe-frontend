@@ -21,9 +21,9 @@ class NavPatient extends Component {
 
     render() {
 
-        const {isCollapsed, isFold, $groupListActionType, $patientList, $patientListActionType} = this.props,
+        const {isCollapsed, isFold, groupListActionType, patientList, patientListActionType} = this.props,
 
-            hasNoPatient = !$patientList || $patientList.length < 1,
+            hasNoPatient = !patientList || patientList.length < 1,
             wrapperClassName = (hasNoPatient ? ' no-patient' : '') + (isCollapsed ? ' collapsed' : '')
                 + (isFold ? ' fold' : '');
 
@@ -31,8 +31,8 @@ class NavPatient extends Component {
             <div className={'nav-patient' + wrapperClassName}>
 
                 {
-                    $groupListActionType === actionTypes.GET_GROUPS_REQUEST
-                    || $patientListActionType === actionTypes.GET_PATIENTS_REQUEST ?
+                    groupListActionType === actionTypes.GET_GROUPS_REQUEST
+                    || patientListActionType === actionTypes.GET_PATIENTS_REQUEST ?
                         <CircularLoading/>
                         :
                         (
@@ -58,14 +58,14 @@ NavPatient.propTypes = {
     isCollapsed: PropTypes.bool,
     isFold: PropTypes.bool,
 
-    $groupListActionType: PropTypes.string,
-    $patientList: PropTypes.array,
-    $patientListActionType: PropTypes.string
+    groupListActionType: PropTypes.string,
+    patientList: PropTypes.array,
+    patientListActionType: PropTypes.string
 
 };
 
 export default connect(state => ({
-    $groupListActionType: state.group.actionType,
-    $patientList: state.patients.list,
-    $patientListActionType: state.patients.getActionType
+    groupListActionType: state.group.actionType,
+    patientList: state.patients.list,
+    patientListActionType: state.patients.getActionType
 }), dispatch => bindActionCreators({}, dispatch))(NavPatient);
