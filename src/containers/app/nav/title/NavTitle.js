@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
-
 import Crumbs from 'alcedo-ui/Crumbs';
 
 import {getPath} from 'src/config.sitemap';
@@ -65,4 +63,4 @@ NavTitle.propTypes = {
 
 export default connect(state => ({
     $state: state
-}), dispatch => bindActionCreators(actions, dispatch))(NavTitle);
+}), dispatch => bindActionCreators({}, dispatch))(NavTitle);
