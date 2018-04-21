@@ -30,8 +30,8 @@ class AnalgesiaTable extends Component {
 
     updateField(timePoint, fieldName, fieldValue) {
 
-        const {updateAnalgesiaDataField} = this.props;
-        updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
+        const {$updateAnalgesiaDataField} = this.props;
+        $updateAnalgesiaDataField(timePoint, fieldName, fieldValue);
 
         setTimeout(() => {
             this.save();
@@ -40,8 +40,8 @@ class AnalgesiaTable extends Component {
     }
 
     save = debounce(() => {
-        const {patientId, createOrUpdateAnalgesiaData} = this.props;
-        patientId && createOrUpdateAnalgesiaData(patientId, undefined, true);
+        const {patientId, $createOrUpdateAnalgesiaData} = this.props;
+        patientId && $createOrUpdateAnalgesiaData(patientId, undefined, true);
     }, 250);
 
     render() {
@@ -147,8 +147,8 @@ AnalgesiaTable.propTypes = {
     $sacralList: PropTypes.array,
     $analgesiaData: PropTypes.array,
 
-    updateAnalgesiaDataField: PropTypes.func,
-    createOrUpdateAnalgesiaData: PropTypes.func
+    $updateAnalgesiaDataField: PropTypes.func,
+    $createOrUpdateAnalgesiaData: PropTypes.func
 
 };
 
@@ -156,4 +156,7 @@ export default connect(state => ({
     $thoracicList: state.sensoryBlock.thoracicList,
     $sacralList: state.sensoryBlock.sacralList,
     $analgesiaData: state.analgesia.data
-}), dispatch => bindActionCreators(actions, dispatch))(AnalgesiaTable);
+}), dispatch => bindActionCreators({
+    $updateAnalgesiaDataField: actions.updateAnalgesiaDataField,
+    $createOrUpdateAnalgesiaData: actions.createOrUpdateAnalgesiaData
+}, dispatch))(AnalgesiaTable);
