@@ -31,7 +31,7 @@ class PatientListFilter extends Component {
         this.setState({
             addPatientDialogVisible: true
         }, () => {
-            this.props.resetPatientBaseInfo();
+            this.props.$resetPatientBaseInfo();
         });
     }
 
@@ -101,9 +101,11 @@ PatientListFilter.propTypes = {
     statusList: PropTypes.array,
     filterStatus: PropTypes.object,
 
-    resetPatientBaseInfo: PropTypes.func,
+    $resetPatientBaseInfo: PropTypes.func,
     onFilterChange: PropTypes.func
 
 };
 
-export default connect(state => ({}), dispatch => bindActionCreators(actions, dispatch))(PatientListFilter);
+export default connect(state => ({}), dispatch => bindActionCreators({
+    $resetPatientBaseInfo: actions.resetPatientBaseInfo
+}, dispatch))(PatientListFilter);
