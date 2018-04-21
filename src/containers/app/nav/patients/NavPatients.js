@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from 'reduxes/actions';
 import * as actionTypes from 'reduxes/actionTypes';
 
 import CircularLoading from 'alcedo-ui/CircularLoading';
@@ -61,9 +60,7 @@ NavPatient.propTypes = {
 
     $groupListActionType: PropTypes.string,
     $patientList: PropTypes.array,
-    $patientListActionType: PropTypes.string,
-
-    routerPush: PropTypes.func
+    $patientListActionType: PropTypes.string
 
 };
 
@@ -71,4 +68,4 @@ export default connect(state => ({
     $groupListActionType: state.group.actionType,
     $patientList: state.patients.list,
     $patientListActionType: state.patients.getActionType
-}), dispatch => bindActionCreators(actions, dispatch))(NavPatient);
+}), dispatch => bindActionCreators({}, dispatch))(NavPatient);
