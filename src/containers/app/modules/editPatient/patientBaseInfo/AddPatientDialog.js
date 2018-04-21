@@ -38,14 +38,14 @@ class AddPatientDialog extends Component {
             errorMsg: ''
         });
 
-        const {updatePatientBaseInfoField} = this.props;
-        updatePatientBaseInfoField(fieldName, fieldValue);
+        const {$updatePatientBaseInfoField} = this.props;
+        $updatePatientBaseInfoField(fieldName, fieldValue);
 
     }
 
     save() {
 
-        const {$form, createPatient, onRequestClose, routerPush} = this.props,
+        const {$form, $createPatient, onRequestClose, $routerPush} = this.props,
             error = [];
 
         if (!$form.id) {
@@ -65,9 +65,9 @@ class AddPatientDialog extends Component {
             return;
         }
 
-        createPatient(() => {
+        $createPatient(() => {
             onRequestClose();
-            routerPush(`/app/patient/info/${$form.id}`);
+            $routerPush(`/app/patient/info/${$form.id}`);
         });
 
     }
@@ -136,13 +136,17 @@ AddPatientDialog.propTypes = {
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func,
-    updatePatientBaseInfoField: PropTypes.func,
-    createPatient: PropTypes.func,
-    routerPush: PropTypes.func
+    $routerPush: PropTypes.func,
+    $updatePatientBaseInfoField: PropTypes.func,
+    $createPatient: PropTypes.func
 
 };
 
 export default connect(state => ({
     $groupList: state.group.list,
     $form: state.patientBaseInfo.form
-}), dispatch => bindActionCreators(actions, dispatch))(AddPatientDialog);
+}), dispatch => bindActionCreators({
+    $routerPush: actions.routerPush,
+    $updatePatientBaseInfoField: actions.updatePatientBaseInfoField,
+    $createPatient: actions.createPatient
+}, dispatch))(AddPatientDialog);
