@@ -21,12 +21,12 @@ class NavPatientListWrapper extends Component {
     }
 
     goToList() {
-        this.props.$routerPush('/app/patient-list');
+        this.props.routerPush('/app/patient-list');
     }
 
     render() {
 
-        const {$patientList} = this.props;
+        const {patientList} = this.props;
 
         return (
             <div className="nav-patient-list-wrapper">
@@ -35,7 +35,7 @@ class NavPatientListWrapper extends Component {
                             value="All Patients"
                             iconCls="icon-list"
                             onTouchTap={this.goToList}>
-                    <span className="patients-count">{`[${$patientList.length}]`}</span>
+                    <span className="patients-count">{`[${patientList.length}]`}</span>
                 </FlatButton>
 
                 <PatientList/>
@@ -47,12 +47,12 @@ class NavPatientListWrapper extends Component {
 }
 
 NavPatientListWrapper.propTypes = {
-    $patientList: PropTypes.array,
-    $routerPush: PropTypes.func
+    patientList: PropTypes.array,
+    routerPush: PropTypes.func
 };
 
 export default connect(state => ({
-    $patientList: state.patients.list
+    patientList: state.patients.list
 }), dispatch => bindActionCreators({
-    $routerPush: actions.routerPush
+    routerPush: actions.routerPush
 }, dispatch))(NavPatientListWrapper);
