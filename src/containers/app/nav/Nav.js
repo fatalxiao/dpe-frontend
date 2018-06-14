@@ -31,44 +31,33 @@ class Nav extends Component {
             isNavPatientFold: this.isNavPatientFold(navWidth)
         };
 
-        this.getNavWidth = ::this.getNavWidth;
-        this.saveNavWidth = ::this.saveNavWidth;
-        this.isNavPatientCollapsed = ::this.isNavPatientCollapsed;
-        this.isNavPatientFold = ::this.isNavPatientFold;
-        this.toggleMouseDownHandler = ::this.toggleMouseDownHandler;
-        this.mouseMoveHandler = ::this.mouseMoveHandler;
-        this.mouseUpHandler = ::this.mouseUpHandler;
-        this.toggleNav = ::this.toggleNav;
-
     }
 
-    getNavWidth() {
+    getNavWidth = () => {
         return parseInt(localStorage.getItem('navWidth')) || this.defaultWidth;
-    }
+    };
 
-    saveNavWidth(navWidth) {
+    saveNavWidth = navWidth => {
         localStorage.setItem('navWidth', navWidth);
-    }
+    };
 
-    isNavPatientCollapsed(navWidth) {
+    isNavPatientCollapsed = navWidth => {
         return navWidth < this.navBarWidth * 2;
-    }
+    };
 
-    isNavPatientFold(navWidth) {
+    isNavPatientFold = navWidth => {
         return navWidth < this.navBarWidth + this.navPatientWidth / 3;
-    }
+    };
 
-    toggleMouseDownHandler(e) {
-
-        e.stopPropagation();
+    toggleMouseDownHandler = e => {
 
         this.resizing = true;
         this.startWidth = this.state.navWidth;
         this.mouseX = e.pageX;
 
-    }
+    };
 
-    mouseMoveHandler(e) {
+    mouseMoveHandler = e => {
 
         if (!this.resizing) {
             return;
@@ -84,9 +73,9 @@ class Nav extends Component {
             isNavPatientFold: false
         });
 
-    }
+    };
 
-    mouseUpHandler() {
+    mouseUpHandler = () => {
 
         this.resizing = false;
 
@@ -103,11 +92,9 @@ class Nav extends Component {
             this.saveNavWidth(newNavWidth);
         });
 
-    }
+    };
 
-    toggleNav(e) {
-
-        e.stopPropagation();
+    toggleNav = () => {
 
         const {navWidth} = this.state;
 
@@ -115,7 +102,7 @@ class Nav extends Component {
             navWidth: navWidth === this.navBarWidth ? this.defaultWidth : this.navBarWidth
         });
 
-    }
+    };
 
     componentDidMount() {
         Event.addEvent(document, 'mousemove', this.mouseMoveHandler);
@@ -161,10 +148,9 @@ class Nav extends Component {
 
                     <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}
-                         onClick={this.toggleNav}>
+                         onMouseUp={this.toggleNav}>
                         <div className={toggleClassName}
-                             onMouseDown={e => e.stopPropagation()}
-                             onClick={this.toggleNav}></div>
+                             onMouseUp={this.toggleNav}></div>
                     </div>
 
                 </div>
