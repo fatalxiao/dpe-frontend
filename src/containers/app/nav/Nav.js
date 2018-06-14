@@ -19,6 +19,7 @@ class Nav extends Component {
         this.navPatientWidth = 240;
         this.defaultWidth = this.navBarWidth + this.navPatientWidth;
 
+        this.noMove = false;
         this.resizing = false;
         this.startWidth = null;
         this.mouseX = null;
@@ -51,6 +52,9 @@ class Nav extends Component {
 
     toggleMouseDownHandler = e => {
 
+        e.stopPropagation();
+
+        this.noMove = true;
         this.resizing = true;
         this.startWidth = this.state.navWidth;
         this.mouseX = e.pageX;
@@ -59,9 +63,13 @@ class Nav extends Component {
 
     mouseMoveHandler = e => {
 
+        e.stopPropagation();
+
         if (!this.resizing) {
             return;
         }
+
+        this.noMove = false;
 
         const offsetX = e.pageX - this.mouseX,
             navWidth = Valid.range(this.startWidth + offsetX, this.navBarWidth);
@@ -94,12 +102,21 @@ class Nav extends Component {
 
     };
 
-    toggleNav = () => {
+    toggleNav = e => {
 
-        const {navWidth} = this.state;
+        if (!this.noMove) {
+            return;
+        }
+
+        e.stopPropagation();
+
+        const {navWidth} = this.state,
+            isFold = navWidth !== this.navBarWidth;
 
         this.setState({
-            navWidth: navWidth === this.navBarWidth ? this.defaultWidth : this.navBarWidth
+            navWidth: isFold ? this.navBarWidth : this.defaultWidth,
+            isNavPatientCollapsed: isFold,
+            isNavPatientFold: isFold
         });
 
     };
@@ -149,8 +166,7 @@ class Nav extends Component {
                     <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}
                          onMouseUp={this.toggleNav}>
-                        <div className={toggleClassName}
-                             onMouseUp={this.toggleNav}></div>
+                        <div className={toggleClassName}></div>
                     </div>
 
                 </div>
