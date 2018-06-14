@@ -27,13 +27,13 @@ export default class StepAction extends Component {
                         <FlatButton className="previous-button"
                                     value="Previous"
                                     iconCls="icon-back"
-                                    onTouchTap={onPrev}/>
+                                    onClick={onPrev}/>
                 }
 
                 <RaisedButton className="continue-button"
                               theme={Theme.SUCCESS}
                               value={isLast ? 'DONE' : 'SAVE and CONTINUE'}
-                              onTouchTap={onNext}/>
+                              onClick={onNext}/>
 
             </div>
         );

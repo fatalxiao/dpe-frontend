@@ -37,7 +37,7 @@ class NavPatientList extends Component {
                         return (
                             <FlatButton key={index}
                                         className="patient"
-                                        onTouchTap={() => {
+                                        onClick={() => {
                                             routerPush(`/app/patient/info/${patientId}`);
                                         }}>
 

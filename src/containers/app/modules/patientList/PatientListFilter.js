@@ -83,7 +83,7 @@ class PatientListFilter extends Component {
                               theme={RaisedButton.Theme.PRIMARY}
                               iconCls="icon-plus"
                               value="Create Patient"
-                              onTouchTap={this.showAddPatient}/>
+                              onClick={this.showAddPatient}/>
 
                 <AddPatientDialog visible={addPatientDialogVisible}
                                   onRequestClose={this.hideAddPatient}/>

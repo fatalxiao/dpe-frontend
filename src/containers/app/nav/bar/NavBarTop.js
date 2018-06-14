@@ -93,7 +93,7 @@ class NavBarTop extends Component {
             <div className={className}>
 
                 <IconButton className="nav-bar-item nav-bar-logo-button"
-                            onTouchTap={this.goToLanding}>
+                            onClick={this.goToLanding}>
                     <div className="logo"/>
                     <div className="logo-animated"/>
                 </IconButton>
@@ -102,19 +102,19 @@ class NavBarTop extends Component {
                             iconCls={searchDrawerVisible ? 'icon-reply' : 'icon-magnifying-glass'}
                             tip={searchDrawerVisible ? 'Back' : 'Search'}
                             tipPosition={IconButton.TipPosition.RIGHT}
-                            onTouchTap={this.toggleSearch}/>
+                            onClick={this.toggleSearch}/>
 
                 <IconButton className="nav-bar-item"
                             iconCls="icon-plus"
                             tip="Add Patient"
                             tipPosition={IconButton.TipPosition.RIGHT}
-                            onTouchTap={this.showAddPatient}/>
+                            onClick={this.showAddPatient}/>
 
                 <IconButton className="nav-bar-item nav-bar-export-button"
                             iconCls="icon-download"
                             tip="Export"
                             tipPosition={IconButton.TipPosition.RIGHT}
-                            onTouchTap={this.export}/>
+                            onClick={this.export}/>
 
                 <NavSearch visible={searchDrawerVisible}
                            onRequestClose={this.hideSearch}/>

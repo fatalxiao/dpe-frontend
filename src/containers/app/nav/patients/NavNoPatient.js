@@ -39,11 +39,11 @@ class NavNoPatient extends Component {
             <div className="nav-no-patient">
 
                 <i className="icon-plus add-patient-icon"
-                   onTouchTap={this.showAddPatient}></i>
+                   onClick={this.showAddPatient}></i>
 
                 You have no patient now.<br/>
                 Would you <span className="add-patient-button"
-                                onTouchTap={this.showAddPatient}>Create new Patient</span> ?
+                                onClick={this.showAddPatient}>Create new Patient</span> ?
 
                 <AddPatientDialog visible={addPatientDialogVisible}
                                   onRequestClose={this.hideAddPatient}/>

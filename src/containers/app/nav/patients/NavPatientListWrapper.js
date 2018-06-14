@@ -34,7 +34,7 @@ class NavPatientListWrapper extends Component {
                 <FlatButton className="all-patients-button"
                             value="All Patients"
                             iconCls="icon-list"
-                            onTouchTap={this.goToList}>
+                            onClick={this.goToList}>
                     <span className="patients-count">{`[${patientList.length}]`}</span>
                 </FlatButton>
 

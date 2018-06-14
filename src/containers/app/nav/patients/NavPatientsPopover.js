@@ -55,7 +55,7 @@ class NavPatientsPopover extends Component {
                             onMouseOver={() => {
                                 this.allPatientMouseHandler(true);
                             }}
-                            onTouchTap={this.goToList}/>
+                            onClick={this.goToList}/>
 
                 <Popover className="nav-patient-popover"
                          visible={isFold && popVisible}

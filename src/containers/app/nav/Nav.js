@@ -161,10 +161,10 @@ class Nav extends Component {
 
                     <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}
-                         onTouchTap={this.toggleNav}>
+                         onClick={this.toggleNav}>
                         <div className={toggleClassName}
                              onMouseDown={e => e.stopPropagation()}
-                             onTouchTap={this.toggleNav}></div>
+                             onClick={this.toggleNav}></div>
                     </div>
 
                 </div>

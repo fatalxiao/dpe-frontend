@@ -62,7 +62,7 @@ class NavSearch extends Component {
         return (
             <div className={className}>
                 <div className="nav-search-modal"
-                     onTouchTap={onRequestClose}></div>
+                     onClick={onRequestClose}></div>
                 <Paper className="nav-search"
                        nonRounded={true}
                        depth={6}>

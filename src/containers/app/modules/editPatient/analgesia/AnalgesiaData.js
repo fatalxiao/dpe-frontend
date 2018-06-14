@@ -79,7 +79,7 @@ class AnalgesiaData extends Component {
                             <AnalgesiaTable patientId={this.patientId}/>
                             <AnchorButton className="append-time-point-button"
                                           value="Append Time Point"
-                                          onTouchTap={appendTimePoint}>
+                                          onClick={appendTimePoint}>
                                 <i className="icon-chevron-thin-down down-icon"></i>
                             </AnchorButton>
                             <StepAction onPrev={this.prevStep}
