@@ -17,7 +17,7 @@ module.exports = {
         'moment': ['moment'],
         'react': ['react', 'react-dom', 'react-redux', 'react-router',
             'react-router-config', 'react-router-dom', 'react-router-redux', 'redux',
-            'redux-thunk', 'react-tap-event-plugin', 'react-transition-group'],
+            'redux-thunk', 'react-transition-group'],
         'tools': ['classnames', 'history', 'js-cookie']
     },
 
