@@ -26,6 +26,9 @@ function sensoryBlock(state = initialState, action) {
                 thoracicList = list.filter(item => item.type === 1),
                 sacralList = list.filter(item => item.type === 2);
 
+            thoracicList.unshift({name: 'Please Select', value: null});
+            sacralList.unshift({name: 'Please Select', value: null});
+
             return {
                 ...state,
                 list,
@@ -33,6 +36,7 @@ function sensoryBlock(state = initialState, action) {
                 sacralList,
                 actionType: actionTypes.GET_SENSORY_BLOCKS_SUCCESS
             };
+
         }
 
         case actionTypes.GET_SENSORY_BLOCKS_FAILURE: {

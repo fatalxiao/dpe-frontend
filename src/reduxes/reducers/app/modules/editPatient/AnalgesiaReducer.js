@@ -69,14 +69,20 @@ function analgesia(state = initialState, action) {
                 updateItem[action.fieldName] = action.fieldValue;
             }
 
-            if (action.fieldName === 'thoracicSensoryBlockLeft' && updateItem.thoracicSensoryBlockRight === null) {
-                updateItem.thoracicSensoryBlockRight = action.fieldValue;
-            } else if (action.fieldName === 'thoracicSensoryBlockRight' && updateItem.thoracicSensoryBlockLeft === null) {
-                updateItem.thoracicSensoryBlockLeft = action.fieldValue;
-            } else if (action.fieldName === 'sacralSensoryBlockLeft' && updateItem.sacralSensoryBlockRight === null) {
-                updateItem.sacralSensoryBlockRight = action.fieldValue;
-            } else if (action.fieldName === 'sacralSensoryBlockRight' && updateItem.sacralSensoryBlockLeft === null) {
-                updateItem.sacralSensoryBlockLeft = action.fieldValue;
+            if ((action.fieldName === 'thoracicSensoryBlockLeft' || action.fieldName === 'thoracicSensoryBlockRight'
+                || action.fieldName === 'sacralSensoryBlockLeft' || action.fieldName === 'sacralSensoryBlockRight')
+                && !action.fieldValue.value) {
+                updateItem[action.fieldName] = null;
+            } else {
+                if (action.fieldName === 'thoracicSensoryBlockLeft' && !updateItem.thoracicSensoryBlockRight) {
+                    updateItem.thoracicSensoryBlockRight = action.fieldValue;
+                } else if (action.fieldName === 'thoracicSensoryBlockRight' && !updateItem.thoracicSensoryBlockLeft) {
+                    updateItem.thoracicSensoryBlockLeft = action.fieldValue;
+                } else if (action.fieldName === 'sacralSensoryBlockLeft' && !updateItem.sacralSensoryBlockRight) {
+                    updateItem.sacralSensoryBlockRight = action.fieldValue;
+                } else if (action.fieldName === 'sacralSensoryBlockRight' && !updateItem.sacralSensoryBlockLeft) {
+                    updateItem.sacralSensoryBlockLeft = action.fieldValue;
+                }
             }
 
             return {
