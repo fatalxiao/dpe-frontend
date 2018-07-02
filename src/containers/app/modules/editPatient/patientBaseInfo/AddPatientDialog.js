@@ -82,7 +82,7 @@ class AddPatientDialog extends Component {
                     visible={visible}
                     title="Create Patient"
                     okButtonText="Create"
-                    onOKButtonTouchTap={this.save}
+                    onOKButtonClick={this.save}
                     onRequestClose={onRequestClose}>
 
                 <FieldSet title="1. Patient Basic Information">
