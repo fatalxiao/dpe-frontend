@@ -27,7 +27,7 @@
         "url": "https://github.com/fatalxiao/dpe-frontend/issues"
     },
     "dependencies": {
-        "alcedo-ui": "^2.26.8",
+        "alcedo-ui": "^2.26.9",
         "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.6",
         "highcharts": "^6.1.1",
