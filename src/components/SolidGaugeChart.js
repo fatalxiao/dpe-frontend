@@ -18,11 +18,9 @@ class SolidGaugeChart extends Component {
 
         this.chart = null;
 
-        this.getConfig = ::this.getConfig;
-
     }
 
-    getConfig(props = this.props) {
+    getConfig = (props = this.props) => {
 
         const {title, value, total} = props;
 
@@ -76,18 +74,18 @@ class SolidGaugeChart extends Component {
                 }]
             }]
         };
-    }
+    };
 
     componentDidMount() {
         this.chart = Highcharts.chart(this.refs.chart, this.getConfig());
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value) {
+    componentDidUpdate(prevProps) {
+        if (prevProps.value !== this.props.value) {
             this.chart.series[0].setData({
                 radius: '100%',
                 innerRadius: '100%',
-                y: nextProps.value
+                y: this.props.value
             });
         }
     }
@@ -105,6 +103,7 @@ class SolidGaugeChart extends Component {
                  ref="chart"
                  className={chartClassName}></div>
         );
+
     }
 }
 
