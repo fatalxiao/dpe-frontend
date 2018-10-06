@@ -47,7 +47,6 @@ module.exports = {
             'components': resolve('src/components'),
             'containers': resolve('src/containers'),
             'customized': resolve('src/customized'),
-            'modules': resolve('src/containers/app/modules'),
             'reduxes': resolve('src/reduxes'),
             'vendors': resolve('src/vendors'),
             'dist': resolve('dist')
