@@ -5,6 +5,7 @@ const webpack = require('webpack'),
     config = require('../config.js'),
     utils = require('../utils.js'),
 
+    env = process.env.NODE_ENV,
     library = '[name]_lib';
 
 module.exports = {
@@ -13,15 +14,16 @@ module.exports = {
 
     entry: {
         'polyfill': ['@babel/polyfill'],
+        'moment': ['moment', 'twix'],
         'react': ['react', 'react-dom', 'react-redux', 'react-router', 'react-router-config', 'react-router-dom',
             'react-router-redux', 'redux', 'redux-thunk', 'react-transition-group'],
-        'tools': ['classnames', 'history', 'moment']
+        'tools': ['classnames', 'dom-helpers', 'dompurify', 'history', 'js-cookie', 'md5', 'path-to-regexp', 'urijs']
     },
 
     output: {
         publicPath: './',
-        path: config.build.assetsRoot,
-        filename: utils.assetsSubPath('vendors/[name].[chunkhash].js'),
+        path: config[env].assetsRoot,
+        filename: utils.assetsSubPath('vendors/[name].[chunkhash].js', env),
         library
     },
 
@@ -29,13 +31,13 @@ module.exports = {
 
         new webpack.DllPlugin({
             context: __dirname,
-            path: utils.assetsVendorsAbsolutePath('[name]-manifest.json'),
+            path: utils.assetsVendorsAbsolutePath('[name]-manifest.json', env),
             name: library
         }),
 
         new AssetsPlugin({
-            path: config.build.assetsRoot,
-            filename: utils.assetsSubPath('vendors/vendors-assets.json')
+            path: config[env].assetsRoot,
+            filename: utils.assetsSubPath('vendors/vendors-assets.json', env)
         }),
 
         new CompressionPlugin({
