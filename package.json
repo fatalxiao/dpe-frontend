@@ -5,7 +5,7 @@
     "description": "DPE ReactJs Front-end Project.",
     "main": "./src/index.js",
     "scripts": {
-        "dev": "cross-env NODE_ENV=development node build/dev/server.js",
+        "dev": "cross-env NODE_ENV=development node build/dev/dev-server.js",
         "clean": "rimraf dist",
         "dll": "cross-env NODE_ENV=production node build/dll/dll.js",
         "package": "cross-env NODE_ENV=production node build/prod/prod.js",
