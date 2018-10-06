@@ -8,7 +8,7 @@ const webpack = require('webpack'),
     env = process.env.NODE_ENV;
 
 Object.keys(baseWebpackConfig.entry).forEach(name => {
-    baseWebpackConfig.entry[name] = ['./build/dev/client'].concat(baseWebpackConfig.entry[name]);
+    baseWebpackConfig.entry[name] = ['./build/dev/dev-client'].concat(baseWebpackConfig.entry[name]);
 });
 
 module.exports = merge(baseWebpackConfig, {
@@ -16,10 +16,6 @@ module.exports = merge(baseWebpackConfig, {
     mode: 'development',
 
     devtool: '#cheap-module-eval-source-map',
-
-    optimization: {
-        noEmitOnErrors: true
-    },
 
     plugins: [
 
@@ -31,12 +27,13 @@ module.exports = merge(baseWebpackConfig, {
 
         new webpack.HotModuleReplacementPlugin(),
 
+        new webpack.NoEmitOnErrorsPlugin(),
+
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
-            // favicon: './src/assets/images/favicon.ico',
-            inject: true,
-            chunksSortMode: 'none'
+            favicon: './src/assets/images/favicon.ico',
+            inject: true
         }),
 
         new FriendlyErrorsPlugin()
