@@ -3,31 +3,27 @@ const path = require('path');
 module.exports = {
 
     assetsPublicPath: '/',
+    assetsDirectory: 'docs',
     assetsSubDirectory: 'static',
     productionGzipExtensions: ['js', 'css'],
 
-    development: {
-        port: 4000,
+    dev: {
+        port: 4001,
         srcRoot: path.resolve(__dirname, '../src'),
         index: path.resolve(__dirname, '../src/index.html'),
         assetsVirtualRoot: path.posix.join('/', 'static'),
-        rootDirectory: 'dist/dist-dev',
-        assetsDirectory: 'dist/dist-dev/dist',
-        assetsRoot: path.resolve(__dirname, '../dist/dist-dev/dist'),
-        proxyTable: {
-            '/dpe': 'http://localhost:4100'
-        }
+        proxyTable: {},
+        cssSourceMap: false
     },
 
-    production: {
-        port: 4001,
+    build: {
         index: path.resolve(__dirname, '../dist/index.html'),
-        rootDirectory: 'dist',
-        assetsDirectory: 'dist',
         assetsRoot: path.resolve(__dirname, '../dist'),
-        proxyTable: {
-            '/dpe': 'http://localhost:4100'
-        }
+        productionSourceMap: false
+    },
+
+    demo: {
+        port: 4002
     }
 
 };
