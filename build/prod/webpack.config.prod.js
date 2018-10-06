@@ -9,21 +9,20 @@ const path = require('path'),
     config = require('../config.js'),
     baseWebpackConfig = require('../webpack.config.base.js'),
     utils = require('../utils.js'),
-    vendorsAssets = require(utils.assetsVendorsAbsolutePath('vendors-assets.json')),
 
-    env = process.env.NODE_ENV;
+    env = process.env.NODE_ENV,
+    vendorsAssets = require(utils.assetsVendorsAbsolutePath('vendors-assets.json', env));
 
 module.exports = merge(baseWebpackConfig, {
 
     mode: 'production',
 
-    devtool: config.build.productionSourceMap ? '#source-map' : false,
+    devtool: false,
 
     output: {
-        publicPath: './',
-        path: config.build.assetsRoot,
-        filename: utils.assetsSubPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsSubPath('js/[id].[chunkhash].js')
+        path: config[env].assetsRoot,
+        filename: utils.assetsSubPath('js/[name].[chunkhash].js', env),
+        chunkFilename: utils.assetsSubPath('js/[id].[chunkhash].js', env)
     },
 
     optimization: {
@@ -57,19 +56,23 @@ module.exports = merge(baseWebpackConfig, {
 
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require(utils.assetsVendorsAbsolutePath('polyfill-manifest.json'))
+            manifest: require(utils.assetsVendorsAbsolutePath('polyfill-manifest.json', env))
         }),
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require(utils.assetsVendorsAbsolutePath('react-manifest.json'))
+            manifest: require(utils.assetsVendorsAbsolutePath('moment-manifest.json', env))
         }),
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require(utils.assetsVendorsAbsolutePath('tools-manifest.json'))
+            manifest: require(utils.assetsVendorsAbsolutePath('react-manifest.json', env))
+        }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require(utils.assetsVendorsAbsolutePath('tools-manifest.json', env))
         }),
 
         new HtmlPlugin({
-            filename: config.build.index,
+            filename: config[env].index,
             template: './src/index.html',
             favicon: './src/assets/images/favicon.ico',
             inject: true,
@@ -77,12 +80,13 @@ module.exports = merge(baseWebpackConfig, {
                 removeComments: true,
                 collapseWhitespace: true
             },
-            chunksSortMode: 'dependency'
+            chunksSortMode: 'none'
         }),
 
         new HtmlIncludeAssetsPlugin({
             assets: [
                 vendorsAssets['polyfill'].js,
+                vendorsAssets['moment'].js,
                 vendorsAssets['react'].js,
                 vendorsAssets['tools'].js
             ],
