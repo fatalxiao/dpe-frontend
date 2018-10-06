@@ -29,45 +29,57 @@ function resolve(dir) {
 }
 
 module.exports = {
+
     entry: {
         app: './src/index.js'
     },
+
     output: {
-        path: config.build.assetsRoot,
+        path: config.production.assetsRoot,
         filename: '[name].js',
         publicPath: config.assetsPublicPath
     },
+
     resolve: {
-        extensions: ['.js', '.json'],
+        extensions: ['.js'],
         alias: {
+
             'src': resolve('src'),
+            'apis': resolve('src/apis'),
             'assets': resolve('src/assets'),
             'scss': resolve('src/assets/scss'),
-            'apis': resolve('src/apis'),
-            'components': resolve('src/components'),
+            'images': resolve('src/assets/images'),
+            'messages': resolve('src/assets/messages'),
+            'stylesheets': resolve('src/assets/stylesheets'),
             'containers': resolve('src/containers'),
+            'components': resolve('src/components'),
             'customized': resolve('src/customized'),
             'reduxes': resolve('src/reduxes'),
+            'statics': resolve('src/statics'),
             'vendors': resolve('src/vendors'),
-            'dist': resolve('dist')
+
+            'feedManager': resolve('src/assets/scss/containers/app/modules/feedManager'),
+            'biddingBudget': resolve('src/assets/scss/containers/app/modules/biddingBudget')
+
         }
     },
+
     module: {
         rules: [{
             test: /\.js$/,
             use: 'happypack/loader?id=js',
-            include: [resolve('examples'), resolve('src')]
+            include: [resolve('src')]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
-            options: {
+            query: {
                 limit: 1000,
                 name: utils.assetsSubPath('img/[name].[hash:7].[ext]')
             }
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader',
-            options: {
+            query: {
                 limit: 1000,
                 name: utils.assetsSubPath('fonts/[name].[hash:7].[ext]')
             }
@@ -77,11 +89,9 @@ module.exports = {
         }, {
             test: /\.css$/,
             use: cssLoaderConfig
-        }, {
-            test: /\.ht?ml/,
-            loader: 'html-loader'
         }]
     },
+
     plugins: [
         new HappyPack({
             id: 'js',
@@ -92,4 +102,5 @@ module.exports = {
             verbose: false
         })
     ]
+
 };
