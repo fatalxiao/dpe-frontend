@@ -1,41 +1,42 @@
 const fs = require('fs'),
     path = require('path'),
+    crypto = require('crypto'),
 
     config = require('./config.js');
 
-function assetsPath(p) {
-    return path.posix.join(config.assetsDirectory, p);
-}
+function assetsPath(p, env = 'production') {
+    return path.posix.join(config[env].assetsDirectory, p);
+};
 
 function assetsSubPath(p) {
     return path.posix.join(config.assetsSubDirectory, p);
-}
+};
 
-function assetsVendorsAbsolutePath(p) {
-    return path.posix.join(config.build.assetsRoot, exports.assetsSubPath(`vendors/${p}`));
-}
+function assetsVendorsAbsolutePath(p, env = 'production') {
+    return path.posix.join(config[env].assetsRoot, assetsSubPath(`vendors/${p}`));
+};
 
-function fsExistsSync(p) {
+function fsExistsSync(path) {
     try {
-        fs.accessSync(p, (fs.constants && fs.constants.F_OK) || fs.F_OK);
+        fs.accessSync(path, (fs.constants && fs.constants.F_OK) || fs.F_OK);
     } catch (e) {
         return false;
     }
     return true;
-}
+};
 
 function copyRecursionSync(src, dist, excludes) {
 
     const paths = fs.readdirSync(src);
 
-    for (let p of paths) {
+    for (let path of paths) {
 
-        if (excludes && excludes.findIndex(item => p.includes(item)) > -1) {
+        if (excludes && excludes.findIndex(item => path.includes(item)) > -1) {
             continue;
         }
 
-        const srcPath = src + '/' + p,
-            distPath = dist + '/' + p,
+        const srcPath = src + '/' + path,
+            distPath = dist + '/' + path,
 
             stat = fs.statSync(srcPath);
 
@@ -53,7 +54,7 @@ function copyRecursionSync(src, dist, excludes) {
 
     }
 
-}
+};
 
 function rmRecursionSync(p) {
 
@@ -81,6 +82,39 @@ function rmRecursionSync(p) {
         fs.rmdirSync(p);
     }
 
+};
+
+function getClientIp(req) {
+    return req && ((req.headers && (req.headers['x-real-ip'] || req.headers['x-forwarded-for']))
+        || (req.connection && req.connection.remoteAddress)
+        || (req.socket && req.socket.remoteAddress)
+        || (req.connection && req.connection.socket && req.connection.socket.remoteAddress));
+};
+
+function ipParse(ip) {
+
+    if (!ip || !ip.includes(':')) {
+        return ip;
+    }
+
+    const ipArray = ip.split(':');
+
+    if (!ipArray[3]) {
+        return ip;
+    }
+
+    return ipArray[3];
+
+}
+
+function calculateSHA256(filePath, callback) {
+    const rs = fs.createReadStream(filePath),
+        hash = crypto.createHash('sha256');
+    rs.on('data', hash.update.bind(hash));
+    rs.on('end', function () {
+        console.log('SHA-256 Hash: ', hash.digest('hex'), '\n');
+        callback && callback();
+    });
 }
 
 exports.assetsPath = assetsPath;
@@ -89,3 +123,6 @@ exports.assetsVendorsAbsolutePath = assetsVendorsAbsolutePath;
 exports.fsExistsSync = fsExistsSync;
 exports.copyRecursionSync = copyRecursionSync;
 exports.rmRecursionSync = rmRecursionSync;
+exports.getClientIp = getClientIp;
+exports.ipParse = ipParse;
+exports.calculateSHA256 = calculateSHA256;
