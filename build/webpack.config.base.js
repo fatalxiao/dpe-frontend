@@ -30,7 +30,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        app: './examples/index.js'
+        app: './src/index.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -42,13 +42,14 @@ module.exports = {
         alias: {
             'src': resolve('src'),
             'assets': resolve('src/assets'),
-            'sass': resolve('src/assets/sass'),
-            'stylesheets': resolve('src/assets/stylesheets'),
+            'scss': resolve('src/assets/scss'),
+            'apis': resolve('src/apis'),
             'components': resolve('src/components'),
             'containers': resolve('src/containers'),
+            'customized': resolve('src/customized'),
             'modules': resolve('src/containers/app/modules'),
-            'vendors': resolve('src/vendors'),
             'reduxes': resolve('src/reduxes'),
+            'vendors': resolve('src/vendors'),
             'dist': resolve('dist')
         }
     },
