@@ -77,6 +77,7 @@ export const updatePatientInfo = (id, callback, successResMsgDisabled) => (dispa
                 pulseOxygenSaturation: data.pulseOxygenSaturation,
                 cervicalDilationAtTimeOfEA: data.cervicalDilationAtTimeOfEA,
                 hasOxytocinAtTimeOfEA: data.hasOxytocinAtTimeOfEA,
+                hasInduction: data.hasInduction,
                 description: data.description
             },
             successResMsgDisabled,
