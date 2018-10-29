@@ -106,6 +106,10 @@ class PatientForm extends Component {
                                    label="Pulse Oxygen Saturation"
                                    value={format(form.pulseOxygenSaturation)}
                                    onChange={value => this.updateField('pulseOxygenSaturation', value)}/>
+                        <Checkbox className="col-6"
+                                  label="Induction"
+                                  checked={!!form.hasInduction}
+                                  onChange={value => this.updateField('hasInduction', value)}/>
                     </div>
                     <div className="row">
                         <TextField className="col-6"
