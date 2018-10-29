@@ -22,6 +22,7 @@ const DEFAULT_FORM = {
         hasEpiduralCatheterAdjuestment: false,
         hasEpiduralCatheterReplacement: false,
         hasPrenatalFever: false,
+        prenatalFeverTemperature: '',
         hasVasoactiveAgent: false,
         isIVEpiduralCatheterInsertion: false,
         isIntrathecalEpiduralCatheterInsertion: false,
