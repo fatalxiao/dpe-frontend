@@ -218,6 +218,11 @@ class ObservalForm extends Component {
                                   label="Prenatal Fever"
                                   checked={form.hasPrenatalFever}
                                   onChange={value => this.updateField('hasPrenatalFever', value)}/>
+                        <TextField className="col-3"
+                                   label="Prenatal Fever Temperature"
+                                   value={format(form.prenatalFeverTemperature)}
+                                   disabled={!form.hasPrenatalFever}
+                                   onChange={value => this.updateField('prenatalFeverTemperature', value)}/>
                         <Checkbox className="col-3"
                                   label="Vasoactive Agent"
                                   checked={form.hasVasoactiveAgent}
@@ -226,12 +231,12 @@ class ObservalForm extends Component {
                                   label="Nausea"
                                   checked={form.hasNausea}
                                   onChange={value => this.updateField('hasNausea', value)}/>
+                    </div>
+                    <div className="row">
                         <Checkbox className="col-3"
                                   label="Vomit"
                                   checked={form.hasVomit}
                                   onChange={value => this.updateField('hasVomit', value)}/>
-                    </div>
-                    <div className="row">
                         <Checkbox className="col-3"
                                   label="Pruritus"
                                   checked={form.hasPruritus}
@@ -240,7 +245,7 @@ class ObservalForm extends Component {
                                   label="Hypotension"
                                   checked={form.hasHypotension}
                                   onChange={value => this.updateField('hasHypotension', value)}/>
-                        <Checkbox className="col-6"
+                        <Checkbox className="col-3"
                                   label="Unabled To Puncture Dura"
                                   checked={form.isUnabledToPunctureDura}
                                   onChange={value => this.updateField('isUnabledToPunctureDura', value)}/>
