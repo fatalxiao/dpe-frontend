@@ -17,8 +17,8 @@ const DEFAULT_FORM = {
         fetalHeartRate: '',
         pulseOxygenSaturation: '',
         cervicalDilationAtTimeOfEA: '',
-        hasOxytocinAtTimeOfEA: '',
-        hasInduction: '',
+        hasOxytocinAtTimeOfEA: false,
+        hasInduction: false,
         status: 1,
         description: ''
     },
