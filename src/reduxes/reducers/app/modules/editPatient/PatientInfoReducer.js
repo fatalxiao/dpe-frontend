@@ -18,6 +18,7 @@ const DEFAULT_FORM = {
         pulseOxygenSaturation: '',
         cervicalDilationAtTimeOfEA: '',
         hasOxytocinAtTimeOfEA: '',
+        hasInduction: '',
         status: 1,
         description: ''
     },
