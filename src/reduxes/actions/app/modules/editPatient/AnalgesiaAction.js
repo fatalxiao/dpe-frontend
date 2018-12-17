@@ -3,9 +3,7 @@ import AnalgesiaApi from 'apis/app/modules/patient/AnalgesiaApi';
 
 function sensoryBlockHandler(keys, item, result) {
     for (let key of keys) {
-        if (item[key]) {
-            result[`${key}Value`] = item[key].value;
-        }
+        result[`${key}Value`] = item[key].value;
     }
 }
 
