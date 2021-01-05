@@ -1,6 +1,5 @@
 /**
  * @file config.sitemap
- * @author liangxiaojun(liangxiaojun@derbysoft.com)
  */
 
 const rootSymbol = 'root';

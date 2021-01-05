@@ -1,6 +1,5 @@
 /**
  * @file Valid vendor
- * @author liangxiaojun(liangxiaojun@derbysoft.com)
  */
 
 import isArray from 'lodash/isArray';
